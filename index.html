@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryu XP [Officail Website] - Home</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #181818;
+    color: white;
+}
+
+/* 🔴 TOP BAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 1000;
+}
+
+.logo {
+    color: red;
+    font-weight: bold;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background: #383838;
+}
+
+/* 🔴 BANNER */
+.banner {
+    margin-top: 55px;
+    height: 200px;
+    background-image: url("back.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* 🔴 CHANNEL */
+.channel {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #202020;
+}
+
+.profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url("1CD61533-D2FA-4A9E-B44E-21D353010EFA.jpeg");
+    background-size: cover;
+    margin-right: 15px;
+    border: 2px solid white;
+}
+
+/* 🔴 CONTENT */
+.container {
+    padding: 15px;
+}
+
+.card {
+    background: #202020;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* 🔴 BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #ff0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* 🔴 POPUP */
+#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    background: #202020;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+}
+
+/* =========================
+   📱 MOBILE
+========================= */
+@media (max-width: 768px) {
+
+    .menu {
+        font-size: 12px;
+    }
+
+    .channel {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile {
+        margin-bottom: 10px;
+    }
+}
+
+/* =========================
+   📱 TABLET (iPad)
+========================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .container {
+        padding: 20px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔴 POPUP -->
+<div id="popup">
+    <div class="popup-box">
+        <h2>▶ Ryu XP [Officail Website]</h2>
+        <p>กด Subscribe ก่อนเข้าเว็บไซต์</p>
+
+        <a class="btn"
+           href="https://www.youtube.com/@RyuXP?sub_confirmation=1"
+           target="_blank"
+           onclick="unlockSite()">
+           🔔 Subscribe
+        </a>
+    </div>
+</div>
+
+<!-- 🔵 SITE -->
+<div id="site" style="display:none;">
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="logo">▶ Ryu XP [Officail Website]</div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="video.html">Videos</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<!-- BANNER -->
+<div class="banner"></div>
+
+<!-- CHANNEL -->
+<div class="channel">
+    <div class="profile"></div>
+    <div>
+        <h2>Ryu XP [Officail Website]</h2>
+        <p>Vlog • Pet • DIY</p>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+    <div class="card">
+        <h3>🔥 Welcome</h3>
+        <p>Ryu XP [Officail Website]</p>
+    </div>
+
+    <div class="card">
+        <h3>📺 Latest Video</h3>
+        <p>ไปดูวิดีโอใหม่ได้ในหน้า Videos</p>
+    </div>
+
+</div>
+
+</div>
+
+<script>
+function unlockSite() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("site").style.display = "block";
+    localStorage.setItem("subscribed", "yes");
+}
+
+window.onload = function () {
+    if (localStorage.getItem("subscribed") === "yes") {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("site").style.display = "block";
+    }
+};
+</script>
+
+</body>
+</html>

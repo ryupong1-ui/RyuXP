@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryu XP [Official Website] - Videos</title>
+
+<style>
+body { margin:0; font-family:Arial; background:#181818; color:white; }
+
+/* topbar */
+.topbar {
+    position: fixed;
+    top:0; left:0; right:0;
+    height:55px;
+    background:#202020;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 15px;
+}
+
+.logo { color:red; font-weight:bold; }
+
+.menu a {
+    color:white;
+    text-decoration:none;
+    margin-left:10px;
+    padding:6px 10px;
+    border-radius:6px;
+}
+
+.menu a:hover { background:#383838; }
+
+.container { margin-top:70px; padding:15px; }
+
+/* GRID */
+.grid {
+    display:grid;
+    gap:15px;
+    grid-template-columns:repeat(3,1fr);
+}
+
+.card {
+    background:#202020;
+    border-radius:10px;
+    padding:20px;
+    text-align:center;
+}
+
+/* 🔥 ปุ่ม */
+.btn {
+    display:inline-block;
+    padding:12px 20px;
+    background:red;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+.btn:hover {
+    background:#ff3333;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .grid { grid-template-columns:1fr; }
+}
+
+/* TABLET */
+@media (min-width:769px) and (max-width:1024px){
+    .grid { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="logo">▶ Ryu XP [Official Website]</div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="video.html">Videos</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+<h2>📺 Videos</h2>
+
+<div class="grid">
+
+    <div class="card">
+        <h3>รีวิวรถที่ใช้ส่งก๊าซ</h3>
+        <a class="btn" href="https://www.youtube.com/watch?v=56iTM261-kY" target="_blank">
+            ▶ ดูวิดีโอ
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>รีวิวหมาบ้านนี้ [EP:2/2]</h3>
+        <a class="btn" href="https://youtu.be/5izRBO1VG3g?si=6tr3ZjjBblUUUC_o" target="_blank">
+            ▶ ดูวิดีโอ
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>รีวิวหมาบ้านนี้ [EP:1/2]</h3>
+        <a class="btn" href="https://youtu.be/qN0RuEhod4s?si=Y3Qjxh8Gib1QhhR9" target="_blank">
+            ▶ ดูวิดีโอ
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>สอนล้างเครื่อง Mac สำหรับ chip M1 ขึ้นไป และ A19 Pro (Macbook Neo)</h3>
+        <a class="btn" href="https://youtu.be/PNnmyJK87Qo?si=rMBs-5eOtoN4CKlx" target="_blank">
+            ▶ ดูวิดีโอ
+        </a>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

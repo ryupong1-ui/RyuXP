@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryu XP [Officail Website] - Contact</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #181818;
+    color: white;
+}
+
+/* 🔴 TOP BAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background: #202020;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid #333;
+    z-index: 1000;
+}
+
+.logo {
+    color: red;
+    font-weight: bold;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background: #383838;
+}
+
+/* 🔵 CONTENT */
+.container {
+    margin-top: 70px;
+    padding: 15px;
+}
+
+.card {
+    background: #202020;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* 📩 FORM */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #2a2a2a;
+    color: white;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #ff0000;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #cc0000;
+}
+
+/* 🔗 SOCIAL */
+.social-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.social-btn:hover {
+    transform: scale(1.05);
+}
+
+.yt { background: #ff0000; }
+.fb { background: #1877f2; }
+.tt { background: #000000; border: 1px solid #333; }
+.ig { background: linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7); }
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+    .menu {
+        font-size: 12px;
+    }
+
+    .social-bar {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔴 TOP BAR -->
+<div class="topbar">
+    <div class="logo">▶ Ryu XP [Officail Website]</div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="video.html">Videos</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<!-- 🔵 CONTENT -->
+<div class="container">
+
+    <!-- 📩 CONTACT FORM -->
+    <div class="card">
+        <h2>📩 Contact Ryu XP</h2>
+
+        <input type="text" id="name" placeholder="ชื่อ">
+        <input type="email" id="email" placeholder="อีเมล">
+        <textarea id="message" rows="5" placeholder="ข้อความ..."></textarea>
+
+        <button onclick="sendMail()">ส่งข้อความ</button>
+    </div>
+
+    <!-- 🔗 SOCIAL -->
+    <div class="card">
+        <h2>🔗 Social Media</h2>
+
+        <div class="social-bar">
+
+            <a class="social-btn yt" href="https://www.youtube.com/@RyuXP" target="_blank">
+                ▶ YouTube
+            </a>
+
+            <a class="social-btn fb" href="https://www.facebook.com/share/18JyvWhVnT/?mibextid=wwXIfr" target="_blank">
+                📘 Facebook
+            </a>
+
+            <a class="social-btn tt" href="https://www.tiktok.com/@ryuxp55?_r=1&_t=ZS-95iSR6JqMnx" target="_blank">
+                🎵 TikTok
+            </a>
+
+            <a class="social-btn ig" href="https://www.instagram.com/supawat.pong?igsh=OGJyZWthdW8yYmo4&utm_source=qr" target="_blank">
+                📸 Instagram
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- 🔥 EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init("YhAzV94Plowhq2bRE"); // Public Key ของคุณ
+
+function sendMail() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    if(!name || !email || !message){
+        alert("กรุณากรอกข้อมูลให้ครบ");
+        return;
+    }
+
+    let params = {
+        from_name: name,
+        from_email: email,
+        message: message
+    };
+
+    emailjs.send(
+        "service_pz5arpk",
+        "template_sxab6fs",
+        params
+    ).then(function(res){
+        alert("ส่งข้อความเรียบร้อยแล้ว 🚀");
+    }, function(err){
+        alert("ส่งไม่สำเร็จ ❌");
+        console.log(err);
+    });
+}
+</script>
+
+</body>
+</html>
