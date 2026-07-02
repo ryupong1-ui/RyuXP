@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryu XP</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial;
+}
+
+body{
+  background:linear-gradient(135deg,#1877f2,#0a3d91);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:white;
+}
+
+/* MAIN CARD */
+.container{
+  width:100%;
+  max-width:420px;
+}
+
+.card{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+}
+
+.profile img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  border:3px solid white;
+  object-fit:cover;
+}
+
+h1{
+  margin-top:10px;
+}
+
+/* BUTTONS */
+.btn{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border:none;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn:active{
+  transform:scale(0.98);
+}
+
+.social-btn{
+  background:white;
+  color:#1877f2;
+}
+
+.contact-btn{
+  background:linear-gradient(45deg,#ff7a18,#ff3d00);
+  color:white;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.box{
+  background:white;
+  color:#1877f2;
+  width:100%;
+  max-width:360px;
+  border-radius:14px;
+  padding:18px;
+  position:relative;
+  animation:pop 0.2s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(0.9);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+/* CLOSE */
+.close{
+  position:absolute;
+  right:12px;
+  top:10px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* SOCIAL LINKS */
+.link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.2s;
+}
+
+.link:active{
+  transform:scale(0.98);
+}
+
+.instagram{background:linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5);}
+.tiktok{background:#000;}
+.facebook{background:#1877f2;}
+.youtube{background:#ff0000;}
+
+/* FORM */
+input,textarea,select{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-size:14px;
+}
+
+textarea{
+  min-height:90px;
+  resize:none;
+}
+
+.send{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#1877f2;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.discord{
+  background:#5865F2;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+    <div class="profile">
+      <img src="ryu.jpg">
+      <h1>Ryu XP</h1>
+    </div>
+
+```
+<button class="btn social-btn" onclick="openModal('social')">
+  Social Media
+</button>
+
+<button class="btn contact-btn" onclick="openModal('contact')">
+  Contact
+</button>
+```
+
+  </div>
+</div>
+
+<!-- WELCOME -->
+
+<div class="modal active" id="welcomeModal">
+  <div class="box">
+    <span class="close" onclick="closeWelcome()">×</span>
+    <h2>👋 Welcome</h2>
+    <p>ยินดีต้อนรับสู่ Ryu XP</p>
+    <button class="btn social-btn" onclick="closeWelcome()">เริ่มใช้งาน</button>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+
+<div class="modal" id="socialModal">
+  <div class="box">
+    <span class="close" onclick="closeAll()">×</span>
+    <h2>Social Media</h2>
+
+```
+<a class="link instagram" href="https://www.instagram.com/supawat.pong?igsh=OGJyZWthdW8yYmo4&utm_source=qr" target="_blank">
+  <i class="fab fa-instagram"></i> Instagram Ryu XP
+</a>
+
+<a class="link tiktok" href="https://www.tiktok.com/@ryuxp55?_r=1&_t=ZS-97h8iRp2fRY" target="_blank">
+  <i class="fab fa-tiktok"></i> TikTok Ryu XP
+</a>
+
+<a class="link facebook" href="https://www.facebook.com/share/18mQsoGgjF/?mibextid=wwXIfr" target="_blank">
+  <i class="fab fa-facebook"></i> Facebook Ryu XP
+</a>
+
+<a class="link youtube" href="https://youtube.com/@ryuxp?si=Cqn9ZZr0a5uXej2D" target="_blank">
+  <i class="fab fa-youtube"></i> YouTube Ryu XP
+</a>
+
+<a class="link discord" href="https://discord.gg/d6xWTqhYb" target="_blank">
+  <i class="fab fa-discord"></i> Discord Ryu XP
+</a>
+
+<a class="link tiktok" href="https://www.tiktok.com/@numtarnsai.xp?_r=1&_t=ZS-97h9DbrSwls" target="_blank">
+  <i class="fab fa-tiktok"></i> TikTok น้ำตาลทราย
+</a>
+
+<a class="link youtube" href="https://youtube.com/@polratpong?si=AWxkdHDyYTlXYNNd" target="_blank">
+  <i class="fab fa-youtube"></i> YouTube Paul XP
+</a>
+
+<a class="link youtube" href="https://youtube.com/@nako_qa?si=yr3hgRs1Tca8zx8Q" target="_blank">
+  <i class="fab fa-youtube"></i> YouTube kemii
+</a>
+```
+
+  </div>
+</div>
+
+<!-- CONTACT -->
+
+<div class="modal" id="contactModal">
+  <div class="box">
+    <span class="close" onclick="closeAll()">×</span>
+    <h2>Contact</h2>
+
+```
+<form id="form">
+  <input name="name" placeholder="ชื่อ" required>
+  <input name="email" type="email" placeholder="อีเมล" required>
+
+  <select name="target" required>
+    <option value="">เลือกติดต่อหา</option>
+    <option value="Ryu XP">Ryu XP</option>
+    <option value="Paul XP">Paul XP</option>
+    <option value="น้ำตาลทราย">น้ำตาลทราย</option>
+  </select>
+
+  <textarea name="message" placeholder="ข้อความ" required></textarea>
+
+  <button class="send" id="sendBtn">ส่งข้อความ</button>
+</form>
+```
+
+  </div>
+</div>
+
+<script>
+emailjs.init("YhAzV94Plowhq2bRE");
+
+/* open modal */
+function openModal(type){
+  document.querySelectorAll(".modal").forEach(m=>m.classList.remove("active"));
+  document.getElementById(type+"Modal").classList.add("active");
+}
+
+/* close all */
+function closeAll(){
+  document.querySelectorAll(".modal").forEach(m=>m.classList.remove("active"));
+}
+
+/* close welcome */
+function closeWelcome(){
+  document.getElementById("welcomeModal").classList.remove("active");
+}
+
+/* email validation */
+function validEmail(email){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+/* submit */
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const email = this.email.value.trim();
+  const btn = document.getElementById("sendBtn");
+
+  if(!validEmail(email)){
+    alert("❌ อีเมลไม่ถูกต้อง");
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerText = "กำลังส่ง...";
+
+  emailjs.sendForm("service_hropi6d","template_sxab6fs",this)
+  .then(()=>{
+    alert("✅ ส่งข้อความสำเร็จ");
+    this.reset();
+  })
+  .catch(()=>{
+    alert("❌ ส่งไม่สำเร็จ");
+  })
+  .finally(()=>{
+    btn.disabled = false;
+    btn.innerText = "ส่งข้อความ";
+  });
+});
+</script>
+
+</body>
+</html>
