@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ryu XP - Contact</title>
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<style>
+
+
+*{
+box-sizing:border-box;
+}
+
+
+body{
+
+margin:0;
+
+font-family:Arial,sans-serif;
+
+background:
+radial-gradient(circle at top,#00bfff33,transparent 40%),
+linear-gradient(135deg,#050505,#111827);
+
+color:white;
+
+}
+
+
+/* NAVBAR */
+
+nav{
+
+position:sticky;
+top:0;
+z-index:1000;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 25px;
+
+background:rgba(0,0,0,.5);
+
+backdrop-filter:blur(15px);
+
+}
+
+
+
+/* LOGO */
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+font-size:22px;
+
+font-weight:bold;
+
+}
+
+
+.logo img{
+
+width:45px;
+height:45px;
+
+border-radius:50%;
+
+transition:.4s;
+
+}
+
+
+.logo img:hover{
+
+transform:rotate(15deg) scale(1.15);
+
+box-shadow:0 0 20px #00bfff;
+
+}
+
+
+
+.logo span{
+
+background:linear-gradient(90deg,#00bfff,#00ffcc);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+
+
+/* MENU */
+
+.menu{
+
+display:flex;
+
+gap:15px;
+
+}
+
+
+.menu a{
+
+color:white;
+
+text-decoration:none;
+
+padding:10px 15px;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+
+.menu a:hover{
+
+background:#00bfff;
+
+color:black;
+
+}
+
+
+
+.menu-btn{
+
+display:none;
+
+font-size:28px;
+
+cursor:pointer;
+
+background:#222;
+
+padding:5px 12px;
+
+border-radius:10px;
+
+}
+
+
+
+/* CONTACT BOX */
+
+.contact-box{
+
+max-width:500px;
+
+margin:70px auto;
+
+padding:35px;
+
+background:rgba(255,255,255,.05);
+
+border-radius:25px;
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+
+0 0 40px #00bfff33;
+
+animation:show 1s;
+
+}
+
+
+.contact-box h1{
+
+text-align:center;
+
+font-size:38px;
+
+background:linear-gradient(90deg,#00bfff,#00ffcc);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+
+/* BUTTON */
+
+.social{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+padding:15px;
+
+margin:15px 0;
+
+border-radius:15px;
+
+color:white;
+
+text-decoration:none;
+
+font-size:18px;
+
+background:#111;
+
+transition:.4s;
+
+}
+
+
+
+.social i{
+
+font-size:25px;
+
+width:30px;
+
+text-align:center;
+
+}
+
+
+
+/* HOVER */
+
+.social:hover{
+
+transform:translateX(10px) scale(1.05);
+
+box-shadow:
+
+0 0 25px #00bfff;
+
+}
+
+
+
+/* COLORS */
+
+.youtube:hover{
+
+background:#ff0000;
+
+}
+
+
+.facebook:hover{
+
+background:#1877f2;
+
+}
+
+
+.instagram:hover{
+
+background:linear-gradient(
+45deg,#f58529,#dd2a7b,#8134af);
+
+}
+
+
+.tiktok:hover{
+
+background:#010101;
+
+box-shadow:
+0 0 25px #00f2ea;
+
+}
+
+
+.discord:hover{
+
+background:#5865f2;
+
+}
+
+
+.email:hover{
+
+background:#00bfff;
+
+}
+
+
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.menu-btn{
+
+display:block;
+
+}
+
+
+
+.menu{
+
+position:absolute;
+
+top:75px;
+
+right:15px;
+
+width:200px;
+
+flex-direction:column;
+
+background:rgba(0,0,0,.9);
+
+padding:15px;
+
+border-radius:15px;
+
+transform:translateX(120%);
+
+transition:.4s;
+
+}
+
+
+
+.menu.show{
+
+transform:translateX(0);
+
+}
+
+
+
+.menu a{
+
+text-align:center;
+
+}
+
+
+.contact-box{
+
+margin:40px 20px;
+
+}
+
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<nav>
+
+
+<div class="logo">
+
+<img src="photo.jpg">
+
+<span>Ryu XP</span>
+
+</div>
+
+
+
+<div class="menu" id="menu">
+
+<a href="index.html">Home</a>
+
+<a href="video.html">Video</a>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
+
+
+<div class="menu-btn" onclick="toggleMenu()">
+
+☰
+
+</div>
+
+
+</nav>
+
+
+
+
+<div class="contact-box">
+
+
+<h1>
+Contact Ryu XP
+</h1>
+
+
+
+<a class="social youtube"
+href="https://youtube.com/@RyuXP"
+target="_blank">
+
+<i class="fab fa-youtube"></i>
+
+YouTube
+
+</a>
+
+
+
+<a class="social facebook"
+href="https://facebook.com/supawat.pong.688503"
+target="_blank">
+
+<i class="fab fa-facebook"></i>
+
+Facebook
+
+</a>
+
+
+
+
+<a class="social instagram"
+href="https://www.instagram.com/supawat.pong?igsh=OGJyZWthdW8yYmo4&utm_source=qr"
+target="_blank">
+
+<i class="fab fa-instagram"></i>
+
+Instagram
+
+</a>
+
+
+
+
+<a class="social tiktok"
+href="https://www.tiktok.com/@ryuxp55?_r=1&_t=ZS-98F7PD5WcOu"
+target="_blank">
+
+<i class="fab fa-tiktok"></i>
+
+TikTok
+
+</a>
+
+
+
+
+<a class="social discord"
+href="https://discord.gg/3a4FhnfHpw"
+target="_blank">
+
+<i class="fab fa-discord"></i>
+
+Discord
+
+</a>
+
+
+
+
+<a class="social email"
+href="ryupong1@gmail.com">
+
+<i class="fa-solid fa-envelope"></i>
+
+Email
+
+</a>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+function toggleMenu(){
+
+document
+.getElementById("menu")
+.classList.toggle("show");
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

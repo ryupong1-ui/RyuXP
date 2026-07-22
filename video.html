@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ryu XP - Video</title>
+
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+
+body{
+
+margin:0;
+
+font-family:Arial,sans-serif;
+
+background:
+radial-gradient(circle at top,#00bfff33,transparent 40%),
+linear-gradient(135deg,#050505,#111827);
+
+color:white;
+
+}
+
+
+/* NAVBAR */
+
+nav{
+
+position:sticky;
+top:0;
+z-index:1000;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 25px;
+
+background:rgba(0,0,0,.5);
+
+backdrop-filter:blur(15px);
+
+}
+
+
+
+/* LOGO */
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+font-size:22px;
+
+font-weight:bold;
+
+}
+
+
+.logo img{
+
+width:45px;
+height:45px;
+
+border-radius:50%;
+
+transition:.4s;
+
+}
+
+
+.logo img:hover{
+
+transform:rotate(15deg) scale(1.15);
+
+box-shadow:0 0 20px #00bfff;
+
+}
+
+
+.logo span{
+
+background:linear-gradient(90deg,#00bfff,#00ffcc);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+
+/* MENU */
+
+.menu{
+
+display:flex;
+
+gap:15px;
+
+}
+
+
+.menu a{
+
+color:white;
+
+text-decoration:none;
+
+padding:10px 15px;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+
+.menu a:hover{
+
+background:#00bfff;
+
+color:black;
+
+transform:translateY(-3px);
+
+}
+
+
+
+/* BUTTON MENU */
+
+.menu-btn{
+
+display:none;
+
+font-size:28px;
+
+cursor:pointer;
+
+background:#222;
+
+padding:5px 12px;
+
+border-radius:10px;
+
+}
+
+
+
+/* TITLE */
+
+.title{
+
+text-align:center;
+
+padding:50px 20px 20px;
+
+font-size:40px;
+
+background:linear-gradient(90deg,#00bfff,#00ffcc);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+
+/* VIDEO GRID */
+
+.video-grid{
+
+padding:30px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+}
+
+
+
+/* CARD */
+
+.video-card{
+
+background:rgba(255,255,255,.05);
+
+border-radius:20px;
+
+overflow:hidden;
+
+cursor:pointer;
+
+backdrop-filter:blur(10px);
+
+transition:.4s;
+
+position:relative;
+
+}
+
+
+
+.video-card img{
+
+width:100%;
+
+display:block;
+
+transition:.4s;
+
+}
+
+
+
+.video-card:hover{
+
+transform:translateY(-10px) scale(1.03);
+
+box-shadow:
+0 0 30px #00bfff;
+
+}
+
+
+
+.video-card:hover img{
+
+filter:brightness(60%);
+
+}
+
+
+
+/* PLAY */
+
+.video-card::after{
+
+content:"▶";
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+font-size:55px;
+
+text-shadow:
+0 0 20px black;
+
+}
+
+
+
+.video-name{
+
+padding:15px;
+
+font-size:18px;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.menu-btn{
+
+display:block;
+
+}
+
+
+
+.menu{
+
+position:absolute;
+
+top:75px;
+
+right:15px;
+
+width:200px;
+
+flex-direction:column;
+
+background:rgba(0,0,0,.9);
+
+backdrop-filter:blur(15px);
+
+border-radius:15px;
+
+padding:15px;
+
+transform:translateX(120%);
+
+transition:.4s;
+
+}
+
+
+
+.menu.show{
+
+transform:translateX(0);
+
+}
+
+
+.menu a{
+
+text-align:center;
+
+}
+
+
+
+.title{
+
+font-size:32px;
+
+}
+
+
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<nav>
+
+
+<div class="logo">
+
+<img src="photo.jpg">
+
+<span>Ryu XP</span>
+
+</div>
+
+
+
+<div class="menu" id="menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="video.html">
+Video
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+
+<div class="menu-btn" onclick="toggleMenu()">
+
+☰
+
+</div>
+
+
+</nav>
+
+
+
+
+<h1 class="title">
+🎬 Ryu XP Video
+</h1>
+
+
+
+
+<div class="video-grid">
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/oZdBBCGolVc?si=v-4-CC3lKGaxUrHl')">
+
+<img src="https://i.ytimg.com/vi/oZdBBCGolVc/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4Af4JgALQBYoCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLB-fVEBcaWXpzX_2NpzYX7nPIRb9Q">
+
+<div class="video-name">
+เมื่อครูมาเยี่ยมบ้าน
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/3JZ_D3ELwOQ')">
+
+<img src="https://i.ytimg.com/vi/kWB3zhAq0PI/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCat8tmckvsIfv6-6OeHASDK8kjeA">
+
+<div class="video-name">
+สอนใช้ OBS Studio ในการปรับแต่งกล้อง Webcam ใช้ได้ทั้ง Windows , macOS
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/t1GQAt6pl78?si=2Yt4Ve51FdrxOy59')">
+
+<img src="https://i.ytimg.com/vi/t1GQAt6pl78/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4Ac4FgAKACooCDAgAEAEYHSBiKGUwDw==&rs=AOn4CLAqgRwxlrIixPkJvRU9m__zFFWNyg">
+
+<div class="video-name">
+BODYSLAM
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/l482T0yNkeo')">
+
+<img src="https://i.ytimg.com/vi/ynBa-woKmh0/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDy-pPC5v5Y0a-NYEV363dbasU76Q">
+
+<div class="video-name">
+หนีเที่ยว | ไปค่าเฟ่ที่วิวอย่างสวย
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/u4meOUcFknE?si=UHIch9CxYAKP79bZ')">
+
+<img src="https://i.ytimg.com/vi/u4meOUcFknE/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4Ac4FgAKACooCDAgAEAEYZSBOKEswDw==&rs=AOn4CLC5gWfYfF1Bzx8YmGZCohhFQBc_jA">
+
+<div class="video-name">
+วิธีติดฟิล์ม hydrogel รอบเครื่อง
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/ESTV_RFaC0Y?si=4P4bHWJKOYlpEt1Y')">
+
+<img src="https://i.ytimg.com/vi/ESTV_RFaC0Y/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AfoJgALQBYoCDAgAEAEYZSBNKFwwDw==&rs=AOn4CLAH8o7Npm3dF_WFKV6Ta1-7uB5xRQ">
+
+<div class="video-name">
+Roblox | Straight Night
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/TYpIQ2yfxkk?si=z44siGj8h6A-QoGc')">
+
+<img src="https://i.ytimg.com/vi/TYpIQ2yfxkk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCnx5GhhJUxxgn1yEJttXd89NOAxQ">
+
+<div class="video-name">
+วิธีติดฟิล์ม Hydrogel ยี่ห่อ Hydroplus Focus
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/56iTM261-kY?si=Z4ksMHrERIEwdC4A')">
+
+<img src="https://i.ytimg.com/vi/56iTM261-kY/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCxiiDrj5CLzqgjO4hGaEpmGU413w">
+
+<div class="video-name">
+รีวิวรถที่ใช้ส่งก๊าซ
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/5izRBO1VG3g?si=-D40KHJcuALddeGJ')">
+
+<img src="https://i.ytimg.com/vi/5izRBO1VG3g/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDTbjR3GvMImTH5lzUB49JVE-gnnQ">
+
+<div class="video-name">
+รีวิวหมาบ้านนี้ [EP:2/2]
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/qN0RuEhod4s?si=Ytm4JbfgdKB2xr4A')">
+
+<img src="https://i.ytimg.com/vi/qN0RuEhod4s/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAIvApXI1EWqWOvpCmSUNPpI0fAeg">
+
+<div class="video-name">
+รีวิวหมาบ้านนี้ [EP:1/2]
+</div>
+
+</div>
+
+<div class="video-card"
+onclick="window.open('https://youtu.be/PNnmyJK87Qo?si=oG1sDCC-ARISy2H_')">
+
+<img src="https://i.ytimg.com/vi/PNnmyJK87Qo/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCeo8UvzMd4p_sOfrlr44ghUSCgoQ">
+<div class="video-name">
+สอนล้างเครื่อง Mac สำหรับ chip M1 ขึ้นไป และ A19 Pro (Macbook Neo)
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<script>
+
+
+function toggleMenu(){
+
+document
+.getElementById("menu")
+.classList.toggle("show");
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
