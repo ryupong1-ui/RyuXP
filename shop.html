@@ -1,0 +1,2470 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Ryu XP Shop</title>
+
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+
+  font-family:Arial,sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #00bfff33,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #050505,
+      #111827
+    );
+
+  color:white;
+
+  overflow-x:hidden;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav{
+  position:sticky;
+
+  top:0;
+
+  z-index:1000;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:15px 25px;
+
+  background:rgba(0,0,0,.5);
+
+  backdrop-filter:blur(15px);
+}
+
+
+/* LOGO */
+
+.logo{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  font-size:22px;
+
+  font-weight:bold;
+}
+
+
+.logo img{
+  width:45px;
+
+  height:45px;
+
+  border-radius:50%;
+
+  transition:.4s;
+}
+
+
+.logo img:hover{
+  transform:
+    rotate(15deg)
+    scale(1.15);
+
+  box-shadow:
+    0 0 20px #00bfff;
+}
+
+
+.logo span{
+  background:
+    linear-gradient(
+      90deg,
+      #00bfff,
+      #00ffcc
+    );
+
+  -webkit-background-clip:text;
+
+  color:transparent;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu{
+  display:flex;
+
+  gap:15px;
+}
+
+
+.menu a{
+  color:white;
+
+  text-decoration:none;
+
+  padding:10px 15px;
+
+  border-radius:10px;
+
+  transition:.3s;
+}
+
+
+.menu a:hover{
+  background:#00bfff;
+
+  color:black;
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* MOBILE MENU */
+
+.menu-btn{
+  display:none;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  background:#222;
+
+  padding:5px 12px;
+
+  border-radius:10px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.shop-header{
+  padding:
+    70px 20px 25px;
+
+  text-align:center;
+
+  animation:fade 1s;
+}
+
+
+.shop-header h1{
+  font-size:50px;
+
+  margin:10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00bfff,
+      #00ffcc
+    );
+
+  -webkit-background-clip:text;
+
+  color:transparent;
+}
+
+
+.shop-header p{
+  opacity:.8;
+
+  font-size:18px;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-box{
+  width:90%;
+
+  max-width:600px;
+
+  margin:25px auto 0;
+
+  position:relative;
+}
+
+
+.search-box input{
+  width:100%;
+
+  padding:
+    15px 50px 15px 20px;
+
+  border:none;
+
+  outline:none;
+
+  border-radius:30px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  border:
+    1px solid
+    #ffffff15;
+
+  color:white;
+
+  font-size:16px;
+
+  backdrop-filter:blur(15px);
+
+  transition:.3s;
+}
+
+
+.search-box input::placeholder{
+  color:#888;
+}
+
+
+.search-box input:focus{
+  border-color:#00bfff;
+
+  box-shadow:
+    0 0 20px #00bfff44;
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+.filter-box{
+
+  width:90%;
+
+  max-width:1000px;
+
+  margin:20px auto 0;
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+}
+
+
+.filter-btn{
+
+  border:none;
+
+  padding:
+    10px 18px;
+
+  border-radius:25px;
+
+  background:#222;
+
+  color:#aaa;
+
+  cursor:pointer;
+
+  font-weight:bold;
+
+  transition:.3s;
+}
+
+
+.filter-btn:hover{
+
+  background:#00bfff;
+
+  color:black;
+
+  transform:
+    translateY(-2px);
+}
+
+
+.filter-btn.active{
+
+  background:
+    linear-gradient(
+      90deg,
+      #00bfff,
+      #00ffcc
+    );
+
+  color:black;
+
+  box-shadow:
+    0 0 15px #00bfff55;
+}
+
+
+/* =====================================================
+   SORT
+===================================================== */
+
+.sort-box{
+
+  width:90%;
+
+  max-width:1000px;
+
+  margin:15px auto 0;
+
+  display:flex;
+
+  justify-content:flex-end;
+
+  align-items:center;
+
+  gap:10px;
+}
+
+
+.sort-box label{
+
+  color:#aaa;
+
+  font-size:14px;
+}
+
+
+.sort-box select{
+
+  padding:
+    10px 15px;
+
+  border:none;
+
+  outline:none;
+
+  border-radius:20px;
+
+  background:#222;
+
+  color:white;
+
+  cursor:pointer;
+
+}
+
+
+.sort-box select:focus{
+
+  box-shadow:
+    0 0 15px #00bfff55;
+}
+
+
+/* =====================================================
+   SHOP
+===================================================== */
+
+.shop{
+
+  width:90%;
+
+  max-width:1100px;
+
+  margin:auto;
+
+  padding:
+    30px 0 80px;
+}
+
+
+.products{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(250px,1fr)
+    );
+
+  gap:30px;
+}
+
+
+/* =====================================================
+   PRODUCT
+===================================================== */
+
+.product{
+
+  background:#111;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  transition:.4s;
+
+  border:
+    1px solid
+    #ffffff0d;
+
+  animation:fade 1s;
+}
+
+
+.product:hover{
+
+  transform:
+    translateY(-10px)
+    scale(1.02);
+
+  box-shadow:
+    0 0 30px #00bfff;
+}
+
+
+/* IMAGE */
+
+.product-image{
+
+  width:100%;
+
+  aspect-ratio:1/1;
+
+  object-fit:cover;
+
+  display:block;
+
+  cursor:pointer;
+
+  transition:.4s;
+}
+
+
+.product:hover
+.product-image{
+
+  transform:
+    scale(1.04);
+}
+
+
+/* INFO */
+
+.product-info{
+
+  padding:22px;
+}
+
+
+.product-name{
+
+  font-size:22px;
+
+  font-weight:bold;
+
+  margin-bottom:10px;
+}
+
+
+.product-description{
+
+  color:#aaa;
+
+  line-height:1.6;
+
+  min-height:48px;
+}
+
+
+/* PRICE */
+
+.price{
+
+  margin-top:15px;
+
+  font-size:25px;
+
+  font-weight:bold;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00bfff,
+      #00ffcc
+    );
+
+  -webkit-background-clip:text;
+
+  color:transparent;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+
+  display:inline-block;
+
+  margin-top:12px;
+
+  padding:
+    6px 12px;
+
+  border-radius:20px;
+
+  font-size:13px;
+
+  font-weight:bold;
+}
+
+
+.status.available{
+
+  background:#00ffcc22;
+
+  color:#00ffcc;
+}
+
+
+.status.coming-soon{
+
+  background:#ffd00022;
+
+  color:#ffd000;
+}
+
+
+.status.sold-out{
+
+  background:#ff444422;
+
+  color:#ff5555;
+}
+
+
+.status.closed{
+
+  background:#ffffff15;
+
+  color:#aaa;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons{
+
+  display:flex;
+
+  gap:10px;
+
+  margin-top:18px;
+}
+
+
+/* BUY */
+
+.buy-btn{
+
+  flex:1;
+
+  border:none;
+
+  padding:13px;
+
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00bfff,
+      #00ffcc
+    );
+
+  color:black;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+
+.buy-btn:hover{
+
+  transform:
+    scale(1.05);
+
+  box-shadow:
+    0 0 25px #00bfff;
+}
+
+
+.buy-btn:disabled{
+
+  background:#333;
+
+  color:#777;
+
+  cursor:not-allowed;
+
+  transform:none;
+
+  box-shadow:none;
+}
+
+
+/* SHARE */
+
+.share-btn{
+
+  width:52px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:#222;
+
+  color:white;
+
+  font-size:18px;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+
+.share-btn:hover{
+
+  background:#00bfff;
+
+  color:black;
+
+  transform:
+    scale(1.1);
+}
+
+
+/* =====================================================
+   PRODUCT MODAL
+===================================================== */
+
+.modal{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(0,0,0,.8);
+
+  backdrop-filter:
+    blur(10px);
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:20px;
+
+  z-index:2000;
+}
+
+
+.modal.show{
+
+  display:flex;
+}
+
+
+.modal-box{
+
+  width:100%;
+
+  max-width:500px;
+
+  max-height:90vh;
+
+  overflow:auto;
+
+  background:#111827;
+
+  border-radius:25px;
+
+  box-shadow:
+    0 0 50px #00bfff55;
+
+  animation:fade .3s;
+}
+
+
+.modal-box img{
+
+  width:100%;
+
+  max-height:400px;
+
+  object-fit:cover;
+}
+
+
+.modal-content{
+
+  padding:25px;
+}
+
+
+.modal-content h2{
+
+  margin-top:0;
+
+  font-size:28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00bfff,
+      #00ffcc
+    );
+
+  -webkit-background-clip:text;
+
+  color:transparent;
+}
+
+
+.modal-content p{
+
+  color:#aaa;
+
+  line-height:1.7;
+}
+
+
+/* CLOSE */
+
+.close{
+
+  width:100%;
+
+  margin-top:10px;
+
+  padding:13px;
+
+  border:none;
+
+  border-radius:30px;
+
+  background:#222;
+
+  color:white;
+
+  cursor:pointer;
+
+  font-weight:bold;
+}
+
+
+.close:hover{
+
+  background:#00bfff;
+
+  color:black;
+}
+
+
+/* =====================================================
+   SHARE MENU
+===================================================== */
+
+.share-menu{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(0,0,0,.7);
+
+  backdrop-filter:
+    blur(10px);
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:3000;
+
+  padding:20px;
+}
+
+
+.share-menu.show{
+
+  display:flex;
+}
+
+
+.share-box{
+
+  width:100%;
+
+  max-width:350px;
+
+  background:#111827;
+
+  border-radius:22px;
+
+  padding:25px;
+
+  box-shadow:
+    0 0 40px #00bfff55;
+
+  animation:fade .25s;
+}
+
+
+.share-box h2{
+
+  text-align:center;
+
+  margin-top:0;
+}
+
+
+.share-option{
+
+  width:100%;
+
+  padding:15px;
+
+  margin-top:10px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:#222;
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+
+.share-option:hover{
+
+  background:#00bfff;
+
+  color:black;
+
+  transform:
+    translateY(-2px);
+}
+
+
+.share-cancel{
+
+  width:100%;
+
+  padding:13px;
+
+  margin-top:15px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:#333;
+
+  color:#aaa;
+
+  cursor:pointer;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+
+  text-align:center;
+
+  padding:
+    60px 20px;
+
+  color:#777;
+
+  display:none;
+
+  font-size:17px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+  text-align:center;
+
+  padding:30px;
+
+  color:#777;
+
+  border-top:
+    1px solid
+    #ffffff0d;
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes fade{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(30px);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:none;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+  .menu-btn{
+
+    display:block;
+  }
+
+
+  .menu{
+
+    position:absolute;
+
+    top:75px;
+
+    right:15px;
+
+    width:200px;
+
+    flex-direction:column;
+
+    background:
+      rgba(0,0,0,.9);
+
+    backdrop-filter:
+      blur(15px);
+
+    border-radius:15px;
+
+    padding:15px;
+
+    transform:
+      translateX(120%);
+
+    transition:.4s;
+  }
+
+
+  .menu.show{
+
+    transform:
+      translateX(0);
+  }
+
+
+  .menu a{
+
+    text-align:center;
+  }
+
+
+  .shop-header h1{
+
+    font-size:35px;
+  }
+
+
+  .shop{
+
+    width:92%;
+  }
+
+
+  .products{
+
+    grid-template-columns:1fr;
+  }
+
+
+  .sort-box{
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav>
+
+  <div class="logo">
+
+    <img
+      src="ryu.jpg"
+      alt="Ryu XP"
+    >
+
+    <span>
+      Ryu XP
+    </span>
+
+  </div>
+
+
+  <div
+    class="menu"
+    id="menu"
+  >
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="video.html">
+      Video
+    </a>
+
+    <a href="shop.html">
+      Shop
+    </a>
+
+    <a href="contact.html">
+      Contact
+    </a>
+
+  </div>
+
+
+  <div
+    class="menu-btn"
+    onclick="toggleMenu()"
+  >
+    ☰
+  </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     SHOP HEADER
+===================================================== -->
+
+<section class="shop-header">
+
+  <h1>
+    🛍️ Ryu XP Shop
+  </h1>
+
+  <p>
+    สินค้า Official จาก Ryu XP
+  </p>
+
+
+  <!-- SEARCH -->
+
+  <div class="search-box">
+
+    <input
+
+      type="search"
+
+      id="searchInput"
+
+      placeholder="🔍 ค้นหาสินค้า..."
+
+      autocomplete="off"
+
+    >
+
+  </div>
+
+
+  <!-- FILTER -->
+
+  <div class="filter-box">
+
+
+    <button
+      class="filter-btn active"
+      data-filter="all"
+    >
+      📦 ทั้งหมด
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="available"
+    >
+      🟢 เปิดขาย
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="coming-soon"
+    >
+      🟡 เร็ว ๆ นี้
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="sold-out"
+    >
+      🔴 สินค้าหมด
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="closed"
+    >
+      ⚫ ปิดการขาย
+    </button>
+
+  </div>
+
+
+  <!-- SORT -->
+
+  <div class="sort-box">
+
+    <label
+      for="sortSelect"
+    >
+      เรียงสินค้า:
+    </label>
+
+
+    <select
+      id="sortSelect"
+    >
+
+      <option value="default">
+        📦 ค่าเริ่มต้น
+      </option>
+
+
+      <option value="price-low">
+        💰 ราคาต่ำ → สูง
+      </option>
+
+
+      <option value="price-high">
+        💎 ราคาสูง → ต่ำ
+      </option>
+
+
+      <option value="name">
+        🔤 ชื่อ A → Z
+      </option>
+
+
+      <option value="newest">
+        🆕 สินค้าใหม่ก่อน
+      </option>
+
+    </select>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SHOP
+===================================================== -->
+
+<section class="shop">
+
+  <div
+    class="products"
+    id="products"
+  ></div>
+
+
+  <div
+    class="empty"
+    id="empty"
+  >
+    ยังไม่มีสินค้าในขณะนี้
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCT MODAL
+===================================================== -->
+
+<div
+  class="modal"
+  id="productModal"
+  onclick="closeOutside(event)"
+>
+
+  <div class="modal-box">
+
+
+    <img
+      id="modalImage"
+      src=""
+      alt=""
+    >
+
+
+    <div class="modal-content">
+
+
+      <h2
+        id="modalName"
+      ></h2>
+
+
+      <p
+        id="modalDescription"
+      ></p>
+
+
+      <div
+        class="price"
+        id="modalPrice"
+      ></div>
+
+
+      <div
+        id="modalStatus"
+      ></div>
+
+
+      <div class="buttons">
+
+
+        <button
+          class="buy-btn"
+          id="modalBuy"
+        >
+          🛒 ซื้อเลย
+        </button>
+
+
+        <button
+          class="share-btn"
+          id="modalShare"
+        >
+          🔗
+        </button>
+
+
+      </div>
+
+
+      <button
+        class="close"
+        onclick="closeProduct()"
+      >
+        ปิด
+      </button>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SHARE MENU
+===================================================== -->
+
+<div
+  class="share-menu"
+  id="shareMenu"
+  onclick="closeShareOutside(event)"
+>
+
+  <div class="share-box">
+
+
+    <h2>
+      🔗 แชร์สินค้า
+    </h2>
+
+
+    <button
+      class="share-option"
+      id="copyLinkBtn"
+    >
+      📋 Copy Link
+    </button>
+
+
+    <button
+      class="share-option"
+      id="nativeShareBtn"
+    >
+      📤 แชร์ลิงก์
+    </button>
+
+
+    <button
+      class="share-cancel"
+      onclick="closeShareMenu()"
+    >
+      ยกเลิก
+    </button>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  © 2026 Ryu XP.
+  All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   ⭐ PRODUCT DATABASE ⭐
+
+   แก้สินค้าเฉพาะตรงนี้
+
+   status:
+
+   available
+   = 🟢 เปิดขาย
+
+   coming-soon
+   = 🟡 เร็ว ๆ นี้
+
+   sold-out
+   = 🔴 สินค้าหมด
+
+   closed
+   = ⚫ ปิดการขาย
+
+===================================================== */
+
+
+const PRODUCTS = [
+
+  {
+    name:
+      "สติกเกอร์ Line v.1",
+
+    description:
+      "สติกเกอร์ เวอร์ชั่น 1 รูปน้องหมาหลากหลายแบบ",
+
+    price:
+      31,
+
+    image:
+      "products/sticker.jpg",
+
+    orderUrl:
+      "https://example.com/order/shirt",
+
+    status:
+      "coming-soon"
+  }
+];
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+const STATUS = {
+
+  available:{
+    text:"🟢 เปิดขาย",
+    className:"available"
+  },
+
+  "coming-soon":{
+    text:"🟡 เร็ว ๆ นี้",
+    className:"coming-soon"
+  },
+
+  "sold-out":{
+    text:"🔴 สินค้าหมด",
+    className:"sold-out"
+  },
+
+  closed:{
+    text:"⚫ ปิดการขาย",
+    className:"closed"
+  }
+
+};
+
+
+/* =====================================================
+   CURRENT FILTER
+===================================================== */
+
+let currentFilter = "all";
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+  const container =
+    document.getElementById(
+      "products"
+    );
+
+  const empty =
+    document.getElementById(
+      "empty"
+    );
+
+
+  container.innerHTML = "";
+
+
+  if(PRODUCTS.length === 0){
+
+    empty.textContent =
+      "ยังไม่มีสินค้าในขณะนี้";
+
+    empty.style.display =
+      "block";
+
+    return;
+  }
+
+
+  empty.style.display =
+    "none";
+
+
+  PRODUCTS.forEach(
+    (product,index)=>{
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "product";
+
+
+      const status =
+        STATUS[
+          product.status
+        ] ||
+        STATUS.closed;
+
+
+      const canBuy =
+        product.status ===
+        "available";
+
+
+      card.innerHTML = `
+
+        <img
+
+          class="product-image"
+
+          src="${product.image}"
+
+          alt="${escapeHTML(product.name)}"
+
+          onclick="showProduct(${index})"
+
+          onerror="
+            this.src=
+            'https://placehold.co/800x800/111827/00bfff?text=Ryu+XP'
+          "
+
+        >
+
+
+        <div class="product-info">
+
+
+          <div class="product-name">
+
+            ${escapeHTML(product.name)}
+
+          </div>
+
+
+          <div class="product-description">
+
+            ${escapeHTML(
+              product.description
+            )}
+
+          </div>
+
+
+          <div class="price">
+
+            ฿${Number(
+              product.price
+            ).toLocaleString(
+              "th-TH"
+            )}
+
+          </div>
+
+
+          <div
+            class="status ${status.className}"
+          >
+
+            ${status.text}
+
+          </div>
+
+
+          <div class="buttons">
+
+
+            <button
+
+              class="buy-btn"
+
+              ${canBuy
+                ? ""
+                : "disabled"
+              }
+
+              onclick="
+                buyProduct(
+                  ${index}
+                )
+              "
+
+            >
+
+              ${
+                canBuy
+                ? "🛒 ซื้อเลย"
+                : status.text
+              }
+
+            </button>
+
+
+            <button
+
+              class="share-btn"
+
+              onclick="
+                shareProduct(
+                  ${index}
+                )
+              "
+
+            >
+
+              🔗
+
+            </button>
+
+
+          </div>
+
+
+        </div>
+
+      `;
+
+
+      container.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text){
+
+  return String(text)
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   BUY
+===================================================== */
+
+function buyProduct(index){
+
+  const product =
+    PRODUCTS[index];
+
+
+  if(!product){
+    return;
+  }
+
+
+  if(
+    product.status !==
+    "available"
+  ){
+
+    return;
+  }
+
+
+  if(!product.orderUrl){
+
+    alert(
+      "ยังไม่มีลิงก์สั่งซื้อ"
+    );
+
+    return;
+  }
+
+
+  window.open(
+    product.orderUrl,
+    "_blank"
+  );
+
+}
+
+
+/* =====================================================
+   PRODUCT MODAL
+===================================================== */
+
+function showProduct(index){
+
+  const product =
+    PRODUCTS[index];
+
+
+  if(!product){
+    return;
+  }
+
+
+  document.getElementById(
+    "modalImage"
+  ).src =
+    product.image;
+
+
+  document.getElementById(
+    "modalName"
+  ).textContent =
+    product.name;
+
+
+  document.getElementById(
+    "modalDescription"
+  ).textContent =
+    product.description;
+
+
+  document.getElementById(
+    "modalPrice"
+  ).textContent =
+    "฿" +
+    Number(
+      product.price
+    ).toLocaleString(
+      "th-TH"
+    );
+
+
+  const status =
+    STATUS[
+      product.status
+    ] ||
+    STATUS.closed;
+
+
+  document.getElementById(
+    "modalStatus"
+  ).innerHTML = `
+
+    <div
+      class="status ${status.className}"
+    >
+
+      ${status.text}
+
+    </div>
+
+  `;
+
+
+  const buy =
+    document.getElementById(
+      "modalBuy"
+    );
+
+
+  buy.disabled =
+    product.status !==
+    "available";
+
+
+  buy.textContent =
+    product.status ===
+    "available"
+    ? "🛒 ซื้อเลย"
+    : status.text;
+
+
+  buy.onclick =
+    function(){
+
+      buyProduct(index);
+
+    };
+
+
+  document.getElementById(
+    "modalShare"
+  ).onclick =
+    function(){
+
+      shareProduct(index);
+
+    };
+
+
+  document.getElementById(
+    "productModal"
+  ).classList.add(
+    "show"
+  );
+
+}
+
+
+/* =====================================================
+   CLOSE PRODUCT
+===================================================== */
+
+function closeProduct(){
+
+  document.getElementById(
+    "productModal"
+  ).classList.remove(
+    "show"
+  );
+
+}
+
+
+function closeOutside(event){
+
+  if(
+    event.target ===
+    document.getElementById(
+      "productModal"
+    )
+  ){
+
+    closeProduct();
+
+  }
+
+}
+
+
+/* =====================================================
+   SHARE PRODUCT
+===================================================== */
+
+function shareProduct(index){
+
+  const product =
+    PRODUCTS[index];
+
+
+  if(!product){
+    return;
+  }
+
+
+  const url =
+    window.location.origin +
+    window.location.pathname +
+    "?product=" +
+    index;
+
+
+  document.getElementById(
+    "shareMenu"
+  ).classList.add(
+    "show"
+  );
+
+
+  /* COPY */
+
+  document.getElementById(
+    "copyLinkBtn"
+  ).onclick =
+  async function(){
+
+    try{
+
+      await navigator
+        .clipboard
+        .writeText(url);
+
+
+      closeShareMenu();
+
+
+      alert(
+        "📋 คัดลอกลิงก์สินค้าแล้ว"
+      );
+
+    }
+
+    catch(error){
+
+      prompt(
+        "คัดลอกลิงก์นี้:",
+        url
+      );
+
+    }
+
+  };
+
+
+  /* NATIVE SHARE */
+
+  document.getElementById(
+    "nativeShareBtn"
+  ).onclick =
+  async function(){
+
+    closeShareMenu();
+
+
+    if(
+      navigator.share
+    ){
+
+      try{
+
+        await navigator.share({
+
+          title:
+            product.name +
+            " | Ryu XP",
+
+          text:
+            "ดูสินค้า " +
+            product.name +
+            " จาก Ryu XP",
+
+          url:url
+
+        });
+
+      }
+
+      catch(error){
+
+        console.log(
+          "Share cancelled"
+        );
+
+      }
+
+    }
+
+    else{
+
+      try{
+
+        await navigator
+          .clipboard
+          .writeText(url);
+
+
+        alert(
+          "อุปกรณ์นี้ไม่รองรับการแชร์โดยตรง จึงคัดลอกลิงก์ให้แล้ว"
+        );
+
+      }
+
+      catch(error){
+
+        prompt(
+          "คัดลอกลิงก์นี้:",
+          url
+        );
+
+      }
+
+    }
+
+  };
+
+}
+
+
+/* =====================================================
+   CLOSE SHARE
+===================================================== */
+
+function closeShareMenu(){
+
+  document.getElementById(
+    "shareMenu"
+  ).classList.remove(
+    "show"
+  );
+
+}
+
+
+function closeShareOutside(event){
+
+  if(
+    event.target ===
+    document.getElementById(
+      "shareMenu"
+    )
+  ){
+
+    closeShareMenu();
+
+  }
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+document.getElementById(
+  "searchInput"
+)
+.addEventListener(
+  "input",
+  applyFilter
+);
+
+
+/* =====================================================
+   FILTER BUTTON
+===================================================== */
+
+document
+  .querySelectorAll(
+    ".filter-btn"
+  )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        function(){
+
+          document
+            .querySelectorAll(
+              ".filter-btn"
+            )
+            .forEach(
+              btn => {
+
+                btn.classList.remove(
+                  "active"
+                );
+
+              }
+            );
+
+
+          this.classList.add(
+            "active"
+          );
+
+
+          currentFilter =
+            this.dataset.filter;
+
+
+          applyFilter();
+
+        }
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   SORT
+===================================================== */
+
+document.getElementById(
+  "sortSelect"
+)
+.addEventListener(
+  "change",
+  applyFilter
+);
+
+
+/* =====================================================
+   SEARCH + FILTER + SORT
+===================================================== */
+
+function applyFilter(){
+
+  const keyword =
+    document.getElementById(
+      "searchInput"
+    )
+    .value
+    .trim()
+    .toLowerCase();
+
+
+  const sort =
+    document.getElementById(
+      "sortSelect"
+    )
+    .value;
+
+
+  const results =
+    PRODUCTS
+      .map(
+        (product,index)=>({
+
+          product,
+          index
+
+        })
+      )
+      .filter(
+        item => {
+
+          const product =
+            item.product;
+
+
+          const text =
+            (
+              product.name +
+              " " +
+              product.description
+            )
+            .toLowerCase();
+
+
+          const searchMatch =
+            text.includes(
+              keyword
+            );
+
+
+          const filterMatch =
+            currentFilter ===
+            "all" ||
+
+            product.status ===
+            currentFilter;
+
+
+          return (
+            searchMatch &&
+            filterMatch
+          );
+
+        }
+      );
+
+
+  /* ===================================================
+     SORT
+  =================================================== */
+
+
+  if(
+    sort ===
+    "price-low"
+  ){
+
+    results.sort(
+      (a,b)=>
+        Number(
+          a.product.price
+        ) -
+        Number(
+          b.product.price
+        )
+    );
+
+  }
+
+
+  if(
+    sort ===
+    "price-high"
+  ){
+
+    results.sort(
+      (a,b)=>
+        Number(
+          b.product.price
+        ) -
+        Number(
+          a.product.price
+        )
+    );
+
+  }
+
+
+  if(
+    sort ===
+    "name"
+  ){
+
+    results.sort(
+      (a,b)=>
+        a.product.name
+          .localeCompare(
+            b.product.name
+          )
+    );
+
+  }
+
+
+  if(
+    sort ===
+    "newest"
+  ){
+
+    results.sort(
+      (a,b)=>
+        b.index -
+        a.index
+    );
+
+  }
+
+
+  /* ===================================================
+     HIDE ALL
+  =================================================== */
+
+  const cards =
+    document.querySelectorAll(
+      ".product"
+    );
+
+
+  cards.forEach(
+    card => {
+
+      card.style.display =
+        "none";
+
+    }
+  );
+
+
+  /* ===================================================
+     SHOW RESULTS
+  =================================================== */
+
+  results.forEach(
+    item => {
+
+      if(
+        cards[item.index]
+      ){
+
+        cards[item.index]
+          .style.display =
+          "";
+
+      }
+
+    }
+  );
+
+
+  /* ===================================================
+     EMPTY
+  =================================================== */
+
+  const empty =
+    document.getElementById(
+      "empty"
+    );
+
+
+  if(
+    results.length ===
+    0
+  ){
+
+    empty.textContent =
+      keyword
+      ? "🔍 ไม่พบสินค้าที่ค้นหา"
+      : "ไม่พบสินค้าในหมวดนี้";
+
+    empty.style.display =
+      "block";
+
+  }
+  else{
+
+    empty.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+function toggleMenu(){
+
+  document.getElementById(
+    "menu"
+  ).classList.toggle(
+    "show"
+  );
+
+}
+
+
+/* =====================================================
+   OPEN SHARED PRODUCT
+===================================================== */
+
+function openSharedProduct(){
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const productID =
+    params.get(
+      "product"
+    );
+
+
+  if(
+    productID === null
+  ){
+
+    return;
+
+  }
+
+
+  const index =
+    Number(
+      productID
+    );
+
+
+  if(
+    Number.isInteger(index) &&
+    PRODUCTS[index]
+  ){
+
+    setTimeout(
+      function(){
+
+        showProduct(index);
+
+      },
+      300
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+renderProducts();
+
+openSharedProduct();
+
+</script>
+
+
+</body>
+
+</html>
