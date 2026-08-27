@@ -10,7 +10,6 @@
 
 <title>Ryu XP Shop</title>
 
-
 <style>
 
 /* =====================================================
@@ -87,7 +86,6 @@ nav{
   font-weight:bold;
 }
 
-
 .logo img{
   width:45px;
 
@@ -98,7 +96,6 @@ nav{
   transition:.4s;
 }
 
-
 .logo img:hover{
   transform:
     rotate(15deg)
@@ -107,7 +104,6 @@ nav{
   box-shadow:
     0 0 20px #00bfff;
 }
-
 
 .logo span{
   background:
@@ -133,7 +129,6 @@ nav{
   gap:15px;
 }
 
-
 .menu a{
   color:white;
 
@@ -145,7 +140,6 @@ nav{
 
   transition:.3s;
 }
-
 
 .menu a:hover{
   background:#00bfff;
@@ -187,7 +181,6 @@ nav{
   animation:fade 1s;
 }
 
-
 .shop-header h1{
   font-size:50px;
 
@@ -204,7 +197,6 @@ nav{
 
   color:transparent;
 }
-
 
 .shop-header p{
   opacity:.8;
@@ -226,7 +218,6 @@ nav{
 
   position:relative;
 }
-
 
 .search-box input{
   width:100%;
@@ -256,11 +247,9 @@ nav{
   transition:.3s;
 }
 
-
 .search-box input::placeholder{
   color:#888;
 }
-
 
 .search-box input:focus{
   border-color:#00bfff;
@@ -275,7 +264,6 @@ nav{
 ===================================================== */
 
 .filter-box{
-
   width:90%;
 
   max-width:1000px;
@@ -291,9 +279,7 @@ nav{
   flex-wrap:wrap;
 }
 
-
 .filter-btn{
-
   border:none;
 
   padding:
@@ -312,9 +298,7 @@ nav{
   transition:.3s;
 }
 
-
 .filter-btn:hover{
-
   background:#00bfff;
 
   color:black;
@@ -323,9 +307,7 @@ nav{
     translateY(-2px);
 }
 
-
 .filter-btn.active{
-
   background:
     linear-gradient(
       90deg,
@@ -345,7 +327,6 @@ nav{
 ===================================================== */
 
 .sort-box{
-
   width:90%;
 
   max-width:1000px;
@@ -361,17 +342,13 @@ nav{
   gap:10px;
 }
 
-
 .sort-box label{
-
   color:#aaa;
 
   font-size:14px;
 }
 
-
 .sort-box select{
-
   padding:
     10px 15px;
 
@@ -386,12 +363,9 @@ nav{
   color:white;
 
   cursor:pointer;
-
 }
 
-
 .sort-box select:focus{
-
   box-shadow:
     0 0 15px #00bfff55;
 }
@@ -402,7 +376,6 @@ nav{
 ===================================================== */
 
 .shop{
-
   width:90%;
 
   max-width:1100px;
@@ -413,9 +386,7 @@ nav{
     30px 0 80px;
 }
 
-
 .products{
-
   display:grid;
 
   grid-template-columns:
@@ -433,7 +404,6 @@ nav{
 ===================================================== */
 
 .product{
-
   background:#111;
 
   border-radius:20px;
@@ -449,9 +419,7 @@ nav{
   animation:fade 1s;
 }
 
-
 .product:hover{
-
   transform:
     translateY(-10px)
     scale(1.02);
@@ -464,7 +432,6 @@ nav{
 /* IMAGE */
 
 .product-image{
-
   width:100%;
 
   aspect-ratio:1/1;
@@ -478,10 +445,8 @@ nav{
   transition:.4s;
 }
 
-
 .product:hover
 .product-image{
-
   transform:
     scale(1.04);
 }
@@ -490,13 +455,10 @@ nav{
 /* INFO */
 
 .product-info{
-
   padding:22px;
 }
 
-
 .product-name{
-
   font-size:22px;
 
   font-weight:bold;
@@ -504,9 +466,7 @@ nav{
   margin-bottom:10px;
 }
 
-
 .product-description{
-
   color:#aaa;
 
   line-height:1.6;
@@ -518,7 +478,6 @@ nav{
 /* PRICE */
 
 .price{
-
   margin-top:15px;
 
   font-size:25px;
@@ -543,7 +502,6 @@ nav{
 ===================================================== */
 
 .status{
-
   display:inline-block;
 
   margin-top:12px;
@@ -558,33 +516,25 @@ nav{
   font-weight:bold;
 }
 
-
 .status.available{
-
   background:#00ffcc22;
 
   color:#00ffcc;
 }
 
-
 .status.coming-soon{
-
   background:#ffd00022;
 
   color:#ffd000;
 }
 
-
 .status.sold-out{
-
   background:#ff444422;
 
   color:#ff5555;
 }
 
-
 .status.closed{
-
   background:#ffffff15;
 
   color:#aaa;
@@ -596,7 +546,6 @@ nav{
 ===================================================== */
 
 .buttons{
-
   display:flex;
 
   gap:10px;
@@ -608,7 +557,6 @@ nav{
 /* BUY */
 
 .buy-btn{
-
   flex:1;
 
   border:none;
@@ -633,9 +581,7 @@ nav{
   transition:.3s;
 }
 
-
 .buy-btn:hover{
-
   transform:
     scale(1.05);
 
@@ -643,9 +589,7 @@ nav{
     0 0 25px #00bfff;
 }
 
-
 .buy-btn:disabled{
-
   background:#333;
 
   color:#777;
@@ -661,7 +605,6 @@ nav{
 /* SHARE */
 
 .share-btn{
-
   width:52px;
 
   border:none;
@@ -679,9 +622,7 @@ nav{
   transition:.3s;
 }
 
-
 .share-btn:hover{
-
   background:#00bfff;
 
   color:black;
@@ -696,7 +637,6 @@ nav{
 ===================================================== */
 
 .modal{
-
   position:fixed;
 
   inset:0;
@@ -718,15 +658,11 @@ nav{
   z-index:2000;
 }
 
-
 .modal.show{
-
   display:flex;
 }
 
-
 .modal-box{
-
   width:100%;
 
   max-width:500px;
@@ -745,9 +681,7 @@ nav{
   animation:fade .3s;
 }
 
-
 .modal-box img{
-
   width:100%;
 
   max-height:400px;
@@ -755,15 +689,11 @@ nav{
   object-fit:cover;
 }
 
-
 .modal-content{
-
   padding:25px;
 }
 
-
 .modal-content h2{
-
   margin-top:0;
 
   font-size:28px;
@@ -780,9 +710,7 @@ nav{
   color:transparent;
 }
 
-
 .modal-content p{
-
   color:#aaa;
 
   line-height:1.7;
@@ -792,7 +720,6 @@ nav{
 /* CLOSE */
 
 .close{
-
   width:100%;
 
   margin-top:10px;
@@ -812,9 +739,7 @@ nav{
   font-weight:bold;
 }
 
-
 .close:hover{
-
   background:#00bfff;
 
   color:black;
@@ -826,7 +751,6 @@ nav{
 ===================================================== */
 
 .share-menu{
-
   position:fixed;
 
   inset:0;
@@ -848,15 +772,11 @@ nav{
   padding:20px;
 }
 
-
 .share-menu.show{
-
   display:flex;
 }
 
-
 .share-box{
-
   width:100%;
 
   max-width:350px;
@@ -873,17 +793,13 @@ nav{
   animation:fade .25s;
 }
 
-
 .share-box h2{
-
   text-align:center;
 
   margin-top:0;
 }
 
-
 .share-option{
-
   width:100%;
 
   padding:15px;
@@ -907,9 +823,7 @@ nav{
   transition:.3s;
 }
 
-
 .share-option:hover{
-
   background:#00bfff;
 
   color:black;
@@ -918,9 +832,7 @@ nav{
     translateY(-2px);
 }
 
-
 .share-cancel{
-
   width:100%;
 
   padding:13px;
@@ -944,7 +856,6 @@ nav{
 ===================================================== */
 
 .empty{
-
   text-align:center;
 
   padding:
@@ -963,7 +874,6 @@ nav{
 ===================================================== */
 
 footer{
-
   text-align:center;
 
   padding:30px;
@@ -983,7 +893,6 @@ footer{
 @keyframes fade{
 
   from{
-
     opacity:0;
 
     transform:
@@ -991,7 +900,6 @@ footer{
   }
 
   to{
-
     opacity:1;
 
     transform:none;
@@ -1007,13 +915,10 @@ footer{
 @media(max-width:768px){
 
   .menu-btn{
-
     display:block;
   }
 
-
   .menu{
-
     position:absolute;
 
     top:75px;
@@ -1040,40 +945,28 @@ footer{
     transition:.4s;
   }
 
-
   .menu.show{
-
     transform:
       translateX(0);
   }
 
-
   .menu a{
-
     text-align:center;
   }
 
-
   .shop-header h1{
-
     font-size:35px;
   }
 
-
   .shop{
-
     width:92%;
   }
 
-
   .products{
-
     grid-template-columns:1fr;
   }
 
-
   .sort-box{
-
     justify-content:center;
 
     flex-wrap:wrap;
@@ -1164,15 +1057,10 @@ footer{
   <div class="search-box">
 
     <input
-
       type="search"
-
       id="searchInput"
-
       placeholder="🔍 ค้นหาสินค้า..."
-
       autocomplete="off"
-
     >
 
   </div>
@@ -1181,7 +1069,6 @@ footer{
   <!-- FILTER -->
 
   <div class="filter-box">
-
 
     <button
       class="filter-btn active"
@@ -1229,36 +1116,28 @@ footer{
 
   <div class="sort-box">
 
-    <label
-      for="sortSelect"
-    >
+    <label for="sortSelect">
       เรียงสินค้า:
     </label>
 
 
-    <select
-      id="sortSelect"
-    >
+    <select id="sortSelect">
 
       <option value="default">
         📦 ค่าเริ่มต้น
       </option>
 
-
       <option value="price-low">
         💰 ราคาต่ำ → สูง
       </option>
-
 
       <option value="price-high">
         💎 ราคาสูง → ต่ำ
       </option>
 
-
       <option value="name">
         🔤 ชื่อ A → Z
       </option>
-
 
       <option value="newest">
         🆕 สินค้าใหม่ก่อน
@@ -1288,7 +1167,7 @@ footer{
     class="empty"
     id="empty"
   >
-    ยังไม่มีสินค้าในขณะนี้
+    กำลังโหลดสินค้า...
   </div>
 
 </section>
@@ -1307,7 +1186,6 @@ footer{
 
   <div class="modal-box">
 
-
     <img
       id="modalImage"
       src=""
@@ -1317,15 +1195,10 @@ footer{
 
     <div class="modal-content">
 
-
-      <h2
-        id="modalName"
-      ></h2>
+      <h2 id="modalName"></h2>
 
 
-      <p
-        id="modalDescription"
-      ></p>
+      <p id="modalDescription"></p>
 
 
       <div
@@ -1340,7 +1213,6 @@ footer{
 
 
       <div class="buttons">
-
 
         <button
           class="buy-btn"
@@ -1357,7 +1229,6 @@ footer{
           🔗
         </button>
 
-
       </div>
 
 
@@ -1367,7 +1238,6 @@ footer{
       >
         ปิด
       </button>
-
 
     </div>
 
@@ -1388,7 +1258,6 @@ footer{
 >
 
   <div class="share-box">
-
 
     <h2>
       🔗 แชร์สินค้า
@@ -1418,7 +1287,6 @@ footer{
       ยกเลิก
     </button>
 
-
   </div>
 
 </div>
@@ -1441,68 +1309,11 @@ footer{
 <script>
 
 /* =====================================================
-   ⭐ PRODUCT DATABASE ⭐
-
-   แก้สินค้าเฉพาะตรงนี้
-
-   status:
-
-   available
-   = 🟢 เปิดขาย
-
-   coming-soon
-   = 🟡 เร็ว ๆ นี้
-
-   sold-out
-   = 🔴 สินค้าหมด
-
-   closed
-   = ⚫ ปิดการขาย
-
+   PRODUCT DATABASE
+   โหลดจาก products.json
 ===================================================== */
 
-
-const PRODUCTS = [
-    {
-    name:
-      "SPG Sticker by Ryu XP",
-
-    description:
-      "Create by Ryu XP",
-
-    price:
-       35,
-
-    image:
-      "SPG_LINE_Sticker_Advertisement.jpg",
-
-    orderUrl:
-      "https://line.me/S/sticker/36085234?_from=lcm",
-
-    status:
-      "available"
-  },
-
-  {
-    name:
-      "สติกเกอร์แก๊งเด็กปั่นประสาท",
-
-    description:
-      "Create by Ryu XP",
-
-    price:
-       00,
-
-    image:
-      "sticker_gang_dek_pan_prasat.jpg",
-
-    orderUrl:
-      "https://example.com/order/shirt",
-
-    status:
-      "coming-soon"
-  }
-];
+let PRODUCTS = [];
 
 
 /* =====================================================
@@ -1542,6 +1353,79 @@ let currentFilter = "all";
 
 
 /* =====================================================
+   LOAD PRODUCTS JSON
+===================================================== */
+
+async function loadProducts(){
+
+  const empty =
+    document.getElementById("empty");
+
+  try{
+
+    const response =
+      await fetch("products.json", {
+        cache:"no-store"
+      });
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "HTTP " + response.status
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if(!Array.isArray(data)){
+
+      throw new Error(
+        "products.json ต้องเป็น Array"
+      );
+
+    }
+
+
+    PRODUCTS = data;
+
+
+    renderProducts();
+
+    openSharedProduct();
+
+  }
+
+  catch(error){
+
+    console.error(
+      "โหลด products.json ไม่สำเร็จ:",
+      error
+    );
+
+
+    document.getElementById(
+      "products"
+    ).innerHTML = "";
+
+
+    empty.textContent =
+      "⚠️ ไม่สามารถโหลดข้อมูลสินค้าได้";
+
+
+    empty.style.display =
+      "block";
+
+  }
+
+}
+
+
+/* =====================================================
    RENDER PRODUCTS
 ===================================================== */
 
@@ -1570,6 +1454,7 @@ function renderProducts(){
       "block";
 
     return;
+
   }
 
 
@@ -1609,9 +1494,13 @@ function renderProducts(){
 
           class="product-image"
 
-          src="${product.image}"
+          src="${escapeHTML(
+            product.image || ""
+          )}"
 
-          alt="${escapeHTML(product.name)}"
+          alt="${escapeHTML(
+            product.name || "สินค้า"
+          )}"
 
           onclick="showProduct(${index})"
 
@@ -1628,7 +1517,9 @@ function renderProducts(){
 
           <div class="product-name">
 
-            ${escapeHTML(product.name)}
+            ${escapeHTML(
+              product.name || "ไม่มีชื่อสินค้า"
+            )}
 
           </div>
 
@@ -1636,7 +1527,7 @@ function renderProducts(){
           <div class="product-description">
 
             ${escapeHTML(
-              product.description
+              product.description || ""
             )}
 
           </div>
@@ -1645,7 +1536,7 @@ function renderProducts(){
           <div class="price">
 
             ฿${Number(
-              product.price
+              product.price || 0
             ).toLocaleString(
               "th-TH"
             )}
@@ -1773,7 +1664,9 @@ function buyProduct(index){
 
 
   if(!product){
+
     return;
+
   }
 
 
@@ -1783,6 +1676,7 @@ function buyProduct(index){
   ){
 
     return;
+
   }
 
 
@@ -1793,6 +1687,7 @@ function buyProduct(index){
     );
 
     return;
+
   }
 
 
@@ -1815,26 +1710,28 @@ function showProduct(index){
 
 
   if(!product){
+
     return;
+
   }
 
 
   document.getElementById(
     "modalImage"
   ).src =
-    product.image;
+    product.image || "";
 
 
   document.getElementById(
     "modalName"
   ).textContent =
-    product.name;
+    product.name || "";
 
 
   document.getElementById(
     "modalDescription"
   ).textContent =
-    product.description;
+    product.description || "";
 
 
   document.getElementById(
@@ -1842,7 +1739,7 @@ function showProduct(index){
   ).textContent =
     "฿" +
     Number(
-      product.price
+      product.price || 0
     ).toLocaleString(
       "th-TH"
     );
@@ -1957,7 +1854,9 @@ function shareProduct(index){
 
 
   if(!product){
+
     return;
+
   }
 
 
@@ -2230,17 +2129,20 @@ function applyFilter(){
 
           const text =
             (
-              product.name +
-              " " +
-              product.description
-            )
-            .toLowerCase();
+              product.name || ""
+            ) +
+            " " +
+            (
+              product.description || ""
+            );
 
 
           const searchMatch =
-            text.includes(
-              keyword
-            );
+            text
+              .toLowerCase()
+              .includes(
+                keyword
+              );
 
 
           const filterMatch =
@@ -2264,7 +2166,6 @@ function applyFilter(){
      SORT
   =================================================== */
 
-
   if(
     sort ===
     "price-low"
@@ -2273,10 +2174,10 @@ function applyFilter(){
     results.sort(
       (a,b)=>
         Number(
-          a.product.price
+          a.product.price || 0
         ) -
         Number(
-          b.product.price
+          b.product.price || 0
         )
     );
 
@@ -2291,10 +2192,10 @@ function applyFilter(){
     results.sort(
       (a,b)=>
         Number(
-          b.product.price
+          b.product.price || 0
         ) -
         Number(
-          a.product.price
+          a.product.price || 0
         )
     );
 
@@ -2308,10 +2209,15 @@ function applyFilter(){
 
     results.sort(
       (a,b)=>
-        a.product.name
-          .localeCompare(
-            b.product.name
-          )
+        String(
+          a.product.name || ""
+        )
+        .localeCompare(
+          String(
+            b.product.name || ""
+          ),
+          "th"
+        )
     );
 
   }
@@ -2392,10 +2298,12 @@ function applyFilter(){
       ? "🔍 ไม่พบสินค้าที่ค้นหา"
       : "ไม่พบสินค้าในหมวดนี้";
 
+
     empty.style.display =
       "block";
 
   }
+
   else{
 
     empty.style.display =
@@ -2477,9 +2385,7 @@ function openSharedProduct(){
    START
 ===================================================== */
 
-renderProducts();
-
-openSharedProduct();
+loadProducts();
 
 </script>
 
