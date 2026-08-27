@@ -6,7 +6,3 @@
     }
   ]
 }
-//    {
-//      "source": "/(.*)",
-//      "destination": "/close.html"
-//    }
