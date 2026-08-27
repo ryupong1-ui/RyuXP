@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
-<title>Ryu XP AI</title>
+<title>Ryu XP - AI</title>
 
 
 <style>
@@ -18,32 +18,34 @@
 ===================================================== */
 
 *{
-  box-sizing:border-box;
+box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
 
-  margin:0;
+margin:0;
 
-  font-family:Arial,sans-serif;
+font-family:Arial,sans-serif;
 
-  background:
-    radial-gradient(
-      circle at top,
-      #00bfff33,
-      transparent 40%
-    ),
-    linear-gradient(
-      135deg,
-      #050505,
-      #111827
-    );
+background:
+radial-gradient(
+circle at top,
+#00bfff33,
+transparent 40%
+),
+linear-gradient(
+135deg,
+#050505,
+#111827
+);
 
-  color:white;
+color:white;
+
+min-height:100vh;
 
 }
 
@@ -54,23 +56,23 @@ body{
 
 nav{
 
-  position:sticky;
+position:sticky;
 
-  top:0;
+top:0;
 
-  z-index:1000;
+z-index:1000;
 
-  display:flex;
+display:flex;
 
-  justify-content:space-between;
+justify-content:space-between;
 
-  align-items:center;
+align-items:center;
 
-  padding:15px 25px;
+padding:15px 25px;
 
-  background:rgba(0,0,0,.5);
+background:rgba(0,0,0,.5);
 
-  backdrop-filter:blur(15px);
+backdrop-filter:blur(15px);
 
 }
 
@@ -81,56 +83,55 @@ nav{
 
 .logo{
 
-  display:flex;
+display:flex;
 
-  align-items:center;
+align-items:center;
 
-  gap:12px;
+gap:12px;
 
-  font-size:22px;
+font-size:22px;
 
-  font-weight:bold;
+font-weight:bold;
 
 }
-
 
 .logo img{
 
-  width:45px;
+width:45px;
 
-  height:45px;
+height:45px;
 
-  border-radius:50%;
+border-radius:50%;
 
-  transition:.4s;
+transition:.4s;
+
+object-fit:cover;
 
 }
-
 
 .logo img:hover{
 
-  transform:
-    rotate(15deg)
-    scale(1.15);
+transform:
+rotate(15deg)
+scale(1.15);
 
-  box-shadow:
-    0 0 20px #00bfff;
+box-shadow:
+0 0 20px #00bfff;
 
 }
 
-
 .logo span{
 
-  background:
-    linear-gradient(
-      90deg,
-      #00bfff,
-      #00ffcc
-    );
+background:
+linear-gradient(
+90deg,
+#00bfff,
+#00ffcc
+);
 
-  -webkit-background-clip:text;
+-webkit-background-clip:text;
 
-  color:transparent;
+color:transparent;
 
 }
 
@@ -141,57 +142,73 @@ nav{
 
 .menu{
 
-  display:flex;
+display:flex;
 
-  gap:15px;
+gap:15px;
 
 }
-
 
 .menu a{
 
-  color:white;
+color:white;
 
-  text-decoration:none;
+text-decoration:none;
 
-  padding:10px 15px;
+padding:10px 15px;
 
-  border-radius:10px;
+border-radius:10px;
 
-  transition:.3s;
+transition:.3s;
 
 }
 
-
 .menu a:hover{
 
-  background:#00bfff;
+background:#00bfff;
 
-  color:black;
+color:black;
 
-  transform:
-    translateY(-3px);
+transform:
+translateY(-3px);
 
 }
 
 
 /* =====================================================
-   MOBILE MENU BUTTON
+   MENU BUTTON
 ===================================================== */
 
 .menu-btn{
 
-  display:none;
+display:none;
 
-  font-size:28px;
+font-size:28px;
 
-  cursor:pointer;
+cursor:pointer;
 
-  background:#222;
+background:#222;
 
-  padding:5px 12px;
+padding:5px 12px;
 
-  border-radius:10px;
+border-radius:10px;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main{
+
+width:92%;
+
+max-width:1000px;
+
+margin:auto;
+
+padding:
+50px 0 150px;
 
 }
 
@@ -202,97 +219,86 @@ nav{
 
 .ai-header{
 
-  text-align:center;
+text-align:center;
 
-  padding:
-    50px 20px 20px;
+margin-bottom:25px;
 
 }
-
 
 .ai-icon{
 
-  width:75px;
+width:75px;
 
-  height:75px;
+height:75px;
 
-  margin:auto;
+margin:auto;
 
-  display:flex;
+display:flex;
 
-  align-items:center;
+align-items:center;
 
-  justify-content:center;
+justify-content:center;
 
-  border-radius:22px;
+border-radius:22px;
 
-  font-size:38px;
+font-size:35px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #00bfff,
-      #00ffcc
-    );
+background:
+linear-gradient(
+135deg,
+#00bfff,
+#00ffcc
+);
 
-  color:#000;
+color:#001015;
 
-  box-shadow:
-    0 0 35px #00bfff66;
+box-shadow:
+0 0 30px #00bfff66;
 
-  animation:
-    aiGlow 2s infinite alternate;
-
-}
-
-
-@keyframes aiGlow{
-
-  from{
-
-    box-shadow:
-      0 0 20px #00bfff55;
-
-  }
-
-  to{
-
-    box-shadow:
-      0 0 45px #00ffcc88;
-
-  }
+animation:
+aiPulse 3s infinite;
 
 }
 
+@keyframes aiPulse{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.05);
+}
+
+}
 
 .ai-header h1{
 
-  margin:
-    20px 0 8px;
+font-size:42px;
 
-  font-size:42px;
+margin:
+20px 0 8px;
 
-  background:
-    linear-gradient(
-      90deg,
-      #00bfff,
-      #00ffcc
-    );
+background:
+linear-gradient(
+90deg,
+#00bfff,
+#00ffcc
+);
 
-  -webkit-background-clip:text;
+-webkit-background-clip:text;
 
-  color:transparent;
+color:transparent;
 
 }
 
-
 .ai-header p{
 
-  margin:0;
+color:#aaa;
 
-  color:#aaa;
+font-size:16px;
 
-  font-size:16px;
+margin:0;
 
 }
 
@@ -303,60 +309,52 @@ nav{
 
 .quick-buttons{
 
-  width:92%;
+display:flex;
 
-  max-width:1000px;
+gap:10px;
 
-  margin:
-    25px auto;
+justify-content:center;
 
-  display:flex;
+flex-wrap:wrap;
 
-  justify-content:center;
-
-  gap:10px;
-
-  flex-wrap:wrap;
+margin:
+25px 0;
 
 }
-
 
 .quick-btn{
 
-  border:
-    1px solid
-    #ffffff18;
+border:
+1px solid
+#ffffff18;
 
-  background:
-    rgba(255,255,255,.06);
+background:
+rgba(255,255,255,.06);
 
-  color:#ddd;
+color:white;
 
-  padding:
-    10px 16px;
+padding:
+10px 15px;
 
-  border-radius:25px;
+border-radius:25px;
 
-  cursor:pointer;
+cursor:pointer;
 
-  transition:.3s;
-
-  backdrop-filter:blur(10px);
+transition:.3s;
 
 }
 
-
 .quick-btn:hover{
 
-  background:#00bfff;
+background:#00bfff;
 
-  color:black;
+color:black;
 
-  transform:
-    translateY(-3px);
+transform:
+translateY(-3px);
 
-  box-shadow:
-    0 0 20px #00bfff66;
+box-shadow:
+0 0 15px #00bfff55;
 
 }
 
@@ -365,27 +363,13 @@ nav{
    CHAT
 ===================================================== */
 
-.chat-container{
-
-  width:92%;
-
-  max-width:1000px;
-
-  margin:auto;
-
-  padding:
-    10px 0 160px;
-
-}
-
-
 .chat-box{
 
-  display:flex;
+display:flex;
 
-  flex-direction:column;
+flex-direction:column;
 
-  gap:18px;
+gap:18px;
 
 }
 
@@ -396,79 +380,93 @@ nav{
 
 .message{
 
-  display:flex;
+display:flex;
 
-  width:100%;
+width:100%;
+
+animation:
+messageIn .3s;
 
 }
 
+@keyframes messageIn{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(10px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
 
 .message.user{
 
-  justify-content:flex-end;
+justify-content:flex-end;
 
 }
-
 
 .message.ai{
 
-  justify-content:flex-start;
+justify-content:flex-start;
 
 }
-
 
 .bubble{
 
-  max-width:82%;
+max-width:85%;
 
-  padding:
-    15px 18px;
+padding:
+15px 18px;
 
-  border-radius:20px;
+border-radius:18px;
 
-  line-height:1.65;
+line-height:1.7;
 
-  font-size:15px;
-
-  word-wrap:break-word;
+font-size:15px;
 
 }
 
+.message.user .bubble{
 
-/* USER */
+background:
+linear-gradient(
+135deg,
+#00bfff,
+#00ffcc
+);
 
-.user .bubble{
+color:#001015;
 
-  background:
-    linear-gradient(
-      90deg,
-      #00bfff,
-      #00ffcc
-    );
+border-bottom-right-radius:5px;
 
-  color:#000;
-
-  border-bottom-right-radius:5px;
-
-  font-weight:500;
+font-weight:500;
 
 }
 
+.message.ai .bubble{
 
-/* AI */
+background:
+rgba(255,255,255,.07);
 
-.ai .bubble{
+border:
+1px solid
+#ffffff12;
 
-  background:
-    rgba(255,255,255,.07);
+backdrop-filter:
+blur(15px);
 
-  border:
-    1px solid
-    #ffffff12;
-
-  backdrop-filter:blur(15px);
-
-  border-bottom-left-radius:5px;
+border-bottom-left-radius:5px;
 
 }
 
@@ -477,206 +475,254 @@ nav{
    RESULT AREA
 ===================================================== */
 
-.result-title{
+.result-area{
 
-  font-size:18px;
+width:100%;
 
-  font-weight:bold;
-
-  margin:
-    5px 0 15px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #00bfff,
-      #00ffcc
-    );
-
-  -webkit-background-clip:text;
-
-  color:transparent;
+margin-top:15px;
 
 }
 
+.result-title{
 
-.results{
+font-size:19px;
 
-  display:grid;
+font-weight:bold;
 
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(240px,1fr)
-    );
+margin:
+10px 0 15px;
 
-  gap:20px;
+background:
+linear-gradient(
+90deg,
+#00bfff,
+#00ffcc
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
 
 }
 
 
 /* =====================================================
-   RESULT CARD
+   RESULT GRID
+===================================================== */
+
+.result-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(230px,1fr)
+);
+
+gap:15px;
+
+}
+
+
+/* =====================================================
+   CARD
 ===================================================== */
 
 .result-card{
 
-  overflow:hidden;
+background:
+rgba(255,255,255,.06);
 
-  background:
-    rgba(255,255,255,.06);
+border:
+1px solid
+#ffffff12;
 
-  border:
-    1px solid
-    #ffffff12;
+border-radius:18px;
 
-  border-radius:18px;
+overflow:hidden;
 
-  backdrop-filter:blur(10px);
-
-  transition:.35s;
+transition:.3s;
 
 }
-
 
 .result-card:hover{
 
-  transform:
-    translateY(-7px);
+transform:
+translateY(-5px);
 
-  box-shadow:
-    0 0 25px #00bfff66;
-
-}
-
-
-.result-image{
-
-  width:100%;
-
-  aspect-ratio:16/9;
-
-  object-fit:cover;
-
-  display:block;
+box-shadow:
+0 0 25px #00bfff55;
 
 }
 
+.result-card img{
+
+width:100%;
+
+height:150px;
+
+object-fit:cover;
+
+display:block;
+
+}
 
 .result-content{
 
-  padding:16px;
+padding:15px;
 
 }
-
 
 .result-name{
 
-  font-size:17px;
+font-size:17px;
 
-  font-weight:bold;
+font-weight:bold;
 
-  line-height:1.45;
+line-height:1.5;
 
 }
-
 
 .result-description{
 
-  margin-top:8px;
+color:#aaa;
 
-  color:#aaa;
+font-size:13px;
 
-  font-size:14px;
+line-height:1.5;
 
-  line-height:1.5;
+margin-top:7px;
 
 }
-
 
 .result-price{
 
-  margin-top:10px;
+margin-top:10px;
 
-  font-size:21px;
+font-size:20px;
 
-  font-weight:bold;
+font-weight:bold;
 
-  background:
-    linear-gradient(
-      90deg,
-      #00bfff,
-      #00ffcc
-    );
+background:
+linear-gradient(
+90deg,
+#00bfff,
+#00ffcc
+);
 
-  -webkit-background-clip:text;
+-webkit-background-clip:text;
 
-  color:transparent;
+color:transparent;
 
 }
-
 
 .result-btn{
 
-  display:block;
+display:block;
 
-  width:100%;
+width:100%;
 
-  margin-top:14px;
+margin-top:12px;
 
-  padding:11px;
+padding:11px;
 
-  border:0;
+border:0;
 
-  border-radius:25px;
+border-radius:25px;
 
-  background:
-    linear-gradient(
-      90deg,
-      #00bfff,
-      #00ffcc
-    );
+background:
+linear-gradient(
+90deg,
+#00bfff,
+#00ffcc
+);
 
-  color:#000;
+color:#001015;
 
-  text-decoration:none;
+font-weight:bold;
 
-  text-align:center;
+text-decoration:none;
 
-  font-weight:bold;
+text-align:center;
 
-  cursor:pointer;
+cursor:pointer;
 
-  transition:.3s;
+}
+
+.result-btn.video{
+
+background:#222;
+
+color:white;
+
+}
+
+.result-btn.video:hover{
+
+background:#00bfff;
+
+color:black;
 
 }
 
 
-.result-btn:hover{
+/* =====================================================
+   WEATHER
+===================================================== */
 
-  transform:
-    scale(1.03);
+.weather-card{
 
-  box-shadow:
-    0 0 20px #00bfff;
+background:
+linear-gradient(
+135deg,
+rgba(0,191,255,.12),
+rgba(0,255,204,.08)
+);
+
+border:
+1px solid
+#00bfff33;
+
+border-radius:20px;
+
+padding:20px;
+
+margin-top:10px;
 
 }
 
+.weather-main{
 
-.video-btn{
+display:flex;
 
-  background:#222;
+align-items:center;
 
-  color:white;
+gap:15px;
 
 }
 
+.weather-icon{
 
-.video-btn:hover{
+font-size:50px;
 
-  background:#00bfff;
+}
 
-  color:black;
+.weather-temp{
+
+font-size:38px;
+
+font-weight:bold;
+
+}
+
+.weather-info{
+
+color:#aaa;
+
+line-height:1.7;
+
+margin-top:10px;
 
 }
 
@@ -687,200 +733,191 @@ nav{
 
 .typing{
 
-  display:flex;
+display:flex;
 
-  align-items:center;
+gap:5px;
 
-  gap:6px;
+align-items:center;
+
+height:20px;
 
 }
-
 
 .typing span{
 
-  width:8px;
+width:7px;
 
-  height:8px;
+height:7px;
 
-  border-radius:50%;
+background:#aaa;
 
-  background:#aaa;
+border-radius:50%;
 
-  animation:
-    typing 1.2s infinite;
+animation:
+typing 1.2s infinite;
 
 }
-
 
 .typing span:nth-child(2){
 
-  animation-delay:.15s;
+animation-delay:.15s;
 
 }
-
 
 .typing span:nth-child(3){
 
-  animation-delay:.3s;
+animation-delay:.3s;
 
 }
 
-
 @keyframes typing{
 
-  0%,60%,100%{
+0%,60%,100%{
 
-    transform:
-      translateY(0);
+transform:
+translateY(0);
 
-  }
+}
 
-  30%{
+30%{
 
-    transform:
-      translateY(-6px);
+transform:
+translateY(-5px);
 
-  }
+}
 
 }
 
 
 /* =====================================================
-   INPUT AREA
+   INPUT
 ===================================================== */
 
 .input-area{
 
-  position:fixed;
+position:fixed;
 
-  left:0;
+left:0;
 
-  right:0;
+right:0;
 
-  bottom:0;
+bottom:0;
 
-  z-index:900;
+z-index:900;
 
-  padding:
-    20px 15px;
+padding:
+20px 15px;
 
-  background:
-    linear-gradient(
-      transparent,
-      #050505 35%
-    );
+background:
+linear-gradient(
+transparent,
+#050505 35%
+);
 
 }
-
 
 .input-wrapper{
 
-  width:100%;
+width:92%;
 
-  max-width:1000px;
+max-width:1000px;
 
-  margin:auto;
+margin:auto;
 
-  display:flex;
+display:flex;
 
-  align-items:center;
+align-items:center;
 
-  gap:8px;
+padding:7px;
 
-  padding:7px;
+background:
+rgba(20,20,20,.95);
 
-  border:
-    1px solid
-    #ffffff20;
+border:
+1px solid
+#ffffff18;
 
-  border-radius:20px;
+border-radius:20px;
 
-  background:
-    rgba(15,23,42,.9);
+backdrop-filter:
+blur(20px);
 
-  backdrop-filter:blur(20px);
-
-  box-shadow:
-    0 0 30px #000;
+box-shadow:
+0 0 30px #000;
 
 }
-
 
 #messageInput{
 
-  flex:1;
+flex:1;
 
-  min-width:0;
+min-width:0;
 
-  border:0;
+border:0;
 
-  outline:0;
+outline:0;
 
-  background:transparent;
+background:transparent;
 
-  color:white;
+color:white;
 
-  padding:
-    12px 14px;
+font-size:16px;
 
-  font-size:16px;
+padding:
+12px 14px;
 
 }
-
 
 #messageInput::placeholder{
 
-  color:#777;
+color:#777;
 
 }
-
 
 .send-btn{
 
-  width:48px;
+width:45px;
 
-  height:48px;
+height:45px;
 
-  border:0;
+border:0;
 
-  border-radius:15px;
+border-radius:15px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #00bfff,
-      #00ffcc
-    );
+background:
+linear-gradient(
+135deg,
+#00bfff,
+#00ffcc
+);
 
-  color:#000;
+color:#001015;
 
-  font-size:20px;
+font-size:20px;
 
-  font-weight:bold;
+font-weight:bold;
 
-  cursor:pointer;
+cursor:pointer;
 
-  transition:.3s;
+transition:.3s;
 
 }
-
 
 .send-btn:hover{
 
-  transform:
-    scale(1.05);
+transform:
+scale(1.08);
 
-  box-shadow:
-    0 0 20px #00bfff;
+box-shadow:
+0 0 20px #00bfff;
 
 }
 
-
 .send-btn:disabled{
 
-  opacity:.5;
+opacity:.5;
 
-  cursor:not-allowed;
+cursor:not-allowed;
 
 }
 
@@ -891,30 +928,16 @@ nav{
 
 .empty{
 
-  padding:20px;
+padding:20px;
 
-  color:#999;
+text-align:center;
 
-  text-align:center;
+color:#888;
 
-}
+background:
+rgba(255,255,255,.04);
 
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-  text-align:center;
-
-  padding:30px;
-
-  color:#666;
-
-  border-top:
-    1px solid
-    #ffffff0d;
+border-radius:15px;
 
 }
 
@@ -925,129 +948,95 @@ footer{
 
 @media(max-width:768px){
 
-  nav{
+.menu-btn{
 
-    padding:
-      15px;
+display:block;
 
-  }
+}
 
+.menu{
 
-  .menu-btn{
+position:absolute;
 
-    display:block;
+top:75px;
 
-  }
+right:15px;
 
+width:200px;
 
-  .menu{
+flex-direction:column;
 
-    position:absolute;
+background:
+rgba(0,0,0,.9);
 
-    top:75px;
+backdrop-filter:
+blur(15px);
 
-    right:15px;
+border-radius:15px;
 
-    width:200px;
+padding:15px;
 
-    flex-direction:column;
+transform:
+translateX(120%);
 
-    background:
-      rgba(0,0,0,.9);
+transition:.4s;
 
-    backdrop-filter:blur(15px);
+}
 
-    border-radius:15px;
+.menu.show{
 
-    padding:15px;
+transform:
+translateX(0);
 
-    transform:
-      translateX(120%);
+}
 
-    transition:.4s;
+.menu a{
 
-  }
+text-align:center;
 
+}
 
-  .menu.show{
+.ai-header h1{
 
-    transform:
-      translateX(0);
+font-size:32px;
 
-  }
+}
 
+.main{
 
-  .menu a{
+padding-top:30px;
 
-    text-align:center;
+}
 
-  }
+.bubble{
 
+max-width:94%;
 
-  .ai-header{
+}
 
-    padding-top:35px;
+.result-grid{
 
-  }
+grid-template-columns:1fr;
 
+}
 
-  .ai-header h1{
+.quick-buttons{
 
-    font-size:32px;
+justify-content:flex-start;
 
-  }
+overflow-x:auto;
 
+flex-wrap:nowrap;
 
-  .ai-icon{
+padding-bottom:5px;
 
-    width:65px;
+}
 
-    height:65px;
+.quick-btn{
 
-    font-size:32px;
+white-space:nowrap;
 
-  }
-
-
-  .quick-buttons{
-
-    justify-content:flex-start;
-
-    overflow-x:auto;
-
-    flex-wrap:nowrap;
-
-    padding-bottom:5px;
-
-  }
-
-
-  .quick-btn{
-
-    white-space:nowrap;
-
-  }
-
-
-  .bubble{
-
-    max-width:92%;
-
-  }
-
-
-  .results{
-
-    grid-template-columns:1fr;
-
-  }
-
-
-  .chat-container{
-
-    width:92%;
-
-  }
+}
 
 }
 
@@ -1065,82 +1054,77 @@ footer{
 
 <nav>
 
+<div class="logo">
 
-  <div class="logo">
+<img
+src="ryu.jpg"
+alt="Ryu XP"
+>
 
-    <img
-      src="ryu.jpg"
-      alt="Ryu XP"
-    >
+<span>
+Ryu XP
+</span>
 
-    <span>
-      Ryu XP
-    </span>
-
-  </div>
-
-
-  <div
-    class="menu"
-    id="menu"
-  >
-
-    <a href="index.html">
-      Home
-    </a>
-
-    <a href="video.html">
-      Video
-    </a>
-
-    <a href="shop.html">
-      Shop
-    </a>
-
-    <a href="contact.html">
-      Contact
-    </a>
-
-  </div>
+</div>
 
 
-  <div
-    class="menu-btn"
-    onclick="toggleMenu()"
-  >
+<div
+class="menu"
+id="menu"
+>
 
-    ☰
+<a href="index.html">
+Home
+</a>
 
-  </div>
+<a href="video.html">
+Video
+</a>
 
+<a href="shop.html">
+Shop
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+<div
+class="menu-btn"
+onclick="toggleMenu()"
+>
+
+☰
+
+</div>
 
 </nav>
 
 
 
 <!-- =====================================================
-     AI HEADER
+     MAIN
 ===================================================== -->
+
+<main class="main">
+
 
 <section class="ai-header">
 
+<div class="ai-icon">
+✦
+</div>
 
-  <div class="ai-icon">
+<h1>
+Ryu XP AI
+</h1>
 
-    ✦
-
-  </div>
-
-
-  <h1>
-    Ryu XP AI
-  </h1>
-
-
-  <p>
-    ผู้ช่วยอัจฉริยะประจำเว็บไซต์ Ryu XP
-  </p>
-
+<p>
+ผู้ช่วย AI สำหรับพูดคุย ค้นหาสินค้า คลิป คำนวณ และข้อมูลทั่วไป
+</p>
 
 </section>
 
@@ -1152,66 +1136,52 @@ footer{
 
 <div class="quick-buttons">
 
-
-  <button
-    class="quick-btn"
-    onclick="
-      quickAsk('สวัสดี')
-    "
-  >
-
-    👋 สวัสดี
-
-  </button>
+<button
+class="quick-btn"
+onclick="quickSearch('สวัสดี')"
+>
+👋 สวัสดี
+</button>
 
 
-  <button
-    class="quick-btn"
-    onclick="
-      quickAsk('มีสินค้าอะไรบ้าง')
-    "
-  >
-
-    🛍️ สินค้าทั้งหมด
-
-  </button>
+<button
+class="quick-btn"
+onclick="quickSearch('ตอนนี้กี่โมง')"
+>
+🕐 ตอนนี้กี่โมง
+</button>
 
 
-  <button
-    class="quick-btn"
-    onclick="
-      quickAsk('มีคลิปอะไรบ้าง')
-    "
-  >
-
-    🎬 คลิปทั้งหมด
-
-  </button>
+<button
+class="quick-btn"
+onclick="quickSearch('วันนี้วันที่เท่าไหร่')"
+>
+📅 วันนี้วันที่เท่าไหร่
+</button>
 
 
-  <button
-    class="quick-btn"
-    onclick="
-      quickAsk('มีคลิปสอน Windows ไหม')
-    "
-  >
-
-    💻 คลิป Windows
-
-  </button>
+<button
+class="quick-btn"
+onclick="quickSearch('อากาศตอนนี้เป็นยังไง')"
+>
+🌤️ สภาพอากาศ
+</button>
 
 
-  <button
-    class="quick-btn"
-    onclick="
-      quickAsk('ช่วยอะไรได้บ้าง')
-    "
-  >
+<button
+class="quick-btn"
+onclick="quickSearch('หาสินค้าทั้งหมด')"
+>
+🛍️ สินค้าทั้งหมด
+</button>
 
-    🤖 ทำอะไรได้บ้าง
 
-  </button>
-
+<button
+class="quick-btn"
+onclick="quickSearch('หาคลิปทั้งหมด')"
+>
+🎬 คลิปทั้งหมด
+</button>
 
 </div>
 
@@ -1221,66 +1191,54 @@ footer{
      CHAT
 ===================================================== -->
 
-<main class="chat-container">
+<section
+class="chat-box"
+id="chatBox"
+>
 
+<div class="message ai">
 
-  <div
-    class="chat-box"
-    id="chatBox"
-  >
+<div class="bubble">
 
+👋 สวัสดีครับ! ผมคือ
+<b>Ryu XP AI</b>
 
-    <div class="message ai">
+<br><br>
 
-      <div class="bubble">
+ผมสามารถคุยกับคุณได้ครับ ไม่จำเป็นต้องถามเฉพาะเรื่องสินค้า
 
-        👋 สวัสดีครับ!
+<br><br>
 
-        <br><br>
+ผมช่วยได้ เช่น
 
-        ผมคือ
-        <b>Ryu XP AI</b>
-        🤖
+<br>
+🧮 คำนวณ <b>125 × 8</b>
 
-        <br><br>
+<br>
+🕐 บอกเวลา
 
-        คุยกับผมได้เลยครับ ไม่จำเป็นต้องถาม
-        เกี่ยวกับสินค้าหรือคลิปก็ได้
+<br>
+📅 บอกวันที่
 
-        <br><br>
+<br>
+🌤️ เช็กสภาพอากาศ
 
-        ผมสามารถช่วยค้นหา
-        <b>สินค้า 🛍️</b>
-        และ
-        <b>คลิป 🎬</b>
-        ภายในเว็บไซต์ Ryu XP ได้ด้วย
+<br>
+🛍️ ค้นหาสินค้าจากเว็บไซต์
 
-        <br><br>
+<br>
+🎬 ค้นหาคลิปจาก Ryu XP
 
-        ลองพิมพ์ว่า
-        <br>
+<br><br>
 
-        • สวัสดี
-        <br>
+ลองพิมพ์ว่า
+<b>สวัสดี</b> ได้เลยครับ 😊
 
-        • ชื่ออะไร
-        <br>
+</div>
 
-        • ช่วยอะไรได้บ้าง
-        <br>
+</div>
 
-        • มีสินค้าอะไรบ้าง
-        <br>
-
-        • มีคลิปสอน Windows ไหม
-
-      </div>
-
-    </div>
-
-
-  </div>
-
+</section>
 
 </main>
 
@@ -1292,50 +1250,281 @@ footer{
 
 <div class="input-area">
 
+<div class="input-wrapper">
 
-  <div class="input-wrapper">
+<input
+id="messageInput"
+type="text"
+placeholder="คุยกับ Ryu XP AI..."
+autocomplete="off"
+>
 
+<button
+class="send-btn"
+id="sendBtn"
+onclick="sendMessage()"
+>
+➤
+</button>
 
-    <input
-      type="text"
-      id="messageInput"
-      placeholder="พิมพ์ข้อความ..."
-      autocomplete="off"
-    >
-
-
-    <button
-      class="send-btn"
-      id="sendBtn"
-      onclick="sendMessage()"
-    >
-
-      ➤
-
-    </button>
-
-
-  </div>
-
+</div>
 
 </div>
 
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-  © 2026 Ryu XP.
-  All rights reserved.
-
-</footer>
-
-
-
 <script>
+
+/* =====================================================
+   DATA
+===================================================== */
+
+let products = [];
+
+let videos = [];
+
+let dataLoaded = false;
+
+
+/* =====================================================
+   VIDEO DATABASE
+   จาก video.html
+===================================================== */
+
+videos = [
+
+{
+title:
+"เมื่อครูมาเยี่ยมบ้าน",
+
+description:
+"คลิป Ryu XP",
+
+thumbnail:
+"https://i.ytimg.com/vi/oZdBBCGolVc/hqdefault.jpg",
+
+url:
+"https://youtu.be/oZdBBCGolVc"
+},
+
+{
+title:
+"สอนใช้ OBS Studio ในการปรับแต่งกล้อง Webcam ใช้ได้ทั้ง Windows , macOS",
+
+description:
+"สอนใช้ OBS Studio",
+
+thumbnail:
+"https://i.ytimg.com/vi/kWB3zhAq0PI/hqdefault.jpg",
+
+url:
+"https://youtu.be/kWB3zhAq0PI"
+},
+
+{
+title:
+"BODYSLAM",
+
+description:
+"วิดีโอ Ryu XP",
+
+thumbnail:
+"https://i.ytimg.com/vi/t1GQAt6pl78/hqdefault.jpg",
+
+url:
+"https://youtu.be/t1GQAt6pl78"
+},
+
+{
+title:
+"หนีเที่ยว | ไปค่าเฟ่ที่วิวอย่างสวย",
+
+description:
+"เที่ยวและคาเฟ่",
+
+thumbnail:
+"https://i.ytimg.com/vi/ynBa-woKmh0/hqdefault.jpg",
+
+url:
+"https://youtu.be/ynBa-woKmh0"
+},
+
+{
+title:
+"วิธีติดฟิล์ม hydrogel รอบเครื่อง",
+
+description:
+"สอนติดฟิล์ม Hydrogel",
+
+thumbnail:
+"https://i.ytimg.com/vi/u4meOUcFknE/hqdefault.jpg",
+
+url:
+"https://youtu.be/u4meOUcFknE"
+},
+
+{
+title:
+"Roblox | Straight Night",
+
+description:
+"เล่นเกม Roblox",
+
+thumbnail:
+"https://i.ytimg.com/vi/ESTV_RFaC0Y/hqdefault.jpg",
+
+url:
+"https://youtu.be/ESTV_RFaC0Y"
+},
+
+{
+title:
+"วิธีติดฟิล์ม Hydrogel ยี่ห่อ Hydroplus Focus",
+
+description:
+"สอนติดฟิล์ม Hydrogel",
+
+thumbnail:
+"https://i.ytimg.com/vi/TYpIQ2yfxkk/hqdefault.jpg",
+
+url:
+"https://youtu.be/TYpIQ2yfxkk"
+},
+
+{
+title:
+"รีวิวรถที่ใช้ส่งก๊าซ",
+
+description:
+"รีวิวรถ",
+
+thumbnail:
+"https://i.ytimg.com/vi/56iTM261-kY/hqdefault.jpg",
+
+url:
+"https://youtu.be/56iTM261-kY"
+},
+
+{
+title:
+"รีวิวหมาบ้านนี้ [EP:2/2]",
+
+description:
+"รีวิวหมา",
+
+thumbnail:
+"https://i.ytimg.com/vi/5izRBO1VG3g/hqdefault.jpg",
+
+url:
+"https://youtu.be/5izRBO1VG3g"
+},
+
+{
+title:
+"รีวิวหมาบ้านนี้ [EP:1/2]",
+
+description:
+"รีวิวหมา",
+
+thumbnail:
+"https://i.ytimg.com/vi/qN0RuEhod4s/hqdefault.jpg",
+
+url:
+"https://youtu.be/qN0RuEhod4s"
+},
+
+{
+title:
+"สอนล้างเครื่อง Mac สำหรับ chip M1 ขึ้นไป และ A19 Pro (Macbook Neo)",
+
+description:
+"สอนล้างเครื่อง Mac",
+
+thumbnail:
+"https://i.ytimg.com/vi/PNnmyJK87Qo/hqdefault.jpg",
+
+url:
+"https://youtu.be/PNnmyJK87Qo"
+}
+
+];
+
+
+/* =====================================================
+   LOAD PRODUCTS
+===================================================== */
+
+async function loadProducts(){
+
+try{
+
+const response =
+await fetch("products.json");
+
+if(!response.ok){
+
+throw new Error(
+"products.json not found"
+);
+
+}
+
+const data =
+await response.json();
+
+products =
+Array.isArray(data)
+? data
+: [];
+
+}
+
+catch(error){
+
+console.log(
+"Products error:",
+error
+);
+
+products = [];
+
+}
+
+}
+
+
+/* =====================================================
+   LOAD
+===================================================== */
+
+async function loadData(){
+
+await loadProducts();
+
+dataLoaded = true;
+
+}
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const input =
+document.getElementById(
+"messageInput"
+);
+
+const sendBtn =
+document.getElementById(
+"sendBtn"
+);
+
+const chatBox =
+document.getElementById(
+"chatBox"
+);
+
 
 /* =====================================================
    MENU
@@ -1343,234 +1532,11 @@ footer{
 
 function toggleMenu(){
 
-  document
-    .getElementById("menu")
-    .classList.toggle("show");
+document
+.getElementById("menu")
+.classList.toggle("show");
 
 }
-
-
-/* =====================================================
-   PRODUCTS
-===================================================== */
-
-let products = [];
-
-let productsLoaded = false;
-
-
-/* =====================================================
-   LOAD PRODUCTS.JSON
-===================================================== */
-
-async function loadProducts(){
-
-  try{
-
-    const response =
-      await fetch("products.json");
-
-
-    if(!response.ok){
-
-      throw new Error(
-        "products.json not found"
-      );
-
-    }
-
-
-    const data =
-      await response.json();
-
-
-    products =
-      Array.isArray(data)
-      ? data
-      : [];
-
-
-    productsLoaded = true;
-
-
-  }
-
-  catch(error){
-
-    console.log(
-      "โหลด products.json ไม่สำเร็จ",
-      error
-    );
-
-    products = [];
-
-    productsLoaded = true;
-
-  }
-
-}
-
-
-/* =====================================================
-   VIDEO DATABASE
-===================================================== */
-
-const videos = [
-
-  {
-    title:
-      "เมื่อครูมาเยี่ยมบ้าน",
-
-    url:
-      "https://youtu.be/oZdBBCGolVc?si=v-4-CC3lKGaxUrHl",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/oZdBBCGolVc/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "สอนใช้ OBS Studio ในการปรับแต่งกล้อง Webcam ใช้ได้ทั้ง Windows , macOS",
-
-    url:
-      "https://youtu.be/kWB3zhAq0PI?si=RfzYE9xRwCbTVA7B",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/kWB3zhAq0PI/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "BODYSLAM",
-
-    url:
-      "https://youtu.be/t1GQAt6pl78?si=2Yt4Ve51FdrxOy59",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/t1GQAt6pl78/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "หนีเที่ยว | ไปค่าเฟ่ที่วิวอย่างสวย",
-
-    url:
-      "https://youtu.be/ynBa-woKmh0?si=XGrarU6ubZDxfU8l",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/ynBa-woKmh0/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "วิธีติดฟิล์ม hydrogel รอบเครื่อง",
-
-    url:
-      "https://youtu.be/u4meOUcFknE?si=UHIch9CxYAKP79bZ",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/u4meOUcFknE/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "Roblox | Straight Night",
-
-    url:
-      "https://youtu.be/ESTV_RFaC0Y?si=4P4bHWJKOYlpEt1Y",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/ESTV_RFaC0Y/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "วิธีติดฟิล์ม Hydrogel ยี่ห่อ Hydroplus Focus",
-
-    url:
-      "https://youtu.be/TYpIQ2yfxkk?si=z44siGj8h6A-QoGc",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/TYpIQ2yfxkk/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "รีวิวรถที่ใช้ส่งก๊าซ",
-
-    url:
-      "https://youtu.be/56iTM261-kY?si=Z4ksMHrERIEwdC4A",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/56iTM261-kY/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "รีวิวหมาบ้านนี้ [EP:2/2]",
-
-    url:
-      "https://youtu.be/5izRBO1VG3g?si=-D40KHJcuALddeGJ",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/5izRBO1VG3g/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "รีวิวหมาบ้านนี้ [EP:1/2]",
-
-    url:
-      "https://youtu.be/qN0RuEhod4s?si=Ytm4JbfgdKB2xr4A",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/qN0RuEhod4s/hqdefault.jpg"
-  },
-
-
-  {
-    title:
-      "สอนล้างเครื่อง Mac สำหรับ chip M1 ขึ้นไป และ A19 Pro (Macbook Neo)",
-
-    url:
-      "https://youtu.be/PNnmyJK87Qo?si=oG1sDCC-ARISy2H_",
-
-    thumbnail:
-      "https://i.ytimg.com/vi/PNnmyJK87Qo/hqdefault.jpg"
-  }
-
-];
-
-
-/* =====================================================
-   INPUT
-===================================================== */
-
-const input =
-  document.getElementById(
-    "messageInput"
-  );
-
-
-const sendBtn =
-  document.getElementById(
-    "sendBtn"
-  );
-
-
-const chatBox =
-  document.getElementById(
-    "chatBox"
-  );
 
 
 /* =====================================================
@@ -1578,32 +1544,30 @@ const chatBox =
 ===================================================== */
 
 input.addEventListener(
-  "keydown",
-  function(event){
+"keydown",
+function(event){
 
-    if(
-      event.key === "Enter"
-    ){
+if(event.key === "Enter"){
 
-      event.preventDefault();
+event.preventDefault();
 
-      sendMessage();
+sendMessage();
 
-    }
+}
 
-  }
+}
 );
 
 
 /* =====================================================
-   QUICK ASK
+   QUICK SEARCH
 ===================================================== */
 
-function quickAsk(text){
+function quickSearch(text){
 
-  input.value = text;
+input.value = text;
 
-  sendMessage();
+sendMessage();
 
 }
 
@@ -1612,1322 +1576,34 @@ function quickAsk(text){
    ESCAPE
 ===================================================== */
 
-function escapeHTML(text){
-
-  return String(
-    text ?? ""
-  )
-
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-
-  .replace(
-    /</g,
-    "&lt;"
-  )
-
-  .replace(
-    />/g,
-    "&gt;"
-  )
-
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-
-  .replace(
-    /'/g,
-    "&#039;"
-  );
-
-}
-
-
-/* =====================================================
-   NORMALIZE
-===================================================== */
-
-function normalize(text){
-
-  return String(
-    text ?? ""
-  )
-  .toLowerCase()
-  .trim();
-
-}
-
-
-/* =====================================================
-   TOKENIZE
-===================================================== */
-
-function tokenize(text){
-
-  return normalize(text)
-
-    .replace(
-      /[^\p{L}\p{N}\s.-]/gu,
-      " "
-    )
-
-    .split(/\s+/)
-
-    .filter(
-      word =>
-        word.length >= 2
-    );
-
-}
-
-
-/* =====================================================
-   SEARCH TEXT
-===================================================== */
-
-function getItemText(item){
-
-  return normalize([
-
-    item.name,
-
-    item.title,
-
-    item.description,
-
-    item.category,
-
-    item.categories,
-
-    item.tags,
-
-    item.keywords,
-
-    item.brand
-
-  ].join(" "));
-
-}
-
-
-/* =====================================================
-   SCORE
-===================================================== */
-
-function scoreItem(
-  item,
-  query
-){
-
-  const text =
-    getItemText(item);
-
-
-  const words =
-    tokenize(query);
-
-
-  let score = 0;
-
-
-  if(
-    text.includes(
-      normalize(query)
-    )
-  ){
-
-    score += 100;
-
-  }
-
-
-  words.forEach(
-    word => {
-
-      if(
-        text.includes(word)
-      ){
-
-        score += 10;
-
-      }
-
-    }
-  );
-
-
-  const name =
-    normalize(
-      item.name ||
-      item.title
-    );
-
-
-  words.forEach(
-    word => {
-
-      if(
-        name.includes(word)
-      ){
-
-        score += 30;
-
-      }
-
-    }
-  );
-
-
-  return score;
-
-}
-
-
-/* =====================================================
-   SEARCH PRODUCTS
-===================================================== */
-
-function searchProducts(query){
-
-  const q =
-    normalize(query);
-
-
-  /* ALL */
-
-  if(
-
-    q.includes("สินค้าทั้งหมด") ||
-
-    q.includes("สินค้าทุก") ||
-
-    q === "สินค้า" ||
-
-    q === "ของทั้งหมด" ||
-
-    q.includes("มีสินค้าอะไร") ||
-
-    q === "products"
-
-  ){
-
-    return products.slice(
-      0,
-      20
-    );
-
-  }
-
-
-  /* PRICE */
-
-  const priceMatch =
-    q.match(
-      /(?:ไม่เกิน|ต่ำกว่า|ไม่ถึง|ราคาไม่เกิน|ราคา)\s*(?:฿|บาท)?\s*([\d,]+)/
-    );
-
-
-  if(priceMatch){
-
-    const limit =
-      Number(
-        priceMatch[1]
-          .replace(
-            /,/g,
-            ""
-          )
-      );
-
-
-    return products
-
-      .filter(
-        item => {
-
-          const price =
-            Number(
-              String(
-                item.price ?? 0
-              )
-              .replace(
-                /,/g,
-                ""
-              )
-            );
-
-
-          return (
-            price > 0 &&
-            price <= limit
-          );
-
-        }
-      )
-
-      .sort(
-        (a,b) =>
-          Number(
-            a.price || 0
-          ) -
-          Number(
-            b.price || 0
-          )
-      )
-
-      .slice(
-        0,
-        20
-      );
-
-  }
-
-
-  return products
-
-    .map(
-      item => ({
-
-        item:item,
-
-        score:
-          scoreItem(
-            item,
-            query
-          )
-
-      })
-    )
-
-    .filter(
-      result =>
-        result.score > 0
-    )
-
-    .sort(
-      (a,b) =>
-        b.score -
-        a.score
-    )
-
-    .slice(
-      0,
-      20
-    )
-
-    .map(
-      result =>
-        result.item
-    );
-
-}
-
-
-/* =====================================================
-   SEARCH VIDEOS
-===================================================== */
-
-function searchVideos(query){
-
-  const q =
-    normalize(query);
-
-
-  /* ALL */
-
-  if(
-
-    q.includes("คลิปทั้งหมด") ||
-
-    q.includes("วิดีโอทั้งหมด") ||
-
-    q.includes("มีคลิปอะไร") ||
-
-    q.includes("คลิปทุก") ||
-
-    q === "คลิป" ||
-
-    q === "video" ||
-
-    q === "videos"
-
-  ){
-
-    return videos.slice(
-      0,
-      20
-    );
-
-  }
-
-
-  return videos
-
-    .map(
-      item => ({
-
-        item:item,
-
-        score:
-          scoreItem(
-            item,
-            query
-          )
-
-      })
-    )
-
-    .filter(
-      result =>
-        result.score > 0
-    )
-
-    .sort(
-      (a,b) =>
-        b.score -
-        a.score
-    )
-
-    .slice(
-      0,
-      20
-    )
-
-    .map(
-      result =>
-        result.item
-    );
-
-}
-
-
-/* =====================================================
-   DETECT SEARCH TYPE
-===================================================== */
-
-function detectType(query){
-
-  const q =
-    normalize(query);
-
-
-  const productWords = [
-
-    "สินค้า",
-    "ซื้อ",
-    "ขาย",
-    "ราคา",
-    "บาท",
-    "ของ",
-    "shop",
-    "product"
-
-  ];
-
-
-  const videoWords = [
-
-    "คลิป",
-    "วิดีโอ",
-    "video",
-    "youtube",
-    "ดูคลิป",
-    "สอน"
-
-  ];
-
-
-  let productScore = 0;
-
-  let videoScore = 0;
-
-
-  productWords.forEach(
-    word => {
-
-      if(
-        q.includes(word)
-      ){
-
-        productScore++;
-
-      }
-
-    }
-  );
-
-
-  videoWords.forEach(
-    word => {
-
-      if(
-        q.includes(word)
-      ){
-
-        videoScore++;
-
-      }
-
-    }
-  );
-
-
-  if(
-    productScore > 0 &&
-    videoScore > 0
-  ){
-
-    return "both";
-
-  }
-
-
-  if(
-    productScore > videoScore
-  ){
-
-    return "product";
-
-  }
-
-
-  if(
-    videoScore > productScore
-  ){
-
-    return "video";
-
-  }
-
-
-  return "conversation";
-
-}
-
-
-/* =====================================================
-   PRODUCT CARD
-===================================================== */
-
-function productCard(product){
-
-  const name =
-    escapeHTML(
-      product.name ||
-      product.title ||
-      "สินค้า"
-    );
-
-
-  const description =
-    escapeHTML(
-      product.description ||
-      "ไม่มีรายละเอียด"
-    );
-
-
-  const image =
-    product.image ||
-    product.thumbnail ||
-    product.img ||
-    "";
-
-
-  const price =
-    product.price !== undefined &&
-    product.price !== null &&
-    product.price !== ""
-
-    ?
-
-    "฿" +
-    Number(
-      product.price
-    ).toLocaleString(
-      "th-TH"
-    )
-
-    :
-
-    "";
-
-
-  const link =
-    product.orderUrl ||
-    product.orderLink ||
-    product.buyLink ||
-    product.order ||
-    product.link ||
-    "";
-
-
-  return `
-
-    <article class="result-card">
-
-
-      ${
-        image
-
-        ?
-
-        `
-
-        <img
-
-          class="result-image"
-
-          src="${escapeHTML(image)}"
-
-          alt="${name}"
-
-          loading="lazy"
-
-        >
-
-        `
-
-        :
-
-        ""
-
-      }
-
-
-      <div class="result-content">
-
-
-        <div class="result-name">
-
-          🛍️ ${name}
-
-        </div>
-
-
-        <div class="result-description">
-
-          ${description}
-
-        </div>
-
-
-        ${
-          price
-
-          ?
-
-          `
-
-          <div class="result-price">
-
-            ${price}
-
-          </div>
-
-          `
-
-          :
-
-          ""
-
-        }
-
-
-        ${
-          link
-
-          ?
-
-          `
-
-          <a
-
-            class="result-btn"
-
-            href="${escapeHTML(link)}"
-
-            target="_blank"
-
-            rel="noopener noreferrer"
-
-          >
-
-            🛒 ซื้อเลย
-
-          </a>
-
-          `
-
-          :
-
-          ""
-
-        }
-
-
-      </div>
-
-    </article>
-
-  `;
-
-}
-
-
-/* =====================================================
-   VIDEO CARD
-===================================================== */
-
-function videoCard(video){
-
-  const title =
-    escapeHTML(
-      video.title
-    );
-
-
-  return `
-
-    <article class="result-card">
-
-
-      <img
-
-        class="result-image"
-
-        src="${escapeHTML(
-          video.thumbnail
-        )}"
-
-        alt="${title}"
-
-        loading="lazy"
-
-      >
-
-
-      <div class="result-content">
-
-
-        <div class="result-name">
-
-          🎬 ${title}
-
-        </div>
-
-
-        <a
-
-          class="result-btn video-btn"
-
-          href="${escapeHTML(
-            video.url
-          )}"
-
-          target="_blank"
-
-          rel="noopener noreferrer"
-
-        >
-
-          ▶️ ดูคลิป
-
-        </a>
-
-
-      </div>
-
-
-    </article>
-
-  `;
-
-}
-
-
-/* =====================================================
-   CREATE RESULTS
-===================================================== */
-
-function createResults(
-  productResults,
-  videoResults
-){
-
-  let html = "";
-
-
-  if(
-    productResults.length
-  ){
-
-    html += `
-
-      <div>
-
-        <div class="result-title">
-
-          🛍️ สินค้า
-
-        </div>
-
-
-        <div class="results">
-
-          ${productResults
-            .map(productCard)
-            .join("")}
-
-        </div>
-
-      </div>
-
-    `;
-
-  }
-
-
-  if(
-    videoResults.length
-  ){
-
-    html += `
-
-      <div style="margin-top:25px;">
-
-        <div class="result-title">
-
-          🎬 วิดีโอ
-
-        </div>
-
-
-        <div class="results">
-
-          ${videoResults
-            .map(videoCard)
-            .join("")}
-
-        </div>
-
-      </div>
-
-    `;
-
-  }
-
-
-  return html;
-
-}
-
-
-/* =====================================================
-   CONVERSATION AI
-===================================================== */
-
-function conversationResponse(query){
-
-  const q =
-    normalize(query);
-
-
-  /* HELLO */
-
-  if(
-
-    q === "สวัสดี" ||
-
-    q === "หวัดดี" ||
-
-    q.includes("hello") ||
-
-    q.includes("hi") ||
-
-    q.includes("ดีครับ") ||
-
-    q.includes("ดีค่ะ")
-
-  ){
-
-    return `
-
-      👋 สวัสดีครับ!
-
-      <br><br>
-
-      ยินดีต้อนรับสู่
-      <b>Ryu XP AI</b> 🤖
-
-      <br><br>
-
-      วันนี้อยากให้ผมช่วยอะไรครับ?
-
-    `;
-
-  }
-
-
-  /* NAME */
-
-  if(
-
-    q.includes("ชื่ออะไร") ||
-
-    q.includes("ชื่อของคุณ") ||
-
-    q.includes("เรียกว่าอะไร")
-
-  ){
-
-    return `
-
-      ผมชื่อ
-      <b>Ryu XP AI</b>
-      ครับ 🤖✨
-
-      <br><br>
-
-      เป็นผู้ช่วยของเว็บไซต์ Ryu XP
-
-    `;
-
-  }
-
-
-  /* WHO */
-
-  if(
-
-    q.includes("เป็นใคร") ||
-
-    q.includes("คุณคือใคร")
-
-  ){
-
-    return `
-
-      ผมคือ
-      <b>Ryu XP AI</b>
-      ผู้ช่วยประจำเว็บไซต์ Ryu XP ครับ 😎
-
-      <br><br>
-
-      ผมช่วยค้นหาสินค้าและคลิปในเว็บไซต์
-      รวมถึงคุยกับคุณเรื่องทั่วไปได้ครับ
-
-    `;
-
-  }
-
-
-  /* WHAT CAN DO */
-
-  if(
-
-    q.includes("ช่วยอะไรได้บ้าง") ||
-
-    q.includes("ทำอะไรได้บ้าง") ||
-
-    q.includes("สามารถทำอะไร")
-
-  ){
-
-    return `
-
-      ผมช่วยคุณได้หลายอย่างครับ 🤖
-
-      <br><br>
-
-      🛍️ ค้นหาสินค้าจากเว็บไซต์
-
-      <br>
-
-      🎬 ค้นหาคลิปวิดีโอ
-
-      <br>
-
-      💰 ค้นสินค้าตามราคา
-
-      <br>
-
-      🔎 ค้นหาด้วยคำพูดธรรมชาติ
-
-      <br>
-
-      💬 และคุยเล่นเรื่องทั่วไปได้ครับ
-
-    `;
-
-  }
-
-
-  /* THANK YOU */
-
-  if(
-
-    q.includes("ขอบคุณ") ||
-
-    q.includes("thank")
-
-  ){
-
-    return `
-
-      ด้วยความยินดีครับ 😄❤️
-
-      <br><br>
-
-      ถ้ามีอะไรให้ช่วยอีก เรียกผมได้เลยครับ!
-
-    `;
-
-  }
-
-
-  /* HOW ARE YOU */
-
-  if(
-
-    q.includes("เป็นไงบ้าง") ||
-
-    q.includes("สบายดีไหม") ||
-
-    q.includes("วันนี้เป็นไง")
-
-  ){
-
-    return `
-
-      ผมสบายดีครับ 😄
-
-      <br><br>
-
-      พร้อมค้นสินค้าและคลิปให้คุณตลอดเลยครับ!
-
-    `;
-
-  }
-
-
-  /* BYE */
-
-  if(
-
-    q.includes("ลาก่อน") ||
-
-    q.includes("บาย") ||
-
-    q === "bye"
-
-  ){
-
-    return `
-
-      บ๊ายบายครับ 👋
-
-      <br><br>
-
-      แล้วกลับมาคุยกันใหม่นะครับ 😄
-
-    `;
-
-  }
-
-
-  /* TIME */
-
-  if(
-
-    q.includes("กี่โมง") ||
-
-    q.includes("เวลาอะไร")
-
-  ){
-
-    const now =
-      new Date();
-
-
-    return `
-
-      ตอนนี้เวลาประมาณ
-
-      <b>
-        ${now.toLocaleTimeString(
-          "th-TH",
-          {
-            hour:"2-digit",
-            minute:"2-digit"
-          }
-        )}
-      </b>
-
-      ครับ ⏰
-
-    `;
-
-  }
-
-
-  /* DEFAULT */
-
-  return `
-
-    ผมเข้าใจครับ 😄
-
-    <br><br>
-
-    คุณสามารถคุยกับผมต่อได้เลย
-
-    <br><br>
-
-    ถ้าต้องการค้นหาในเว็บไซต์
-    ลองถามเช่น:
-
-    <br><br>
-
-    🛍️ <b>มีสินค้าอะไรบ้าง</b>
-
-    <br>
-
-    🔎 <b>หาสินค้า USB-C</b>
-
-    <br>
-
-    💰 <b>หาของไม่เกิน 500 บาท</b>
-
-    <br>
-
-    🎬 <b>มีคลิปสอน Windows ไหม</b>
-
-    <br>
-
-    🎬 <b>หาคลิป Mac</b>
-
-  `;
-
-}
-
-
-/* =====================================================
-   SEARCH RESPONSE
-===================================================== */
-
-function searchResponse(query){
-
-  const type =
-    detectType(query);
-
-
-  let productResults = [];
-
-  let videoResults = [];
-
-
-  if(
-    type === "product"
-  ){
-
-    productResults =
-      searchProducts(query);
-
-  }
-
-
-  if(
-    type === "video"
-  ){
-
-    videoResults =
-      searchVideos(query);
-
-  }
-
-
-  if(
-    type === "both"
-  ){
-
-    productResults =
-      searchProducts(query);
-
-    videoResults =
-      searchVideos(query);
-
-  }
-
-
-  /* ถ้าคำค้นเกี่ยวข้องกับข้อมูล */
-
-  if(
-    productResults.length === 0 &&
-    videoResults.length === 0
-  ){
-
-    /* ลองค้นทั้งคู่ */
-
-    const p =
-      searchProducts(query);
-
-    const v =
-      searchVideos(query);
-
-
-    if(
-      p.length ||
-      v.length
-    ){
-
-      productResults = p;
-
-      videoResults = v;
-
-    }
-
-  }
-
-
-  /* ไม่พบ */
-
-  if(
-
-    productResults.length === 0 &&
-    videoResults.length === 0
-
-  ){
-
-    return null;
-
-  }
-
-
-  let text = "";
-
-
-  if(
-    productResults.length
-  ){
-
-    text += `
-
-      พบสินค้า
-      <b>${productResults.length}</b>
-      รายการครับ 🛍️
-
-    `;
-
-  }
-
-
-  if(
-    videoResults.length
-  ){
-
-    if(text){
-
-      text += "<br>";
-
-    }
-
-
-    text += `
-
-      พบวิดีโอ
-      <b>${videoResults.length}</b>
-      รายการครับ 🎬
-
-    `;
-
-  }
-
-
-  return `
-
-    ${text}
-
-    <div style="margin-top:18px;">
-
-      ${createResults(
-        productResults,
-        videoResults
-      )}
-
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================================
-   SHOW TYPING
-===================================================== */
-
-function showTyping(){
-
-  const element =
-    document.createElement(
-      "div"
-    );
-
-
-  element.className =
-    "message ai";
-
-
-  element.id =
-    "typing";
-
-
-  element.innerHTML = `
-
-    <div class="bubble">
-
-      <div class="typing">
-
-        <span></span>
-
-        <span></span>
-
-        <span></span>
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  chatBox.appendChild(
-    element
-  );
-
-
-  scrollBottom();
-
-}
-
-
-/* =====================================================
-   HIDE TYPING
-===================================================== */
-
-function hideTyping(){
-
-  const element =
-    document.getElementById(
-      "typing"
-    );
-
-
-  if(element){
-
-    element.remove();
-
-  }
+function escapeHTML(value){
+
+return String(value ?? "")
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
 
 }
 
@@ -2937,46 +1613,90 @@ function hideTyping(){
 ===================================================== */
 
 function addMessage(
-  html,
-  type
+text,
+type
 ){
 
-  const message =
-    document.createElement(
-      "div"
-    );
+const message =
+document.createElement("div");
+
+message.className =
+"message " + type;
+
+const bubble =
+document.createElement("div");
+
+bubble.className =
+"bubble";
+
+bubble.innerHTML =
+text;
+
+message.appendChild(
+bubble
+);
+
+chatBox.appendChild(
+message
+);
+
+scrollBottom();
+
+}
 
 
-  message.className =
-    "message " +
-    type;
+/* =====================================================
+   TYPING
+===================================================== */
+
+function showTyping(){
+
+const message =
+document.createElement("div");
+
+message.className =
+"message ai";
+
+message.id =
+"typingMessage";
+
+message.innerHTML = `
+
+<div class="bubble">
+
+<div class="typing">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+</div>
+
+`;
+
+chatBox.appendChild(
+message
+);
+
+scrollBottom();
+
+}
 
 
-  const bubble =
-    document.createElement(
-      "div"
-    );
+function hideTyping(){
 
+const element =
+document.getElementById(
+"typingMessage"
+);
 
-  bubble.className =
-    "bubble";
+if(element){
 
+element.remove();
 
-  bubble.innerHTML =
-    html;
-
-
-  message.appendChild(
-    bubble
-  );
-
-
-  chatBox.appendChild(
-    message
-  );
-
-
-  scrollBottom();
+}
 
 }
 
@@ -2987,123 +1707,1835 @@ function addMessage(
 
 function scrollBottom(){
 
-  window.scrollTo({
+window.scrollTo({
 
-    top:
-      document.body.scrollHeight,
+top:
+document.body.scrollHeight,
 
-    behavior:
-      "smooth"
+behavior:"smooth"
 
-  });
+});
 
 }
 
 
 /* =====================================================
-   SEND MESSAGE
+   NORMALIZE
+===================================================== */
+
+function normalize(value){
+
+return String(value ?? "")
+.toLowerCase()
+.trim();
+
+}
+
+
+/* =====================================================
+   TOKENIZE
+===================================================== */
+
+function tokenize(text){
+
+return normalize(text)
+
+.replace(
+/[^\p{L}\p{N}\s.-]/gu,
+" "
+)
+
+.split(/\s+/)
+
+.filter(
+word =>
+word.length >= 2
+);
+
+}
+
+
+/* =====================================================
+   SEARCH TEXT
+===================================================== */
+
+function getSearchText(item){
+
+return normalize([
+
+item.name,
+
+item.title,
+
+item.description,
+
+item.category,
+
+item.categories,
+
+item.tags,
+
+item.keywords,
+
+item.brand
+
+].join(" "));
+
+}
+
+
+/* =====================================================
+   SCORE
+===================================================== */
+
+function scoreItem(
+item,
+query
+){
+
+const text =
+getSearchText(item);
+
+const words =
+tokenize(query);
+
+let score = 0;
+
+if(
+text.includes(
+normalize(query)
+)
+){
+
+score += 100;
+
+}
+
+words.forEach(
+word => {
+
+if(
+text.includes(word)
+){
+
+score += 10;
+
+}
+
+}
+);
+
+const name =
+normalize(
+item.name ||
+item.title
+);
+
+words.forEach(
+word => {
+
+if(
+name.includes(word)
+){
+
+score += 25;
+
+}
+
+}
+);
+
+return score;
+
+}
+
+
+/* =====================================================
+   SEARCH PRODUCTS
+===================================================== */
+
+function searchProducts(query){
+
+const q =
+normalize(query);
+
+
+/* ALL */
+
+if(
+
+q.includes("สินค้าทั้งหมด") ||
+
+q.includes("สินค้าทุก") ||
+
+q === "สินค้า" ||
+
+q === "products"
+
+){
+
+return products.slice(
+0,
+20
+);
+
+}
+
+
+/* PRICE */
+
+const priceMatch =
+q.match(
+/(?:ไม่เกิน|ต่ำกว่า|ไม่ถึง|ราคาไม่เกิน)\s*(?:฿|บาท)?\s*([\d,]+)/
+);
+
+if(priceMatch){
+
+const limit =
+Number(
+priceMatch[1]
+.replace(/,/g,"")
+);
+
+return products
+
+.filter(
+item => {
+
+const price =
+Number(
+String(
+item.price ?? 0
+)
+.replace(/,/g,"")
+);
+
+return (
+price > 0 &&
+price <= limit
+);
+
+}
+)
+
+.sort(
+(a,b) =>
+Number(a.price || 0) -
+Number(b.price || 0)
+)
+
+.slice(
+0,
+20
+);
+
+}
+
+
+return products
+
+.map(
+item => ({
+
+item:item,
+
+score:
+scoreItem(
+item,
+query
+)
+
+})
+)
+
+.filter(
+result =>
+result.score > 0
+)
+
+.sort(
+(a,b) =>
+b.score - a.score
+)
+
+.slice(
+0,
+20
+)
+
+.map(
+result =>
+result.item
+);
+
+}
+
+
+/* =====================================================
+   SEARCH VIDEOS
+===================================================== */
+
+function searchVideos(query){
+
+const q =
+normalize(query);
+
+
+/* ALL */
+
+if(
+
+q.includes("คลิปทั้งหมด") ||
+
+q.includes("วิดีโอทั้งหมด") ||
+
+q === "คลิป" ||
+
+q === "video" ||
+
+q === "videos"
+
+){
+
+return videos.slice(
+0,
+20
+);
+
+}
+
+
+return videos
+
+.map(
+item => ({
+
+item:item,
+
+score:
+scoreItem(
+item,
+query
+)
+
+})
+)
+
+.filter(
+result =>
+result.score > 0
+)
+
+.sort(
+(a,b) =>
+b.score - a.score
+)
+
+.slice(
+0,
+20
+)
+
+.map(
+result =>
+result.item
+);
+
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+function createProductCard(
+item
+){
+
+const name =
+escapeHTML(
+item.name ||
+item.title ||
+"สินค้า"
+);
+
+const description =
+escapeHTML(
+item.description ||
+"ไม่มีรายละเอียด"
+);
+
+const image =
+item.image ||
+item.thumbnail ||
+item.img ||
+"";
+
+const price =
+item.price !== undefined &&
+item.price !== null &&
+item.price !== ""
+
+?
+
+"฿" +
+escapeHTML(
+Number(
+item.price
+).toLocaleString(
+"th-TH"
+)
+)
+
+:
+
+"";
+
+const link =
+item.orderUrl ||
+item.buyLink ||
+item.orderLink ||
+item.order ||
+item.link ||
+"#";
+
+
+return `
+
+<div class="result-card">
+
+${
+image
+?
+
+`
+
+<img
+src="${escapeHTML(image)}"
+alt="${name}"
+loading="lazy"
+onerror="
+this.style.display='none'
+"
+>
+
+`
+
+:
+
+""
+}
+
+<div class="result-content">
+
+<div class="result-name">
+
+${name}
+
+</div>
+
+<div class="result-description">
+
+${description}
+
+</div>
+
+${
+price
+?
+
+`
+
+<div class="result-price">
+
+${price}
+
+</div>
+
+`
+
+:
+
+""
+}
+
+${
+link !== "#"
+?
+
+`
+
+<a
+class="result-btn"
+href="${escapeHTML(link)}"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+🛒 สั่งซื้อ
+
+</a>
+
+`
+
+:
+
+""
+}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   VIDEO CARD
+===================================================== */
+
+function createVideoCard(
+item
+){
+
+const title =
+escapeHTML(
+item.title ||
+item.name ||
+"วิดีโอ"
+);
+
+const description =
+escapeHTML(
+item.description ||
+"วิดีโอ Ryu XP"
+);
+
+const image =
+item.thumbnail ||
+item.image ||
+"";
+
+const link =
+item.url ||
+item.videoUrl ||
+item.link ||
+"#";
+
+
+return `
+
+<div class="result-card">
+
+${
+image
+?
+
+`
+
+<img
+src="${escapeHTML(image)}"
+alt="${title}"
+loading="lazy"
+onerror="
+this.style.display='none'
+"
+>
+
+`
+
+:
+
+""
+}
+
+<div class="result-content">
+
+<div class="result-name">
+
+🎬 ${title}
+
+</div>
+
+<div class="result-description">
+
+${description}
+
+</div>
+
+${
+link !== "#"
+?
+
+`
+
+<a
+class="result-btn video"
+href="${escapeHTML(link)}"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+▶️ ดูคลิป
+
+</a>
+
+`
+
+:
+
+""
+}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   CREATE RESULTS
+===================================================== */
+
+function createResults(
+productResults,
+videoResults
+){
+
+let html = "";
+
+
+if(
+productResults.length
+){
+
+html += `
+
+<div class="result-area">
+
+<div class="result-title">
+
+🛍️ สินค้า
+(${productResults.length})
+
+</div>
+
+<div class="result-grid">
+
+${productResults
+.map(
+createProductCard
+)
+.join("")}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+if(
+videoResults.length
+){
+
+html += `
+
+<div
+class="result-area"
+>
+
+<div class="result-title">
+
+🎬 วิดีโอ
+(${videoResults.length})
+
+</div>
+
+<div class="result-grid">
+
+${videoResults
+.map(
+createVideoCard
+)
+.join("")}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+return html;
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function getDateResponse(){
+
+const now =
+new Date();
+
+const days = [
+
+"วันอาทิตย์",
+"วันจันทร์",
+"วันอังคาร",
+"วันพุธ",
+"วันพฤหัสบดี",
+"วันศุกร์",
+"วันเสาร์"
+
+];
+
+const months = [
+
+"มกราคม",
+"กุมภาพันธ์",
+"มีนาคม",
+"เมษายน",
+"พฤษภาคม",
+"มิถุนายน",
+"กรกฎาคม",
+"สิงหาคม",
+"กันยายน",
+"ตุลาคม",
+"พฤศจิกายน",
+"ธันวาคม"
+
+];
+
+const day =
+days[now.getDay()];
+
+const date =
+now.getDate();
+
+const month =
+months[now.getMonth()];
+
+const year =
+now.getFullYear() + 543;
+
+
+return `
+
+📅 วันนี้คือ <b>${day}</b>
+
+<br>
+
+วันที่ <b>${date} ${month} ${year}</b>
+
+`;
+
+}
+
+
+/* =====================================================
+   TIME
+===================================================== */
+
+function getTimeResponse(){
+
+const now =
+new Date();
+
+const time =
+now.toLocaleTimeString(
+"th-TH",
+{
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
+}
+);
+
+return `
+
+🕐 ตอนนี้เวลา
+<b>${escapeHTML(time)}</b>
+น.
+
+`;
+
+}
+
+
+/* =====================================================
+   WEATHER
+===================================================== */
+
+async function getWeather(){
+
+return new Promise(
+resolve => {
+
+if(
+!navigator.geolocation
+){
+
+resolve(
+"❌ เบราว์เซอร์นี้ไม่รองรับการระบุตำแหน่งครับ"
+);
+
+return;
+
+}
+
+
+navigator.geolocation.getCurrentPosition(
+
+async position => {
+
+try{
+
+const lat =
+position.coords.latitude;
+
+const lon =
+position.coords.longitude;
+
+
+/*
+   Open-Meteo
+*/
+
+const url =
+"https://api.open-meteo.com/v1/forecast" +
+
+"?latitude=" +
+lat +
+
+"&longitude=" +
+lon +
+
+"&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m" +
+
+"&timezone=auto";
+
+
+const response =
+await fetch(url);
+
+if(
+!response.ok
+){
+
+throw new Error(
+"Weather API error"
+);
+
+}
+
+const data =
+await response.json();
+
+const current =
+data.current;
+
+
+/* WEATHER CODE */
+
+const weather =
+getWeatherText(
+current.weather_code
+);
+
+const temp =
+Math.round(
+current.temperature_2m
+);
+
+const feels =
+Math.round(
+current.apparent_temperature
+);
+
+const humidity =
+current.relative_humidity_2m;
+
+const wind =
+current.wind_speed_10m;
+
+
+resolve(`
+
+<div class="weather-card">
+
+<div class="weather-main">
+
+<div class="weather-icon">
+
+${weather.icon}
+
+</div>
+
+<div>
+
+<div class="weather-temp">
+
+${temp}°C
+
+</div>
+
+<div>
+
+${weather.text}
+
+</div>
+
+</div>
+
+</div>
+
+<div class="weather-info">
+
+🌡️ รู้สึกเหมือน ${feels}°C
+
+<br>
+
+💧 ความชื้น ${humidity}%
+
+<br>
+
+💨 ลม ${wind} km/h
+
+<br><br>
+
+📍 ใช้ตำแหน่งปัจจุบันของคุณในการตรวจสอบสภาพอากาศ
+
+</div>
+
+</div>
+
+`);
+
+}
+
+catch(error){
+
+console.log(
+error
+);
+
+resolve(
+
+"❌ ไม่สามารถโหลดข้อมูลสภาพอากาศได้ในขณะนี้ครับ"
+
+);
+
+}
+
+},
+
+error => {
+
+resolve(`
+
+❌ ไม่สามารถดูสภาพอากาศได้ครับ
+
+<br><br>
+
+กรุณาอนุญาตให้เว็บไซต์เข้าถึงตำแหน่งของคุณก่อน
+
+`);
+
+},
+
+{
+
+enableHighAccuracy:false,
+
+timeout:10000,
+
+maximumAge:300000
+
+}
+
+);
+
+}
+);
+
+}
+
+
+/* =====================================================
+   WEATHER TEXT
+===================================================== */
+
+function getWeatherText(
+code
+){
+
+if(code === 0){
+
+return {
+icon:"☀️",
+text:"ท้องฟ้าแจ่มใส"
+};
+
+}
+
+if(
+code === 1 ||
+code === 2
+){
+
+return {
+icon:"🌤️",
+text:"มีเมฆบางส่วน"
+};
+
+}
+
+if(code === 3){
+
+return {
+icon:"☁️",
+text:"มีเมฆมาก"
+};
+
+}
+
+if(
+code >= 45 &&
+code <= 48
+){
+
+return {
+icon:"🌫️",
+text:"มีหมอก"
+};
+
+}
+
+if(
+code >= 51 &&
+code <= 67
+){
+
+return {
+icon:"🌧️",
+text:"มีฝน"
+};
+
+}
+
+if(
+code >= 71 &&
+code <= 77
+){
+
+return {
+icon:"❄️",
+text:"หิมะ"
+};
+
+}
+
+if(
+code >= 80 &&
+code <= 82
+){
+
+return {
+icon:"🌧️",
+text:"ฝนตก"
+};
+
+}
+
+if(
+code >= 95
+){
+
+return {
+icon:"⛈️",
+text:"พายุฝนฟ้าคะนอง"
+};
+
+}
+
+return {
+
+icon:"🌤️",
+
+text:"สภาพอากาศไม่ทราบ"
+
+};
+
+}
+
+
+/* =====================================================
+   CALCULATOR
+===================================================== */
+
+function calculateMath(query){
+
+let expression =
+query;
+
+
+/*
+   แปลงภาษาไทย
+*/
+
+expression =
+expression
+
+.replace(/คูณ/g,"*")
+.replace(/×/g,"*")
+.replace(/÷/g,"/")
+.replace(/หาร/g,"/")
+.replace(/บวก/g,"+")
+.replace(/ลบ/g,"-")
+.replace(/เท่ากับ/g,"")
+.replace(/=/g,"");
+
+
+/*
+   percentage
+   20% ของ 500
+*/
+
+const percent =
+expression.match(
+/(\d+(?:\.\d+)?)\s*%\s*(?:ของ|of)\s*(\d+(?:\.\d+)?)/
+);
+
+if(percent){
+
+const a =
+Number(percent[1]);
+
+const b =
+Number(percent[2]);
+
+return {
+found:true,
+result:
+(a / 100) * b
+};
+
+}
+
+
+/*
+   เอาเฉพาะนิพจน์
+*/
+
+const clean =
+expression.replace(
+/[^0-9+\-*/().%\s]/g,
+""
+).trim();
+
+
+/*
+   ต้องมีตัวเลข
+*/
+
+if(
+!/\d/.test(clean)
+){
+
+return {
+found:false
+};
+
+}
+
+
+/*
+   ป้องกันข้อความมั่ว
+*/
+
+if(
+!/[+\-*/%]/.test(clean)
+){
+
+return {
+found:false
+};
+
+}
+
+
+/*
+   ตรวจความปลอดภัย
+*/
+
+if(
+clean.length > 100
+){
+
+return {
+found:false
+};
+
+}
+
+
+try{
+
+/*
+   คำนวณหลังจากกรองอักขระ
+*/
+
+const result =
+Function(
+'"use strict"; return (' +
+clean +
+')'
+)();
+
+
+if(
+typeof result !== "number" ||
+!Number.isFinite(result)
+){
+
+return {
+found:false
+};
+
+}
+
+
+return {
+
+found:true,
+
+result:result
+
+};
+
+}
+
+catch(error){
+
+return {
+found:false
+};
+
+}
+
+}
+
+
+/* =====================================================
+   DETECT MATH
+===================================================== */
+
+function isMathQuestion(
+query
+){
+
+const q =
+normalize(query);
+
+if(
+/\d+\s*[\+\-\*\/×÷]\s*\d+/
+.test(q)
+){
+
+return true;
+
+}
+
+if(
+/\d+\s*%\s*(ของ|of)/
+.test(q)
+){
+
+return true;
+
+}
+
+if(
+q.includes("คูณ") ||
+q.includes("หาร") ||
+q.includes("บวก") ||
+q.includes("ลบ")
+){
+
+return true;
+
+}
+
+return false;
+
+}
+
+
+/* =====================================================
+   GENERAL AI
+===================================================== */
+
+function generalResponse(
+query
+){
+
+const q =
+normalize(query);
+
+
+/* GREETING */
+
+if(
+q === "สวัสดี" ||
+q.includes("สวัสดีครับ") ||
+q.includes("สวัสดีค่ะ") ||
+q.includes("hello") ||
+q.includes("hi")
+){
+
+return `
+
+👋 สวัสดีครับ!
+
+ผม <b>Ryu XP AI</b> ยินดีที่ได้คุยด้วยครับ 😊
+
+<br><br>
+
+วันนี้อยากคุยเรื่องอะไรกับผมดีครับ?
+
+`;
+
+}
+
+
+/* HOW ARE YOU */
+
+if(
+q.includes("เป็นไงบ้าง") ||
+q.includes("สบายดีไหม") ||
+q.includes("เป็นยังไงบ้าง")
+){
+
+return `
+
+ผมสบายดีครับ 😄
+
+พร้อมช่วยคุณเต็มที่เลย
+
+<br><br>
+
+จะให้ผมค้นสินค้า ค้นคลิป คำนวณเลข
+หรือคุยเล่นก็ได้ครับ
+
+`;
+
+}
+
+
+/* NAME */
+
+if(
+q.includes("ชื่ออะไร") ||
+q.includes("คุณชื่ออะไร")
+){
+
+return `
+
+ผมชื่อ <b>Ryu XP AI</b> ครับ ✦
+
+เป็นผู้ช่วย AI ของเว็บไซต์ Ryu XP
+
+`;
+
+}
+
+
+/* WHO */
+
+if(
+q.includes("คุณคือใคร") ||
+q.includes("ทำอะไรได้")
+){
+
+return `
+
+ผมคือ <b>Ryu XP AI</b> ครับ 🤖
+
+ผมสามารถ:
+
+<br><br>
+
+🛍️ ค้นหาสินค้า
+
+<br>
+🎬 ค้นหาคลิป
+
+<br>
+🧮 คำนวณคณิตศาสตร์
+
+<br>
+📅 บอกวันที่
+
+<br>
+🕐 บอกเวลา
+
+<br>
+🌤️ ตรวจสอบสภาพอากาศ
+
+<br>
+💬 และพูดคุยเรื่องทั่วไป
+
+`;
+
+}
+
+
+/* THANKS */
+
+if(
+q.includes("ขอบคุณ") ||
+q.includes("thank")
+){
+
+return `
+
+ยินดีครับ 😊
+
+ถ้ามีอะไรให้ช่วยอีก เรียกผมได้เลยครับ!
+
+`;
+
+}
+
+
+/* BYE */
+
+if(
+q.includes("ลาก่อน") ||
+q === "บาย" ||
+q.includes("บ๊ายบาย")
+){
+
+return `
+
+บ๊ายบายครับ 👋
+
+ไว้กลับมาคุยกันใหม่ครับ!
+
+`;
+
+}
+
+
+/* JOKE */
+
+if(
+q.includes("เล่าเรื่องตลก") ||
+q.includes("มุกตลก")
+){
+
+return `
+
+ได้ครับ 😂
+
+ทำไมคอมพิวเตอร์ถึงไปหาหมอ?
+
+<br><br>
+
+เพราะมันมี <b>ไวรัส</b> ครับ 🤣
+
+`;
+
+}
+
+
+/* UNKNOWN */
+
+return `
+
+ผมเข้าใจข้อความว่า
+
+<br><br>
+
+<b>“${escapeHTML(query)}”</b>
+
+<br><br>
+
+แต่เรื่องนี้ผมอาจยังตอบได้ไม่ดีพอครับ 😅
+
+<br><br>
+
+ถ้าต้องการค้นข้อมูลภายในเว็บไซต์
+ลองถามเรื่อง <b>สินค้า</b> หรือ <b>คลิป</b> ได้เลยครับ
+
+`;
+
+}
+
+
+/* =====================================================
+   RESPONSE
+===================================================== */
+
+async function getResponse(
+query
+){
+
+const q =
+normalize(query);
+
+
+/* =====================================================
+   WEATHER
+===================================================== */
+
+if(
+
+q.includes("อากาศ") ||
+q.includes("สภาพอากาศ") ||
+q.includes("ฝนตกไหม") ||
+q.includes("อุณหภูมิ")
+
+){
+
+return await getWeather();
+
+}
+
+
+/* =====================================================
+   TIME
+===================================================== */
+
+if(
+
+q.includes("กี่โมง") ||
+q.includes("เวลาอะไร") ||
+q.includes("เวลาตอนนี้") ||
+q.includes("เวลาปัจจุบัน")
+
+){
+
+return getTimeResponse();
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+if(
+
+q.includes("วันนี้วันที่") ||
+q.includes("วันที่เท่าไหร่") ||
+q.includes("วันนี้วันอะไร") ||
+q.includes("วันอะไรวันนี้")
+
+){
+
+return getDateResponse();
+
+}
+
+
+/* =====================================================
+   MATH
+===================================================== */
+
+if(
+isMathQuestion(query)
+){
+
+const calculation =
+calculateMath(query);
+
+if(
+calculation.found
+){
+
+return `
+
+🧮 คำตอบคือ
+
+<br><br>
+
+<b style="
+font-size:28px;
+">
+
+${Number(
+calculation.result
+).toLocaleString(
+"th-TH",
+{
+maximumFractionDigits:10
+}
+)}
+
+</b>
+
+`;
+
+}
+
+}
+
+
+/* =====================================================
+   SEARCH TYPE
+===================================================== */
+
+let productResults = [];
+
+let videoResults = [];
+
+
+/*
+   ตรวจว่าต้องการสินค้าไหม
+*/
+
+const productIntent = [
+
+"สินค้า",
+"ซื้อ",
+"ราคา",
+"บาท",
+"shop",
+"product",
+"ของ"
+
+].some(
+word =>
+q.includes(word)
+);
+
+
+/*
+   ตรวจว่าต้องการคลิปไหม
+*/
+
+const videoIntent = [
+
+"คลิป",
+"วิดีโอ",
+"video",
+"youtube",
+"สอน",
+"ดูคลิป"
+
+].some(
+word =>
+q.includes(word)
+);
+
+
+/* SEARCH */
+
+if(
+productIntent ||
+(!productIntent && !videoIntent)
+){
+
+productResults =
+searchProducts(query);
+
+}
+
+
+if(
+videoIntent ||
+(!productIntent && !videoIntent)
+){
+
+videoResults =
+searchVideos(query);
+
+}
+
+
+/* =====================================================
+   RESULTS
+===================================================== */
+
+if(
+productResults.length ||
+videoResults.length
+){
+
+let text = "";
+
+if(
+productResults.length
+){
+
+text += `
+
+พบสินค้า
+<b>${productResults.length}</b>
+รายการครับ 🛍️
+
+`;
+
+}
+
+if(
+videoResults.length
+){
+
+text += `
+
+พบวิดีโอ
+<b>${videoResults.length}</b>
+รายการครับ 🎬
+
+`;
+
+}
+
+return `
+
+${text}
+
+${createResults(
+productResults,
+videoResults
+)}
+
+`;
+
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+return generalResponse(
+query
+);
+
+}
+
+
+/* =====================================================
+   SEND
 ===================================================== */
 
 async function sendMessage(){
 
-  const query =
-    input.value.trim();
+const query =
+input.value.trim();
+
+if(!query){
+
+return;
+
+}
+
+sendBtn.disabled =
+true;
 
 
-  if(!query){
+/* USER */
 
-    return;
+addMessage(
+escapeHTML(query),
+"user"
+);
 
-  }
-
-
-  sendBtn.disabled = true;
-
-
-  /* USER */
-
-  addMessage(
-    escapeHTML(query),
-    "user"
-  );
+input.value = "";
 
 
-  input.value = "";
+/* LOAD */
+
+if(!dataLoaded){
+
+await loadData();
+
+}
 
 
-  /* LOAD */
+/* TYPING */
 
-  if(
-    !productsLoaded
-  ){
-
-    await loadProducts();
-
-  }
+showTyping();
 
 
-  /* TYPING */
+try{
 
-  showTyping();
-
-
-  setTimeout(
-    function(){
-
-      hideTyping();
+const response =
+await getResponse(
+query
+);
 
 
-      const type =
-        detectType(query);
+/*
+   ทำให้เหมือน AI กำลังคิด
+*/
 
+const delay =
+Math.min(
+1200,
+Math.max(
+400,
+response.length * 8
+)
+);
 
-      let response = null;
+setTimeout(
+function(){
 
+hideTyping();
 
-      /* SEARCH */
+addMessage(
+response,
+"ai"
+);
 
-      if(
-        type !==
-        "conversation"
-      ){
+sendBtn.disabled =
+false;
 
-        response =
-          searchResponse(
-            query
-          );
+input.focus();
 
-      }
+},
+delay
+);
 
+}
 
-      /* ถ้าค้นไม่เจอ
-         ลองเป็นบทสนทนา */
+catch(error){
 
-      if(!response){
+console.log(error);
 
-        response =
-          conversationResponse(
-            query
-          );
+hideTyping();
 
-      }
+addMessage(
 
+"❌ เกิดข้อผิดพลาดครับ ลองใหม่อีกครั้งได้เลย",
 
-      addMessage(
-        response,
-        "ai"
-      );
+"ai"
 
+);
 
-      sendBtn.disabled =
-        false;
+sendBtn.disabled =
+false;
 
+input.focus();
 
-      input.focus();
-
-
-    },
-    550
-  );
+}
 
 }
 
@@ -3112,7 +3544,7 @@ async function sendMessage(){
    START
 ===================================================== */
 
-loadProducts();
+loadData();
 
 input.focus();
 
