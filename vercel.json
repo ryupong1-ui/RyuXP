@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/:path((?!close\\.html$).*)",
+      "source": "/shop.html",
       "destination": "/close.html"
     }
   ]
