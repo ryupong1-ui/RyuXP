@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "close.html"
+      "source": "/:path*",
+      "destination": "/close.html"
     }
   ]
 }
