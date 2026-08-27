@@ -10,6 +10,7 @@
 
 <title>Ryu XP AI</title>
 
+
 <style>
 
 /* =====================================================
@@ -67,15 +68,13 @@ nav{
 
   padding:15px 25px;
 
-  background:
-    rgba(0,0,0,.5);
+  background:rgba(0,0,0,.5);
 
   backdrop-filter:blur(15px);
 
   border-bottom:
     1px solid
-    #ffffff10;
-
+    #ffffff0d;
 }
 
 
@@ -94,7 +93,6 @@ nav{
   font-size:22px;
 
   font-weight:bold;
-
 }
 
 
@@ -106,8 +104,9 @@ nav{
 
   border-radius:50%;
 
-  transition:.4s;
+  object-fit:cover;
 
+  transition:.4s;
 }
 
 
@@ -119,7 +118,6 @@ nav{
 
   box-shadow:
     0 0 20px #00bfff;
-
 }
 
 
@@ -134,8 +132,9 @@ nav{
 
   -webkit-background-clip:text;
 
-  color:transparent;
+  background-clip:text;
 
+  color:transparent;
 }
 
 
@@ -148,7 +147,6 @@ nav{
   display:flex;
 
   gap:15px;
-
 }
 
 
@@ -163,7 +161,6 @@ nav{
   border-radius:10px;
 
   transition:.3s;
-
 }
 
 
@@ -175,7 +172,6 @@ nav{
 
   transform:
     translateY(-3px);
-
 }
 
 
@@ -190,11 +186,13 @@ nav{
 
   color:black;
 
+  box-shadow:
+    0 0 15px #00bfff55;
 }
 
 
 /* =====================================================
-   MOBILE MENU
+   MOBILE MENU BUTTON
 ===================================================== */
 
 .menu-btn{
@@ -210,7 +208,6 @@ nav{
   padding:5px 12px;
 
   border-radius:10px;
-
 }
 
 
@@ -227,8 +224,7 @@ nav{
   margin:auto;
 
   padding:
-    55px 0 100px;
-
+    60px 0 120px;
 }
 
 
@@ -241,25 +237,24 @@ nav{
   text-align:center;
 
   animation:fade 1s;
-
 }
 
 
-.ai-logo{
+.ai-icon{
 
-  width:75px;
+  width:80px;
 
-  height:75px;
+  height:80px;
 
   margin:auto;
 
   display:flex;
 
-  align-items:center;
-
   justify-content:center;
 
-  border-radius:22px;
+  align-items:center;
+
+  border-radius:25px;
 
   background:
     linear-gradient(
@@ -268,24 +263,26 @@ nav{
       #00ffcc
     );
 
-  color:#000;
+  color:black;
 
   font-size:38px;
 
   font-weight:bold;
 
   box-shadow:
-    0 0 35px #00bfff66;
+    0 0 35px #00bfff88;
 
+  animation:
+    aiGlow 2s infinite alternate;
 }
 
 
 .ai-header h1{
 
-  font-size:50px;
-
   margin:
-    18px 0 8px;
+    20px 0 10px;
+
+  font-size:50px;
 
   background:
     linear-gradient(
@@ -296,24 +293,24 @@ nav{
 
   -webkit-background-clip:text;
 
-  color:transparent;
+  background-clip:text;
 
+  color:transparent;
 }
 
 
 .ai-header p{
 
+  margin:0;
+
   color:#aaa;
 
   font-size:18px;
-
-  margin:0;
-
 }
 
 
 /* =====================================================
-   QUICK BUTTONS
+   QUICK SEARCH
 ===================================================== */
 
 .quick-buttons{
@@ -327,8 +324,7 @@ nav{
   gap:10px;
 
   margin:
-    30px auto;
-
+    30px 0;
 }
 
 
@@ -339,11 +335,11 @@ nav{
     #ffffff18;
 
   padding:
-    11px 17px;
+    11px 18px;
 
   border-radius:25px;
 
-  background:#151515;
+  background:#111;
 
   color:#aaa;
 
@@ -352,7 +348,6 @@ nav{
   font-weight:bold;
 
   transition:.3s;
-
 }
 
 
@@ -367,7 +362,6 @@ nav{
 
   box-shadow:
     0 0 20px #00bfff55;
-
 }
 
 
@@ -382,9 +376,12 @@ nav{
   flex-direction:column;
 
   gap:20px;
-
 }
 
+
+/* =====================================================
+   MESSAGE
+===================================================== */
 
 .message{
 
@@ -392,22 +389,20 @@ nav{
 
   width:100%;
 
-  animation:fade .35s;
-
+  animation:
+    messageFade .35s;
 }
 
 
 .message.user{
 
   justify-content:flex-end;
-
 }
 
 
 .message.ai{
 
   justify-content:flex-start;
-
 }
 
 
@@ -420,10 +415,9 @@ nav{
 
   border-radius:18px;
 
-  font-size:15px;
-
   line-height:1.7;
 
+  font-size:15px;
 }
 
 
@@ -436,29 +430,32 @@ nav{
       #00ffcc
     );
 
-  color:#000;
-
-  border-bottom-right-radius:5px;
+  color:black;
 
   font-weight:600;
 
+  border-bottom-right-radius:5px;
+
+  box-shadow:
+    0 0 20px #00bfff33;
 }
 
 
 .ai .bubble{
 
-  background:#111;
+  background:
+    rgba(17,17,17,.9);
 
   border:
     1px solid
     #ffffff12;
 
+  color:#ddd;
+
   border-bottom-left-radius:5px;
 
   box-shadow:
-    0 5px 25px
-    rgba(0,0,0,.25);
-
+    0 5px 25px rgba(0,0,0,.3);
 }
 
 
@@ -468,41 +465,24 @@ nav{
 
 .result-section{
 
-  width:100%;
-
   margin-top:15px;
-
 }
 
 
 .result-title{
 
-  font-size:21px;
+  font-size:20px;
 
   font-weight:bold;
 
   margin:
-    10px 0 15px;
+    0 0 15px;
 
-  background:
-    linear-gradient(
-      90deg,
-      #00bfff,
-      #00ffcc
-    );
-
-  -webkit-background-clip:text;
-
-  color:transparent;
-
+  color:white;
 }
 
 
-/* =====================================================
-   RESULTS GRID
-===================================================== */
-
-.results{
+.result-grid{
 
   display:grid;
 
@@ -513,112 +493,89 @@ nav{
     );
 
   gap:20px;
-
 }
 
 
 /* =====================================================
-   CARD
+   RESULT CARD
 ===================================================== */
 
-.card{
-
-  background:#111;
-
-  border-radius:18px;
+.result-card{
 
   overflow:hidden;
 
+  background:#111;
+
   border:
     1px solid
-    #ffffff0d;
+    #ffffff10;
+
+  border-radius:18px;
 
   transition:.35s;
 
-  animation:fade .5s;
-
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.25);
 }
 
 
-.card:hover{
+.result-card:hover{
 
   transform:
     translateY(-7px);
 
-  box-shadow:
-    0 0 25px #00bfff55;
+  border-color:#00bfff55;
 
+  box-shadow:
+    0 0 30px #00bfff33;
 }
 
 
-/* =====================================================
-   IMAGE
-===================================================== */
-
-.card-image{
+.result-image{
 
   width:100%;
 
-  height:170px;
+  height:160px;
 
   object-fit:cover;
 
   display:block;
 
-  background:#222;
-
+  background:#050505;
 }
 
 
-.card-image.no-image{
+.result-content{
 
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
+  padding:17px;
 }
 
 
-/* =====================================================
-   CARD INFO
-===================================================== */
-
-.card-info{
-
-  padding:18px;
-
-}
-
-
-.card-name{
+.result-name{
 
   font-size:18px;
 
   font-weight:bold;
 
-  line-height:1.45;
+  line-height:1.5;
 
   margin-bottom:8px;
-
 }
 
 
-.card-description{
+.result-description{
 
   color:#999;
 
   font-size:14px;
 
-  line-height:1.55;
+  line-height:1.6;
 
-  min-height:43px;
-
+  min-height:44px;
 }
 
 
-.card-price{
+.result-price{
 
   margin-top:12px;
 
@@ -635,8 +592,9 @@ nav{
 
   -webkit-background-clip:text;
 
-  color:transparent;
+  background-clip:text;
 
+  color:transparent;
 }
 
 
@@ -644,7 +602,7 @@ nav{
    BUTTON
 ===================================================== */
 
-.card-button{
+.result-button{
 
   display:block;
 
@@ -652,11 +610,19 @@ nav{
 
   margin-top:14px;
 
-  padding:12px;
+  padding:11px;
 
   border:none;
 
   border-radius:25px;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  font-weight:bold;
+
+  cursor:pointer;
 
   background:
     linear-gradient(
@@ -665,29 +631,19 @@ nav{
       #00ffcc
     );
 
-  color:#000;
-
-  text-decoration:none;
-
-  text-align:center;
-
-  font-weight:bold;
-
-  cursor:pointer;
+  color:black;
 
   transition:.3s;
-
 }
 
 
-.card-button:hover{
+.result-button:hover{
 
   transform:
     scale(1.03);
 
   box-shadow:
-    0 0 20px #00bfff;
-
+    0 0 20px #00bfff88;
 }
 
 
@@ -696,7 +652,6 @@ nav{
   background:#222;
 
   color:white;
-
 }
 
 
@@ -704,8 +659,7 @@ nav{
 
   background:#00bfff;
 
-  color:#000;
-
+  color:black;
 }
 
 
@@ -715,21 +669,19 @@ nav{
 
 .empty{
 
-  padding:
-    35px 20px;
+  padding:35px;
 
   text-align:center;
 
   color:#777;
 
+  background:#111;
+
   border:
     1px solid
     #ffffff0d;
 
-  background:#111;
-
   border-radius:18px;
-
 }
 
 
@@ -741,10 +693,9 @@ nav{
 
   display:flex;
 
-  gap:6px;
-
   align-items:center;
 
+  gap:6px;
 }
 
 
@@ -754,47 +705,37 @@ nav{
 
   height:8px;
 
-  background:#00bfff;
-
   border-radius:50%;
 
-  animation:typing 1.2s infinite;
+  background:#00bfff;
 
+  animation:
+    typing 1.2s infinite;
 }
 
 
 .typing span:nth-child(2){
 
   animation-delay:.15s;
-
 }
 
 
 .typing span:nth-child(3){
 
   animation-delay:.3s;
-
 }
 
 
 @keyframes typing{
 
   0%,60%,100%{
-
-    transform:
-      translateY(0);
-
+    transform:translateY(0);
     opacity:.4;
-
   }
 
   30%{
-
-    transform:
-      translateY(-6px);
-
+    transform:translateY(-6px);
     opacity:1;
-
   }
 
 }
@@ -822,9 +763,8 @@ nav{
   background:
     linear-gradient(
       transparent,
-      #050505 30%
+      #050505 35%
     );
-
 }
 
 
@@ -832,7 +772,7 @@ nav{
 
   width:90%;
 
-  max-width:1000px;
+  max-width:1100px;
 
   margin:auto;
 
@@ -844,20 +784,18 @@ nav{
 
   border:
     1px solid
-    #ffffff20;
+    #ffffff18;
 
-  border-radius:18px;
+  border-radius:20px;
 
   background:
-    rgba(10,10,10,.9);
+    rgba(17,17,17,.95);
 
   backdrop-filter:
     blur(20px);
 
   box-shadow:
-    0 0 30px
-    rgba(0,0,0,.5);
-
+    0 0 30px rgba(0,0,0,.5);
 }
 
 
@@ -868,7 +806,7 @@ nav{
   min-width:0;
 
   padding:
-    13px;
+    13px 15px;
 
   border:none;
 
@@ -878,27 +816,25 @@ nav{
 
   color:white;
 
-  font-size:15px;
-
+  font-size:16px;
 }
 
 
 #messageInput::placeholder{
 
-  color:#666;
-
+  color:#777;
 }
 
 
 .send-button{
 
-  width:45px;
+  width:46px;
 
-  height:45px;
+  height:46px;
 
   border:none;
 
-  border-radius:14px;
+  border-radius:15px;
 
   background:
     linear-gradient(
@@ -907,16 +843,15 @@ nav{
       #00ffcc
     );
 
-  color:#000;
+  color:black;
 
-  font-size:19px;
+  font-size:20px;
 
   font-weight:bold;
 
   cursor:pointer;
 
   transition:.3s;
-
 }
 
 
@@ -927,18 +862,16 @@ nav{
 
   box-shadow:
     0 0 20px #00bfff;
-
 }
 
 
 .send-button:disabled{
 
-  opacity:.4;
+  opacity:.5;
 
   cursor:not-allowed;
 
   transform:none;
-
 }
 
 
@@ -950,15 +883,13 @@ footer{
 
   text-align:center;
 
-  padding:
-    30px;
+  padding:30px;
 
-  color:#666;
+  color:#777;
 
   border-top:
     1px solid
     #ffffff0d;
-
 }
 
 
@@ -973,7 +904,7 @@ footer{
     opacity:0;
 
     transform:
-      translateY(20px);
+      translateY(30px);
 
   }
 
@@ -982,6 +913,47 @@ footer{
     opacity:1;
 
     transform:none;
+
+  }
+
+}
+
+
+@keyframes messageFade{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(10px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:none;
+
+  }
+
+}
+
+
+@keyframes aiGlow{
+
+  from{
+
+    box-shadow:
+      0 0 20px #00bfff55;
+
+  }
+
+  to{
+
+    box-shadow:
+      0 0 45px #00bfffaa;
 
   }
 
@@ -997,15 +969,13 @@ footer{
   nav{
 
     padding:
-      12px 15px;
-
+      15px;
   }
 
 
   .menu-btn{
 
     display:block;
-
   }
 
 
@@ -1013,7 +983,7 @@ footer{
 
     position:absolute;
 
-    top:70px;
+    top:75px;
 
     right:15px;
 
@@ -1034,8 +1004,7 @@ footer{
     transform:
       translateX(120%);
 
-    transition:.35s;
-
+    transition:.4s;
   }
 
 
@@ -1043,7 +1012,12 @@ footer{
 
     transform:
       translateX(0);
+  }
 
+
+  .menu a{
+
+    text-align:center;
   }
 
 
@@ -1051,36 +1025,23 @@ footer{
 
     width:92%;
 
-    padding-top:35px;
-
+    padding-top:40px;
   }
 
 
   .ai-header h1{
 
-    font-size:36px;
-
+    font-size:35px;
   }
 
 
-  .ai-header p{
+  .ai-icon{
 
-    font-size:14px;
+    width:70px;
 
-  }
+    height:70px;
 
-
-  .bubble{
-
-    max-width:94%;
-
-  }
-
-
-  .results{
-
-    grid-template-columns:1fr;
-
+    font-size:32px;
   }
 
 
@@ -1088,19 +1049,35 @@ footer{
 
     justify-content:flex-start;
 
-    overflow-x:auto;
-
     flex-wrap:nowrap;
 
-    padding-bottom:5px;
+    overflow-x:auto;
 
+    padding-bottom:5px;
   }
 
 
   .quick-button{
 
     white-space:nowrap;
+  }
 
+
+  .bubble{
+
+    max-width:94%;
+  }
+
+
+  .result-grid{
+
+    grid-template-columns:1fr;
+  }
+
+
+  .input-wrapper{
+
+    width:94%;
   }
 
 }
@@ -1124,9 +1101,6 @@ footer{
     <img
       src="ryu.jpg"
       alt="Ryu XP"
-      onerror="
-        this.style.display='none'
-      "
     >
 
     <span>
@@ -1153,15 +1127,13 @@ footer{
       Shop
     </a>
 
-    <a
-      href="ai.html"
-      class="active"
-    >
-      AI
-    </a>
-
     <a href="contact.html">
       Contact
+    </a>
+
+    <a href="ai.html"
+       class="active">
+      AI
     </a>
 
   </div>
@@ -1187,24 +1159,20 @@ footer{
 <main class="main">
 
 
-  <!-- ===================================================
-       AI HEADER
-  =================================================== -->
+  <!-- AI HEADER -->
 
   <section class="ai-header">
 
-    <div class="ai-logo">
+    <div class="ai-icon">
       ✦
     </div>
-
 
     <h1>
       Ryu XP AI
     </h1>
 
-
     <p>
-      ผู้ช่วยค้นหาสินค้าและคลิปวิดีโอของ Ryu XP
+      AI สำหรับค้นหาสินค้าและคลิปวิดีโอของ Ryu XP
     </p>
 
   </section>
@@ -1212,77 +1180,49 @@ footer{
 
 
   <!-- ===================================================
-       QUICK SEARCH
+       QUICK BUTTONS
   =================================================== -->
 
   <div class="quick-buttons">
 
-
     <button
       class="quick-button"
-      onclick="
-        quickSearch('หาสินค้าทั้งหมด')
-      "
+      onclick="quickSearch('หาสินค้าทั้งหมด')"
     >
-
       🛍️ สินค้าทั้งหมด
-
     </button>
 
 
     <button
       class="quick-button"
-      onclick="
-        quickSearch('หาคลิปทั้งหมด')
-      "
+      onclick="quickSearch('หาคลิปทั้งหมด')"
     >
-
       🎬 คลิปทั้งหมด
-
     </button>
 
 
     <button
       class="quick-button"
-      onclick="
-        quickSearch(
-          'สินค้าราคาไม่เกิน 500 บาท'
-        )
-      "
+      onclick="quickSearch('สินค้าราคาไม่เกิน 500 บาท')"
     >
-
-      💰 ราคาไม่เกิน 500
-
+      💰 ไม่เกิน 500 บาท
     </button>
 
 
     <button
       class="quick-button"
-      onclick="
-        quickSearch(
-          'หาคลิป Windows'
-        )
-      "
+      onclick="quickSearch('หาคลิป Windows')"
     >
-
       💻 คลิป Windows
-
     </button>
 
 
     <button
       class="quick-button"
-      onclick="
-        quickSearch(
-          'หาคลิป iPhone'
-        )
-      "
+      onclick="quickSearch('หาคลิป iPhone')"
     >
-
       📱 คลิป iPhone
-
     </button>
-
 
   </div>
 
@@ -1306,38 +1246,33 @@ footer{
 
         <br><br>
 
-        ผมสามารถค้นหาข้อมูลจากเว็บไซต์
-        <b>Ryu XP</b> ให้ได้ครับ
+        ผมสามารถค้นหา
+        <b>สินค้า</b>
+        จาก <b>products.json</b>
+        และค้นหา
+        <b>คลิป</b>
+        จาก <b>video.html</b>
+        ให้คุณได้ครับ 🎯
 
         <br><br>
 
-        🛍️ ค้นหาสินค้าจาก
-        <b>products.json</b>
+        ตัวอย่าง:
 
         <br>
 
-        🎬 ค้นหาคลิปจาก
-        <b>video.html</b>
-
-        <br><br>
-
-        ลองถามผมได้เลย เช่น
-
-        <br><br>
-
         • หาสาย USB-C
+
         <br>
 
         • สินค้าราคาไม่เกิน 500 บาท
+
         <br>
 
-        • หาคลิป Windows
+        • มีคลิปสอน Windows ไหม
+
         <br>
 
         • หาคลิป iPhone
-        <br>
-
-        • มีอะไรขายบ้าง
 
       </div>
 
@@ -1358,16 +1293,15 @@ footer{
   <div class="input-wrapper">
 
     <input
-      type="text"
       id="messageInput"
-      placeholder="🔎 ถามหา สินค้า หรือ คลิป..."
+      type="text"
+      placeholder="ถามหา商品 หรือคลิปวิดีโอ..."
       autocomplete="off"
     >
 
-
     <button
-      class="send-button"
       id="sendButton"
+      class="send-button"
       onclick="sendMessage()"
     >
 
@@ -1381,6 +1315,10 @@ footer{
 
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
   © 2026 Ryu XP.
@@ -1393,7 +1331,7 @@ footer{
 <script>
 
 /* =====================================================
-   DATABASE
+   DATA
 ===================================================== */
 
 let products = [];
@@ -1401,81 +1339,6 @@ let products = [];
 let videos = [];
 
 let dataLoaded = false;
-
-
-/* =====================================================
-   ELEMENT
-===================================================== */
-
-const input =
-  document.getElementById(
-    "messageInput"
-  );
-
-
-const sendButton =
-  document.getElementById(
-    "sendButton"
-  );
-
-
-const chatBox =
-  document.getElementById(
-    "chatBox"
-  );
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value){
-
-  return String(
-    value ?? ""
-  )
-
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-
-  .replace(
-    /</g,
-    "&lt;"
-  )
-
-  .replace(
-    />/g,
-    "&gt;"
-  )
-
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-
-  .replace(
-    /'/g,
-    "&#039;"
-  );
-
-}
-
-
-/* =====================================================
-   NORMALIZE
-===================================================== */
-
-function normalize(value){
-
-  return String(
-    value ?? ""
-  )
-  .toLowerCase()
-  .trim();
-
-}
 
 
 /* =====================================================
@@ -1487,12 +1350,9 @@ async function loadProducts(){
   try{
 
     const response =
-      await fetch(
-        "products.json",
-        {
-          cache:"no-store"
-        }
-      );
+      await fetch("products.json", {
+        cache:"no-store"
+      });
 
 
     if(!response.ok){
@@ -1524,7 +1384,7 @@ async function loadProducts(){
   catch(error){
 
     console.error(
-      "Products error:",
+      "Product loading error:",
       error
     );
 
@@ -1544,12 +1404,9 @@ async function loadVideos(){
   try{
 
     const response =
-      await fetch(
-        "video.html",
-        {
-          cache:"no-store"
-        }
-      );
+      await fetch("video.html", {
+        cache:"no-store"
+      });
 
 
     if(!response.ok){
@@ -1576,10 +1433,184 @@ async function loadVideos(){
       );
 
 
-    videos =
-      parseVideos(
-        documentHTML
+    videos = [];
+
+
+    /*
+      รองรับโครงสร้าง video.html
+      หลายรูปแบบ
+    */
+
+
+    const possibleCards =
+      documentHTML.querySelectorAll(
+        ".video, .video-card, .video-item, .card, article"
       );
+
+
+    possibleCards.forEach(card => {
+
+      const link =
+        card.querySelector(
+          "a[href]"
+        );
+
+
+      const image =
+        card.querySelector(
+          "img"
+        );
+
+
+      const titleElement =
+        card.querySelector(
+          ".video-title, .title, .video-name, h2, h3, h4"
+        );
+
+
+      const descriptionElement =
+        card.querySelector(
+          ".video-description, .description, p"
+        );
+
+
+      let title = "";
+
+
+      if(titleElement){
+
+        title =
+          titleElement.textContent.trim();
+
+      }
+
+
+      if(!title){
+
+        title =
+          image?.alt ||
+          link?.textContent.trim() ||
+          "";
+
+      }
+
+
+      let url =
+        link?.getAttribute("href") ||
+        "";
+
+
+      if(
+        url &&
+        !url.startsWith("http") &&
+        !url.startsWith("#")
+      ){
+
+        url =
+          new URL(
+            url,
+            window.location.href
+          ).href;
+
+      }
+
+
+      const thumbnail =
+        image?.getAttribute("src") ||
+        image?.getAttribute("data-src") ||
+        "";
+
+
+      const description =
+        descriptionElement
+        ?.textContent
+        ?.trim() ||
+        "";
+
+
+      if(
+        title ||
+        thumbnail ||
+        url
+      ){
+
+        videos.push({
+
+          title:
+            title || "วิดีโอ",
+
+          description,
+
+          thumbnail,
+
+          url
+
+        });
+
+      }
+
+    });
+
+
+    /*
+      ถ้า video.html ใช้ iframe / YouTube
+      ให้ค้นหาเพิ่มเติม
+    */
+
+    if(videos.length === 0){
+
+      const links =
+        documentHTML.querySelectorAll(
+          "a[href]"
+        );
+
+
+      links.forEach(link => {
+
+        const href =
+          link.getAttribute("href") ||
+          "";
+
+
+        const text =
+          link.textContent.trim();
+
+
+        const youtube =
+          href.includes(
+            "youtube.com"
+          ) ||
+          href.includes(
+            "youtu.be"
+          );
+
+
+        if(
+          youtube &&
+          text
+        ){
+
+          videos.push({
+
+            title:text,
+
+            description:"",
+
+            thumbnail:"",
+
+            url:
+              new URL(
+                href,
+                window.location.href
+              ).href
+
+          });
+
+        }
+
+      });
+
+    }
 
 
     console.log(
@@ -1592,7 +1623,7 @@ async function loadVideos(){
   catch(error){
 
     console.error(
-      "Video error:",
+      "Video loading error:",
       error
     );
 
@@ -1604,335 +1635,7 @@ async function loadVideos(){
 
 
 /* =====================================================
-   PARSE VIDEO.HTML
-===================================================== */
-
-function parseVideos(doc){
-
-  const result = [];
-
-  const seen = new Set();
-
-
-  /*
-    รองรับโครงสร้าง video.html
-    หลายรูปแบบ
-  */
-
-  const selectors = [
-
-    ".video",
-
-    ".video-card",
-
-    ".video-item",
-
-    ".video-card",
-
-    ".card",
-
-    "article",
-
-    "[data-video]",
-
-    "[data-video-id]"
-
-  ];
-
-
-  let elements = [];
-
-
-  for(
-    const selector of selectors
-  ){
-
-    const found =
-      [...doc.querySelectorAll(
-        selector
-      )];
-
-
-    if(found.length){
-
-      elements =
-        found;
-
-      break;
-
-    }
-
-  }
-
-
-  /* ===================================================
-     ถ้าหา card ไม่เจอ
-     ให้ค้นจากลิงก์ YouTube
-  =================================================== */
-
-  if(elements.length === 0){
-
-    const links =
-      [
-        ...doc.querySelectorAll(
-          "a"
-        )
-      ]
-      .filter(link =>
-        /youtube\.com|youtu\.be/i
-          .test(
-            link.href
-          )
-      );
-
-
-    links.forEach(
-      link => {
-
-        const title =
-          (
-            link.textContent ||
-            link.getAttribute(
-              "title"
-            ) ||
-            "วิดีโอ"
-          )
-          .trim();
-
-
-        if(
-          !title &&
-          !link.href
-        ){
-
-          return;
-
-        }
-
-
-        if(
-          seen.has(
-            link.href
-          )
-        ){
-
-          return;
-
-        }
-
-
-        seen.add(
-          link.href
-        );
-
-
-        let image = "";
-
-
-        const img =
-          link.querySelector(
-            "img"
-          );
-
-
-        if(img){
-
-          image =
-            img.src ||
-            img.getAttribute(
-              "data-src"
-            ) ||
-            "";
-
-        }
-
-
-        result.push({
-
-          title:title,
-
-          description:"",
-
-          thumbnail:image,
-
-          url:link.href,
-
-          keywords:title
-
-        });
-
-      }
-    );
-
-
-    return result;
-
-  }
-
-
-  /* ===================================================
-     อ่านข้อมูลแต่ละ Card
-  =================================================== */
-
-  elements.forEach(
-    (element,index) => {
-
-      const link =
-        element.querySelector(
-          "a[href]"
-        );
-
-
-      const img =
-        element.querySelector(
-          "img"
-        );
-
-
-      const heading =
-        element.querySelector(
-          "h1,h2,h3,h4,h5,h6,.title,.video-title,.name"
-        );
-
-
-      const description =
-        element.querySelector(
-          ".description,.desc,.video-description,.text,p"
-        );
-
-
-      let title = "";
-
-
-      if(heading){
-
-        title =
-          heading.textContent.trim();
-
-      }
-
-
-      if(!title){
-
-        title =
-          element.getAttribute(
-            "data-title"
-          ) ||
-          element.getAttribute(
-            "title"
-          ) ||
-          "";
-
-      }
-
-
-      if(!title){
-
-        title =
-          element.textContent
-            .replace(/\s+/g," ")
-            .trim()
-            .slice(0,120);
-
-      }
-
-
-      let url = "";
-
-
-      if(link){
-
-        url =
-          link.href || "";
-
-      }
-
-
-      let image = "";
-
-
-      if(img){
-
-        image =
-          img.src ||
-          img.getAttribute(
-            "data-src"
-          ) ||
-          img.getAttribute(
-            "data-lazy-src"
-          ) ||
-          "";
-
-      }
-
-
-      const text =
-        element.textContent
-          .replace(/\s+/g," ")
-          .trim();
-
-
-      if(
-        !title &&
-        !url
-      ){
-
-        return;
-
-      }
-
-
-      const unique =
-        url ||
-        title +
-        "|" +
-        index;
-
-
-      if(
-        seen.has(
-          unique
-        )
-      ){
-
-        return;
-
-      }
-
-
-      seen.add(
-        unique
-      );
-
-
-      result.push({
-
-        title:title,
-
-        description:
-          description
-          ? description.textContent.trim()
-          : "",
-
-        thumbnail:image,
-
-        url:url,
-
-        keywords:text
-
-      });
-
-    }
-  );
-
-
-  return result;
-
-}
-
-
-/* =====================================================
-   LOAD ALL DATA
+   LOAD ALL
 ===================================================== */
 
 async function loadData(){
@@ -1952,55 +1655,119 @@ async function loadData(){
 
 
 /* =====================================================
-   PRODUCT SEARCH TEXT
+   ELEMENTS
 ===================================================== */
 
-function getProductText(product){
+const input =
+  document.getElementById(
+    "messageInput"
+  );
 
-  return normalize([
 
-    product.name,
+const sendButton =
+  document.getElementById(
+    "sendButton"
+  );
 
-    product.title,
 
-    product.description,
+const chatBox =
+  document.getElementById(
+    "chatBox"
+  );
 
-    product.category,
 
-    product.categories,
+/* =====================================================
+   ENTER
+===================================================== */
 
-    product.tags,
+input.addEventListener(
+  "keydown",
+  function(event){
 
-    product.keywords,
+    if(event.key === "Enter"){
 
-    product.brand
+      event.preventDefault();
 
-  ].join(" "));
+      sendMessage();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function toggleMenu(){
+
+  document
+    .getElementById("menu")
+    .classList
+    .toggle("show");
 
 }
 
 
 /* =====================================================
-   VIDEO SEARCH TEXT
+   QUICK SEARCH
 ===================================================== */
 
-function getVideoText(video){
+function quickSearch(text){
 
-  return normalize([
+  input.value = text;
 
-    video.title,
+  sendMessage();
 
-    video.name,
+}
 
-    video.description,
 
-    video.category,
+/* =====================================================
+   ESCAPE
+===================================================== */
 
-    video.tags,
+function escapeHTML(value){
 
-    video.keywords
+  return String(value ?? "")
 
-  ].join(" "));
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   NORMALIZE
+===================================================== */
+
+function normalize(value){
+
+  return String(value ?? "")
+    .toLowerCase()
+    .trim();
 
 }
 
@@ -2029,37 +1796,45 @@ function tokenize(text){
 
 
 /* =====================================================
+   GET ITEM TEXT
+===================================================== */
+
+function getItemText(item){
+
+  return normalize([
+
+    item.name,
+
+    item.title,
+
+    item.description,
+
+    item.category,
+
+    item.categories,
+
+    item.tags,
+
+    item.keywords,
+
+    item.brand
+
+  ].join(" "));
+
+}
+
+
+/* =====================================================
    SCORE
 ===================================================== */
 
 function scoreItem(
   item,
-  query,
-  type
+  query
 ){
 
   const text =
-    type === "video"
-    ? getVideoText(item)
-    : getProductText(item);
-
-
-  const name =
-    normalize(
-      type === "video"
-      ? (
-          item.title ||
-          item.name
-        )
-      : (
-          item.name ||
-          item.title
-        )
-    );
-
-
-  const q =
-    normalize(query);
+    getItemText(item);
 
 
   const words =
@@ -2069,10 +1844,14 @@ function scoreItem(
   let score = 0;
 
 
-  /* ตรงทั้งประโยค */
+  /*
+    ตรงข้อความทั้งหมด
+  */
 
   if(
-    text.includes(q)
+    text.includes(
+      normalize(query)
+    )
   ){
 
     score += 100;
@@ -2080,39 +1859,41 @@ function scoreItem(
   }
 
 
-  /* ตรงชื่อ */
+  /*
+    แยกคำ
+  */
 
-  if(
-    name.includes(q)
-  ){
+  words.forEach(word => {
 
-    score += 80;
+    if(text.includes(word)){
 
-  }
-
-
-  words.forEach(
-    word => {
-
-      if(
-        text.includes(word)
-      ){
-
-        score += 10;
-
-      }
-
-
-      if(
-        name.includes(word)
-      ){
-
-        score += 30;
-
-      }
+      score += 10;
 
     }
-  );
+
+  });
+
+
+  /*
+    ชื่อสินค้า / ชื่อคลิป
+  */
+
+  const name =
+    normalize(
+      item.name ||
+      item.title
+    );
+
+
+  words.forEach(word => {
+
+    if(name.includes(word)){
+
+      score += 30;
+
+    }
+
+  });
 
 
   return score;
@@ -2130,35 +1911,32 @@ function searchProducts(query){
     normalize(query);
 
 
-  /* ทั้งหมด */
+  /*
+    ALL
+  */
 
   if(
 
-    q.includes(
-      "สินค้าทั้งหมด"
-    ) ||
+    q.includes("สินค้าทั้งหมด") ||
 
-    q.includes(
-      "สินค้าทุก"
-    ) ||
+    q.includes("สินค้าทุก") ||
 
     q === "สินค้า" ||
+
+    q === "product" ||
 
     q === "products"
 
   ){
 
-    return products.slice(
-      0,
-      20
-    );
+    return products.slice(0,20);
 
   }
 
 
-  /* ===================================================
-     PRICE SEARCH
-  =================================================== */
+  /*
+    PRICE
+  */
 
   const priceMatch =
     q.match(
@@ -2180,89 +1958,79 @@ function searchProducts(query){
 
     return products
 
-      .filter(
-        product => {
+      .filter(item => {
 
-          const price =
-            Number(
-              String(
-                product.price ??
-                0
-              )
-              .replace(
-                /,/g,
-                ""
-              )
-            );
-
-
-          return (
-            price > 0 &&
-            price <= limit
-          );
-
-        }
-      )
-
-      .sort(
-        (a,b) => {
-
-          return (
-            Number(
-              a.price || 0
-            ) -
-            Number(
-              b.price || 0
+        const price =
+          Number(
+            String(
+              item.price ?? 0
+            )
+            .replace(
+              /,/g,
+              ""
             )
           );
 
-        }
+
+        return (
+          price > 0 &&
+          price <= limit
+        );
+
+      })
+
+      .sort(
+        (a,b) =>
+
+          Number(
+            a.price || 0
+          )
+
+          -
+
+          Number(
+            b.price || 0
+          )
       )
 
-      .slice(
-        0,
-        20
-      );
+      .slice(0,20);
 
   }
 
 
+  /*
+    NORMAL SEARCH
+  */
+
   return products
 
-    .map(
-      item => ({
+    .map(item => ({
 
-        item:item,
+      item,
 
-        score:
-          scoreItem(
-            item,
-            query,
-            "product"
-          )
+      score:
+        scoreItem(
+          item,
+          query
+        )
 
-      })
-    )
+    }))
 
     .filter(
-      item =>
-        item.score > 0
+      result =>
+        result.score > 0
     )
 
     .sort(
       (a,b) =>
-        b.score -
-        a.score
+        b.score - a.score
     )
 
-    .slice(
-      0,
-      20
-    )
+    .slice(0,20)
 
     .map(
-      item =>
-        item.item
+      result =>
+        result.item
     );
 
 }
@@ -2278,25 +2046,17 @@ function searchVideos(query){
     normalize(query);
 
 
-  /* ทั้งหมด */
+  /*
+    ALL
+  */
 
   if(
 
-    q.includes(
-      "คลิปทั้งหมด"
-    ) ||
+    q.includes("คลิปทั้งหมด") ||
 
-    q.includes(
-      "วิดีโอทั้งหมด"
-    ) ||
-
-    q.includes(
-      "วีดีโอทั้งหมด"
-    ) ||
+    q.includes("วิดีโอทั้งหมด") ||
 
     q === "คลิป" ||
-
-    q === "วิดีโอ" ||
 
     q === "video" ||
 
@@ -2304,50 +2064,44 @@ function searchVideos(query){
 
   ){
 
-    return videos.slice(
-      0,
-      20
-    );
+    return videos.slice(0,20);
 
   }
 
 
+  /*
+    NORMAL
+  */
+
   return videos
 
-    .map(
-      item => ({
+    .map(item => ({
 
-        item:item,
+      item,
 
-        score:
-          scoreItem(
-            item,
-            query,
-            "video"
-          )
+      score:
+        scoreItem(
+          item,
+          query
+        )
 
-      })
-    )
+    }))
 
     .filter(
-      item =>
-        item.score > 0
+      result =>
+        result.score > 0
     )
 
     .sort(
       (a,b) =>
-        b.score -
-        a.score
+        b.score - a.score
     )
 
-    .slice(
-      0,
-      20
-    )
+    .slice(0,20)
 
     .map(
-      item =>
-        item.item
+      result =>
+        result.item
     );
 
 }
@@ -2366,22 +2120,13 @@ function detectType(query){
   const productWords = [
 
     "สินค้า",
-
     "ซื้อ",
-
     "ขาย",
-
     "ราคา",
-
     "บาท",
-
     "shop",
-
     "product",
-
-    "ของ",
-
-    "มีอะไรขาย"
+    "ของ"
 
   ];
 
@@ -2389,19 +2134,10 @@ function detectType(query){
   const videoWords = [
 
     "คลิป",
-
     "วิดีโอ",
-
-    "วีดีโอ",
-
     "video",
-
     "youtube",
-
     "ดูคลิป",
-
-    "ดูวิดีโอ",
-
     "สอน"
 
   ];
@@ -2412,34 +2148,30 @@ function detectType(query){
   let videoScore = 0;
 
 
-  productWords.forEach(
-    word => {
+  productWords.forEach(word => {
 
-      if(
-        q.includes(word)
-      ){
+    if(
+      q.includes(word)
+    ){
 
-        productScore++;
-
-      }
+      productScore++;
 
     }
-  );
+
+  });
 
 
-  videoWords.forEach(
-    word => {
+  videoWords.forEach(word => {
 
-      if(
-        q.includes(word)
-      ){
+    if(
+      q.includes(word)
+    ){
 
-        videoScore++;
-
-      }
+      videoScore++;
 
     }
-  );
+
+  });
 
 
   if(
@@ -2481,41 +2213,40 @@ function detectType(query){
    PRODUCT CARD
 ===================================================== */
 
-function createProductCard(
-  product
-){
+function createProductCard(item){
 
   const name =
     escapeHTML(
-      product.name ||
-      product.title ||
+      item.name ||
+      item.title ||
       "สินค้า"
     );
 
 
   const description =
     escapeHTML(
-      product.description ||
+      item.description ||
       "ไม่มีรายละเอียด"
     );
 
 
   const image =
-    product.image ||
-    product.thumbnail ||
-    product.img ||
+    item.image ||
+    item.thumbnail ||
+    item.img ||
     "";
 
 
   const price =
-    product.price !== undefined &&
-    product.price !== null &&
-    product.price !== ""
+    item.price !== undefined &&
+    item.price !== null &&
+    item.price !== ""
+
     ?
 
     "฿" +
     Number(
-      product.price
+      item.price
     ).toLocaleString(
       "th-TH"
     )
@@ -2526,18 +2257,17 @@ function createProductCard(
 
 
   const link =
-    product.orderUrl ||
-    product.buyLink ||
-    product.orderLink ||
-    product.order ||
-    product.link ||
+    item.orderUrl ||
+    item.buyLink ||
+    item.orderLink ||
+    item.order ||
+    item.link ||
     "";
 
 
   return `
 
-    <article class="card">
-
+    <article class="result-card">
 
       ${
         image
@@ -2547,13 +2277,19 @@ function createProductCard(
         `
 
         <img
-          class="card-image"
+
+          class="result-image"
+
           src="${escapeHTML(image)}"
+
           alt="${name}"
+
           loading="lazy"
+
           onerror="
             this.style.display='none'
           "
+
         >
 
         `
@@ -2565,17 +2301,16 @@ function createProductCard(
       }
 
 
-      <div class="card-info">
+      <div class="result-content">
 
-
-        <div class="card-name">
+        <div class="result-name">
 
           ${name}
 
         </div>
 
 
-        <div class="card-description">
+        <div class="result-description">
 
           ${description}
 
@@ -2589,7 +2324,7 @@ function createProductCard(
 
           `
 
-          <div class="card-price">
+          <div class="result-price">
 
             ${price}
 
@@ -2612,13 +2347,18 @@ function createProductCard(
           `
 
           <a
-            class="card-button"
+
+            class="result-button"
+
             href="${escapeHTML(link)}"
+
             target="_blank"
+
             rel="noopener noreferrer"
+
           >
 
-            🛒 สั่งซื้อ
+            🛒 ซื้อเลย
 
           </a>
 
@@ -2629,7 +2369,6 @@ function createProductCard(
           ""
 
         }
-
 
       </div>
 
@@ -2644,43 +2383,40 @@ function createProductCard(
    VIDEO CARD
 ===================================================== */
 
-function createVideoCard(
-  video
-){
+function createVideoCard(item){
 
   const title =
     escapeHTML(
-      video.title ||
-      video.name ||
+      item.title ||
+      item.name ||
       "วิดีโอ"
     );
 
 
   const description =
     escapeHTML(
-      video.description ||
-      "วิดีโอจาก Ryu XP"
+      item.description ||
+      "ดูวิดีโอจาก Ryu XP"
     );
 
 
   const image =
-    video.thumbnail ||
-    video.image ||
-    video.img ||
+    item.thumbnail ||
+    item.image ||
+    item.img ||
     "";
 
 
   const link =
-    video.url ||
-    video.videoUrl ||
-    video.link ||
+    item.url ||
+    item.videoUrl ||
+    item.link ||
     "";
 
 
   return `
 
-    <article class="card">
-
+    <article class="result-card">
 
       ${
         image
@@ -2690,13 +2426,19 @@ function createVideoCard(
         `
 
         <img
-          class="card-image"
+
+          class="result-image"
+
           src="${escapeHTML(image)}"
+
           alt="${title}"
+
           loading="lazy"
+
           onerror="
             this.style.display='none'
           "
+
         >
 
         `
@@ -2708,17 +2450,16 @@ function createVideoCard(
       }
 
 
-      <div class="card-info">
+      <div class="result-content">
 
-
-        <div class="card-name">
+        <div class="result-name">
 
           🎬 ${title}
 
         </div>
 
 
-        <div class="card-description">
+        <div class="result-description">
 
           ${description}
 
@@ -2733,10 +2474,15 @@ function createVideoCard(
           `
 
           <a
-            class="card-button video-button"
+
+            class="result-button video-button"
+
             href="${escapeHTML(link)}"
+
             target="_blank"
+
             rel="noopener noreferrer"
+
           >
 
             ▶️ ดูคลิป
@@ -2750,7 +2496,6 @@ function createVideoCard(
           ""
 
         }
-
 
       </div>
 
@@ -2773,9 +2518,9 @@ function createResults(
   let html = "";
 
 
-  /* ===================================================
-     PRODUCTS
-  =================================================== */
+  /*
+    PRODUCTS
+  */
 
   if(
     productResults.length
@@ -2783,9 +2528,7 @@ function createResults(
 
     html += `
 
-      <section
-        class="result-section"
-      >
+      <section class="result-section">
 
         <div class="result-title">
 
@@ -2794,13 +2537,18 @@ function createResults(
         </div>
 
 
-        <div class="results">
+        <div class="result-grid">
 
-          ${productResults
-            .map(
-              createProductCard
-            )
-            .join("")
+          ${
+
+            productResults
+
+              .map(
+                createProductCard
+              )
+
+              .join("")
+
           }
 
         </div>
@@ -2812,9 +2560,9 @@ function createResults(
   }
 
 
-  /* ===================================================
-     VIDEOS
-  =================================================== */
+  /*
+    VIDEOS
+  */
 
   if(
     videoResults.length
@@ -2824,6 +2572,7 @@ function createResults(
 
       <section
         class="result-section"
+        style="margin-top:30px;"
       >
 
         <div class="result-title">
@@ -2833,13 +2582,18 @@ function createResults(
         </div>
 
 
-        <div class="results">
+        <div class="result-grid">
 
-          ${videoResults
-            .map(
-              createVideoCard
-            )
-            .join("")
+          ${
+
+            videoResults
+
+              .map(
+                createVideoCard
+              )
+
+              .join("")
+
           }
 
         </div>
@@ -2860,9 +2614,7 @@ function createResults(
    AI RESPONSE
 ===================================================== */
 
-function getResponse(
-  query
-){
+function getResponse(query){
 
   const type =
     detectType(query);
@@ -2873,35 +2625,50 @@ function getResponse(
   let videoResults = [];
 
 
-  /* PRODUCTS */
+  /*
+    PRODUCT
+  */
 
   if(
+
     type === "product" ||
+
     type === "both"
+
   ){
 
     productResults =
-      searchProducts(query);
+      searchProducts(
+        query
+      );
 
   }
 
 
-  /* VIDEOS */
+  /*
+    VIDEO
+  */
 
   if(
+
     type === "video" ||
+
     type === "both"
+
   ){
 
     videoResults =
-      searchVideos(query);
+      searchVideos(
+        query
+      );
 
   }
 
 
-  /* ===================================================
-     ถ้าไม่เจอ ให้ค้นทั้งสองฐานข้อมูล
-  =================================================== */
+  /*
+    ถ้าไม่พบ
+    ลองค้นทั้งสองระบบ
+  */
 
   if(
 
@@ -2912,17 +2679,22 @@ function getResponse(
   ){
 
     productResults =
-      searchProducts(query);
+      searchProducts(
+        query
+      );
+
 
     videoResults =
-      searchVideos(query);
+      searchVideos(
+        query
+      );
 
   }
 
 
-  /* ===================================================
-     NOT FOUND
-  =================================================== */
+  /*
+    NOT FOUND
+  */
 
   if(
 
@@ -2936,19 +2708,19 @@ function getResponse(
 
       <div>
 
-        😅 ไม่พบข้อมูลที่ตรงกับคำค้นครับ
+        🔍 ไม่พบข้อมูลที่ตรงกับคำค้นครับ
 
         <br><br>
 
-        ลองค้นหาแบบนี้:
+        ลองค้นหา:
 
         <br><br>
 
-        🔎 <b>หาสาย USB-C</b>
+        🛍️ <b>หาสินค้า</b>
 
         <br>
 
-        💰 <b>สินค้าราคาไม่เกิน 500 บาท</b>
+        💰 <b>สินค้าไม่เกิน 500 บาท</b>
 
         <br>
 
@@ -2965,23 +2737,21 @@ function getResponse(
   }
 
 
-  /* ===================================================
-     RESULT MESSAGE
-  =================================================== */
+  /*
+    RESPONSE TEXT
+  */
 
-  let message = "";
+  let text = "";
 
 
   if(
     productResults.length
   ){
 
-    message += `
+    text += `
 
       🛍️ พบสินค้า
-      <b>
-        ${productResults.length}
-      </b>
+      <b>${productResults.length}</b>
       รายการ
 
     `;
@@ -2993,19 +2763,17 @@ function getResponse(
     videoResults.length
   ){
 
-    if(message){
+    if(text){
 
-      message += "<br>";
+      text += "<br>";
 
     }
 
 
-    message += `
+    text += `
 
       🎬 พบวิดีโอ
-      <b>
-        ${videoResults.length}
-      </b>
+      <b>${videoResults.length}</b>
       รายการ
 
     `;
@@ -3015,16 +2783,12 @@ function getResponse(
 
   return `
 
-    ${message}
+    ${text}
 
-    <div style="margin-top:15px;">
-
-      ${createResults(
-        productResults,
-        videoResults
-      )}
-
-    </div>
+    ${createResults(
+      productResults,
+      videoResults
+    )}
 
   `;
 
@@ -3036,7 +2800,7 @@ function getResponse(
 ===================================================== */
 
 function addMessage(
-  html,
+  text,
   type
 ){
 
@@ -3047,8 +2811,7 @@ function addMessage(
 
 
   message.className =
-    "message " +
-    type;
+    "message " + type;
 
 
   const bubble =
@@ -3062,7 +2825,7 @@ function addMessage(
 
 
   bubble.innerHTML =
-    html;
+    text;
 
 
   message.appendChild(
@@ -3147,7 +2910,26 @@ function hideTyping(){
 
 
 /* =====================================================
-   SEND MESSAGE
+   SCROLL
+===================================================== */
+
+function scrollBottom(){
+
+  window.scrollTo({
+
+    top:
+      document.body.scrollHeight,
+
+    behavior:
+      "smooth"
+
+  });
+
+}
+
+
+/* =====================================================
+   SEND
 ===================================================== */
 
 async function sendMessage(){
@@ -3167,33 +2949,42 @@ async function sendMessage(){
     true;
 
 
-  /* USER */
+  /*
+    USER MESSAGE
+  */
 
   addMessage(
-    escapeHTML(query),
+
+    escapeHTML(
+      query
+    ),
+
     "user"
+
   );
 
 
   input.value = "";
 
 
-  /* LOAD */
+  /*
+    LOAD DATA
+  */
 
   if(!dataLoaded){
 
     showTyping();
 
-
     await loadData();
-
 
     hideTyping();
 
   }
 
 
-  /* TYPING */
+  /*
+    TYPING
+  */
 
   showTyping();
 
@@ -3205,7 +2996,9 @@ async function sendMessage(){
 
 
       const response =
-        getResponse(query);
+        getResponse(
+          query
+        );
 
 
       addMessage(
@@ -3228,80 +3021,6 @@ async function sendMessage(){
 
 
 /* =====================================================
-   QUICK SEARCH
-===================================================== */
-
-function quickSearch(
-  text
-){
-
-  input.value =
-    text;
-
-
-  sendMessage();
-
-}
-
-
-/* =====================================================
-   ENTER
-===================================================== */
-
-input.addEventListener(
-  "keydown",
-  function(event){
-
-    if(
-      event.key === "Enter"
-    ){
-
-      event.preventDefault();
-
-      sendMessage();
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   SCROLL
-===================================================== */
-
-function scrollBottom(){
-
-  window.scrollTo({
-
-    top:
-      document.body.scrollHeight,
-
-    behavior:"smooth"
-
-  });
-
-}
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-function toggleMenu(){
-
-  document
-    .getElementById(
-      "menu"
-    )
-    .classList.toggle(
-      "show"
-    );
-
-}
-
-
-/* =====================================================
    START
 ===================================================== */
 
@@ -3310,6 +3029,7 @@ loadData();
 input.focus();
 
 </script>
+
 
 </body>
 
