@@ -5,11 +5,11 @@
       "destination": "/shop.html"
     },
     {
-      "source": "/video",
+      "source": "/Video",
       "destination": "/video.html"
     },
     {
-      "source": "/contact",
+      "source": "/Contact",
       "destination": "/contact.html"
     },
     {
