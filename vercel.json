@@ -17,6 +17,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/US/Close",
+      "destination": "/close.html"
+    },
+    {
       "source": "/AI",
       "destination": "/ai.html"
     }
