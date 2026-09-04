@@ -1,15 +1,15 @@
 {
   "rewrites": [
     {
-      "source": "/ร้านค้า",
+      "source": "/Shop",
       "destination": "/shop.html"
     },
     {
-      "source": "/วีดีโอ",
+      "source": "/video",
       "destination": "/video.html"
     },
     {
-      "source": "/ช่องทางติดต่อ",
+      "source": "/contact",
       "destination": "/contact.html"
     },
     {
