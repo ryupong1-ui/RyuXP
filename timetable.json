@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "date": "2026-09-05",
+    "time": "18:00",
+    "type": "video",
+    "title": "คลิปใหม่ Ryu XP",
+    "description": "คลิปใหม่กำลังจะมา",
+    "thumbnail": "ryu.jpg",
+    "url": "https://youtu.be/xxxxxxxx",
+    "status": "soon",
+    "notifyBefore": 30
+  },
+  {
+    "id": 2,
+    "date": "2026-09-05",
+    "time": "20:00",
+    "type": "live",
+    "title": "Gaming Live 🔥",
+    "description": "มาพูดคุยและเล่นเกมด้วยกัน",
+    "thumbnail": "ryu.jpg",
+    "url": "https://youtube.com/live/xxxxxxxx",
+    "status": "onlive",
+    "notifyBefore": 30
+  },
+  {
+    "id": 3,
+    "date": "2026-09-06",
+    "time": "14:00",
+    "type": "live",
+    "title": "Gaming Live #1",
+    "description": "เปิดไลฟ์ย้อนหลัง",
+    "thumbnail": "ryu.jpg",
+    "url": "https://youtube.com/live/xxxxxxxx",
+    "status": "rerun",
+    "notifyBefore": 30
+  },
+  {
+    "id": 4,
+    "date": "2026-09-07",
+    "time": "18:00",
+    "type": "video",
+    "title": "คลิปปกติ",
+    "description": "วิดีโอใหม่จาก Ryu XP",
+    "thumbnail": "ryu.jpg",
+    "url": "https://youtu.be/xxxxxxxx",
+    "status": "on",
+    "notifyBefore": 30
+  }
+]
