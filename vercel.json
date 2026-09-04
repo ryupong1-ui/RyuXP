@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/ร้านค้า",
+      "destination": "/shop.html"
+    },
+    {
+      "source": "/วีดีโอ",
+      "destination": "/video.html"
+    },
+    {
+      "source": "/ช่องทางติดต่อ",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/AI",
+      "destination": "/ai.html"
+    }
+  ]
+}
