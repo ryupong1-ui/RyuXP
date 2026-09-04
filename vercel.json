@@ -17,6 +17,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/(.*)",
+      "destination": "/404.html"
+    },
+    {
       "source": "/AI",
       "destination": "/ai.html"
     }
