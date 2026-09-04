@@ -17,6 +17,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/Timetable", 
+      "destination": "/timetable.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/404.html"
     },
