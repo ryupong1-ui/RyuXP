@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "date": "2026-09-05",
-    "time": "18:00",
-    "type": "video",
-    "title": "คลิปใหม่ Ryu XP",
-    "description": "คลิปใหม่กำลังจะมา",
+    "date": "2026-10-05",
+    "time": "10:00",
+    "type": "live",
+    "title": "Live เปลี่ยนจอ Mac",
+    "description": "Live ใหม่กำลังจะมา",
     "thumbnail": "ryu.jpg",
     "url": "https://youtu.be/xxxxxxxx",
     "status": "soon",
