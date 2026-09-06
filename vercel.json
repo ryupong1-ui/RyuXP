@@ -21,7 +21,7 @@
       "destination": "/timetable.html"
     },
     {
-      "source": "/case/nfc",
+      "source": "/nfc/case/welcome",
       "destination": "/case.html"
     },
     {
