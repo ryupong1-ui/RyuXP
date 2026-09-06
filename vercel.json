@@ -21,11 +21,7 @@
       "destination": "/timetable.html"
     },
     {
-      "source": "/(.*)",
-      "destination": "/404.html"
-    },
-    {
-      "source": "/nfc",
+      "source": "/case/nfc",
       "destination": "/case.html"
     },
     {
