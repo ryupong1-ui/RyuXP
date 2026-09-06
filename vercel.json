@@ -25,8 +25,8 @@
       "destination": "/404.html"
     },
     {
-      "source": "/case",
-      "destination": "/index.html"
+      "source": "/case/nfc",
+      "destination": "/case.html"
     },
     {
       "source": "/AI",
