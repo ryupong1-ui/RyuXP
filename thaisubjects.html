@@ -3,14 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
 
 <title>สรุปรายวิชาภาษาไทย • Ryu XP</title>
 
 <style>
-/* =========================================================
-   RESET
-========================================================= */
 *{
     box-sizing:border-box;
     margin:0;
@@ -43,9 +39,9 @@ body.locked{
 }
 
 
-/* =========================================================
+/* =====================================================
    SECRET GATE
-========================================================= */
+===================================================== */
 
 .secret-gate{
     position:fixed;
@@ -56,7 +52,7 @@ body.locked{
     align-items:center;
     justify-content:center;
 
-    padding:20px;
+    padding:16px;
 
     background:
         radial-gradient(
@@ -84,6 +80,7 @@ body.locked{
 
 .secret-glow{
     position:absolute;
+
     width:500px;
     height:500px;
 
@@ -97,37 +94,40 @@ body.locked{
         );
 
     filter:blur(10px);
-    pointer-events:none;
 }
 
 .secret-card{
     position:relative;
+
     width:min(620px,100%);
 
-    max-height:calc(100dvh - 40px);
+    max-height:calc(100dvh - 32px);
+
     overflow:auto;
 
-    padding:32px;
+    padding:30px;
+
+    border-radius:30px;
 
     border:1px solid rgba(255,255,255,.12);
-    border-radius:30px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(20,28,45,.96),
-            rgba(8,13,25,.96)
+            rgba(20,28,45,.97),
+            rgba(8,13,25,.97)
         );
 
     box-shadow:
         0 30px 100px rgba(0,0,0,.55),
         inset 0 1px 0 rgba(255,255,255,.06);
 
-    color:#fff;
+    color:white;
 
     text-align:center;
 
-    animation:secretCardIn .7s cubic-bezier(.2,.8,.2,1);
+    animation:
+        secretCardIn .7s cubic-bezier(.2,.8,.2,1);
 }
 
 @keyframes secretCardIn{
@@ -143,21 +143,16 @@ body.locked{
 }
 
 .secret-logo{
-    width:68px;
-    height:68px;
+    width:66px;
+    height:66px;
 
-    margin:0 auto 16px;
+    margin:0 auto 15px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:20px;
-
-    font-size:23px;
-    font-weight:900;
-
-    color:#071018;
+    border-radius:19px;
 
     background:
         linear-gradient(
@@ -167,6 +162,11 @@ body.locked{
             #a78bfa
         );
 
+    color:#071018;
+
+    font-size:23px;
+    font-weight:900;
+
     box-shadow:
         0 12px 35px rgba(34,211,238,.25);
 }
@@ -175,23 +175,26 @@ body.locked{
     display:inline-flex;
 
     padding:7px 12px;
-    margin-bottom:15px;
+
+    margin-bottom:14px;
 
     border-radius:999px;
 
     background:rgba(34,211,238,.10);
+
     border:1px solid rgba(34,211,238,.22);
 
     color:#67e8f9;
 
     font-size:12px;
     font-weight:800;
-    letter-spacing:.4px;
 }
 
 .secret-card h1{
     font-size:clamp(24px,5vw,34px);
+
     line-height:1.25;
+
     margin-bottom:12px;
 }
 
@@ -201,30 +204,35 @@ body.locked{
 
 .secret-description{
     color:#aeb8ca;
+
     font-size:14px;
-    margin-bottom:25px;
+
+    margin-bottom:24px;
 }
 
 
-/* =========================================================
+/* =====================================================
    QUIZ
-========================================================= */
+===================================================== */
 
 .security-box{
-    text-align:left;
-
     padding:20px;
 
     border-radius:22px;
 
     background:rgba(255,255,255,.045);
+
     border:1px solid rgba(255,255,255,.09);
+
+    text-align:left;
 }
 
 .quiz-title{
-    font-weight:900;
-    margin-bottom:20px;
     color:#fff;
+
+    font-weight:900;
+
+    margin-bottom:18px;
 }
 
 .question{
@@ -236,14 +244,18 @@ body.locked{
 }
 
 .question-title{
-    font-size:14px;
-    font-weight:800;
-    margin-bottom:10px;
     color:#e9eef8;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    margin-bottom:9px;
 }
 
 .option-list{
     display:grid;
+
     gap:8px;
 }
 
@@ -253,7 +265,9 @@ body.locked{
 
 .option input{
     position:absolute;
+
     opacity:0;
+
     pointer-events:none;
 }
 
@@ -265,13 +279,14 @@ body.locked{
     border-radius:14px;
 
     background:rgba(255,255,255,.045);
+
     border:1px solid rgba(255,255,255,.08);
 
     color:#bfc8d8;
 
-    cursor:pointer;
-
     font-size:14px;
+
+    cursor:pointer;
 
     transition:
         background .2s ease,
@@ -281,6 +296,7 @@ body.locked{
 
 .option label:hover{
     background:rgba(255,255,255,.08);
+
     transform:translateY(-1px);
 }
 
@@ -295,23 +311,17 @@ body.locked{
             rgba(34,211,238,.16),
             rgba(124,58,237,.12)
         );
-
-    box-shadow:
-        inset 0 0 0 1px rgba(34,211,238,.12);
 }
-
-
-/* =========================================================
-   ENTER BUTTON
-========================================================= */
 
 .enter-button{
     width:100%;
 
     margin-top:22px;
+
     padding:14px 18px;
 
     border:0;
+
     border-radius:16px;
 
     background:
@@ -325,12 +335,10 @@ body.locked{
     color:#071018;
 
     font-size:15px;
+
     font-weight:900;
 
     cursor:pointer;
-
-    box-shadow:
-        0 12px 30px rgba(34,211,238,.18);
 
     transition:
         transform .2s ease,
@@ -339,6 +347,7 @@ body.locked{
 
 .enter-button:hover{
     transform:translateY(-2px);
+
     filter:brightness(1.08);
 }
 
@@ -348,9 +357,9 @@ body.locked{
 
 .enter-button:disabled{
     opacity:.7;
+
     cursor:wait;
 }
-
 
 .quiz-message{
     min-height:24px;
@@ -360,6 +369,7 @@ body.locked{
     text-align:center;
 
     font-size:13px;
+
     font-weight:800;
 }
 
@@ -381,22 +391,20 @@ body.locked{
     color:#7f8ba0;
 
     font-size:11px;
-    line-height:1.6;
 }
 
 .secret-footer{
-    margin-top:20px;
+    margin-top:18px;
 
     color:#667085;
 
     font-size:10px;
-    line-height:1.6;
 }
 
 
-/* =========================================================
-   MAIN WEBSITE — LIGHT THEME
-========================================================= */
+/* =====================================================
+   MAIN LIGHT WEBSITE
+===================================================== */
 
 .main-site{
     min-height:100vh;
@@ -416,13 +424,11 @@ body.locked{
 }
 
 
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 .site-header{
-    position:relative;
-
     padding:
         80px
         20px
@@ -433,8 +439,8 @@ body.locked{
     background:
         linear-gradient(
             180deg,
-            #ffffff 0%,
-            #f5f8ff 100%
+            #ffffff,
+            #f5f8ff
         );
 
     border-bottom:1px solid #e8edf5;
@@ -442,31 +448,37 @@ body.locked{
 
 .header-inner{
     width:min(1000px,100%);
+
     margin:auto;
 }
 
 .private-badge{
     display:inline-flex;
+
     align-items:center;
+
     gap:7px;
 
     padding:8px 14px;
 
+    margin-bottom:18px;
+
     border-radius:999px;
 
     background:#eef6ff;
+
     border:1px solid #d8eaff;
 
     color:#2563eb;
 
     font-size:12px;
-    font-weight:800;
 
-    margin-bottom:18px;
+    font-weight:800;
 }
 
 .site-header h1{
     font-size:clamp(32px,6vw,58px);
+
     line-height:1.12;
 
     color:#111827;
@@ -492,7 +504,8 @@ body.locked{
 
 .header-description{
     max-width:700px;
-    margin:0 auto;
+
+    margin:auto;
 
     color:#667085;
 
@@ -501,8 +514,11 @@ body.locked{
 
 .hero-pills{
     display:flex;
+
     flex-wrap:wrap;
+
     justify-content:center;
+
     gap:9px;
 
     margin-top:25px;
@@ -520,24 +536,30 @@ body.locked{
     color:#475467;
 
     font-size:12px;
+
     font-weight:700;
 
-    box-shadow:0 5px 20px rgba(16,24,40,.04);
+    box-shadow:
+        0 5px 20px rgba(16,24,40,.04);
 }
 
 
-/* =========================================================
+/* =====================================================
    NAV
-========================================================= */
+===================================================== */
 
 .sticky-nav{
     position:sticky;
+
     top:0;
+
     z-index:100;
 
-    background:rgba(255,255,255,.90);
+    background:
+        rgba(255,255,255,.90);
 
     backdrop-filter:blur(18px);
+
     -webkit-backdrop-filter:blur(18px);
 
     border-bottom:1px solid #e7ebf2;
@@ -545,18 +567,24 @@ body.locked{
     overflow-x:auto;
 }
 
+.sticky-nav::-webkit-scrollbar{
+    display:none;
+}
+
 .nav-inner{
     width:min(1100px,100%);
+
     margin:auto;
 
     display:flex;
+
     justify-content:center;
 
-    min-width:max-content;
+    gap:6px;
 
     padding:10px 15px;
 
-    gap:6px;
+    min-width:max-content;
 }
 
 .sticky-nav a{
@@ -565,6 +593,7 @@ body.locked{
     color:#667085;
 
     font-size:13px;
+
     font-weight:800;
 
     padding:9px 13px;
@@ -578,13 +607,14 @@ body.locked{
 
 .sticky-nav a:hover{
     background:#f1f5f9;
+
     color:#2563eb;
 }
 
 
-/* =========================================================
+/* =====================================================
    CONTENT
-========================================================= */
+===================================================== */
 
 .content{
     width:min(1100px,100%);
@@ -602,13 +632,13 @@ body.locked{
 
     margin-bottom:35px;
 
-    background:#fff;
-
-    border:1px solid #e5eaf2;
+    padding:30px;
 
     border-radius:25px;
 
-    padding:30px;
+    background:#fff;
+
+    border:1px solid #e5eaf2;
 
     box-shadow:
         0 10px 35px rgba(15,23,42,.045);
@@ -616,7 +646,9 @@ body.locked{
 
 .topic-header{
     display:flex;
+
     align-items:flex-start;
+
     gap:15px;
 
     margin-bottom:25px;
@@ -629,6 +661,7 @@ body.locked{
     height:48px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -644,11 +677,13 @@ body.locked{
     color:#2563eb;
 
     font-size:18px;
+
     font-weight:900;
 }
 
 .topic-title{
     font-size:clamp(22px,4vw,30px);
+
     line-height:1.3;
 
     color:#111827;
@@ -656,7 +691,9 @@ body.locked{
 
 .topic-subtitle{
     color:#98a2b3;
+
     font-size:13px;
+
     margin-top:3px;
 }
 
@@ -725,9 +762,9 @@ body.locked{
 }
 
 
-/* =========================================================
-   STORY / CHARACTERS
-========================================================= */
+/* =====================================================
+   CHARACTERS
+===================================================== */
 
 .character-list{
     display:grid;
@@ -759,9 +796,10 @@ body.locked{
 }
 
 
-/* =========================================================
-   KHLON SUPAP — RHYME DIAGRAM
-========================================================= */
+/* =====================================================
+   NEW RHYME DIAGRAM
+   ไม่ใช้ grid 8 ช่องแบบเดิม
+===================================================== */
 
 .rhyme-wrapper{
     margin-top:20px;
@@ -779,103 +817,185 @@ body.locked{
 
     border:1px solid #e1e7f0;
 
-    overflow-x:auto;
+    overflow:hidden;
 }
 
 .rhyme-title{
     text-align:center;
 
-    font-size:17px;
-    font-weight:900;
-
     color:#1f2937;
 
-    margin-bottom:20px;
+    font-size:17px;
+
+    font-weight:900;
+
+    margin-bottom:22px;
 }
 
-.rhyme-diagram{
-    min-width:620px;
 
-    display:flex;
-    flex-direction:column;
+/* ตัวแผนผัง */
 
-    gap:14px;
+.rhyme-map{
+    width:min(700px,100%);
+
+    margin:auto;
+
+    display:grid;
+
+    gap:13px;
 }
 
-.rhyme-line{
+
+/* แต่ละวรรค */
+
+.rhyme-row{
+    display:grid;
+
+    grid-template-columns:90px 1fr;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.rhyme-row-label{
+    color:#475467;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+
+/* กล่องคำ */
+
+.rhyme-words{
     display:grid;
 
     grid-template-columns:
-        80px
-        repeat(8,minmax(45px,1fr));
+        repeat(8,minmax(0,1fr));
 
-    align-items:center;
-
-    gap:6px;
+    gap:5px;
 }
 
-.line-label{
-    font-size:12px;
-    font-weight:900;
-    color:#667085;
-}
-
-.word{
+.rhyme-word{
     min-height:42px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    padding:5px;
-
-    border-radius:10px;
+    border-radius:9px;
 
     background:#fff;
 
-    border:1px solid #e4e8ef;
+    border:1px solid #dfe5ee;
 
-    font-size:12px;
+    color:#667085;
 
-    color:#475467;
+    font-size:11px;
+
+    font-weight:700;
+
+    position:relative;
 }
 
-.word.rhyme{
+
+/* จุดสัมผัส */
+
+.rhyme-word.rhyme{
     background:#eff6ff;
 
-    border-color:#93c5fd;
+    border-color:#60a5fa;
 
     color:#1d4ed8;
 
     font-weight:900;
 }
 
-.rhyme-note{
-    margin-top:18px;
+.rhyme-word.rhyme::after{
+    content:"●";
 
-    padding:14px 16px;
+    position:absolute;
 
-    border-radius:14px;
+    top:-10px;
+
+    right:50%;
+
+    transform:translateX(50%);
+
+    color:#2563eb;
+
+    font-size:9px;
+}
+
+
+/* เส้นอธิบายสัมผัส */
+
+.rhyme-rules{
+    margin-top:25px;
+
+    display:grid;
+
+    gap:9px;
+}
+
+.rhyme-rule{
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    padding:11px 13px;
+
+    border-radius:12px;
 
     background:#fff;
 
-    border:1px solid #e5e7eb;
+    border:1px solid #e5eaf0;
 
     color:#667085;
 
     font-size:13px;
 
-    line-height:1.7;
+    line-height:1.6;
 }
 
-.rhyme-note strong{
+.rhyme-rule-number{
+    flex:none;
+
+    width:23px;
+    height:23px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.rhyme-rule strong{
     color:#1f2937;
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 .site-footer{
     padding:35px 20px;
@@ -896,9 +1016,9 @@ body.locked{
 }
 
 
-/* =========================================================
-   BACK TO TOP
-========================================================= */
+/* =====================================================
+   TOP BUTTON
+===================================================== */
 
 .top-button{
     position:fixed;
@@ -912,9 +1032,11 @@ body.locked{
     height:46px;
 
     border:0;
+
     border-radius:50%;
 
     background:#111827;
+
     color:#fff;
 
     font-size:18px;
@@ -925,6 +1047,7 @@ body.locked{
         0 10px 30px rgba(15,23,42,.2);
 
     opacity:0;
+
     visibility:hidden;
 
     transform:translateY(10px);
@@ -937,14 +1060,16 @@ body.locked{
 
 .top-button.show{
     opacity:1;
+
     visibility:visible;
+
     transform:translateY(0);
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* =====================================================
+   TABLET / MOBILE
+===================================================== */
 
 @media(max-width:780px){
 
@@ -954,25 +1079,11 @@ body.locked{
         border-radius:24px;
     }
 
-    .secret-logo{
-        width:58px;
-        height:58px;
-        border-radius:17px;
-    }
-
-    .security-box{
-        padding:16px;
-    }
-
     .site-header{
         padding:
             60px
             17px
             50px;
-    }
-
-    .site-header h1{
-        letter-spacing:-.8px;
     }
 
     .content{
@@ -1007,49 +1118,62 @@ body.locked{
     .topic-number{
         width:42px;
         height:42px;
+
         border-radius:13px;
-    }
-
-    .sticky-nav{
-        scrollbar-width:none;
-    }
-
-    .sticky-nav::-webkit-scrollbar{
-        display:none;
     }
 
     .nav-inner{
         justify-content:flex-start;
     }
+
+
+    /* RHYME MOBILE */
+
+    .rhyme-wrapper{
+        padding:15px;
+
+        overflow-x:auto;
+    }
+
+    .rhyme-map{
+        min-width:650px;
+    }
+
+    .rhyme-row{
+        grid-template-columns:90px 1fr;
+    }
 }
 
 
-/* =========================================================
-   SMALL PHONES
-========================================================= */
+/* =====================================================
+   SMALL PHONE
+===================================================== */
 
 @media(max-width:420px){
 
     .secret-gate{
-        padding:12px;
+        padding:10px;
     }
 
     .secret-card{
-        max-height:calc(100dvh - 24px);
+        max-height:calc(100dvh - 20px);
+
         padding:18px;
-        border-radius:22px;
+
+        border-radius:21px;
     }
 
     .secret-card h1{
-        font-size:24px;
+        font-size:23px;
     }
 
-    .secret-description{
-        font-size:13px;
+    .security-box{
+        padding:15px;
     }
 
     .option label{
         font-size:13px;
+
         padding:10px 11px;
     }
 
@@ -1067,9 +1191,9 @@ body.locked{
 }
 
 
-/* =========================================================
+/* =====================================================
    PRINT
-========================================================= */
+===================================================== */
 
 @media print{
 
@@ -1085,11 +1209,13 @@ body.locked{
 
     .site-header{
         padding:30px 0;
+
         background:#fff;
     }
 
     .topic{
         box-shadow:none;
+
         break-inside:avoid;
     }
 }
@@ -1099,9 +1225,10 @@ body.locked{
 
 <body class="locked">
 
-<!-- =======================================================
-     SECRET LOGIN / QUIZ
-======================================================= -->
+
+<!-- =====================================================
+     SECRET INTRO
+===================================================== -->
 
 <section class="secret-gate" id="secretGate">
 
@@ -1123,8 +1250,8 @@ body.locked{
         </h1>
 
         <p class="secret-description">
-            ก่อนเข้าสู่ระบบ กรุณาตอบคำถามเพื่อยืนยันว่า
-            คุณเป็นคนในจริง ๆ 😂
+            ก่อนเข้าสู่ระบบ กรุณาตอบคำถาม
+            เพื่อยืนยันว่าคุณเป็นคนในจริง ๆ 😂
         </p>
 
 
@@ -1135,7 +1262,7 @@ body.locked{
             </div>
 
 
-            <!-- QUESTION 1 -->
+            <!-- Q1 -->
 
             <div class="question">
 
@@ -1177,7 +1304,7 @@ body.locked{
                             value="correct"
                         >
                         <label for="q1c">
-                            📅 10 กันยา
+                            🎯 10 กันยา
                         </label>
                     </div>
 
@@ -1194,10 +1321,11 @@ body.locked{
                     </div>
 
                 </div>
+
             </div>
 
 
-            <!-- QUESTION 2 -->
+            <!-- Q2 -->
 
             <div class="question">
 
@@ -1215,7 +1343,7 @@ body.locked{
                             value="wrong"
                         >
                         <label for="q2a">
-                            📅 1 กรกฎาคม
+                            🗓️ 1 กรกฎาคม
                         </label>
                     </div>
 
@@ -1227,7 +1355,7 @@ body.locked{
                             value="wrong"
                         >
                         <label for="q2b">
-                            📅 5 กรกฎาคม
+                            🗓️ 5 กรกฎาคม
                         </label>
                     </div>
 
@@ -1239,7 +1367,7 @@ body.locked{
                             value="correct"
                         >
                         <label for="q2c">
-                            📅 8 กรกฎาคม
+                            🎯 8 กรกฎาคม
                         </label>
                     </div>
 
@@ -1251,11 +1379,12 @@ body.locked{
                             value="wrong"
                         >
                         <label for="q2d">
-                            📅 10 กรกฎาคม
+                            🗓️ 10 กรกฎาคม
                         </label>
                     </div>
 
                 </div>
+
             </div>
 
 
@@ -1292,11 +1421,12 @@ body.locked{
 </section>
 
 
-<!-- =======================================================
-     MAIN WEBSITE
-======================================================= -->
 
-<main class="main-site" id="mainSite">
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<main class="main-site">
 
 
     <!-- HEADER -->
@@ -1324,6 +1454,7 @@ body.locked{
             </p>
 
             <div class="hero-pills">
+
                 <div class="hero-pill">
                     📚 4 หัวข้อ
                 </div>
@@ -1335,6 +1466,7 @@ body.locked{
                 <div class="hero-pill">
                     🔐 Ryu XP Private
                 </div>
+
             </div>
 
         </div>
@@ -1342,7 +1474,8 @@ body.locked{
     </header>
 
 
-    <!-- NAVIGATION -->
+
+    <!-- NAV -->
 
     <nav class="sticky-nav">
 
@@ -1369,13 +1502,12 @@ body.locked{
     </nav>
 
 
-    <!-- CONTENT -->
 
     <div class="content">
 
 
         <!-- =================================================
-             TOPIC 1
+             01 ย่อความ
         ================================================= -->
 
         <section class="topic" id="summary">
@@ -1387,6 +1519,7 @@ body.locked{
                 </div>
 
                 <div>
+
                     <h2 class="topic-title">
                         การเขียนย่อความ
                     </h2>
@@ -1394,6 +1527,7 @@ body.locked{
                     <div class="topic-subtitle">
                         สรุปใจความสำคัญให้สั้น กระชับ และครบถ้วน
                     </div>
+
                 </div>
 
             </div>
@@ -1424,10 +1558,23 @@ body.locked{
                     </h3>
 
                     <ul>
-                        <li>อ่านแล้วเข้าใจเนื้อหาได้รวดเร็ว</li>
-                        <li>เก็บเฉพาะใจความสำคัญ</li>
-                        <li>ลดรายละเอียดที่ไม่จำเป็น</li>
-                        <li>ทำให้เนื้อหากระชับ</li>
+
+                        <li>
+                            อ่านแล้วเข้าใจเนื้อหาได้รวดเร็ว
+                        </li>
+
+                        <li>
+                            เก็บเฉพาะใจความสำคัญ
+                        </li>
+
+                        <li>
+                            ลดรายละเอียดที่ไม่จำเป็น
+                        </li>
+
+                        <li>
+                            ทำให้เนื้อหากระชับ
+                        </li>
+
                     </ul>
 
                 </div>
@@ -1440,6 +1587,7 @@ body.locked{
                     </h3>
 
                     <ul>
+
                         <li>
                             อ่านเรื่องทั้งหมดให้เข้าใจก่อน
                         </li>
@@ -1463,6 +1611,7 @@ body.locked{
                         <li>
                             ตรวจสอบว่าความหมายเดิมยังครบถ้วน
                         </li>
+
                     </ul>
 
                 </div>
@@ -1474,7 +1623,7 @@ body.locked{
 
 
         <!-- =================================================
-             TOPIC 2
+             02 รามเกียรติ์
         ================================================= -->
 
         <section class="topic" id="ramakien">
@@ -1486,6 +1635,7 @@ body.locked{
                 </div>
 
                 <div>
+
                     <h2 class="topic-title">
                         รามเกียรติ์ ตอน นารายณ์ปราบนนทก
                     </h2>
@@ -1493,6 +1643,7 @@ body.locked{
                     <div class="topic-subtitle">
                         วรรณคดีไทยเกี่ยวกับอำนาจ ความแค้น และผลของการกระทำ
                     </div>
+
                 </div>
 
             </div>
@@ -1570,6 +1721,7 @@ body.locked{
                     </h3>
 
                     <ul>
+
                         <li>
                             ไม่ควรใช้อำนาจในทางที่ผิด
                         </li>
@@ -1583,8 +1735,9 @@ body.locked{
                         </li>
 
                         <li>
-                            การให้อภัยและการควบคุมตนเองเป็นสิ่งสำคัญ
+                            การควบคุมตนเองเป็นสิ่งสำคัญ
                         </li>
+
                     </ul>
 
                 </div>
@@ -1596,7 +1749,7 @@ body.locked{
 
 
         <!-- =================================================
-             TOPIC 3
+             03 ศิลาจารึก
         ================================================= -->
 
         <section class="topic" id="inscription">
@@ -1608,6 +1761,7 @@ body.locked{
                 </div>
 
                 <div>
+
                     <h2 class="topic-title">
                         ศิลาจารึกหลักที่ 1
                     </h2>
@@ -1615,6 +1769,7 @@ body.locked{
                     <div class="topic-subtitle">
                         หลักฐานสำคัญเกี่ยวกับสังคมและความเป็นอยู่ในสมัยสุโขทัย
                     </div>
+
                 </div>
 
             </div>
@@ -1633,8 +1788,8 @@ body.locked{
                         หรือจารึกพ่อขุนรามคำแหง
                         เป็นหลักฐานสำคัญทางประวัติศาสตร์
                         ที่ใช้ศึกษาการเมือง เศรษฐกิจ
-                        สังคม วัฒนธรรม และวิถีชีวิตของผู้คน
-                        ในสมัยสุโขทัย
+                        สังคม วัฒนธรรม
+                        และวิถีชีวิตของผู้คนในสมัยสุโขทัย
                     </p>
 
                 </div>
@@ -1647,6 +1802,7 @@ body.locked{
                     </h3>
 
                     <ul>
+
                         <li>
                             พ่อขุนรามคำแหงมหาราช
                         </li>
@@ -1658,6 +1814,7 @@ body.locked{
                         <li>
                             ประชาชนในสมัยสุโขทัย
                         </li>
+
                     </ul>
 
                 </div>
@@ -1670,6 +1827,7 @@ body.locked{
                     </h3>
 
                     <ul>
+
                         <li>
                             กล่าวถึงพระราชประวัติของพ่อขุนรามคำแหง
                         </li>
@@ -1693,12 +1851,13 @@ body.locked{
                         <li>
                             มีข้อมูลเกี่ยวกับการประดิษฐ์อักษรไทย
                         </li>
+
                     </ul>
 
                 </div>
 
 
-                <div class="info-card highlight full">
+                <div class="info-card full highlight">
 
                     <h3>
                         ⭐ จุดเด่นที่ควรจำ
@@ -1721,7 +1880,7 @@ body.locked{
 
 
         <!-- =================================================
-             TOPIC 4
+             04 กลอนสุภาพ
         ================================================= -->
 
         <section class="topic" id="klon">
@@ -1733,6 +1892,7 @@ body.locked{
                 </div>
 
                 <div>
+
                     <h2 class="topic-title">
                         การแต่งกลอนสุภาพ
                     </h2>
@@ -1740,12 +1900,14 @@ body.locked{
                     <div class="topic-subtitle">
                         เรียนรู้โครงสร้างและสัมผัสของกลอนสุภาพ
                     </div>
+
                 </div>
 
             </div>
 
 
             <div class="section-grid">
+
 
                 <div class="info-card">
 
@@ -1754,13 +1916,13 @@ body.locked{
                     </h3>
 
                     <ul>
+
                         <li>
                             1 บท มี 4 วรรค
                         </li>
 
                         <li>
                             วรรคละประมาณ 7–9 คำ
-                            ตามลักษณะการนับ
                         </li>
 
                         <li>
@@ -1770,6 +1932,7 @@ body.locked{
                         <li>
                             มีสัมผัสระหว่างบท
                         </li>
+
                     </ul>
 
                 </div>
@@ -1782,6 +1945,7 @@ body.locked{
                     </h3>
 
                     <ul>
+
                         <li>
                             วรรคที่ 1 — วรรคสดับ
                         </li>
@@ -1797,10 +1961,16 @@ body.locked{
                         <li>
                             วรรคที่ 4 — วรรคส่ง
                         </li>
+
                     </ul>
 
                 </div>
 
+
+
+                <!-- =================================================
+                     RHYME DIAGRAM
+                ================================================= -->
 
                 <div class="info-card full">
 
@@ -1808,153 +1978,277 @@ body.locked{
                         🔗 แผนผังสัมผัสกลอนสุภาพ
                     </h3>
 
+
                     <div class="rhyme-wrapper">
 
                         <div class="rhyme-title">
-                            โครงสร้างสัมผัสหลัก
+                            แผนผังตำแหน่งสัมผัส
                         </div>
 
 
-                        <div class="rhyme-diagram">
+                        <div class="rhyme-map">
 
 
-                            <!-- LINE 1 -->
+                            <!-- วรรคสดับ -->
 
-                            <div class="rhyme-line">
+                            <div class="rhyme-row">
 
-                                <div class="line-label">
+                                <div class="rhyme-row-label">
                                     วรรคสดับ
                                 </div>
 
-                                <div class="word">๑</div>
-                                <div class="word">๒</div>
-                                <div class="word">๓</div>
-                                <div class="word">๔</div>
-                                <div class="word">๕</div>
-                                <div class="word">๖</div>
+                                <div class="rhyme-words">
 
-                                <div class="word rhyme">
-                                    ๗ ●
-                                </div>
+                                    <div class="rhyme-word">
+                                        ๑
+                                    </div>
 
-                                <div class="word">
-                                    ๘
+                                    <div class="rhyme-word">
+                                        ๒
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๓
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๔
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๕
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๖
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๗
+                                    </div>
+
+                                    <div class="rhyme-word rhyme">
+                                        คำท้าย ●
+                                    </div>
+
                                 </div>
 
                             </div>
 
 
-                            <!-- LINE 2 -->
+                            <!-- วรรครับ -->
 
-                            <div class="rhyme-line">
+                            <div class="rhyme-row">
 
-                                <div class="line-label">
+                                <div class="rhyme-row-label">
                                     วรรครับ
                                 </div>
 
-                                <div class="word">๑</div>
-                                <div class="word">๒</div>
+                                <div class="rhyme-words">
 
-                                <div class="word rhyme">
-                                    ๓ ●
+                                    <div class="rhyme-word">
+                                        ๑
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๒
+                                    </div>
+
+                                    <div class="rhyme-word rhyme">
+                                        ๓ ●
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๔
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๕
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๖
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๗
+                                    </div>
+
+                                    <div class="rhyme-word rhyme">
+                                        คำท้าย ●
+                                    </div>
+
                                 </div>
-
-                                <div class="word">๔</div>
-                                <div class="word">๕</div>
-                                <div class="word">๖</div>
-
-                                <div class="word rhyme">
-                                    ๗ ●
-                                </div>
-
-                                <div class="word">๘</div>
 
                             </div>
 
 
-                            <!-- LINE 3 -->
+                            <!-- วรรครอง -->
 
-                            <div class="rhyme-line">
+                            <div class="rhyme-row">
 
-                                <div class="line-label">
+                                <div class="rhyme-row-label">
                                     วรรครอง
                                 </div>
 
-                                <div class="word">๑</div>
-                                <div class="word">๒</div>
-                                <div class="word">๓</div>
-                                <div class="word">๔</div>
-                                <div class="word">๕</div>
-                                <div class="word">๖</div>
+                                <div class="rhyme-words">
 
-                                <div class="word rhyme">
-                                    ๗ ●
-                                </div>
+                                    <div class="rhyme-word">
+                                        ๑
+                                    </div>
 
-                                <div class="word">
-                                    ๘
+                                    <div class="rhyme-word">
+                                        ๒
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๓
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๔
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๕
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๖
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๗
+                                    </div>
+
+                                    <div class="rhyme-word rhyme">
+                                        คำท้าย ●
+                                    </div>
+
                                 </div>
 
                             </div>
 
 
-                            <!-- LINE 4 -->
+                            <!-- วรรคส่ง -->
 
-                            <div class="rhyme-line">
+                            <div class="rhyme-row">
 
-                                <div class="line-label">
+                                <div class="rhyme-row-label">
                                     วรรคส่ง
                                 </div>
 
-                                <div class="word">๑</div>
-                                <div class="word">๒</div>
+                                <div class="rhyme-words">
 
-                                <div class="word rhyme">
-                                    ๓ ●
+                                    <div class="rhyme-word">
+                                        ๑
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๒
+                                    </div>
+
+                                    <div class="rhyme-word rhyme">
+                                        ๓ ●
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๔
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๕
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๖
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๗
+                                    </div>
+
+                                    <div class="rhyme-word">
+                                        ๘
+                                    </div>
+
                                 </div>
-
-                                <div class="word">๔</div>
-                                <div class="word">๕</div>
-                                <div class="word">๖</div>
-
-                                <div class="word rhyme">
-                                    ๗ ●
-                                </div>
-
-                                <div class="word">๘</div>
 
                             </div>
 
                         </div>
 
 
-                        <div class="rhyme-note">
 
-                            <strong>
-                                💡 จำง่าย ๆ
-                            </strong>
+                        <!-- RULES -->
 
-                            <br>
+                        <div class="rhyme-rules">
 
-                            คำสุดท้ายของวรรคสดับ
-                            → สัมผัสกับคำที่ 3 หรือ 5
-                            ของวรรครับ
 
-                            <br>
+                            <div class="rhyme-rule">
 
-                            คำสุดท้ายของวรรครับ
-                            → สัมผัสกับคำสุดท้ายของวรรครอง
+                                <div class="rhyme-rule-number">
+                                    1
+                                </div>
 
-                            <br>
+                                <div>
+                                    คำสุดท้ายของ
+                                    <strong>วรรคสดับ</strong>
+                                    สัมผัสกับคำที่
+                                    <strong>3 หรือ 5</strong>
+                                    ของวรรครับ
+                                </div>
 
-                            คำสุดท้ายของวรรครอง
-                            → สัมผัสกับคำที่ 3 หรือ 5
-                            ของวรรคส่ง
+                            </div>
 
-                            <br>
 
-                            คำสุดท้ายของวรรคส่ง
-                            → เชื่อมไปยังวรรครับของบทถัดไป
+                            <div class="rhyme-rule">
+
+                                <div class="rhyme-rule-number">
+                                    2
+                                </div>
+
+                                <div>
+                                    คำสุดท้ายของ
+                                    <strong>วรรครับ</strong>
+                                    สัมผัสกับคำสุดท้ายของ
+                                    <strong>วรรครอง</strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="rhyme-rule">
+
+                                <div class="rhyme-rule-number">
+                                    3
+                                </div>
+
+                                <div>
+                                    คำสุดท้ายของ
+                                    <strong>วรรครอง</strong>
+                                    สัมผัสกับคำที่
+                                    <strong>3 หรือ 5</strong>
+                                    ของวรรคส่ง
+                                </div>
+
+                            </div>
+
+
+                            <div class="rhyme-rule">
+
+                                <div class="rhyme-rule-number">
+                                    4
+                                </div>
+
+                                <div>
+                                    คำสุดท้ายของ
+                                    <strong>วรรคส่ง</strong>
+                                    เชื่อมสัมผัสไปยัง
+                                    <strong>วรรครับของบทถัดไป</strong>
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -1963,7 +2257,8 @@ body.locked{
                 </div>
 
 
-                <div class="info-card highlight full">
+
+                <div class="info-card full highlight">
 
                     <h3>
                         🎯 เทคนิคจำก่อนสอบ
@@ -1974,11 +2269,15 @@ body.locked{
                         <strong>
                             “สดับ → รับ → รอง → ส่ง”
                         </strong>
-                        และให้ความสำคัญกับ
+                        โดยให้จำตำแหน่ง
                         <strong>
                             คำท้ายวรรค
                         </strong>
-                        เพราะเป็นตำแหน่งสำคัญของสัมผัสกลอน
+                        และตำแหน่งคำที่
+                        <strong>
+                            3 หรือ 5
+                        </strong>
+                        ของวรรคที่รับสัมผัส
                     </p>
 
                 </div>
@@ -1987,7 +2286,9 @@ body.locked{
 
         </section>
 
+
     </div>
+
 
 
     <!-- FOOTER -->
@@ -2011,7 +2312,8 @@ body.locked{
 </main>
 
 
-<!-- BACK TO TOP -->
+
+<!-- TOP BUTTON -->
 
 <button
     class="top-button"
@@ -2023,13 +2325,14 @@ body.locked{
 </button>
 
 
+
 <script>
 "use strict";
 
 
-/* =========================================================
+/* =====================================================
    ELEMENTS
-========================================================= */
+===================================================== */
 
 const secretGate =
     document.getElementById("secretGate");
@@ -2044,107 +2347,142 @@ const topButton =
     document.getElementById("topButton");
 
 
-/* =========================================================
-   SECURITY QUIZ
-========================================================= */
+/* =====================================================
+   LOGIN QUIZ
+===================================================== */
 
-enterButton.addEventListener("click", function(){
+enterButton.addEventListener(
+    "click",
+    function(){
 
-    const q1 =
-        document.querySelector(
-            'input[name="q1"]:checked'
-        );
+        const q1 =
+            document.querySelector(
+                'input[name="q1"]:checked'
+            );
 
-    const q2 =
-        document.querySelector(
-            'input[name="q2"]:checked'
-        );
+        const q2 =
+            document.querySelector(
+                'input[name="q2"]:checked'
+            );
 
 
-    /* ไม่มีคำตอบ */
+        /* ยังตอบไม่ครบ */
 
-    if(!q1 || !q2){
+        if(!q1 || !q2){
+
+            quizMessage.textContent =
+                "⚠️ ตอบให้ครบทั้ง 2 ข้อก่อนนะ 😂";
+
+            quizMessage.className =
+                "quiz-message warning";
+
+            return;
+        }
+
+
+        /* ถูกต้อง */
+
+        if(
+            q1.value === "correct" &&
+            q2.value === "correct"
+        ){
+
+            quizMessage.textContent =
+                "✅ ถูกต้อง! ยืนยันตัวตนสำเร็จ กำลังเข้าสู่ระบบ...";
+
+            quizMessage.className =
+                "quiz-message success";
+
+            enterButton.disabled = true;
+
+            enterButton.textContent =
+                "🔓 กำลังเข้าสู่ระบบ...";
+
+
+            setTimeout(
+                function(){
+
+                    secretGate.classList.add(
+                        "hidden"
+                    );
+
+                    document.body.classList.remove(
+                        "locked"
+                    );
+
+                },
+                900
+            );
+
+            return;
+        }
+
+
+        /* ผิด */
 
         quizMessage.textContent =
-            "⚠️ ตอบให้ครบทั้ง 2 ข้อก่อนนะ 😂";
+            "❌ ยังไม่ใช่! สมาชิกตัวจริงลองใหม่อีกที 😂";
 
         quizMessage.className =
-            "quiz-message warning";
-
-        return;
-    }
+            "quiz-message error";
 
 
-    /* ถูกทั้งสองข้อ */
+        /* Shake */
 
-    if(
-        q1.value === "correct" &&
-        q2.value === "correct"
-    ){
+        const card =
+            document.querySelector(
+                ".secret-card"
+            );
 
-        quizMessage.textContent =
-            "✅ ถูกต้อง! ยืนยันตัวตนสำเร็จ กำลังเข้าสู่ระบบ...";
+        if(card){
 
-        quizMessage.className =
-            "quiz-message success";
+            card.animate(
+                [
+                    {
+                        transform:
+                            "translateX(0)"
+                    },
 
-        enterButton.disabled = true;
+                    {
+                        transform:
+                            "translateX(-8px)"
+                    },
 
-        enterButton.textContent =
-            "🔓 กำลังเข้าสู่ระบบ...";
+                    {
+                        transform:
+                            "translateX(8px)"
+                    },
 
+                    {
+                        transform:
+                            "translateX(-6px)"
+                    },
 
-        setTimeout(function(){
+                    {
+                        transform:
+                            "translateX(6px)"
+                    },
 
-            secretGate.classList.add("hidden");
+                    {
+                        transform:
+                            "translateX(0)"
+                    }
+                ],
+                {
+                    duration:400,
+                    easing:"ease-out"
+                }
+            );
 
-            document.body.classList.remove("locked");
-
-        }, 900);
-
-        return;
-    }
-
-
-    /* ตอบผิด */
-
-    quizMessage.textContent =
-        "❌ ยังไม่ใช่! สมาชิกตัวจริงลองใหม่อีกที 😂";
-
-    quizMessage.className =
-        "quiz-message error";
-
-
-    /* FIX: ใช้ .secret-card ที่มีอยู่จริง */
-
-    const card =
-        document.querySelector(".secret-card");
-
-    if(card){
-
-        card.animate(
-            [
-                { transform:"translateX(0)" },
-                { transform:"translateX(-8px)" },
-                { transform:"translateX(8px)" },
-                { transform:"translateX(-6px)" },
-                { transform:"translateX(6px)" },
-                { transform:"translateX(0)" }
-            ],
-            {
-                duration:400,
-                easing:"ease-out"
-            }
-        );
+        }
 
     }
+);
 
-});
 
-
-/* =========================================================
-   BACK TO TOP
-========================================================= */
+/* =====================================================
+   TOP BUTTON
+===================================================== */
 
 window.addEventListener(
     "scroll",
@@ -2152,16 +2490,22 @@ window.addEventListener(
 
         if(window.scrollY > 500){
 
-            topButton.classList.add("show");
+            topButton.classList.add(
+                "show"
+            );
 
         }else{
 
-            topButton.classList.remove("show");
+            topButton.classList.remove(
+                "show"
+            );
 
         }
 
     },
-    { passive:true }
+    {
+        passive:true
+    }
 );
 
 
@@ -2178,9 +2522,9 @@ topButton.addEventListener(
 );
 
 
-/* =========================================================
-   ESC KEY — ไม่ให้ปิดประตูด้วย ESC
-========================================================= */
+/* =====================================================
+   ESC BLOCK
+===================================================== */
 
 document.addEventListener(
     "keydown",
@@ -2188,7 +2532,9 @@ document.addEventListener(
 
         if(
             event.key === "Escape" &&
-            !secretGate.classList.contains("hidden")
+            !secretGate.classList.contains(
+                "hidden"
+            )
         ){
 
             event.preventDefault();
@@ -2196,21 +2542,6 @@ document.addEventListener(
         }
 
     }
-);
-
-
-/* =========================================================
-   PREVENT CLICK BEHIND GATE
-========================================================= */
-
-secretGate.addEventListener(
-    "wheel",
-    function(event){
-
-        event.stopPropagation();
-
-    },
-    { passive:true }
 );
 </script>
 
