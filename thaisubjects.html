@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102d4d">
+<meta name="description"
+content="สรุปรายวิชาภาษาไทย การเขียนย่อความ รามเกียรติ์ ตอน นารายณ์ปราบนนทก ศิลาจารึกหลักที่ 1 และการแต่งกลอนสุภาพ">
+<title>สรุปรายวิชาภาษาไทย</title>
+<style>
+*{
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    margin:0;
+    font-family:
+        "Noto Sans Thai",
+        "Tahoma",
+        "Arial",
+        sans-serif;
+    color:#17283a;
+    background:#f7f1e5;
+    line-height:1.65;
+}
+a{
+    text-decoration:none;
+    color:inherit;
+}
+button{
+    font:inherit;
+}
+:root{
+    --navy:#102d4d;
+    --blue:#23619a;
+    --blue-soft:#edf7ff;
+    --red:#a73524;
+    --red-soft:#fff1eb;
+    --green:#245f4b;
+    --green-soft:#f0f8f1;
+    --purple:#673b83;
+    --purple-soft:#fbf1ff;
+    --gold:#e7b84c;
+    --cream:#fffaf0;
+    --shadow:
+        0 14px 35px rgba(34,48,64,.12);
+    --radius:26px;
+}
+/* =========================
+   HERO
+========================= */
+header{
+    position:relative;
+    overflow:hidden;
+    padding:
+        58px
+        20px
+        78px;
+    color:white;
+    background:
+        radial-gradient(
+            circle at 12% 20%,
+            rgba(255,207,101,.24),
+            transparent 20%
+        ),
+        radial-gradient(
+            circle at 88% 25%,
+            rgba(255,255,255,.12),
+            transparent 22%
+        ),
+        linear-gradient(
+            135deg,
+            #102d4d,
+            #183d62 55%,
+            #102a46
+        );
+}
+header:before,
+header:after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:
+        rgba(255,255,255,.035);
+}
+header:before{
+    left:-90px;
+    bottom:-120px;
+}
+header:after{
+    right:-70px;
+    top:-110px;
+}
+.hero{
+    max-width:1180px;
+    margin:auto;
+    position:relative;
+    z-index:1;
+    text-align:center;
+}
+.eyebrow{
+    display:inline-block;
+    padding:
+        7px
+        18px;
+    border:
+        1px solid
+        rgba(255,255,255,.35);
+    border-radius:999px;
+    color:#ffe6a0;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+h1{
+    font-size:
+        clamp(
+            2.3rem,
+            7vw,
+            5.5rem
+        );
+    line-height:1.05;
+    margin:
+        20px
+        0
+        10px;
+    letter-spacing:-2px;
+}
+.hero-sub{
+    font-size:
+        clamp(
+            1.1rem,
+            2.5vw,
+            1.6rem
+        );
+    margin:
+        0
+        auto
+        26px;
+    max-width:900px;
+}
+.hero-pills{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+.hero-pills span{
+    padding:
+        8px
+        15px;
+    background:#fff4cf;
+    color:#263a4c;
+    border-radius:999px;
+    font-weight:800;
+    box-shadow:
+        0 6px 20px
+        rgba(0,0,0,.1);
+}
+/* =========================
+   NAVIGATION
+========================= */
+nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:
+        rgba(255,250,240,.9);
+    backdrop-filter:blur(14px);
+    border-bottom:
+        1px solid
+        rgba(16,45,77,.1);
+}
+.nav-inner{
+    max-width:1180px;
+    margin:auto;
+    padding:
+        10px
+        15px;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+}
+.nav-inner a{
+    white-space:nowrap;
+    padding:
+        9px
+        14px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:.92rem;
+}
+.nav-inner a:hover{
+    background:#e8eef5;
+    color:var(--navy);
+}
+/* =========================
+   MAIN
+========================= */
+main{
+    max-width:1180px;
+    margin:auto;
+    padding:
+        34px
+        16px
+        55px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+    gap:22px;
+}
+/* =========================
+   CARD
+========================= */
+.card{
+    background:var(--cream);
+    border:
+        2px solid
+        transparent;
+    border-radius:
+        var(--radius);
+    overflow:hidden;
+    box-shadow:
+        var(--shadow);
+    scroll-margin-top:80px;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+.card:hover{
+    transform:
+        translateY(-3px);
+    box-shadow:
+        0 20px 42px
+        rgba(34,48,64,.16);
+}
+.card.blue{
+    border-color:#9bd5fa;
+    background:
+        var(--blue-soft);
+}
+.card.red{
+    border-color:#efc08f;
+    background:
+        var(--red-soft);
+}
+.card.green{
+    border-color:#a9cfb6;
+    background:
+        var(--green-soft);
+}
+.card.purple{
+    border-color:#ddb8eb;
+    background:
+        var(--purple-soft);
+}
+/* =========================
+   CARD HEADER
+========================= */
+.card-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:
+        19px
+        22px;
+    color:white;
+}
+.blue .card-head{
+    background:
+        linear-gradient(
+            120deg,
+            #1d548a,
+            #2e76b5
+        );
+}
+.red .card-head{
+    background:
+        linear-gradient(
+            120deg,
+            #8e2c1e,
+            #b94229
+        );
+}
+.green .card-head{
+    background:
+        linear-gradient(
+            120deg,
+            #1d523f,
+            #34745b
+        );
+}
+.purple .card-head{
+    background:
+        linear-gradient(
+            120deg,
+            #57316f,
+            #78458f
+        );
+}
+.icon{
+    width:54px;
+    height:54px;
+    display:grid;
+    place-items:center;
+    border-radius:17px;
+    background:
+        rgba(255,255,255,.16);
+    font-size:1.8rem;
+    flex:
+        0 0 auto;
+}
+.card h2{
+    margin:0;
+    font-size:
+        clamp(
+            1.3rem,
+            3vw,
+            1.9rem
+        );
+    line-height:1.2;
+}
+.card-body{
+    padding:22px;
+}
+/* =========================
+   TEXT
+========================= */
+h3{
+    margin:
+        20px
+        0
+        8px;
+    font-size:1.1rem;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+h3:first-child{
+    margin-top:0;
+}
+h3:before{
+    content:"";
+    width:7px;
+    height:24px;
+    border-radius:10px;
+    background:
+        var(--gold);
+}
+.lead{
+    font-size:1.02rem;
+    margin-top:0;
+}
+ul,
+ol{
+    padding-left:24px;
+    margin-top:8px;
+}
+li{
+    margin:
+        6px
+        0;
+}
+/* =========================
+   STEPS
+========================= */
+.steps{
+    list-style:none;
+    padding:0;
+    counter-reset:step;
+}
+.steps li{
+    counter-increment:step;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    margin:12px 0;
+}
+.steps li:before{
+    content:
+        counter(step);
+    min-width:31px;
+    height:31px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:
+        var(--blue);
+    color:white;
+    font-weight:900;
+    margin-top:2px;
+}
+/* =========================
+   NOTE
+========================= */
+.note{
+    margin-top:17px;
+    padding:
+        13px
+        16px;
+    border-radius:15px;
+    background:#fff1bc;
+    border:
+        1px solid
+        #efd57b;
+    font-weight:800;
+}
+.fact{
+    background:
+        rgba(255,255,255,.62);
+    border-radius:18px;
+    padding:
+        14px
+        16px;
+    margin-top:13px;
+    border:
+        1px solid
+        rgba(0,0,0,.06);
+}
+.badge{
+    display:inline-block;
+    padding:
+        4px
+        10px;
+    border-radius:999px;
+    font-size:.82rem;
+    font-weight:900;
+    background:white;
+}
+/* =========================
+   RAMAKIEN TIMELINE
+========================= */
+.timeline{
+    display:grid;
+    gap:10px;
+}
+.timeline div{
+    display:grid;
+    grid-template-columns:
+        42px
+        1fr;
+    gap:10px;
+    align-items:start;
+}
+.num{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:white;
+    font-weight:900;
+    background:
+        var(--red);
+}
+/* =========================
+   STONE
+========================= */
+.stele{
+    margin:
+        15px
+        auto
+        3px;
+    width:110px;
+    height:150px;
+    background:
+        linear-gradient(
+            90deg,
+            #596257,
+            #9a9e91,
+            #4e554e
+        );
+    border-radius:
+        38px
+        38px
+        10px
+        10px;
+    position:relative;
+    box-shadow:
+        inset
+        7px 0 10px
+        rgba(0,0,0,.15),
+        inset
+        -7px 0 9px
+        rgba(255,255,255,.18);
+}
+.stele:after{
+    content:
+        "๑ ๒ ๓\A๔ ๕ ๖\A๗ ๘ ๙";
+    white-space:pre;
+    position:absolute;
+    inset:
+        32px
+        20px;
+    color:
+        rgba(20,30,25,.52);
+    font-size:12px;
+    line-height:1.7;
+    text-align:center;
+}
+/* =========================
+   POEM
+========================= */
+.poem-box{
+    background:white;
+    border:
+        1px dashed
+        #bd8bca;
+    border-radius:17px;
+    padding:14px;
+    margin-top:13px;
+}
+.poem{
+    font-weight:700;
+    line-height:2;
+    text-align:center;
+    margin:
+        4px
+        0;
+}
+.rhyme{
+    display:grid;
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+    gap:7px;
+    margin-top:12px;
+}
+.rhyme div{
+    padding:8px;
+    text-align:center;
+    border-radius:10px;
+    background:#f0e3f6;
+    font-size:.84rem;
+    font-weight:800;
+}
+/* =========================
+   FOOTER BANNER
+========================= */
+.flash{
+    margin-top:28px;
+    padding:25px;
+    border-radius:24px;
+    color:white;
+    background:
+        linear-gradient(
+            135deg,
+            #102d4d,
+            #28567c
+        );
+    text-align:center;
+    box-shadow:
+        var(--shadow);
+}
+.flash h2{
+    margin:
+        0
+        0
+        7px;
+}
+.flash p{
+    margin:0;
+    font-size:1.08rem;
+}
+/* =========================
+   FOOTER
+========================= */
+footer{
+    background:
+        var(--navy);
+    color:white;
+    text-align:center;
+    padding:28px 18px;
+}
+footer strong{
+    color:#ffe09a;
+}
+/* =========================
+   TOP BUTTON
+========================= */
+.top{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:60;
+    width:48px;
+    height:48px;
+    border:0;
+    border-radius:50%;
+    background:
+        var(--navy);
+    color:white;
+    box-shadow:
+        0 8px 24px
+        rgba(0,0,0,.22);
+    cursor:pointer;
+    font-size:1.2rem;
+    opacity:0;
+    pointer-events:none;
+    transition:.2s;
+}
+.top.show{
+    opacity:1;
+    pointer-events:auto;
+}
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:780px){
+    header{
+        padding:
+            43px
+            16px
+            55px;
+    }
+    h1{
+        letter-spacing:-1px;
+    }
+    .grid{
+        grid-template-columns:1fr;
+    }
+    main{
+        padding:
+            20px
+            12px
+            40px;
+    }
+    .card-body{
+        padding:18px;
+    }
+    .card-head{
+        padding:
+            16px
+            18px;
+    }
+    .rhyme{
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+}
+/* =========================
+   REDUCED MOTION
+========================= */
+@media(prefers-reduced-motion:reduce){
+    html{
+        scroll-behavior:auto;
+    }
+    .card{
+        transition:none;
+    }
+}
+/* =========================
+   PRINT
+========================= */
+@media print{
+    nav,
+    .top{
+        display:none;
+    }
+    body{
+        background:white;
+    }
+    header{
+        print-color-adjust:exact;
+        -webkit-print-color-adjust:exact;
+    }
+    .card{
+        break-inside:avoid;
+        box-shadow:none;
+        margin-bottom:15px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- =========================
+     HEADER
+========================= -->
+<header id="top">
+    <div class="hero">
+        <span class="eyebrow">
+            📚 สรุปบทเรียนภาษาไทย
+        </span>
+        <h1>
+            สรุปรายวิชาภาษาไทย
+        </h1>
+        <p class="hero-sub">
+            เข้าใจเนื้อหา • จดจำง่าย • ใช้สอบได้จริง
+        </p>
+        <div class="hero-pills">
+            <span>
+                การเขียนย่อความ
+            </span>
+            <span>
+                รามเกียรติ์ ตอน นารายณ์ปราบนนทก
+            </span>
+            <span>
+                ศิลาจารึกหลักที่ 1
+            </span>
+            <span>
+                การแต่งกลอนสุภาพ
+            </span>
+        </div>
+    </div>
+</header>
+<!-- =========================
+     NAV
+========================= -->
+<nav>
+    <div class="nav-inner">
+        <a href="#summary">
+            📝 การเขียนย่อความ
+        </a>
+        <a href="#ramakien">
+            ⚔️ รามเกียรติ์
+        </a>
+        <a href="#inscription">
+            🪨 ศิลาจารึก
+        </a>
+        <a href="#poem">
+            🪶 กลอนสุภาพ
+        </a>
+    </div>
+</nav>
+<!-- =========================
+     MAIN
+========================= -->
+<main>
+<section class="grid">
+<!-- =========================
+     SUMMARY
+========================= -->
+<article
+    class="card blue"
+    id="summary"
+>
+    <div class="card-head">
+        <div class="icon">
+            📝
+        </div>
+        <h2>
+            การเขียนย่อความ
+        </h2>
+    </div>
+    <div class="card-body">
+        <h3>
+            คืออะไร?
+        </h3>
+        <p class="lead">
+            การเขียนย่อความ คือ
+            การสรุปสาระสำคัญของเรื่องที่อ่านหรือฟัง
+            ให้สั้น กระชับ ได้ใจความ
+            โดยยังคงสาระสำคัญของเรื่องไว้
+        </p>
+        <h3>
+            หลักการเขียนย่อความ
+        </h3>
+        <ol class="steps">
+            <li>
+                <span>
+                    <b>
+                        อ่านเรื่องให้เข้าใจทั้งหมด
+                    </b>
+                    <br>
+                    จับประเด็นสำคัญ
+                    และแยกใจความหลักกับใจความรอง
+                </span>
+            </li>
+            <li>
+                <span>
+                    <b>
+                        เลือกเฉพาะใจความสำคัญ
+                    </b>
+                    <br>
+                    ตัดรายละเอียด
+                    หรือข้อความที่ไม่จำเป็นออก
+                </span>
+            </li>
+            <li>
+                <span>
+                    <b>
+                        เรียบเรียงใหม่ด้วยภาษาของตนเอง
+                    </b>
+                    <br>
+                    ใช้ข้อความสั้น
+                    กระชับ ชัดเจน และต่อเนื่อง
+                </span>
+            </li>
+            <li>
+                <span>
+                    <b>
+                        ตรวจทานความถูกต้อง
+                    </b>
+                    <br>
+                    ตรวจทั้งเนื้อหา
+                    ลำดับความ และการใช้ภาษา
+                </span>
+            </li>
+        </ol>
+        <div class="fact">
+            <b>
+                องค์ประกอบของย่อความ
+            </b>
+            <ul>
+                <li>
+                    ใจความสำคัญ
+                </li>
+                <li>
+                    ลำดับเหตุการณ์หรือความคิด
+                </li>
+                <li>
+                    ความสัมพันธ์ของเรื่อง
+                </li>
+            </ul>
+        </div>
+        <div class="note">
+            💡 จำง่าย:
+            <b>
+                “สรุปครบ ไม่เกินความจำเป็น”
+            </b>
+        </div>
+    </div>
+</article>
+<!-- =========================
+     RAMAKIEN
+========================= -->
+<article
+    class="card red"
+    id="ramakien"
+>
+    <div class="card-head">
+        <div class="icon">
+            ⚔️
+        </div>
+        <h2>
+            รามเกียรติ์ ตอน นารายณ์ปราบนนทก
+        </h2>
+    </div>
+    <div class="card-body">
+        <span class="badge">
+            วรรณคดี • เทพปกรณัม • คติสอนใจ
+        </span>
+        <h3>
+            ลักษณะเรื่อง
+        </h3>
+        <p>
+            เป็นตอนหนึ่งของเรื่อง
+            <b>รามเกียรติ์</b>
+            กล่าวถึง
+            <b>พระนารายณ์</b>
+            และ
+            <b>นนทก</b>
+            สะท้อนเรื่องการใช้อำนาจ
+            ความแค้น และผลของการกระทำ
+        </p>
+        <h3>
+            สรุปเนื้อเรื่อง
+        </h3>
+        <div class="timeline">
+            <div>
+                <span class="num">
+                    1
+                </span>
+                <span>
+                    <b>
+                        นนทก
+                    </b>
+                    ได้รับความเดือดร้อน
+                    จากการถูกเทวดากลั่นแกล้ง
+                    จึงขอพรจากพระอิศวร
+                </span>
+            </div>
+            <div>
+                <span class="num">
+                    2
+                </span>
+                <span>
+                    นนทกได้รับ
+                    <b>
+                        นิ้วเพชร
+                    </b>
+                    ซึ่งสามารถชี้ผู้ใด
+                    ให้ถึงแก่ความตายได้
+                </span>
+            </div>
+            <div>
+                <span class="num">
+                    3
+                </span>
+                <span>
+                    เมื่อมีอำนาจ
+                    นนทกนำพรไปใช้แก้แค้น
+                    และทำร้ายเหล่าเทวดา
+                </span>
+            </div>
+            <div>
+                <span class="num">
+                    4
+                </span>
+                <span>
+                    <b>
+                        พระนารายณ์
+                    </b>
+                    แปลงกายเป็นนางอัปสร
+                    ล่อลวงให้นนทกร่ายรำ
+                    และใช้นิ้วเพชรชี้ตนเอง
+                    จนนนทกพ่ายแพ้
+                </span>
+            </div>
+        </div>
+        <h3>
+            คุณค่าของเรื่อง
+        </h3>
+        <ul>
+            <li>
+                สะท้อนเรื่อง
+                <b>
+                    ความดี ความกล้าหาญ และความยุติธรรม
+                </b>
+            </li>
+            <li>
+                แสดงผลของการใช้อำนาจ
+                โดยขาดการควบคุม
+            </li>
+            <li>
+                ให้ข้อคิดเรื่อง
+                การไม่ตอบโต้ด้วยความแค้น
+            </li>
+        </ul>
+        <div class="note">
+            ⭐ ข้อคิดสำคัญ:
+            <b>
+                อำนาจต้องใช้ด้วยสติและความรับผิดชอบ
+            </b>
+        </div>
+    </div>
+</article>
+<!-- =========================
+     INSCRIPTION
+========================= -->
+<article
+    class="card green"
+    id="inscription"
+>
+    <div class="card-head">
+        <div class="icon">
+            🪨
+        </div>
+        <h2>
+            ศิลาจารึกหลักที่ 1
+        </h2>
+    </div>
+    <div class="card-body">
+        <div
+            class="stele"
+            aria-label="ภาพจำลองศิลาจารึก"
+        ></div>
+        <h3>
+            คืออะไร?
+        </h3>
+        <p class="lead">
+            <b>
+                ศิลาจารึกหลักที่ 1
+            </b>
+            หรือ
+            “จารึกพ่อขุนรามคำแหง”
+            เป็นหลักฐานสำคัญทางประวัติศาสตร์ของไทย
+            จารึกด้วยอักษรไทยโบราณ
+            และเกี่ยวข้องกับสมัยสุโขทัย
+        </p>
+        <h3>
+            เนื้อหาสำคัญ
+        </h3>
+        <ul>
+            <li>
+                กล่าวถึงพระราชประวัติ
+                และพระราชกรณียกิจของพ่อขุนรามคำแหง
+            </li>
+            <li>
+                สะท้อนการปกครอง
+                บ้านเมือง และวิถีชีวิตของผู้คน
+            </li>
+            <li>
+                กล่าวถึงความอุดมสมบูรณ์
+                การค้า และวัฒนธรรมในสมัยสุโขทัย
+            </li>
+            <li>
+                มีเนื้อหาเกี่ยวกับภาษา
+                และการใช้ตัวอักษรไทย
+            </li>
+        </ul>
+        <h3>
+            ความสำคัญ
+        </h3>
+        <ul>
+            <li>
+                เป็นหลักฐานสำคัญ
+                ในการศึกษาประวัติศาสตร์สุโขทัย
+            </li>
+            <li>
+                สะท้อนภาษา วัฒนธรรม
+                และสังคมในอดีต
+            </li>
+            <li>
+                ช่วยให้เห็นพัฒนาการ
+                ของภาษาและอักษรไทย
+            </li>
+        </ul>
+        <div class="note">
+            🪨 จำง่าย:
+            <b>
+                ศิลาจารึก =
+                หลักฐานที่ช่วยบอกเรื่องราวของอดีต
+            </b>
+        </div>
+    </div>
+</article>
+<!-- =========================
+     POEM
+========================= -->
+<article
+    class="card purple"
+    id="poem"
+>
+    <div class="card-head">
+        <div class="icon">
+            🪶
+        </div>
+        <h2>
+            การแต่งกลอนสุภาพ
+        </h2>
+    </div>
+    <div class="card-body">
+        <h3>
+            คืออะไร?
+        </h3>
+        <p class="lead">
+            <b>
+                กลอนสุภาพ
+            </b>
+            หรือกลอนแปด
+            เป็นคำประพันธ์ที่มีรูปแบบ
+            และข้อกำหนดด้านจำนวนคำ
+            สัมผัส และจังหวะ
+            เหมาะสำหรับการแต่งงานวรรณศิลป์
+            หลากหลายประเภท
+        </p>
+        <h3>
+            ลักษณะของกลอนสุภาพ
+        </h3>
+        <ol>
+            <li>
+                หนึ่งบทมี
+                <b>
+                    4 วรรค
+                </b>
+            </li>
+            <li>
+                แต่ละวรรคโดยทั่วไปมีประมาณ
+                <b>
+                    8 คำ
+                </b>
+                จึงเรียก “กลอนแปด”
+            </li>
+            <li>
+                ใช้ถ้อยคำไพเราะ
+                สละสลวย และมีความหมาย
+            </li>
+            <li>
+                มี
+                <b>
+                    สัมผัสนอก
+                </b>
+                เป็นข้อบังคับสำคัญ
+            </li>
+        </ol>
+        <h3>
+            แผนผังสัมผัสแบบจำง่าย
+        </h3>
+        <div class="rhyme">
+            <div>
+                วรรคที่ 1
+                <br>
+                ● ก
+            </div>
+            <div>
+                วรรคที่ 2
+                <br>
+                ● ก
+            </div>
+            <div>
+                วรรคที่ 3
+                <br>
+                ● ข
+            </div>
+            <div>
+                วรรคที่ 4
+                <br>
+                ● ข
+            </div>
+        </div>
+        <div class="fact">
+            <b>
+                หลักจำเรื่องสัมผัส
+            </b>
+            <p>
+                คำท้ายของวรรคที่ 1
+                →
+                สัมผัสกับคำช่วงต้นของวรรคที่ 2
+                <br><br>
+                คำท้ายของวรรคที่ 2
+                →
+                สัมผัสกับคำท้ายของวรรคที่ 3
+                <br><br>
+                คำท้ายของวรรคที่ 3
+                →
+                สัมผัสกับคำช่วงต้นของวรรคที่ 4
+                <br><br>
+                เมื่อขึ้นบทใหม่
+                สัมผัสจะเชื่อมต่อกัน
+                ตามแบบแผนของกลอนสุภาพ
+            </p>
+        </div>
+        <h3>
+            ตัวอย่างกลอนสุภาพ
+        </h3>
+        <div class="poem-box">
+            <p class="poem">
+                แผ่นดินไทยงามล้ำด้วยน้ำใจ<br>
+                ร่วมแรงร่วมใจสร้างความฝัน<br>
+                เรียนรู้รากไทยทุกคืนวัน<br>
+                สืบสานคุณค่านั้นคู่แผ่นดิน
+            </p>
+        </div>
+        <div class="note">
+            🪶
+            <b>
+                กลอนสุภาพไม่ใช่แค่คำสวย
+                แต่คือ “ศิลปะของภาษาไทย”
+            </b>
+        </div>
+    </div>
+</article>
+</section>
+<!-- =========================
+     FINAL MESSAGE
+========================= -->
+<section class="flash">
+    <h2>
+        🇹🇭 เรียนภาษาไทยให้ได้ทั้ง “ความรู้” และ “คุณค่า”
+    </h2>
+    <p>
+        อ่านให้เข้าใจ •
+        จับใจความให้เป็น •
+        เห็นคุณค่าของวรรณคดี •
+        ใช้ภาษาอย่างสร้างสรรค์
+    </p>
+</section>
+</main>
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+    <div>
+        📖
+        <strong>
+            เรียนภาษาไทย
+        </strong>
+        ไม่ใช่แค่จำ
+        แต่คือการเข้าใจ
+        และเห็นคุณค่าของวัฒนธรรมไทย
+    </div>
+</footer>
+<!-- =========================
+     BACK TO TOP
+========================= -->
+<button
+    class="top"
+    id="topBtn"
+    aria-label="กลับขึ้นด้านบน"
+>
+    ↑
+</button>
+<script>
+const topBtn =
+    document.getElementById("topBtn");
+/*
+    แสดงปุ่มกลับขึ้นด้านบน
+    เมื่อเลื่อนหน้าจอลง
+*/
+window.addEventListener(
+    "scroll",
+    () => {
+        topBtn.classList.toggle(
+            "show",
+            window.scrollY > 500
+        );
+    }
+);
+/*
+    กลับขึ้นด้านบน
+*/
+topBtn.addEventListener(
+    "click",
+    () => {
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+);
+/*
+    ป้องกันลิงก์ #top
+    กระโดดกระทันหัน
+*/
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(
+    link => {
+        link.addEventListener(
+            "click",
+            function(e){
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
+                if(!target) return;
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+            }
+        );
+    }
+);
+</script>
+</body>
+</html>
