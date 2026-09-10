@@ -2,818 +2,1263 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#07100e">
-<title>เว็บไซต์ลับของทีมงาน Ryu XP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+
+<title>สรุปรายวิชาภาษาไทย • Ryu XP</title>
+
 <style>
+/* =========================================================
+   RESET
+========================================================= */
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
+
 html{
     scroll-behavior:smooth;
 }
+
 body{
     font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Noto Sans Thai",
-    "Segoe UI",
-    sans-serif;
-    background:#07100e;
-    color:#f4fffb;
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:#f5f7fb;
+    color:#172033;
     line-height:1.7;
+    overflow-x:hidden;
 }
+
 body.locked{
     overflow:hidden;
 }
-button{
-    font:inherit;
-    -webkit-tap-highlight-color:transparent;
-}
-/* =====================================================
+
+
+/* =========================================================
    SECRET GATE
-===================================================== */
+========================================================= */
+
 .secret-gate{
     position:fixed;
     inset:0;
     z-index:9999;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     padding:20px;
+
     background:
-    radial-gradient(
-        circle at 50% 20%,
-        rgba(0,255,190,.18),
-        transparent 35%
-    ),
-    radial-gradient(
-        circle at 80% 80%,
-        rgba(0,180,255,.10),
-        transparent 35%
-    ),
-    #020706;
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0,229,255,.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(124,58,237,.20),
+            transparent 35%
+        ),
+        #070b14;
+
     transition:
-    opacity .5s ease,
-    visibility .5s ease;
+        opacity .55s ease,
+        visibility .55s ease;
 }
+
 .secret-gate.hidden{
     opacity:0;
     visibility:hidden;
     pointer-events:none;
 }
+
 .secret-glow{
     position:absolute;
     width:500px;
     height:500px;
+
     border-radius:50%;
-    background:#00ffb3;
-    opacity:.08;
-    filter:blur(120px);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,229,255,.10),
+            transparent 68%
+        );
+
+    filter:blur(10px);
+    pointer-events:none;
 }
+
 .secret-card{
     position:relative;
-    width:min(560px,100%);
-    max-height:calc(100vh - 40px);
+    width:min(620px,100%);
+
+    max-height:calc(100dvh - 40px);
     overflow:auto;
-    padding:34px;
+
+    padding:32px;
+
     border:1px solid rgba(255,255,255,.12);
     border-radius:30px;
+
     background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.10),
-        rgba(255,255,255,.035)
-    );
-    backdrop-filter:blur(30px);
-    -webkit-backdrop-filter:blur(30px);
+        linear-gradient(
+            145deg,
+            rgba(20,28,45,.96),
+            rgba(8,13,25,.96)
+        );
+
     box-shadow:
-    0 30px 100px rgba(0,0,0,.55),
-    inset 0 1px 0 rgba(255,255,255,.08);
+        0 30px 100px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.06);
+
+    color:#fff;
+
     text-align:center;
-    animation:
-    cardIn .65s cubic-bezier(.2,.8,.2,1);
+
+    animation:secretCardIn .7s cubic-bezier(.2,.8,.2,1);
 }
-.secret-card::-webkit-scrollbar{
-    width:0;
-}
-@keyframes cardIn{
+
+@keyframes secretCardIn{
     from{
         opacity:0;
-        transform:
-        translateY(25px)
-        scale(.96);
+        transform:translateY(25px) scale(.96);
     }
+
     to{
         opacity:1;
-        transform:none;
+        transform:translateY(0) scale(1);
     }
 }
+
 .secret-logo{
-    width:78px;
-    height:78px;
-    margin:0 auto 18px;
+    width:68px;
+    height:68px;
+
+    margin:0 auto 16px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius:24px;
-    background:
-    linear-gradient(
-        135deg,
-        #00ffb3,
-        #00aaff
-    );
-    color:#00140e;
-    font-size:27px;
+
+    border-radius:20px;
+
+    font-size:23px;
     font-weight:900;
+
+    color:#071018;
+
+    background:
+        linear-gradient(
+            135deg,
+            #67e8f9,
+            #22d3ee,
+            #a78bfa
+        );
+
     box-shadow:
-    0 0 45px rgba(0,255,179,.25);
+        0 12px 35px rgba(34,211,238,.25);
 }
+
 .secret-tag{
-    display:inline-block;
-    padding:6px 12px;
+    display:inline-flex;
+
+    padding:7px 12px;
+    margin-bottom:15px;
+
     border-radius:999px;
-    background:rgba(0,255,179,.08);
-    border:1px solid rgba(0,255,179,.18);
-    color:#75ffd4;
+
+    background:rgba(34,211,238,.10);
+    border:1px solid rgba(34,211,238,.22);
+
+    color:#67e8f9;
+
     font-size:12px;
     font-weight:800;
-    letter-spacing:.5px;
+    letter-spacing:.4px;
 }
+
 .secret-card h1{
-    margin-top:18px;
-    font-size:clamp(27px,5vw,42px);
-    line-height:1.2;
+    font-size:clamp(24px,5vw,34px);
+    line-height:1.25;
+    margin-bottom:12px;
 }
+
 .secret-card h1 span{
-    display:block;
-    background:
-    linear-gradient(
-        90deg,
-        #00ffb3,
-        #63dfff
-    );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    color:#67e8f9;
 }
+
 .secret-description{
-    margin-top:14px;
-    color:#a8bbb5;
-    font-size:15px;
-}
-/* =====================================================
-   SECURITY QUIZ
-===================================================== */
-.security-box{
-    margin-top:24px;
-    padding:20px;
-    border-radius:22px;
-    background:rgba(0,0,0,.22);
-    border:1px solid rgba(255,255,255,.09);
-    text-align:left;
-}
-.quiz-title{
-    margin-bottom:17px;
-    color:#dffff4;
+    color:#aeb8ca;
     font-size:14px;
-    font-weight:800;
-    text-align:center;
+    margin-bottom:25px;
 }
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.security-box{
+    text-align:left;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
+}
+
+.quiz-title{
+    font-weight:900;
+    margin-bottom:20px;
+    color:#fff;
+}
+
 .question{
     margin-bottom:20px;
 }
+
 .question:last-of-type{
     margin-bottom:0;
 }
-.question-text{
-    margin-bottom:10px;
+
+.question-title{
     font-size:14px;
-    font-weight:850;
-    color:#f2fffb;
+    font-weight:800;
+    margin-bottom:10px;
+    color:#e9eef8;
 }
+
+.option-list{
+    display:grid;
+    gap:8px;
+}
+
 .option{
-    display:block;
-    margin:8px 0;
-    cursor:pointer;
+    position:relative;
 }
+
 .option input{
     position:absolute;
     opacity:0;
+    pointer-events:none;
 }
-.option-content{
-    display:flex;
-    align-items:center;
-    min-height:46px;
-    padding:10px 12px;
-    border-radius:13px;
+
+.option label{
+    display:block;
+
+    padding:11px 13px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.045);
     border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.035);
-    color:#cbd8d4;
-    transition:.18s ease;
+
+    color:#bfc8d8;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
 }
-.option-dot{
-    width:17px;
-    height:17px;
-    margin-right:10px;
-    flex:none;
-    border:2px solid #667873;
-    border-radius:50%;
+
+.option label:hover{
+    background:rgba(255,255,255,.08);
+    transform:translateY(-1px);
 }
-.option input:checked + .option-content{
-    background:rgba(0,255,179,.10);
-    border-color:rgba(0,255,179,.45);
+
+.option input:checked + label{
     color:#fff;
-}
-.option input:checked + .option-content .option-dot{
-    border-color:#00ffb3;
-    background:#00ffb3;
+
+    border-color:rgba(34,211,238,.75);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,211,238,.16),
+            rgba(124,58,237,.12)
+        );
+
     box-shadow:
-    inset 0 0 0 4px #07100e;
+        inset 0 0 0 1px rgba(34,211,238,.12);
 }
+
+
+/* =========================================================
+   ENTER BUTTON
+========================================================= */
+
 .enter-button{
     width:100%;
-    margin-top:20px;
+
+    margin-top:22px;
     padding:14px 18px;
+
     border:0;
-    border-radius:15px;
+    border-radius:16px;
+
     background:
-    linear-gradient(
-        135deg,
-        #00ffb3,
-        #00bfff
-    );
-    color:#00130d;
+        linear-gradient(
+            135deg,
+            #67e8f9,
+            #22d3ee,
+            #8b5cf6
+        );
+
+    color:#071018;
+
     font-size:15px;
     font-weight:900;
+
     cursor:pointer;
+
     box-shadow:
-    0 12px 30px rgba(0,255,179,.15);
-    transition:.2s ease;
+        0 12px 30px rgba(34,211,238,.18);
+
+    transition:
+        transform .2s ease,
+        filter .2s ease;
 }
+
 .enter-button:hover{
     transform:translateY(-2px);
+    filter:brightness(1.08);
 }
+
 .enter-button:active{
     transform:scale(.98);
 }
+
+.enter-button:disabled{
+    opacity:.7;
+    cursor:wait;
+}
+
+
 .quiz-message{
-    min-height:23px;
-    margin-top:10px;
+    min-height:24px;
+
+    margin-top:13px;
+
     text-align:center;
-    font-size:12px;
+
+    font-size:13px;
     font-weight:800;
 }
-.quiz-message.error{
-    color:#ff8e8e;
-}
+
 .quiz-message.success{
-    color:#6dffd0;
+    color:#67e8f9;
 }
+
+.quiz-message.error{
+    color:#fb7185;
+}
+
+.quiz-message.warning{
+    color:#fbbf24;
+}
+
 .warning{
-    display:flex;
-    gap:12px;
-    margin-top:20px;
-    padding:14px;
-    text-align:left;
-    border-radius:16px;
-    background:rgba(255,180,0,.055);
-    border:1px solid rgba(255,180,0,.13);
-    color:#d8d2bc;
-    font-size:12px;
-}
-.warning-icon{
-    font-size:20px;
-}
-.secret-footer{
-    margin-top:22px;
-    color:#71827e;
+    margin-top:18px;
+
+    color:#7f8ba0;
+
     font-size:11px;
+    line-height:1.6;
 }
-/* =====================================================
-   MAIN WEBSITE — GUI เดิม
-===================================================== */
-.site{
+
+.secret-footer{
+    margin-top:20px;
+
+    color:#667085;
+
+    font-size:10px;
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   MAIN WEBSITE — LIGHT THEME
+========================================================= */
+
+.main-site{
     min-height:100vh;
+
     background:
-    radial-gradient(
-        circle at 20% 0%,
-        rgba(0,255,179,.08),
-        transparent 28%
-    ),
-    radial-gradient(
-        circle at 90% 30%,
-        rgba(0,170,255,.07),
-        transparent 30%
-    ),
-    #07100e;
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(59,130,246,.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(139,92,246,.07),
+            transparent 30%
+        ),
+        #f7f9fc;
 }
-header{
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header{
     position:relative;
-    padding:70px 20px 55px;
+
+    padding:
+        80px
+        20px
+        70px;
+
     text-align:center;
-    border-bottom:
-    1px solid rgba(255,255,255,.07);
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f5f8ff 100%
+        );
+
+    border-bottom:1px solid #e8edf5;
 }
-.header-badge{
-    display:inline-block;
-    padding:7px 13px;
+
+.header-inner{
+    width:min(1000px,100%);
+    margin:auto;
+}
+
+.private-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    padding:8px 14px;
+
     border-radius:999px;
-    background:rgba(0,255,179,.07);
-    border:
-    1px solid rgba(0,255,179,.14);
-    color:#74ffd3;
+
+    background:#eef6ff;
+    border:1px solid #d8eaff;
+
+    color:#2563eb;
+
     font-size:12px;
     font-weight:800;
+
+    margin-bottom:18px;
 }
-header h1{
-    margin-top:17px;
-    font-size:
-    clamp(35px,7vw,68px);
-    line-height:1.05;
+
+.site-header h1{
+    font-size:clamp(32px,6vw,58px);
+    line-height:1.12;
+
+    color:#111827;
+
     letter-spacing:-1.5px;
+
+    margin-bottom:18px;
 }
-header p{
+
+.site-header h1 span{
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.header-description{
     max-width:700px;
-    margin:18px auto 0;
-    color:#a7b7b2;
+    margin:0 auto;
+
+    color:#667085;
+
     font-size:15px;
 }
+
 .hero-pills{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:8px;
-    margin-top:22px;
+    gap:9px;
+
+    margin-top:25px;
 }
+
 .hero-pill{
-    padding:7px 12px;
+    padding:8px 13px;
+
     border-radius:999px;
-    background:rgba(255,255,255,.045);
-    border:
-    1px solid rgba(255,255,255,.08);
-    color:#b9c9c5;
+
+    background:#fff;
+
+    border:1px solid #e3e8f1;
+
+    color:#475467;
+
     font-size:12px;
+    font-weight:700;
+
+    box-shadow:0 5px 20px rgba(16,24,40,.04);
 }
-/* =====================================================
+
+
+/* =========================================================
    NAV
-===================================================== */
-.nav{
+========================================================= */
+
+.sticky-nav{
     position:sticky;
     top:0;
     z-index:100;
-    display:flex;
-    justify-content:center;
-    gap:5px;
-    padding:9px 12px;
+
+    background:rgba(255,255,255,.90);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid #e7ebf2;
+
     overflow-x:auto;
-    background:rgba(4,10,9,.75);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    border-bottom:
-    1px solid rgba(255,255,255,.07);
 }
-.nav a{
-    flex:none;
-    padding:8px 12px;
-    border-radius:10px;
-    color:#aebdb9;
-    text-decoration:none;
-    font-size:12px;
-    font-weight:700;
-    transition:.2s;
-}
-.nav a:hover{
-    background:rgba(255,255,255,.07);
-    color:#fff;
-}
-/* =====================================================
-   CONTENT
-===================================================== */
-.container{
+
+.nav-inner{
     width:min(1100px,100%);
     margin:auto;
-    padding:30px 18px 90px;
-}
-.section{
-    scroll-margin-top:80px;
-    margin-bottom:25px;
-}
-.section-title{
+
     display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:15px;
-}
-.section-number{
-    width:38px;
-    height:38px;
-    display:flex;
-    align-items:center;
     justify-content:center;
-    flex:none;
-    border-radius:12px;
-    background:rgba(0,255,179,.08);
-    border:
-    1px solid rgba(0,255,179,.13);
-    color:#62ffca;
-    font-weight:900;
+
+    min-width:max-content;
+
+    padding:10px 15px;
+
+    gap:6px;
 }
-.section-title h2{
-    font-size:
-    clamp(22px,4vw,30px);
-}
-.grid{
-    display:grid;
-    grid-template-columns:
-    repeat(2,1fr);
-    gap:15px;
-}
-.card{
-    padding:21px;
-    border-radius:21px;
-    background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.065),
-        rgba(255,255,255,.025)
-    );
-    border:
-    1px solid rgba(255,255,255,.07);
-    box-shadow:
-    0 15px 50px rgba(0,0,0,.13);
-}
-.card.full{
-    grid-column:1/-1;
-}
-.card h3{
-    margin-bottom:10px;
-    color:#eafff7;
-    font-size:18px;
-}
-.card p{
-    color:#b6c4c0;
-    font-size:14px;
-}
-.card ul{
-    padding-left:20px;
-    color:#b9c8c3;
-    font-size:14px;
-}
-.card li{
-    margin:5px 0;
-}
-.highlight{
-    margin-top:12px;
-    padding:12px 14px;
-    border-left:
-    3px solid #00eaa6;
-    border-radius:8px;
-    background:rgba(0,255,179,.045);
-    color:#d7fff1;
-    font-size:13px;
-}
-/* =====================================================
-   RHYME DIAGRAM
-===================================================== */
-.rhyme-wrap{
-    margin-top:16px;
-    overflow-x:auto;
-    padding-bottom:6px;
-}
-.rhyme-diagram{
-    min-width:650px;
-    display:grid;
-    gap:13px;
-}
-.verse{
-    display:grid;
-    grid-template-columns:
-    110px repeat(8,1fr);
-    gap:5px;
-    align-items:center;
-}
-.verse-label{
+
+.sticky-nav a{
+    text-decoration:none;
+
+    color:#667085;
+
     font-size:13px;
     font-weight:800;
-    color:#aebfba;
+
+    padding:9px 13px;
+
+    border-radius:11px;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
 }
-.word{
-    min-height:42px;
+
+.sticky-nav a:hover{
+    background:#f1f5f9;
+    color:#2563eb;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content{
+    width:min(1100px,100%);
+
+    margin:auto;
+
+    padding:
+        55px
+        20px
+        80px;
+}
+
+.topic{
+    scroll-margin-top:85px;
+
+    margin-bottom:35px;
+
+    background:#fff;
+
+    border:1px solid #e5eaf2;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+        0 10px 35px rgba(15,23,42,.045);
+}
+
+.topic-header{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.topic-number{
+    flex:none;
+
+    width:48px;
+    height:48px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:5px;
-    border-radius:8px;
-    background:rgba(255,255,255,.04);
-    border:
-    1px solid rgba(255,255,255,.06);
-    color:#cbd8d4;
-    font-size:11px;
-    text-align:center;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f5f3ff
+        );
+
+    color:#2563eb;
+
+    font-size:18px;
+    font-weight:900;
 }
-.rhyme-a{
-    background:rgba(0,255,179,.12);
-    border-color:
-    rgba(0,255,179,.25);
-    color:#7dffd4;
+
+.topic-title{
+    font-size:clamp(22px,4vw,30px);
+    line-height:1.3;
+
+    color:#111827;
 }
-.rhyme-b{
-    background:rgba(0,190,255,.11);
-    border-color:
-    rgba(0,190,255,.25);
-    color:#7ddfff;
+
+.topic-subtitle{
+    color:#98a2b3;
+    font-size:13px;
+    margin-top:3px;
 }
-.rhyme-key{
-    display:flex;
-    flex-wrap:wrap;
-    gap:9px;
-    margin-top:18px;
-}
-.key{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    color:#aebcb8;
-    font-size:12px;
-}
-.key-box{
-    width:13px;
-    height:13px;
-    border-radius:4px;
-}
-.key-a{
-    background:#00d99a;
-}
-.key-b{
-    background:#00bfff;
-}
-.arrow-info{
-    margin-top:16px;
+
+.section-grid{
     display:grid;
-    gap:7px;
-    color:#aebdb8;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:16px;
+}
+
+.info-card{
+    padding:20px;
+
+    border-radius:18px;
+
+    background:#f8fafc;
+
+    border:1px solid #e9edf3;
+}
+
+.info-card.full{
+    grid-column:1/-1;
+}
+
+.info-card h3{
+    color:#1d4ed8;
+
+    font-size:16px;
+
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:#475467;
+
+    font-size:14px;
+}
+
+.info-card ul{
+    padding-left:20px;
+
+    color:#475467;
+
+    font-size:14px;
+}
+
+.info-card li{
+    margin-bottom:5px;
+}
+
+.highlight{
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f5f3ff
+        );
+
+    border-color:#dbe5ff;
+}
+
+.highlight h3{
+    color:#4f46e5;
+}
+
+
+/* =========================================================
+   STORY / CHARACTERS
+========================================================= */
+
+.character-list{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:10px;
+
+    margin-top:10px;
+}
+
+.character{
+    padding:12px 14px;
+
+    background:#fff;
+
+    border:1px solid #e6eaf0;
+
+    border-radius:13px;
+
+    color:#475467;
+
     font-size:13px;
 }
-.arrow-info strong{
-    color:#e5fff6;
+
+.character strong{
+    color:#1f2937;
 }
-/* =====================================================
-   FOOTER
-===================================================== */
-footer{
-    padding:30px 18px 45px;
+
+
+/* =========================================================
+   KHLON SUPAP — RHYME DIAGRAM
+========================================================= */
+
+.rhyme-wrapper{
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #faf8ff
+        );
+
+    border:1px solid #e1e7f0;
+
+    overflow-x:auto;
+}
+
+.rhyme-title{
     text-align:center;
-    border-top:
-    1px solid rgba(255,255,255,.06);
-    color:#71817d;
-    font-size:12px;
+
+    font-size:17px;
+    font-weight:900;
+
+    color:#1f2937;
+
+    margin-bottom:20px;
 }
-/* =====================================================
-   TOP BUTTON
-===================================================== */
-.top-button{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    width:44px;
-    height:44px;
+
+.rhyme-diagram{
+    min-width:620px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:14px;
+}
+
+.rhyme-line{
+    display:grid;
+
+    grid-template-columns:
+        80px
+        repeat(8,minmax(45px,1fr));
+
+    align-items:center;
+
+    gap:6px;
+}
+
+.line-label{
+    font-size:12px;
+    font-weight:900;
+    color:#667085;
+}
+
+.word{
+    min-height:42px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    border:
-    1px solid rgba(255,255,255,.1);
+
+    padding:5px;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    border:1px solid #e4e8ef;
+
+    font-size:12px;
+
+    color:#475467;
+}
+
+.word.rhyme{
+    background:#eff6ff;
+
+    border-color:#93c5fd;
+
+    color:#1d4ed8;
+
+    font-weight:900;
+}
+
+.rhyme-note{
+    margin-top:18px;
+
+    padding:14px 16px;
+
     border-radius:14px;
-    background:rgba(10,20,18,.8);
-    backdrop-filter:blur(15px);
-    color:white;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    color:#667085;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.rhyme-note strong{
+    color:#1f2937;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer{
+    padding:35px 20px;
+
+    text-align:center;
+
+    background:#fff;
+
+    border-top:1px solid #e8edf3;
+
+    color:#98a2b3;
+
+    font-size:12px;
+}
+
+.site-footer strong{
+    color:#475467;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.top-button{
+    position:fixed;
+
+    right:18px;
+    bottom:18px;
+
+    z-index:200;
+
+    width:46px;
+    height:46px;
+
+    border:0;
+    border-radius:50%;
+
+    background:#111827;
+    color:#fff;
+
+    font-size:18px;
+
     cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.2);
+
     opacity:0;
     visibility:hidden;
-    transition:.2s;
-    z-index:90;
+
+    transform:translateY(10px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
 }
+
 .top-button.show{
     opacity:1;
     visibility:visible;
+    transform:translateY(0);
 }
-/* =====================================================
+
+
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
+
 @media(max-width:780px){
+
     .secret-card{
-        padding:24px 18px;
+        padding:22px;
+
         border-radius:24px;
     }
+
     .secret-logo{
-        width:68px;
-        height:68px;
+        width:58px;
+        height:58px;
+        border-radius:17px;
+    }
+
+    .security-box{
+        padding:16px;
+    }
+
+    .site-header{
+        padding:
+            60px
+            17px
+            50px;
+    }
+
+    .site-header h1{
+        letter-spacing:-.8px;
+    }
+
+    .content{
+        padding:
+            35px
+            14px
+            60px;
+    }
+
+    .topic{
+        padding:20px;
+
         border-radius:20px;
     }
-    .secret-card h1{
-        font-size:29px;
-    }
-    .security-box{
-        padding:15px;
-    }
-    header{
-        padding:50px 17px 40px;
-    }
-    header h1{
-        font-size:38px;
-    }
-    .grid{
+
+    .section-grid{
         grid-template-columns:1fr;
     }
-    .card.full{
+
+    .info-card.full{
         grid-column:auto;
     }
-    .container{
-        padding:
-        24px 14px 70px;
+
+    .character-list{
+        grid-template-columns:1fr;
     }
-    .section-title h2{
-        font-size:24px;
+
+    .topic-header{
+        gap:11px;
     }
-    .nav{
+
+    .topic-number{
+        width:42px;
+        height:42px;
+        border-radius:13px;
+    }
+
+    .sticky-nav{
+        scrollbar-width:none;
+    }
+
+    .sticky-nav::-webkit-scrollbar{
+        display:none;
+    }
+
+    .nav-inner{
         justify-content:flex-start;
     }
 }
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
 @media(max-width:420px){
+
+    .secret-gate{
+        padding:12px;
+    }
+
+    .secret-card{
+        max-height:calc(100dvh - 24px);
+        padding:18px;
+        border-radius:22px;
+    }
+
+    .secret-card h1{
+        font-size:24px;
+    }
+
     .secret-description{
         font-size:13px;
     }
-    .warning{
-        font-size:11px;
-    }
-    .question-text{
+
+    .option label{
         font-size:13px;
+        padding:10px 11px;
     }
-    .option-content{
-        font-size:13px;
+
+    .site-header{
+        padding-top:50px;
+    }
+
+    .topic{
+        padding:17px;
+    }
+
+    .info-card{
+        padding:16px;
     }
 }
-/* =====================================================
+
+
+/* =========================================================
    PRINT
-===================================================== */
+========================================================= */
+
 @media print{
+
+    body{
+        background:#fff;
+    }
+
     .secret-gate,
-    .nav,
+    .sticky-nav,
     .top-button{
         display:none!important;
     }
-    body{
-        background:white;
-        color:black;
+
+    .site-header{
+        padding:30px 0;
+        background:#fff;
     }
-    .site{
-        background:white;
-    }
-    .card{
-        border:1px solid #ccc;
+
+    .topic{
         box-shadow:none;
-        background:white;
+        break-inside:avoid;
     }
 }
 </style>
 </head>
+
+
 <body class="locked">
-<!-- =====================================================
-     SECRET INTRO + QUESTIONS
-===================================================== -->
-<section
-    class="secret-gate"
-    id="secretGate"
->
+
+<!-- =======================================================
+     SECRET LOGIN / QUIZ
+======================================================= -->
+
+<section class="secret-gate" id="secretGate">
+
     <div class="secret-glow"></div>
+
     <div class="secret-card">
+
         <div class="secret-logo">
             RX
         </div>
+
         <div class="secret-tag">
             🔐 RYU XP PRIVATE AREA
         </div>
+
         <h1>
             เว็บไซต์ลับของ
-            <span>
-                ทีมงาน Ryu XP
-            </span>
+            <span>ทีมงาน Ryu XP</span>
         </h1>
+
         <p class="secret-description">
-            ก่อนเข้าสู่ระบบ
-            กรุณาตอบคำถามเพื่อยืนยันว่า
+            ก่อนเข้าสู่ระบบ กรุณาตอบคำถามเพื่อยืนยันว่า
             คุณเป็นคนในจริง ๆ 😂
         </p>
+
+
         <div class="security-box">
+
             <div class="quiz-title">
                 🕵️ คำถามเพื่อเข้าสู่ระบบ
             </div>
+
+
             <!-- QUESTION 1 -->
+
             <div class="question">
-                <div class="question-text">
-                    1. วันสุดท้ายก่อนกลับมหาลัย
-                    คือวันที่เท่าไหร่?
+
+                <div class="question-title">
+                    1. วันสุดท้ายก่อนกลับมหาลัย คือวันที่เท่าไหร่?
                 </div>
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q1"
-                        value="wrong"
-                    >
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        5 กันยา
-                    </span>
-                </label>
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q1"
-                        value="wrong"
-                    >
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        8 กันยา
-                    </span>
-                </label>
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q1"
-                        value="correct"
-                    >
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        10 กันยา
-                    </span>
-                </label>
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q1"
-                        value="wrong"
-                    >
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        12 กันยา
-                    </span>
-                </label>
+
+                <div class="option-list">
+
+                    <div class="option">
+                        <input
+                            type="radio"
+                            id="q1a"
+                            name="q1"
+                            value="wrong"
+                        >
+                        <label for="q1a">
+                            📅 5 กันยา
+                        </label>
+                    </div>
+
+                    <div class="option">
+                        <input
+                            type="radio"
+                            id="q1b"
+                            name="q1"
+                            value="wrong"
+                        >
+                        <label for="q1b">
+                            📅 8 กันยา
+                        </label>
+                    </div>
+
+                    <div class="option">
+                        <input
+                            type="radio"
+                            id="q1c"
+                            name="q1"
+                            value="correct"
+                        >
+                        <label for="q1c">
+                            🎯 10 กันยา
+                        </label>
+                    </div>
+
+                    <div class="option">
+                        <input
+                            type="radio"
+                            id="q1d"
+                            name="q1"
+                            value="wrong"
+                        >
+                        <label for="q1d">
+                            📅 12 กันยา
+                        </label>
+                    </div>
+
+                </div>
             </div>
+
+
             <!-- QUESTION 2 -->
+
             <div class="question">
-                <div class="question-text">
-                    2. กลุ่มลูกรัก
-                    สร้างเมื่อวันที่เท่าไหร่?
+
+                <div class="question-title">
+                    2. กลุ่มลูกรัก สร้างเมื่อวันที่เท่าไหร่?
                 </div>
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q2"
-                        value="wrong"
-                    >
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        1 กรกฎาคม
-                    </span>
-                </label>
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q2"
-                        value="wrong"
-                    >
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        5 กรกฎาคม
-                    </span>
-                </label>
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q2"
-                        value="correct"
-                    >
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        8 กรกฎาคม
-                    </span>
-                </label>
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q2"
-                        value="wrong"
-                    >
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        10 กรกฎาคม
-                    </span>
-                </label>
+
+                <div class="option-list">
+
+                    <div class="option">
+                        <input
+                            type="radio"
+                            id="q2a"
+                            name="q2"
+                            value="wrong"
+                        >
+                        <label for="q2a">
+                            🗓️ 1 กรกฎาคม
+                        </label>
+                    </div>
+
+                    <div class="option">
+                        <input
+                            type="radio"
+                            id="q2b"
+                            name="q2"
+                            value="wrong"
+                        >
+                        <label for="q2b">
+                            🗓️ 5 กรกฎาคม
+                        </label>
+                    </div>
+
+                    <div class="option">
+                        <input
+                            type="radio"
+                            id="q2c"
+                            name="q2"
+                            value="correct"
+                        >
+                        <label for="q2c">
+                            🎯 8 กรกฎาคม
+                        </label>
+                    </div>
+
+                    <div class="option">
+                        <input
+                            type="radio"
+                            id="q2d"
+                            name="q2"
+                            value="wrong"
+                        >
+                        <label for="q2d">
+                            🗓️ 10 กรกฎาคม
+                        </label>
+                    </div>
+
+                </div>
             </div>
+
+
             <button
                 class="enter-button"
                 id="enterButton"
@@ -821,636 +1266,953 @@ footer{
             >
                 🔓 ตรวจสอบคำตอบ
             </button>
+
             <div
                 class="quiz-message"
                 id="quizMessage"
             ></div>
+
         </div>
+
+
         <div class="warning">
-            <div class="warning-icon">
-                ⚠️
-            </div>
-            <div>
-                <strong>
-                    ข้อมูลสำหรับทีมงาน
-                </strong>
-                <br>
-                กรุณาเข้าสู่เว็บไซต์เฉพาะผู้ที่ได้รับอนุญาต
-                เว็บไซต์นี้จัดทำขึ้นสำหรับใช้งานภายใน 😂
-            </div>
+            ⚠️ เฉพาะสมาชิกทีม Ryu XP เท่านั้น
+            <br>
+            ตอบผิดก็ลองใหม่ได้ ไม่ได้ไล่ออกจากทีม 😂
         </div>
+
         <div class="secret-footer">
             Ryu XP • Secret Team Website
             <br>
             Authorized Team Members Only
         </div>
+
     </div>
+
 </section>
-<!-- =====================================================
+
+
+<!-- =======================================================
      MAIN WEBSITE
-===================================================== -->
-<div class="site" id="mainSite">
-<header>
-    <div class="header-badge">
-        🔓 RYU XP • PRIVATE STUDY AREA
-    </div>
-    <h1>
-        สรุปรายวิชาภาษาไทย
-    </h1>
-    <p>
-        สรุปเนื้อหาสำคัญสำหรับอ่านทบทวน
-        ครอบคลุมการเขียนย่อความ
-        รามเกียรติ์ ตอน นารายณ์ปราบนนทก
-        ศิลาจารึกหลักที่ 1
-        และการแต่งกลอนสุภาพ
-    </p>
-    <div class="hero-pills">
-        <span class="hero-pill">
-            📚 4 หัวข้อ
-        </span>
-        <span class="hero-pill">
-            📝 สรุปอ่านง่าย
-        </span>
-        <span class="hero-pill">
-            🔐 Ryu XP Private
-        </span>
-    </div>
-</header>
-<!-- NAV -->
-<nav class="nav">
-    <a href="#summary">
-        ย่อความ
-    </a>
-    <a href="#ramakien">
-        รามเกียรติ์
-    </a>
-    <a href="#inscription">
-        ศิลาจารึก
-    </a>
-    <a href="#poem">
-        กลอนสุภาพ
-    </a>
-</nav>
-<main class="container">
-<!-- =====================================================
-     01 การเขียนย่อความ
-===================================================== -->
-<section
-    class="section"
-    id="summary"
->
-    <div class="section-title">
-        <div class="section-number">
-            01
-        </div>
-        <h2>
-            การเขียนย่อความ
-        </h2>
-    </div>
-    <div class="grid">
-        <article class="card">
-            <h3>
-                ✍️ ความหมาย
-            </h3>
-            <p>
-                การย่อความ คือ
-                การนำใจความสำคัญของเรื่อง
-                มาเรียบเรียงใหม่ให้สั้น กระชับ
-                และยังคงสาระสำคัญ
-                ของเรื่องเดิมไว้
-            </p>
-        </article>
-        <article class="card">
-            <h3>
-                🎯 จุดประสงค์
-            </h3>
-            <ul>
-                <li>
-                    จับใจความสำคัญ
-                </li>
-                <li>
-                    สรุปเรื่องให้กระชับ
-                </li>
-                <li>
-                    ถ่ายทอดสาระสำคัญอย่างถูกต้อง
-                </li>
-                <li>
-                    ฝึกการอ่านและการเรียบเรียง
-                </li>
-            </ul>
-        </article>
-        <article class="card full">
-            <h3>
-                🧠 หลักการย่อความ
-            </h3>
-            <ul>
-                <li>
-                    อ่านเรื่องทั้งหมดให้เข้าใจก่อน
-                </li>
-                <li>
-                    หาใจความสำคัญของแต่ละย่อหน้า
-                </li>
-                <li>
-                    ตัดรายละเอียดที่ไม่จำเป็น
-                </li>
-                <li>
-                    เรียบเรียงด้วยภาษาของตนเอง
-                </li>
-                <li>
-                    รักษาเนื้อหาและลำดับเหตุการณ์สำคัญ
-                </li>
-                <li>
-                    ไม่ใส่ความคิดเห็นส่วนตัว
-                </li>
-            </ul>
-            <div class="highlight">
-                💡 จำง่าย:
-                <strong>
-                    อ่าน → จับใจความ → ตัดส่วนเกิน → เรียบเรียงใหม่
-                </strong>
+======================================================= -->
+
+<main class="main-site" id="mainSite">
+
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <div class="private-badge">
+                🔓 RYU XP • PRIVATE STUDY AREA
             </div>
-        </article>
-    </div>
-</section>
-<!-- =====================================================
-     02 รามเกียรติ์
-===================================================== -->
-<section
-    class="section"
-    id="ramakien"
->
-    <div class="section-title">
-        <div class="section-number">
-            02
-        </div>
-        <h2>
-            รามเกียรติ์ ตอน นารายณ์ปราบนนทก
-        </h2>
-    </div>
-    <div class="grid">
-        <article class="card">
-            <h3>
-                📖 เรื่องย่อ
-            </h3>
-            <p>
-                นนทกเป็นผู้รับใช้ประจำเชิงเขาไกรลาส
-                ทำหน้าที่ล้างเท้าให้เหล่าเทวดา
-                แต่ถูกกลั่นแกล้งอยู่เสมอ
-                จึงไปขอพรจากพระอิศวร
-                ให้มีนิ้วเพชรที่สามารถชี้ผู้ใด
-                แล้วทำให้ผู้นั้นตายได้
-            </p>
-        </article>
-        <article class="card">
-            <h3>
-                ⚔️ เหตุการณ์สำคัญ
-            </h3>
-            <ul>
-                <li>
-                    นนทกถูกเหล่าเทวดากลั่นแกล้ง
-                </li>
-                <li>
-                    ได้รับพรนิ้วเพชร
-                </li>
-                <li>
-                    นนทกใช้อำนาจทำร้ายเหล่าเทวดา
-                </li>
-                <li>
-                    พระนารายณ์มาปราบนนทก
-                </li>
-                <li>
-                    นนทกได้รับพรให้ไปเกิดใหม่
-                </li>
-            </ul>
-        </article>
-        <article class="card">
-            <h3>
-                👑 ตัวละครสำคัญ
-            </h3>
-            <ul>
-                <li>นนทก</li>
-                <li>พระนารายณ์</li>
-                <li>พระอิศวร</li>
-                <li>เหล่าเทวดา</li>
-            </ul>
-        </article>
-        <article class="card">
-            <h3>
-                💡 ข้อคิด
-            </h3>
-            <ul>
-                <li>
-                    การใช้อำนาจโดยขาดสติ
-                    อาจนำไปสู่ความพินาศ
-                </li>
-                <li>
-                    ไม่ควรใช้อำนาจแก้แค้นผู้อื่น
-                </li>
-                <li>
-                    การกระทำย่อมมีผลตามมา
-                </li>
-            </ul>
-        </article>
-    </div>
-</section>
-<!-- =====================================================
-     03 ศิลาจารึก
-===================================================== -->
-<section
-    class="section"
-    id="inscription"
->
-    <div class="section-title">
-        <div class="section-number">
-            03
-        </div>
-        <h2>
-            ศิลาจารึกหลักที่ 1
-        </h2>
-    </div>
-    <div class="grid">
-        <article class="card">
-            <h3>
-                🪨 ความสำคัญ
-            </h3>
-            <p>
+
+            <h1>
+                สรุปรายวิชา
+                <span>ภาษาไทย</span>
+            </h1>
+
+            <p class="header-description">
+                สรุปเนื้อหาสำคัญสำหรับอ่านทบทวน
+                ครอบคลุม 4 หัวข้อ ได้แก่
+                การเขียนย่อความ,
+                รามเกียรติ์ ตอน นารายณ์ปราบนนทก,
                 ศิลาจารึกหลักที่ 1
-                เป็นหลักฐานสำคัญเกี่ยวกับอาณาจักรสุโขทัย
-                และสะท้อนภาพสังคม เศรษฐกิจ
-                การปกครอง และวัฒนธรรมในสมัยสุโขทัย
+                และการแต่งกลอนสุภาพ
             </p>
-        </article>
-        <article class="card">
-            <h3>
-                👑 ผู้เกี่ยวข้อง
-            </h3>
-            <p>
-                ตามการศึกษาตามแบบเรียนทั่วไป
-                ศิลาจารึกหลักที่ 1
-                เชื่อมโยงกับพ่อขุนรามคำแหงมหาราช
-                แห่งอาณาจักรสุโขทัย
-            </p>
-        </article>
-        <article class="card">
-            <h3>
-                📜 เนื้อหาที่ควรรู้
-            </h3>
-            <ul>
-                <li>การปกครอง</li>
-                <li>ความเป็นอยู่ของประชาชน</li>
-                <li>การค้าขาย</li>
-                <li>ศาสนาและวัฒนธรรม</li>
-                <li>ภาษาและอักษรไทย</li>
-            </ul>
-        </article>
-        <article class="card">
-            <h3>
-                ⭐ จุดเด่น
-            </h3>
-            <p>
-                สะท้อนแนวคิดเรื่องการปกครอง
-                และวิถีชีวิตของผู้คนในสมัยสุโขทัย
-                ทำให้สามารถศึกษาสังคมไทยในอดีตได้
-            </p>
-        </article>
-    </div>
-</section>
-<!-- =====================================================
-     04 กลอนสุภาพ
-===================================================== -->
-<section
-    class="section"
-    id="poem"
->
-    <div class="section-title">
-        <div class="section-number">
-            04
+
+            <div class="hero-pills">
+                <div class="hero-pill">
+                    📚 4 หัวข้อ
+                </div>
+
+                <div class="hero-pill">
+                    📝 สรุปอ่านง่าย
+                </div>
+
+                <div class="hero-pill">
+                    🔐 Ryu XP Private
+                </div>
+            </div>
+
         </div>
-        <h2>
-            การแต่งกลอนสุภาพ
-        </h2>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="sticky-nav">
+
+        <div class="nav-inner">
+
+            <a href="#summary">
+                ✏️ ย่อความ
+            </a>
+
+            <a href="#ramakien">
+                ⚔️ รามเกียรติ์
+            </a>
+
+            <a href="#inscription">
+                🪨 ศิลาจารึก
+            </a>
+
+            <a href="#klon">
+                📝 กลอนสุภาพ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+
+        <!-- =================================================
+             TOPIC 1
+        ================================================= -->
+
+        <section class="topic" id="summary">
+
+            <div class="topic-header">
+
+                <div class="topic-number">
+                    01
+                </div>
+
+                <div>
+                    <h2 class="topic-title">
+                        การเขียนย่อความ
+                    </h2>
+
+                    <div class="topic-subtitle">
+                        สรุปใจความสำคัญให้สั้น กระชับ และครบถ้วน
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="section-grid">
+
+                <div class="info-card">
+
+                    <h3>
+                        📖 ความหมาย
+                    </h3>
+
+                    <p>
+                        การย่อความ คือ
+                        การจับใจความสำคัญของเรื่อง
+                        แล้วเรียบเรียงใหม่ให้สั้นลง
+                        โดยยังคงสาระสำคัญของเรื่องเดิมไว้
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🎯 จุดประสงค์
+                    </h3>
+
+                    <ul>
+                        <li>อ่านแล้วเข้าใจเนื้อหาได้รวดเร็ว</li>
+                        <li>เก็บเฉพาะใจความสำคัญ</li>
+                        <li>ลดรายละเอียดที่ไม่จำเป็น</li>
+                        <li>ทำให้เนื้อหากระชับ</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="info-card full highlight">
+
+                    <h3>
+                        ⭐ หลักการเขียนย่อความ
+                    </h3>
+
+                    <ul>
+                        <li>
+                            อ่านเรื่องทั้งหมดให้เข้าใจก่อน
+                        </li>
+
+                        <li>
+                            จับว่าใคร ทำอะไร ที่ไหน เมื่อไร อย่างไร
+                        </li>
+
+                        <li>
+                            เลือกเฉพาะใจความสำคัญ
+                        </li>
+
+                        <li>
+                            ตัดตัวอย่าง รายละเอียด และคำซ้ำที่ไม่จำเป็น
+                        </li>
+
+                        <li>
+                            เรียบเรียงเป็นภาษาของผู้เขียนย่อ
+                        </li>
+
+                        <li>
+                            ตรวจสอบว่าความหมายเดิมยังครบถ้วน
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TOPIC 2
+        ================================================= -->
+
+        <section class="topic" id="ramakien">
+
+            <div class="topic-header">
+
+                <div class="topic-number">
+                    02
+                </div>
+
+                <div>
+                    <h2 class="topic-title">
+                        รามเกียรติ์ ตอน นารายณ์ปราบนนทก
+                    </h2>
+
+                    <div class="topic-subtitle">
+                        วรรณคดีไทยเกี่ยวกับอำนาจ ความแค้น และผลของการกระทำ
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="section-grid">
+
+                <div class="info-card full">
+
+                    <h3>
+                        📖 เรื่องย่อ
+                    </h3>
+
+                    <p>
+                        นนทกเป็นยักษ์ผู้ทำหน้าที่ล้างเท้าให้เหล่าเทวดา
+                        บริเวณเชิงเขาไกรลาส
+                        แต่ถูกเทวดากลั่นแกล้งและรังแกอยู่เสมอ
+                        จนนนทกเกิดความแค้น
+                        จึงขอพรจากพระอิศวรให้มีนิ้วเพชร
+                        ซึ่งสามารถชี้ผู้ใดแล้วทำให้ผู้นั้นถึงแก่ความตายได้
+                    </p>
+
+                    <br>
+
+                    <p>
+                        เมื่อนนทกมีอำนาจ
+                        เขากลับใช้นิ้วเพชรทำร้ายเหล่าเทวดา
+                        พระนารายณ์จึงต้องลงมาปราบนนทก
+                        โดยแปลงกายเป็นหญิงงาม
+                        แล้วใช้อุบายให้นนทกร่ายรำตาม
+                        จนในที่สุดนนทกใช้นิ้วเพชรชี้ตนเอง
+                        และเสียชีวิต
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        👑 ตัวละครสำคัญ
+                    </h3>
+
+                    <div class="character-list">
+
+                        <div class="character">
+                            <strong>นนทก</strong>
+                            — ยักษ์ผู้ได้รับนิ้วเพชร
+                        </div>
+
+                        <div class="character">
+                            <strong>พระนารายณ์</strong>
+                            — ผู้ลงมาปราบนนทก
+                        </div>
+
+                        <div class="character">
+                            <strong>พระอิศวร</strong>
+                            — ผู้ประทานพรให้นนทก
+                        </div>
+
+                        <div class="character">
+                            <strong>เหล่าเทวดา</strong>
+                            — ผู้เคยกลั่นแกล้งนนทก
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card highlight">
+
+                    <h3>
+                        💡 ข้อคิด
+                    </h3>
+
+                    <ul>
+                        <li>
+                            ไม่ควรใช้อำนาจในทางที่ผิด
+                        </li>
+
+                        <li>
+                            ความแค้นอาจนำไปสู่ความเสียหาย
+                        </li>
+
+                        <li>
+                            การกระทำย่อมมีผลตามมา
+                        </li>
+
+                        <li>
+                            การให้อภัยและการควบคุมตนเองเป็นสิ่งสำคัญ
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TOPIC 3
+        ================================================= -->
+
+        <section class="topic" id="inscription">
+
+            <div class="topic-header">
+
+                <div class="topic-number">
+                    03
+                </div>
+
+                <div>
+                    <h2 class="topic-title">
+                        ศิลาจารึกหลักที่ 1
+                    </h2>
+
+                    <div class="topic-subtitle">
+                        หลักฐานสำคัญเกี่ยวกับสังคมและความเป็นอยู่ในสมัยสุโขทัย
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="section-grid">
+
+                <div class="info-card">
+
+                    <h3>
+                        🪨 ความสำคัญ
+                    </h3>
+
+                    <p>
+                        ศิลาจารึกหลักที่ 1
+                        หรือจารึกพ่อขุนรามคำแหง
+                        เป็นหลักฐานสำคัญทางประวัติศาสตร์
+                        ที่ใช้ศึกษาการเมือง เศรษฐกิจ
+                        สังคม วัฒนธรรม และวิถีชีวิตของผู้คน
+                        ในสมัยสุโขทัย
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        👑 ผู้เกี่ยวข้อง
+                    </h3>
+
+                    <ul>
+                        <li>
+                            พ่อขุนรามคำแหงมหาราช
+                        </li>
+
+                        <li>
+                            อาณาจักรสุโขทัย
+                        </li>
+
+                        <li>
+                            ประชาชนในสมัยสุโขทัย
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="info-card full">
+
+                    <h3>
+                        📜 เนื้อหาสำคัญ
+                    </h3>
+
+                    <ul>
+                        <li>
+                            กล่าวถึงพระราชประวัติของพ่อขุนรามคำแหง
+                        </li>
+
+                        <li>
+                            กล่าวถึงความอุดมสมบูรณ์ของเมืองสุโขทัย
+                        </li>
+
+                        <li>
+                            กล่าวถึงการปกครองและความสัมพันธ์ระหว่างกษัตริย์กับประชาชน
+                        </li>
+
+                        <li>
+                            กล่าวถึงขนบธรรมเนียมและประเพณี
+                        </li>
+
+                        <li>
+                            กล่าวถึงพระพุทธศาสนา
+                        </li>
+
+                        <li>
+                            มีข้อมูลเกี่ยวกับการประดิษฐ์อักษรไทย
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="info-card highlight full">
+
+                    <h3>
+                        ⭐ จุดเด่นที่ควรจำ
+                    </h3>
+
+                    <p>
+                        ศิลาจารึกหลักที่ 1
+                        เป็นหลักฐานที่สะท้อนภาพชีวิตของคนในสมัยสุโขทัย
+                        ทั้งด้านการปกครอง เศรษฐกิจ สังคม
+                        ศาสนา และวัฒนธรรม
+                        จึงมีคุณค่าอย่างมากต่อการศึกษาประวัติศาสตร์ไทย
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TOPIC 4
+        ================================================= -->
+
+        <section class="topic" id="klon">
+
+            <div class="topic-header">
+
+                <div class="topic-number">
+                    04
+                </div>
+
+                <div>
+                    <h2 class="topic-title">
+                        การแต่งกลอนสุภาพ
+                    </h2>
+
+                    <div class="topic-subtitle">
+                        เรียนรู้โครงสร้างและสัมผัสของกลอนสุภาพ
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="section-grid">
+
+                <div class="info-card">
+
+                    <h3>
+                        📝 ลักษณะสำคัญ
+                    </h3>
+
+                    <ul>
+                        <li>
+                            1 บท มี 4 วรรค
+                        </li>
+
+                        <li>
+                            วรรคละประมาณ 7–9 คำ
+                            ตามลักษณะการนับ
+                        </li>
+
+                        <li>
+                            มีสัมผัสระหว่างวรรค
+                        </li>
+
+                        <li>
+                            มีสัมผัสระหว่างบท
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        📚 ชื่อวรรค
+                    </h3>
+
+                    <ul>
+                        <li>
+                            วรรคที่ 1 — วรรคสดับ
+                        </li>
+
+                        <li>
+                            วรรคที่ 2 — วรรครับ
+                        </li>
+
+                        <li>
+                            วรรคที่ 3 — วรรครอง
+                        </li>
+
+                        <li>
+                            วรรคที่ 4 — วรรคส่ง
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="info-card full">
+
+                    <h3>
+                        🔗 แผนผังสัมผัสกลอนสุภาพ
+                    </h3>
+
+                    <div class="rhyme-wrapper">
+
+                        <div class="rhyme-title">
+                            โครงสร้างสัมผัสหลัก
+                        </div>
+
+
+                        <div class="rhyme-diagram">
+
+
+                            <!-- LINE 1 -->
+
+                            <div class="rhyme-line">
+
+                                <div class="line-label">
+                                    วรรคสดับ
+                                </div>
+
+                                <div class="word">๑</div>
+                                <div class="word">๒</div>
+                                <div class="word">๓</div>
+                                <div class="word">๔</div>
+                                <div class="word">๕</div>
+                                <div class="word">๖</div>
+
+                                <div class="word rhyme">
+                                    ๗ ●
+                                </div>
+
+                                <div class="word">
+                                    ๘
+                                </div>
+
+                            </div>
+
+
+                            <!-- LINE 2 -->
+
+                            <div class="rhyme-line">
+
+                                <div class="line-label">
+                                    วรรครับ
+                                </div>
+
+                                <div class="word">๑</div>
+                                <div class="word">๒</div>
+
+                                <div class="word rhyme">
+                                    ๓ ●
+                                </div>
+
+                                <div class="word">๔</div>
+                                <div class="word">๕</div>
+                                <div class="word">๖</div>
+
+                                <div class="word rhyme">
+                                    ๗ ●
+                                </div>
+
+                                <div class="word">๘</div>
+
+                            </div>
+
+
+                            <!-- LINE 3 -->
+
+                            <div class="rhyme-line">
+
+                                <div class="line-label">
+                                    วรรครอง
+                                </div>
+
+                                <div class="word">๑</div>
+                                <div class="word">๒</div>
+                                <div class="word">๓</div>
+                                <div class="word">๔</div>
+                                <div class="word">๕</div>
+                                <div class="word">๖</div>
+
+                                <div class="word rhyme">
+                                    ๗ ●
+                                </div>
+
+                                <div class="word">
+                                    ๘
+                                </div>
+
+                            </div>
+
+
+                            <!-- LINE 4 -->
+
+                            <div class="rhyme-line">
+
+                                <div class="line-label">
+                                    วรรคส่ง
+                                </div>
+
+                                <div class="word">๑</div>
+                                <div class="word">๒</div>
+
+                                <div class="word rhyme">
+                                    ๓ ●
+                                </div>
+
+                                <div class="word">๔</div>
+                                <div class="word">๕</div>
+                                <div class="word">๖</div>
+
+                                <div class="word rhyme">
+                                    ๗ ●
+                                </div>
+
+                                <div class="word">๘</div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="rhyme-note">
+
+                            <strong>
+                                💡 จำง่าย ๆ
+                            </strong>
+
+                            <br>
+
+                            คำสุดท้ายของวรรคสดับ
+                            → สัมผัสกับคำที่ 3 หรือ 5
+                            ของวรรครับ
+
+                            <br>
+
+                            คำสุดท้ายของวรรครับ
+                            → สัมผัสกับคำสุดท้ายของวรรครอง
+
+                            <br>
+
+                            คำสุดท้ายของวรรครอง
+                            → สัมผัสกับคำที่ 3 หรือ 5
+                            ของวรรคส่ง
+
+                            <br>
+
+                            คำสุดท้ายของวรรคส่ง
+                            → เชื่อมไปยังวรรครับของบทถัดไป
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card highlight full">
+
+                    <h3>
+                        🎯 เทคนิคจำก่อนสอบ
+                    </h3>
+
+                    <p>
+                        จำลำดับง่าย ๆ ว่า
+                        <strong>
+                            “สดับ → รับ → รอง → ส่ง”
+                        </strong>
+                        และให้ความสำคัญกับ
+                        <strong>
+                            คำท้ายวรรค
+                        </strong>
+                        เพราะเป็นตำแหน่งสำคัญของสัมผัสกลอน
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </div>
-    <div class="grid">
-        <article class="card">
-            <h3>
-                🎵 ลักษณะกลอนสุภาพ
-            </h3>
-            <ul>
-                <li>
-                    1 บท มี 4 วรรค
-                </li>
-                <li>
-                    วรรคละประมาณ 7–9 คำ
-                </li>
-                <li>
-                    มีสัมผัสระหว่างวรรค
-                </li>
-                <li>
-                    มีสัมผัสระหว่างบท
-                </li>
-            </ul>
-        </article>
-        <article class="card">
-            <h3>
-                📌 ชื่อวรรค
-            </h3>
-            <ul>
-                <li>
-                    วรรคที่ 1 = สดับ
-                </li>
-                <li>
-                    วรรคที่ 2 = รับ
-                </li>
-                <li>
-                    วรรคที่ 3 = รอง
-                </li>
-                <li>
-                    วรรคที่ 4 = ส่ง
-                </li>
-            </ul>
-        </article>
-        <article class="card full">
-            <h3>
-                🔗 แผนผังสัมผัสกลอนสุภาพ
-            </h3>
-            <p>
-                ตำแหน่งสัมผัสสำคัญของกลอนสุภาพ
-            </p>
-            <div class="rhyme-wrap">
-                <div class="rhyme-diagram">
-                    <div class="verse">
-                        <div class="verse-label">
-                            วรรคที่ 1
-                        </div>
-                        <div class="word">คำ 1</div>
-                        <div class="word">คำ 2</div>
-                        <div class="word">คำ 3</div>
-                        <div class="word">คำ 4</div>
-                        <div class="word">คำ 5</div>
-                        <div class="word">คำ 6</div>
-                        <div class="word rhyme-a">ก</div>
-                        <div class="word">คำ 8</div>
-                    </div>
-                    <div class="verse">
-                        <div class="verse-label">
-                            วรรคที่ 2
-                        </div>
-                        <div class="word">คำ 1</div>
-                        <div class="word">คำ 2</div>
-                        <div class="word rhyme-a">ก</div>
-                        <div class="word">คำ 4</div>
-                        <div class="word">คำ 5</div>
-                        <div class="word">คำ 6</div>
-                        <div class="word">คำ 7</div>
-                        <div class="word rhyme-b">ข</div>
-                    </div>
-                    <div class="verse">
-                        <div class="verse-label">
-                            วรรคที่ 3
-                        </div>
-                        <div class="word">คำ 1</div>
-                        <div class="word">คำ 2</div>
-                        <div class="word">คำ 3</div>
-                        <div class="word">คำ 4</div>
-                        <div class="word">คำ 5</div>
-                        <div class="word">คำ 6</div>
-                        <div class="word">คำ 7</div>
-                        <div class="word rhyme-b">ข</div>
-                    </div>
-                    <div class="verse">
-                        <div class="verse-label">
-                            วรรคที่ 4
-                        </div>
-                        <div class="word">คำ 1</div>
-                        <div class="word">คำ 2</div>
-                        <div class="word rhyme-a">ก</div>
-                        <div class="word">คำ 4</div>
-                        <div class="word">คำ 5</div>
-                        <div class="word">คำ 6</div>
-                        <div class="word">คำ 7</div>
-                        <div class="word">คำ 8</div>
-                    </div>
-                </div>
-            </div>
-            <div class="rhyme-key">
-                <div class="key">
-                    <span class="key-box key-a"></span>
-                    สัมผัส ก
-                </div>
-                <div class="key">
-                    <span class="key-box key-b"></span>
-                    สัมผัส ข
-                </div>
-            </div>
-            <div class="arrow-info">
-                <div>
-                    <strong>
-                        ก → ก
-                    </strong>
-                    วรรค 1 คำสุดท้าย
-                    สัมผัสกับวรรค 2 คำที่ 3 หรือ 5
-                </div>
-                <div>
-                    <strong>
-                        ข → ข
-                    </strong>
-                    วรรค 2 คำสุดท้าย
-                    สัมผัสกับวรรค 3 คำสุดท้าย
-                </div>
-                <div>
-                    <strong>
-                        ก → ก
-                    </strong>
-                    วรรค 3 คำสุดท้าย
-                    สัมผัสกับวรรค 4 คำที่ 3 หรือ 5
-                </div>
-                <div>
-                    <strong>
-                        สัมผัสระหว่างบท
-                    </strong>
-                    วรรค 4 ของบทก่อน
-                    สัมผัสกับวรรค 2
-                    ของบทถัดไป
-                </div>
-            </div>
-        </article>
-        <article class="card full">
-            <h3>
-                🧠 เทคนิคจำก่อนสอบ
-            </h3>
-            <div class="highlight">
-                <strong>
-                    วรรค 1 → วรรค 2 → วรรค 3 → วรรค 4
-                </strong>
-                <br>
-                จำเป็นภาพว่า
-                <strong>
-                    ปลายวรรค 1
-                    ↓
-                    กลางวรรค 2
-                    ↓
-                    ปลายวรรค 2
-                    ↓
-                    ปลายวรรค 3
-                    ↓
-                    กลางวรรค 4
-                </strong>
-            </div>
-        </article>
-    </div>
-</section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <strong>
+            🔐 Ryu XP Secret Team Website
+        </strong>
+
+        <br>
+
+        Internal Thai Study Summary
+
+        <br><br>
+
+        © Ryu XP
+
+    </footer>
+
 </main>
-<footer>
-    🔐 Ryu XP Secret Team Website
-    <br>
-    สรุปรายวิชาภาษาไทย • สำหรับใช้งานภายในทีมงาน
-    <br><br>
-    © Ryu XP
-</footer>
-</div>
-<!-- TOP BUTTON -->
+
+
+<!-- BACK TO TOP -->
+
 <button
     class="top-button"
     id="topButton"
     type="button"
+    aria-label="กลับด้านบน"
 >
     ↑
 </button>
+
+
 <script>
-/* =====================================================
-   SECURITY SYSTEM
-===================================================== */
 "use strict";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
 const secretGate =
     document.getElementById("secretGate");
+
 const enterButton =
     document.getElementById("enterButton");
+
 const quizMessage =
     document.getElementById("quizMessage");
+
 const topButton =
     document.getElementById("topButton");
-enterButton.addEventListener(
-    "click",
-    function(){
-        const q1 =
-            document.querySelector(
-                'input[name="q1"]:checked'
-            );
-        const q2 =
-            document.querySelector(
-                'input[name="q2"]:checked'
-            );
-        /* ยังไม่เลือก */
-        if(!q1 || !q2){
-            quizMessage.textContent =
-                "😂 เลือกคำตอบให้ครบทั้ง 2 ข้อก่อน";
-            quizMessage.className =
-                "quiz-message error";
-            return;
-        }
-        /* ตรวจคำตอบ */
-        if(
-            q1.value === "correct" &&
-            q2.value === "correct"
-        ){
-            quizMessage.textContent =
-                "✅ ถูกทั้ง 2 ข้อ! คนในจริงนี่หว่า 😂";
-            quizMessage.className =
-                "quiz-message success";
-            enterButton.disabled = true;
-            enterButton.textContent =
-                "🔓 กำลังเข้าสู่ระบบ...";
-            setTimeout(
-                function(){
-                    secretGate.classList.add(
-                        "hidden"
-                    );
-                    document.body.classList.remove(
-                        "locked"
-                    );
-                    window.scrollTo(
-                        0,
-                        0
-                    );
-                },
-                750
-            );
-        }else{
-            quizMessage.textContent =
-                "🚨 คำตอบไม่ถูก! ใครให้แกเข้ามาเนี่ย 😂";
-            quizMessage.className =
-                "quiz-message error";
-            const card =
-                document.querySelector(
-                    ".security-card"
-                );
-            card.animate(
-                [
-                    {
-                        transform:"translateX(0)"
-                    },
-                    {
-                        transform:"translateX(-7px)"
-                    },
-                    {
-                        transform:"translateX(7px)"
-                    },
-                    {
-                        transform:"translateX(-5px)"
-                    },
-                    {
-                        transform:"translateX(5px)"
-                    },
-                    {
-                        transform:"translateX(0)"
-                    }
-                ],
-                {
-                    duration:350
-                }
-            );
-        }
+
+
+/* =========================================================
+   SECURITY QUIZ
+========================================================= */
+
+enterButton.addEventListener("click", function(){
+
+    const q1 =
+        document.querySelector(
+            'input[name="q1"]:checked'
+        );
+
+    const q2 =
+        document.querySelector(
+            'input[name="q2"]:checked'
+        );
+
+
+    /* ไม่มีคำตอบ */
+
+    if(!q1 || !q2){
+
+        quizMessage.textContent =
+            "⚠️ ตอบให้ครบทั้ง 2 ข้อก่อนนะ 😂";
+
+        quizMessage.className =
+            "quiz-message warning";
+
+        return;
     }
-);
-/* =====================================================
+
+
+    /* ถูกทั้งสองข้อ */
+
+    if(
+        q1.value === "correct" &&
+        q2.value === "correct"
+    ){
+
+        quizMessage.textContent =
+            "✅ ถูกต้อง! ยืนยันตัวตนสำเร็จ กำลังเข้าสู่ระบบ...";
+
+        quizMessage.className =
+            "quiz-message success";
+
+        enterButton.disabled = true;
+
+        enterButton.textContent =
+            "🔓 กำลังเข้าสู่ระบบ...";
+
+
+        setTimeout(function(){
+
+            secretGate.classList.add("hidden");
+
+            document.body.classList.remove("locked");
+
+        }, 900);
+
+        return;
+    }
+
+
+    /* ตอบผิด */
+
+    quizMessage.textContent =
+        "❌ ยังไม่ใช่! สมาชิกตัวจริงลองใหม่อีกที 😂";
+
+    quizMessage.className =
+        "quiz-message error";
+
+
+    /* FIX: ใช้ .secret-card ที่มีอยู่จริง */
+
+    const card =
+        document.querySelector(".secret-card");
+
+    if(card){
+
+        card.animate(
+            [
+                { transform:"translateX(0)" },
+                { transform:"translateX(-8px)" },
+                { transform:"translateX(8px)" },
+                { transform:"translateX(-6px)" },
+                { transform:"translateX(6px)" },
+                { transform:"translateX(0)" }
+            ],
+            {
+                duration:400,
+                easing:"ease-out"
+            }
+        );
+
+    }
+
+});
+
+
+/* =========================================================
    BACK TO TOP
-===================================================== */
+========================================================= */
+
 window.addEventListener(
     "scroll",
     function(){
-        if(window.scrollY > 400){
-            topButton.classList.add(
-                "show"
-            );
+
+        if(window.scrollY > 500){
+
+            topButton.classList.add("show");
+
         }else{
-            topButton.classList.remove(
-                "show"
-            );
+
+            topButton.classList.remove("show");
+
         }
+
     },
-    {
-        passive:true
-    }
+    { passive:true }
 );
+
+
 topButton.addEventListener(
     "click",
     function(){
+
         window.scrollTo({
             top:0,
             behavior:"smooth"
         });
+
     }
 );
-/* =====================================================
-   INITIAL STATE
-===================================================== */
-document.body.classList.add(
-    "locked"
+
+
+/* =========================================================
+   ESC KEY — ไม่ให้ปิดประตูด้วย ESC
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape" &&
+            !secretGate.classList.contains("hidden")
+        ){
+
+            event.preventDefault();
+
+        }
+
+    }
 );
-window.scrollTo(
-    0,
-    0
+
+
+/* =========================================================
+   PREVENT CLICK BEHIND GATE
+========================================================= */
+
+secretGate.addEventListener(
+    "wheel",
+    function(event){
+
+        event.stopPropagation();
+
+    },
+    { passive:true }
 );
 </script>
+
 </body>
 </html>
