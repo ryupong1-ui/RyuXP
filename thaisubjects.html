@@ -2,38 +2,64 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#102d4d">
-<meta name="description"
-content="สรุปรายวิชาภาษาไทย การเขียนย่อความ รามเกียรติ์ ตอน นารายณ์ปราบนนทก ศิลาจารึกหลักที่ 1 และการแต่งกลอนสุภาพ">
-<title>สรุปรายวิชาภาษาไทย</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+<meta
+    name="theme-color"
+    content="#07111f"
+>
+<meta
+    name="description"
+    content="เว็บไซต์ลับของทีมงาน Ryu XP - สรุปรายวิชาภาษาไทย"
+>
+<title>
+    Ryu XP | Secret Thai Study
+</title>
 <style>
+/* =========================================================
+   RESET
+========================================================= */
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 html{
     scroll-behavior:smooth;
 }
 body{
-    margin:0;
     font-family:
         "Noto Sans Thai",
         "Tahoma",
         "Arial",
         sans-serif;
-    color:#17283a;
     background:#f7f1e5;
+    color:#17283a;
     line-height:1.65;
+    min-height:100vh;
+}
+body.locked{
+    overflow:hidden;
+}
+button,
+a{
+    font:inherit;
+}
+button{
+    cursor:pointer;
 }
 a{
     text-decoration:none;
     color:inherit;
 }
-button{
-    font:inherit;
-}
+/* =========================================================
+   VARIABLES
+========================================================= */
 :root{
-    --navy:#102d4d;
+    --navy:#07111f;
+    --navy2:#0d2035;
     --blue:#23619a;
     --blue-soft:#edf7ff;
     --red:#a73524;
@@ -44,13 +70,235 @@ button{
     --purple-soft:#fbf1ff;
     --gold:#e7b84c;
     --cream:#fffaf0;
+    --white:#ffffff;
     --shadow:
-        0 14px 35px rgba(34,48,64,.12);
+        0 14px 35px
+        rgba(34,48,64,.12);
     --radius:26px;
 }
-/* =========================
+/* =========================================================
+   SECRET GATE
+========================================================= */
+.secret-gate{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0,220,170,.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(35,120,255,.12),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #03070d,
+            #07111f 50%,
+            #02060c
+        );
+    color:#fff;
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+}
+.secret-gate.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+/* Background grid */
+.secret-gate::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.14;
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.08) 1px,
+            transparent 1px
+        );
+    background-size:
+        40px 40px;
+}
+/* Glow */
+.secret-glow{
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:
+        rgba(0,255,190,.06);
+    filter:blur(70px);
+}
+/* Gate card */
+.secret-card{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:560px;
+    padding:42px 34px;
+    text-align:center;
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+    border-radius:30px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+    backdrop-filter:
+        blur(22px);
+    -webkit-backdrop-filter:
+        blur(22px);
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.55),
+        inset
+        0 1px 0
+        rgba(255,255,255,.08);
+}
+/* Ryu XP logo */
+.secret-logo{
+    width:82px;
+    height:82px;
+    margin:0 auto 20px;
+    display:grid;
+    place-items:center;
+    border-radius:24px;
+    background:
+        linear-gradient(
+            135deg,
+            #19d3a2,
+            #1877ff
+        );
+    box-shadow:
+        0 12px 40px
+        rgba(25,211,162,.25);
+    font-size:2.2rem;
+    font-weight:1000;
+    letter-spacing:-2px;
+}
+.secret-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:
+        7px
+        13px;
+    border-radius:999px;
+    background:
+        rgba(255,255,255,.08);
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+    color:#a8ffeb;
+    font-size:.8rem;
+    font-weight:900;
+    letter-spacing:.8px;
+    margin-bottom:17px;
+}
+.secret-card h1{
+    font-size:
+        clamp(
+            1.8rem,
+            6vw,
+            2.8rem
+        );
+    line-height:1.2;
+    margin-bottom:12px;
+}
+.secret-card h1 span{
+    color:#69eecb;
+}
+.secret-description{
+    color:#b6c3d0;
+    font-size:.98rem;
+    margin-bottom:25px;
+}
+.warning{
+    display:flex;
+    gap:12px;
+    text-align:left;
+    padding:15px;
+    border-radius:17px;
+    background:
+        rgba(255,193,7,.08);
+    border:
+        1px solid
+        rgba(255,193,7,.22);
+    margin-bottom:22px;
+}
+.warning-icon{
+    font-size:1.35rem;
+}
+.warning-text{
+    font-size:.88rem;
+    color:#dce4eb;
+}
+.warning-text strong{
+    color:#ffe49a;
+}
+/* Enter button */
+.enter-button{
+    width:100%;
+    border:0;
+    padding:15px 20px;
+    border-radius:16px;
+    background:
+        linear-gradient(
+            135deg,
+            #19d3a2,
+            #1678ff
+        );
+    color:#fff;
+    font-size:1.05rem;
+    font-weight:900;
+    box-shadow:
+        0 12px 35px
+        rgba(22,120,255,.24);
+    transition:
+        transform .2s ease,
+        filter .2s ease;
+}
+.enter-button:hover{
+    transform:
+        translateY(-2px);
+    filter:
+        brightness(1.08);
+}
+.enter-button:active{
+    transform:
+        translateY(0);
+}
+.secret-footer{
+    margin-top:20px;
+    color:#718092;
+    font-size:.76rem;
+}
+/* =========================================================
+   MAIN WEBSITE
+========================================================= */
+.website{
+    min-height:100vh;
+}
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 header{
     position:relative;
     overflow:hidden;
@@ -58,7 +306,7 @@ header{
         58px
         20px
         78px;
-    color:white;
+    color:#fff;
     background:
         radial-gradient(
             circle at 12% 20%,
@@ -77,29 +325,33 @@ header{
             #102a46
         );
 }
-header:before,
-header:after{
+header::before{
     content:"";
     position:absolute;
-    width:220px;
-    height:220px;
+    width:260px;
+    height:260px;
     border-radius:50%;
+    left:-100px;
+    bottom:-150px;
     background:
-        rgba(255,255,255,.035);
+        rgba(255,255,255,.04);
 }
-header:before{
-    left:-90px;
-    bottom:-120px;
-}
-header:after{
-    right:-70px;
-    top:-110px;
+header::after{
+    content:"";
+    position:absolute;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    right:-90px;
+    top:-120px;
+    background:
+        rgba(255,255,255,.04);
 }
 .hero{
-    max-width:1180px;
-    margin:auto;
     position:relative;
     z-index:1;
+    max-width:1180px;
+    margin:auto;
     text-align:center;
 }
 .eyebrow{
@@ -113,7 +365,6 @@ header:after{
     border-radius:999px;
     color:#ffe6a0;
     font-weight:700;
-    letter-spacing:.5px;
 }
 h1{
     font-size:
@@ -124,9 +375,7 @@ h1{
         );
     line-height:1.05;
     margin:
-        20px
-        0
-        10px;
+        20px 0 10px;
     letter-spacing:-2px;
 }
 .hero-sub{
@@ -137,10 +386,7 @@ h1{
             1.6rem
         );
     margin:
-        0
-        auto
-        26px;
-    max-width:900px;
+        0 auto 26px;
 }
 .hero-pills{
     display:flex;
@@ -156,20 +402,20 @@ h1{
     color:#263a4c;
     border-radius:999px;
     font-weight:800;
-    box-shadow:
-        0 6px 20px
-        rgba(0,0,0,.1);
 }
-/* =========================
-   NAVIGATION
-========================= */
+/* =========================================================
+   NAV
+========================================================= */
 nav{
     position:sticky;
     top:0;
     z-index:50;
     background:
-        rgba(255,250,240,.9);
-    backdrop-filter:blur(14px);
+        rgba(255,250,240,.92);
+    backdrop-filter:
+        blur(14px);
+    -webkit-backdrop-filter:
+        blur(14px);
     border-bottom:
         1px solid
         rgba(16,45,77,.1);
@@ -178,8 +424,7 @@ nav{
     max-width:1180px;
     margin:auto;
     padding:
-        10px
-        15px;
+        10px 15px;
     display:flex;
     gap:8px;
     overflow-x:auto;
@@ -187,8 +432,7 @@ nav{
 .nav-inner a{
     white-space:nowrap;
     padding:
-        9px
-        14px;
+        9px 14px;
     border-radius:999px;
     font-weight:800;
     font-size:.92rem;
@@ -197,16 +441,14 @@ nav{
     background:#e8eef5;
     color:var(--navy);
 }
-/* =========================
+/* =========================================================
    MAIN
-========================= */
+========================================================= */
 main{
     max-width:1180px;
     margin:auto;
     padding:
-        34px
-        16px
-        55px;
+        34px 16px 55px;
 }
 .grid{
     display:grid;
@@ -217,9 +459,9 @@ main{
         );
     gap:22px;
 }
-/* =========================
+/* =========================================================
    CARD
-========================= */
+========================================================= */
 .card{
     background:var(--cream);
     border:
@@ -244,35 +486,30 @@ main{
 }
 .card.blue{
     border-color:#9bd5fa;
-    background:
-        var(--blue-soft);
+    background:var(--blue-soft);
 }
 .card.red{
     border-color:#efc08f;
-    background:
-        var(--red-soft);
+    background:var(--red-soft);
 }
 .card.green{
     border-color:#a9cfb6;
-    background:
-        var(--green-soft);
+    background:var(--green-soft);
 }
 .card.purple{
     border-color:#ddb8eb;
-    background:
-        var(--purple-soft);
+    background:var(--purple-soft);
 }
-/* =========================
+/* =========================================================
    CARD HEADER
-========================= */
+========================================================= */
 .card-head{
     display:flex;
     align-items:center;
     gap:14px;
     padding:
-        19px
-        22px;
-    color:white;
+        19px 22px;
+    color:#fff;
 }
 .blue .card-head{
     background:
@@ -315,8 +552,7 @@ main{
     background:
         rgba(255,255,255,.16);
     font-size:1.8rem;
-    flex:
-        0 0 auto;
+    flex-shrink:0;
 }
 .card h2{
     margin:0;
@@ -331,14 +567,12 @@ main{
 .card-body{
     padding:22px;
 }
-/* =========================
-   TEXT
-========================= */
+/* =========================================================
+   CONTENT
+========================================================= */
 h3{
     margin:
-        20px
-        0
-        8px;
+        20px 0 8px;
     font-size:1.1rem;
     display:flex;
     align-items:center;
@@ -347,17 +581,15 @@ h3{
 h3:first-child{
     margin-top:0;
 }
-h3:before{
+h3::before{
     content:"";
     width:7px;
     height:24px;
     border-radius:10px;
-    background:
-        var(--gold);
+    background:var(--gold);
 }
 .lead{
     font-size:1.02rem;
-    margin-top:0;
 }
 ul,
 ol{
@@ -366,12 +598,8 @@ ol{
 }
 li{
     margin:
-        6px
-        0;
+        6px 0;
 }
-/* =========================
-   STEPS
-========================= */
 .steps{
     list-style:none;
     padding:0;
@@ -382,9 +610,10 @@ li{
     display:flex;
     gap:12px;
     align-items:flex-start;
-    margin:12px 0;
+    margin:
+        12px 0;
 }
-.steps li:before{
+.steps li::before{
     content:
         counter(step);
     min-width:31px;
@@ -394,18 +623,13 @@ li{
     border-radius:50%;
     background:
         var(--blue);
-    color:white;
+    color:#fff;
     font-weight:900;
-    margin-top:2px;
 }
-/* =========================
-   NOTE
-========================= */
 .note{
     margin-top:17px;
     padding:
-        13px
-        16px;
+        13px 16px;
     border-radius:15px;
     background:#fff1bc;
     border:
@@ -418,8 +642,7 @@ li{
         rgba(255,255,255,.62);
     border-radius:18px;
     padding:
-        14px
-        16px;
+        14px 16px;
     margin-top:13px;
     border:
         1px solid
@@ -428,16 +651,15 @@ li{
 .badge{
     display:inline-block;
     padding:
-        4px
-        10px;
+        4px 10px;
     border-radius:999px;
     font-size:.82rem;
     font-weight:900;
-    background:white;
+    background:#fff;
 }
-/* =========================
-   RAMAKIEN TIMELINE
-========================= */
+/* =========================================================
+   RAMAKIEN
+========================================================= */
 .timeline{
     display:grid;
     gap:10px;
@@ -445,8 +667,7 @@ li{
 .timeline div{
     display:grid;
     grid-template-columns:
-        42px
-        1fr;
+        42px 1fr;
     gap:10px;
     align-items:start;
 }
@@ -456,19 +677,17 @@ li{
     border-radius:50%;
     display:grid;
     place-items:center;
-    color:white;
+    color:#fff;
     font-weight:900;
     background:
         var(--red);
 }
-/* =========================
+/* =========================================================
    STONE
-========================= */
+========================================================= */
 .stele{
     margin:
-        15px
-        auto
-        3px;
+        15px auto 3px;
     width:110px;
     height:150px;
     background:
@@ -492,25 +711,130 @@ li{
         -7px 0 9px
         rgba(255,255,255,.18);
 }
-.stele:after{
+.stele::after{
     content:
         "๑ ๒ ๓\A๔ ๕ ๖\A๗ ๘ ๙";
     white-space:pre;
     position:absolute;
     inset:
-        32px
-        20px;
+        32px 20px;
     color:
         rgba(20,30,25,.52);
     font-size:12px;
     line-height:1.7;
     text-align:center;
 }
-/* =========================
+/* =========================================================
    POEM
-========================= */
+========================================================= */
+.rhyme-diagram{
+    margin-top:16px;
+    background:#fff;
+    border:
+        1px solid
+        #dcbde8;
+    border-radius:20px;
+    padding:18px;
+    overflow-x:auto;
+}
+.rhyme-title{
+    text-align:center;
+    font-weight:900;
+    color:var(--purple);
+    margin-bottom:15px;
+}
+.verse{
+    display:grid;
+    grid-template-columns:
+        70px repeat(
+            8,
+            minmax(55px,1fr)
+        );
+    min-width:650px;
+    gap:4px;
+    margin:
+        7px 0;
+    align-items:center;
+}
+.verse-name{
+    font-weight:900;
+    color:#57316f;
+    text-align:right;
+    padding-right:8px;
+}
+.word{
+    min-height:38px;
+    padding:6px 3px;
+    border-radius:8px;
+    background:#f5edf8;
+    text-align:center;
+    font-size:.78rem;
+    font-weight:700;
+}
+.word.a{
+    background:#ffe5e1;
+    border:
+        2px solid
+        #d85a48;
+    color:#8e2c1e;
+}
+.word.b{
+    background:#e3f1ff;
+    border:
+        2px solid
+        #4c8bc0;
+    color:#20577f;
+}
+.rhyme-legend{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin:
+        15px 0 5px;
+}
+.legend{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:.85rem;
+    font-weight:800;
+}
+.dot{
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    display:inline-block;
+}
+.dot.a{
+    background:#d85a48;
+}
+.dot.b{
+    background:#4c8bc0;
+}
+.rhyme-rules{
+    margin-top:15px;
+    padding:14px;
+    background:#f8f1fb;
+    border-radius:14px;
+    font-size:.92rem;
+}
+.rhyme-rules b{
+    color:#57316f;
+}
+.next-stanza{
+    margin-top:13px;
+    padding:
+        13px 15px;
+    border-radius:14px;
+    background:#fff3c9;
+    border:
+        1px solid
+        #ecd17a;
+    font-size:.9rem;
+}
 .poem-box{
-    background:white;
+    background:#fff;
     border:
         1px dashed
         #bd8bca;
@@ -522,36 +846,15 @@ li{
     font-weight:700;
     line-height:2;
     text-align:center;
-    margin:
-        4px
-        0;
 }
-.rhyme{
-    display:grid;
-    grid-template-columns:
-        repeat(
-            4,
-            1fr
-        );
-    gap:7px;
-    margin-top:12px;
-}
-.rhyme div{
-    padding:8px;
-    text-align:center;
-    border-radius:10px;
-    background:#f0e3f6;
-    font-size:.84rem;
-    font-weight:800;
-}
-/* =========================
-   FOOTER BANNER
-========================= */
+/* =========================================================
+   FINAL
+========================================================= */
 .flash{
     margin-top:28px;
     padding:25px;
     border-radius:24px;
-    color:white;
+    color:#fff;
     background:
         linear-gradient(
             135deg,
@@ -564,30 +867,29 @@ li{
 }
 .flash h2{
     margin:
-        0
-        0
-        7px;
+        0 0 7px;
 }
 .flash p{
     margin:0;
     font-size:1.08rem;
 }
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 footer{
     background:
         var(--navy);
-    color:white;
+    color:#fff;
     text-align:center;
-    padding:28px 18px;
+    padding:
+        28px 18px;
 }
 footer strong{
     color:#ffe09a;
 }
-/* =========================
-   TOP BUTTON
-========================= */
+/* =========================================================
+   BACK TO TOP
+========================================================= */
 .top{
     position:fixed;
     right:18px;
@@ -599,7 +901,7 @@ footer strong{
     border-radius:50%;
     background:
         var(--navy);
-    color:white;
+    color:#fff;
     box-shadow:
         0 8px 24px
         rgba(0,0,0,.22);
@@ -613,15 +915,30 @@ footer strong{
     opacity:1;
     pointer-events:auto;
 }
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 @media(max-width:780px){
+    .secret-card{
+        padding:
+            32px 20px;
+        border-radius:25px;
+    }
+    .secret-logo{
+        width:70px;
+        height:70px;
+        border-radius:20px;
+        font-size:1.8rem;
+    }
+    .secret-card h1{
+        font-size:1.85rem;
+    }
+    .secret-description{
+        font-size:.9rem;
+    }
     header{
         padding:
-            43px
-            16px
-            55px;
+            43px 16px 55px;
     }
     h1{
         letter-spacing:-1px;
@@ -631,51 +948,68 @@ footer strong{
     }
     main{
         padding:
-            20px
-            12px
-            40px;
+            20px 12px 40px;
     }
     .card-body{
         padding:18px;
     }
     .card-head{
         padding:
-            16px
-            18px;
+            16px 18px;
     }
-    .rhyme{
-        grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
+    .card h2{
+        font-size:1.35rem;
+    }
+    .rhyme-diagram{
+        padding:12px;
+    }
+    .top{
+        right:14px;
+        bottom:14px;
     }
 }
-/* =========================
+/* =========================================================
+   VERY SMALL PHONE
+========================================================= */
+@media(max-width:380px){
+    .secret-card{
+        padding:
+            27px 16px;
+    }
+    .secret-card h1{
+        font-size:1.6rem;
+    }
+    .warning{
+        padding:12px;
+    }
+    .hero-pills span{
+        font-size:.78rem;
+        padding:
+            7px 11px;
+    }
+}
+/* =========================================================
    REDUCED MOTION
-========================= */
+========================================================= */
 @media(prefers-reduced-motion:reduce){
     html{
         scroll-behavior:auto;
     }
-    .card{
-        transition:none;
+    *{
+        transition:none !important;
     }
 }
-/* =========================
+/* =========================================================
    PRINT
-========================= */
+========================================================= */
 @media print{
+    .secret-gate,
     nav,
     .top{
-        display:none;
+        display:none !important;
     }
     body{
-        background:white;
-    }
-    header{
-        print-color-adjust:exact;
-        -webkit-print-color-adjust:exact;
+        background:#fff;
     }
     .card{
         break-inside:avoid;
@@ -685,14 +1019,68 @@ footer strong{
 }
 </style>
 </head>
-<body>
-<!-- =========================
+<body class="locked">
+<!-- =======================================================
+     SECRET GATE
+======================================================= -->
+<section
+    class="secret-gate"
+    id="secretGate"
+>
+    <div class="secret-glow"></div>
+    <div class="secret-card">
+        <div class="secret-logo">
+            RX
+        </div>
+        <div class="secret-tag">
+            🔐 RYU XP PRIVATE AREA
+        </div>
+        <h1>
+            เว็บไซต์ลับของ
+            <span>ทีมงาน Ryu XP</span>
+        </h1>
+        <p class="secret-description">
+            พื้นที่สำหรับสรุปและจัดเก็บ
+            เนื้อหาการเรียนภาษาไทย
+            สำหรับทีมงาน Ryu XP
+        </p>
+        <div class="warning">
+            <div class="warning-icon">
+                ⚠️
+            </div>
+            <div class="warning-text">
+                <strong>
+                    ข้อมูลสำหรับทีมงาน
+                </strong>
+                <br>
+                กรุณาเข้าสู่เว็บไซต์เฉพาะผู้ที่ได้รับอนุญาต
+                เว็บไซต์นี้จัดทำขึ้นสำหรับใช้งานภายใน
+            </div>
+        </div>
+        <button
+            class="enter-button"
+            id="enterButton"
+        >
+            🔓 เข้าสู่เว็บไซต์
+        </button>
+        <div class="secret-footer">
+            Ryu XP • Secret Team Website
+            <br>
+            Thai Study Information
+        </div>
+    </div>
+</section>
+<!-- =======================================================
+     WEBSITE
+======================================================= -->
+<div class="website" id="website">
+<!-- =======================================================
      HEADER
-========================= -->
+======================================================= -->
 <header id="top">
     <div class="hero">
         <span class="eyebrow">
-            📚 สรุปบทเรียนภาษาไทย
+            📚 Ryu XP • Thai Study
         </span>
         <h1>
             สรุปรายวิชาภาษาไทย
@@ -705,20 +1093,20 @@ footer strong{
                 การเขียนย่อความ
             </span>
             <span>
-                รามเกียรติ์ ตอน นารายณ์ปราบนนทก
+                รามเกียรติ์
             </span>
             <span>
                 ศิลาจารึกหลักที่ 1
             </span>
             <span>
-                การแต่งกลอนสุภาพ
+                กลอนสุภาพ
             </span>
         </div>
     </div>
 </header>
-<!-- =========================
-     NAV
-========================= -->
+<!-- =======================================================
+     NAVIGATION
+======================================================= -->
 <nav>
     <div class="nav-inner">
         <a href="#summary">
@@ -735,14 +1123,14 @@ footer strong{
         </a>
     </div>
 </nav>
-<!-- =========================
+<!-- =======================================================
      MAIN
-========================= -->
+======================================================= -->
 <main>
 <section class="grid">
-<!-- =========================
-     SUMMARY
-========================= -->
+<!-- =====================================================
+     1. การเขียนย่อความ
+===================================================== -->
 <article
     class="card blue"
     id="summary"
@@ -834,9 +1222,9 @@ footer strong{
         </div>
     </div>
 </article>
-<!-- =========================
-     RAMAKIEN
-========================= -->
+<!-- =====================================================
+     2. รามเกียรติ์
+===================================================== -->
 <article
     class="card red"
     id="ramakien"
@@ -948,9 +1336,9 @@ footer strong{
         </div>
     </div>
 </article>
-<!-- =========================
-     INSCRIPTION
-========================= -->
+<!-- =====================================================
+     3. ศิลาจารึก
+===================================================== -->
 <article
     class="card green"
     id="inscription"
@@ -964,10 +1352,7 @@ footer strong{
         </h2>
     </div>
     <div class="card-body">
-        <div
-            class="stele"
-            aria-label="ภาพจำลองศิลาจารึก"
-        ></div>
+        <div class="stele"></div>
         <h3>
             คืออะไร?
         </h3>
@@ -1028,9 +1413,9 @@ footer strong{
         </div>
     </div>
 </article>
-<!-- =========================
-     POEM
-========================= -->
+<!-- =====================================================
+     4. กลอนสุภาพ
+===================================================== -->
 <article
     class="card purple"
     id="poem"
@@ -1055,8 +1440,6 @@ footer strong{
             เป็นคำประพันธ์ที่มีรูปแบบ
             และข้อกำหนดด้านจำนวนคำ
             สัมผัส และจังหวะ
-            เหมาะสำหรับการแต่งงานวรรณศิลป์
-            หลากหลายประเภท
         </p>
         <h3>
             ลักษณะของกลอนสุภาพ
@@ -1064,16 +1447,11 @@ footer strong{
         <ol>
             <li>
                 หนึ่งบทมี
-                <b>
-                    4 วรรค
-                </b>
+                <b>4 วรรค</b>
             </li>
             <li>
                 แต่ละวรรคโดยทั่วไปมีประมาณ
-                <b>
-                    8 คำ
-                </b>
-                จึงเรียก “กลอนแปด”
+                <b>8 คำ</b>
             </li>
             <li>
                 ใช้ถ้อยคำไพเราะ
@@ -1081,58 +1459,127 @@ footer strong{
             </li>
             <li>
                 มี
-                <b>
-                    สัมผัสนอก
-                </b>
+                <b>สัมผัสนอก</b>
                 เป็นข้อบังคับสำคัญ
             </li>
         </ol>
         <h3>
-            แผนผังสัมผัสแบบจำง่าย
+            แผนผังสัมผัสกลอนสุภาพ
         </h3>
-        <div class="rhyme">
-            <div>
-                วรรคที่ 1
-                <br>
-                ● ก
+        <div class="rhyme-diagram">
+            <div class="rhyme-title">
+                📌 สัมผัสนอกของกลอนสุภาพ
             </div>
-            <div>
-                วรรคที่ 2
-                <br>
-                ● ก
+            <div class="verse">
+                <div class="verse-name">
+                    วรรคที่ 1
+                </div>
+                <div class="word">1</div>
+                <div class="word">2</div>
+                <div class="word">3</div>
+                <div class="word">4</div>
+                <div class="word">5</div>
+                <div class="word">6</div>
+                <div class="word">7</div>
+                <div class="word a">
+                    8<br>ก
+                </div>
             </div>
-            <div>
-                วรรคที่ 3
-                <br>
-                ● ข
+            <div class="verse">
+                <div class="verse-name">
+                    วรรคที่ 2
+                </div>
+                <div class="word">1</div>
+                <div class="word">2</div>
+                <div class="word a">
+                    3<br>ก
+                </div>
+                <div class="word">4</div>
+                <div class="word">5</div>
+                <div class="word">6</div>
+                <div class="word">7</div>
+                <div class="word b">
+                    8<br>ข
+                </div>
             </div>
-            <div>
-                วรรคที่ 4
-                <br>
-                ● ข
+            <div class="verse">
+                <div class="verse-name">
+                    วรรคที่ 3
+                </div>
+                <div class="word">1</div>
+                <div class="word">2</div>
+                <div class="word">3</div>
+                <div class="word">4</div>
+                <div class="word">5</div>
+                <div class="word">6</div>
+                <div class="word">7</div>
+                <div class="word b">
+                    8<br>ข
+                </div>
             </div>
-        </div>
-        <div class="fact">
-            <b>
-                หลักจำเรื่องสัมผัส
-            </b>
-            <p>
-                คำท้ายของวรรคที่ 1
-                →
-                สัมผัสกับคำช่วงต้นของวรรคที่ 2
+            <div class="verse">
+                <div class="verse-name">
+                    วรรคที่ 4
+                </div>
+                <div class="word">1</div>
+                <div class="word">2</div>
+                <div class="word a">
+                    3<br>ก
+                </div>
+                <div class="word">4</div>
+                <div class="word">5</div>
+                <div class="word">6</div>
+                <div class="word">7</div>
+                <div class="word b">
+                    8<br>ข
+                </div>
+            </div>
+            <div class="rhyme-legend">
+                <div class="legend">
+                    <span class="dot a"></span>
+                    ก = สัมผัสชุดที่ 1
+                </div>
+                <div class="legend">
+                    <span class="dot b"></span>
+                    ข = สัมผัสชุดที่ 2
+                </div>
+            </div>
+            <div class="rhyme-rules">
+                <b>
+                    จำตำแหน่งสัมผัส
+                </b>
                 <br><br>
-                คำท้ายของวรรคที่ 2
+                ① คำสุดท้ายของ
+                <b>วรรคที่ 1</b>
                 →
-                สัมผัสกับคำท้ายของวรรคที่ 3
+                สัมผัสกับคำที่
+                <b>3 หรือ 5</b>
+                ของวรรคที่ 2
                 <br><br>
-                คำท้ายของวรรคที่ 3
+                ② คำสุดท้ายของ
+                <b>วรรคที่ 2</b>
                 →
-                สัมผัสกับคำช่วงต้นของวรรคที่ 4
+                สัมผัสกับ
+                <b>คำสุดท้ายของวรรคที่ 3</b>
                 <br><br>
-                เมื่อขึ้นบทใหม่
-                สัมผัสจะเชื่อมต่อกัน
-                ตามแบบแผนของกลอนสุภาพ
-            </p>
+                ③ คำสุดท้ายของ
+                <b>วรรคที่ 3</b>
+                →
+                สัมผัสกับคำที่
+                <b>3 หรือ 5</b>
+                ของวรรคที่ 4
+            </div>
+            <div class="next-stanza">
+                <b>
+                    🔗 สัมผัสระหว่างบท
+                </b>
+                <br>
+                คำสุดท้ายของ
+                <b>วรรคที่ 4</b>
+                →
+                สัมผัสกับ
+                <b>คำสุดท้ายของวรรคที่ 2 ในบทถัดไป</b>
+            </div>
         </div>
         <h3>
             ตัวอย่างกลอนสุภาพ
@@ -1149,15 +1596,15 @@ footer strong{
             🪶
             <b>
                 กลอนสุภาพไม่ใช่แค่คำสวย
-                แต่คือ “ศิลปะของภาษาไทย”
+                แต่คือศิลปะของภาษาไทย
             </b>
         </div>
     </div>
 </article>
 </section>
-<!-- =========================
-     FINAL MESSAGE
-========================= -->
+<!-- =======================================================
+     FINAL BANNER
+======================================================= -->
 <section class="flash">
     <h2>
         🇹🇭 เรียนภาษาไทยให้ได้ทั้ง “ความรู้” และ “คุณค่า”
@@ -1170,23 +1617,21 @@ footer strong{
     </p>
 </section>
 </main>
-<!-- =========================
+<!-- =======================================================
      FOOTER
-========================= -->
+======================================================= -->
 <footer>
-    <div>
-        📖
-        <strong>
-            เรียนภาษาไทย
-        </strong>
-        ไม่ใช่แค่จำ
-        แต่คือการเข้าใจ
-        และเห็นคุณค่าของวัฒนธรรมไทย
-    </div>
+    📖
+    <strong>
+        Ryu XP
+    </strong>
+    • Secret Team Website
+    <br>
+    เว็บไซต์สรุปบทเรียนภาษาไทย
 </footer>
-<!-- =========================
+<!-- =======================================================
      BACK TO TOP
-========================= -->
+======================================================= -->
 <button
     class="top"
     id="topBtn"
@@ -1194,59 +1639,101 @@ footer strong{
 >
     ↑
 </button>
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
 <script>
-const topBtn =
-    document.getElementById("topBtn");
+/* =========================================================
+   SECRET GATE
+========================================================= */
+const secretGate =
+    document.getElementById(
+        "secretGate"
+    );
+const enterButton =
+    document.getElementById(
+        "enterButton"
+    );
+const body =
+    document.body;
 /*
-    แสดงปุ่มกลับขึ้นด้านบน
-    เมื่อเลื่อนหน้าจอลง
+    เมื่อกดเข้าสู่เว็บไซต์
 */
-window.addEventListener(
-    "scroll",
-    () => {
-        topBtn.classList.toggle(
-            "show",
-            window.scrollY > 500
+enterButton.addEventListener(
+    "click",
+    function(){
+        secretGate.classList.add(
+            "hidden"
+        );
+        body.classList.remove(
+            "locked"
         );
     }
 );
-/*
-    กลับขึ้นด้านบน
-*/
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+const topBtn =
+    document.getElementById(
+        "topBtn"
+    );
+window.addEventListener(
+    "scroll",
+    function(){
+        if(
+            window.scrollY > 500
+        ){
+            topBtn.classList.add(
+                "show"
+            );
+        }else{
+            topBtn.classList.remove(
+                "show"
+            );
+        }
+    }
+);
 topBtn.addEventListener(
     "click",
-    () => {
+    function(){
         window.scrollTo({
             top:0,
             behavior:"smooth"
         });
     }
 );
-/*
-    ป้องกันลิงก์ #top
-    กระโดดกระทันหัน
-*/
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach(
-    link => {
-        link.addEventListener(
-            "click",
-            function(e){
-                const target =
-                    document.querySelector(
-                        this.getAttribute("href")
-                    );
-                if(!target) return;
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior:"smooth",
-                    block:"start"
-                });
-            }
-        );
-    }
-);
+/* =========================================================
+   SMOOTH NAVIGATION
+========================================================= */
+document
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
+    .forEach(
+        function(link){
+            link.addEventListener(
+                "click",
+                function(e){
+                    const target =
+                        document.querySelector(
+                            this.getAttribute(
+                                "href"
+                            )
+                        );
+                    if(!target){
+                        return;
+                    }
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior:
+                            "smooth",
+                        block:
+                            "start"
+                    });
+                }
+            );
+        }
+    );
 </script>
 </body>
 </html>
