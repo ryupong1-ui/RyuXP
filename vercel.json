@@ -25,6 +25,10 @@
       "destination": "/case.html"
     },
     {
+      "source": "/นิทิศ",
+      "destination": "/thaisubjects.html"
+    },
+    {
       "source": "/AI",
       "destination": "/ai.html"
     }
