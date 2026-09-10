@@ -2,2043 +2,1534 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>เว็บไซต์ลับของทีมงาน Ryu XP</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#07110f">
+<title>Ryu XP — Secret Website</title>
 <style>
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
-
 html{
     scroll-behavior:smooth;
 }
-
 body{
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "SF Pro Display",
-        "SF Pro Text",
-        "Noto Sans Thai",
-        "Segoe UI",
-        sans-serif;
-    background:#07100e;
+    min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,
+        "SF Pro Display","SF Pro Text",
+        "Noto Sans Thai","Segoe UI",sans-serif;
+    background:#07110f;
     color:#f4fffb;
-    line-height:1.7;
+    line-height:1.65;
 }
-
-button,
-input{
+button{
     font:inherit;
 }
-
-/* =========================
-   SECRET GATE
-========================= */
-
-body.locked{
-    overflow:hidden;
+button,
+label{
+    -webkit-tap-highlight-color:transparent;
 }
-
-.secret-gate{
+/* =====================================================
+   INTRO / SECURITY SCREEN
+===================================================== */
+.security-screen{
     position:fixed;
     inset:0;
-    z-index:9999;
-
+    z-index:99999;
     display:flex;
     align-items:center;
     justify-content:center;
-
-    padding:20px;
-
+    padding:
+        max(20px, env(safe-area-inset-top))
+        max(16px, env(safe-area-inset-right))
+        max(20px, env(safe-area-inset-bottom))
+        max(16px, env(safe-area-inset-left));
     background:
         radial-gradient(
-            circle at 50% 20%,
-            rgba(0,255,190,.18),
-            transparent 35%
+            circle at 50% 10%,
+            rgba(0,255,179,.16),
+            transparent 34%
         ),
         radial-gradient(
-            circle at 80% 80%,
-            rgba(0,180,255,.10),
+            circle at 100% 100%,
+            rgba(0,170,255,.10),
             transparent 35%
         ),
         #020706;
-
     transition:
-        opacity .6s ease,
-        visibility .6s ease;
+        opacity .45s ease,
+        visibility .45s ease;
 }
-
-.secret-gate.hidden{
+.security-screen.hide{
     opacity:0;
     visibility:hidden;
     pointer-events:none;
 }
-
-.secret-glow{
-    position:absolute;
-    width:500px;
-    height:500px;
-
-    background:#00ffb3;
-    opacity:.08;
-
-    filter:blur(120px);
-    border-radius:50%;
+.security-container{
+    width:100%;
+    max-width:520px;
+    max-height:100%;
+    overflow-y:auto;
+    scrollbar-width:none;
+    animation:screenIn .55s ease;
 }
-
-.secret-card{
-    position:relative;
-    width:min(560px,100%);
-
-    padding:34px;
-
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.10),
-            rgba(255,255,255,.035)
-        );
-
-    backdrop-filter:blur(30px);
-    -webkit-backdrop-filter:blur(30px);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.55),
-        inset 0 1px 0 rgba(255,255,255,.08);
-
-    text-align:center;
-
-    animation:
-        cardIn .7s cubic-bezier(.2,.8,.2,1);
+.security-container::-webkit-scrollbar{
+    display:none;
 }
-
-@keyframes cardIn{
+@keyframes screenIn{
     from{
         opacity:0;
-        transform:translateY(25px) scale(.96);
+        transform:translateY(20px) scale(.97);
     }
     to{
         opacity:1;
         transform:none;
     }
 }
-
-.secret-logo{
-    width:78px;
-    height:78px;
-
-    margin:0 auto 18px;
-
+/* =====================================================
+   INTRO CARD
+===================================================== */
+.security-card{
+    width:100%;
+    padding:28px 20px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:28px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.085),
+            rgba(255,255,255,.035)
+        );
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.06);
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+}
+.logo{
+    width:70px;
+    height:70px;
+    margin:0 auto 16px;
     display:flex;
     align-items:center;
     justify-content:center;
-
-    border-radius:24px;
-
+    border-radius:21px;
     background:
         linear-gradient(
             135deg,
             #00ffb3,
             #00aaff
         );
-
-    color:#00140e;
-
-    font-size:27px;
-    font-weight:900;
-
+    color:#00130d;
+    font-size:24px;
+    font-weight:950;
     box-shadow:
-        0 0 45px rgba(0,255,179,.25);
+        0 0 45px rgba(0,255,179,.18);
 }
-
-.secret-tag{
-    display:inline-block;
-
-    padding:6px 12px;
-
+.badge{
+    width:max-content;
+    max-width:100%;
+    margin:auto;
+    padding:6px 11px;
     border-radius:999px;
-
-    background:rgba(0,255,179,.08);
-    border:1px solid rgba(0,255,179,.18);
-
-    color:#75ffd4;
-
-    font-size:12px;
-    font-weight:800;
-
-    letter-spacing:.5px;
+    background:rgba(0,255,179,.07);
+    border:1px solid rgba(0,255,179,.15);
+    color:#6dffd0;
+    font-size:11px;
+    font-weight:850;
+    text-align:center;
 }
-
-.secret-card h1{
-    margin-top:18px;
-
-    font-size:clamp(27px,5vw,42px);
-    line-height:1.2;
+.security-card h1{
+    margin-top:17px;
+    text-align:center;
+    font-size:clamp(28px,8vw,40px);
+    line-height:1.12;
+    letter-spacing:-.8px;
 }
-
-.secret-card h1 span{
+.security-card h1 span{
     display:block;
-
     background:
         linear-gradient(
             90deg,
             #00ffb3,
-            #63dfff
+            #65dfff
         );
-
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
 }
-
-.secret-description{
-    margin-top:14px;
-
-    color:#a8bbb5;
-    font-size:15px;
-}
-
-/* =========================
-   QUIZ
-========================= */
-
-.security-box{
-    margin-top:24px;
-
-    text-align:left;
-
-    padding:20px;
-
-    border-radius:22px;
-
-    background:rgba(0,0,0,.22);
-    border:1px solid rgba(255,255,255,.09);
-}
-
-.quiz-title{
-    margin-bottom:16px;
-
+.intro-text{
+    margin:14px auto 0;
+    max-width:420px;
+    color:#aebfba;
     text-align:center;
-
-    color:#dffff4;
-
     font-size:14px;
-    font-weight:800;
 }
-
-.question{
-    margin-bottom:18px;
+/* =====================================================
+   START SCREEN
+===================================================== */
+.start-area{
+    margin-top:24px;
 }
-
-.question:last-child{
-    margin-bottom:0;
-}
-
-.question-text{
-    margin-bottom:10px;
-
-    font-size:15px;
-    font-weight:800;
-}
-
-.option{
-    position:relative;
-
-    display:block;
-
-    margin:8px 0;
-
-    cursor:pointer;
-}
-
-.option input{
-    position:absolute;
-    opacity:0;
-}
-
-.option-content{
-    display:flex;
-    align-items:center;
-    gap:11px;
-
-    padding:11px 13px;
-
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:13px;
-
-    background:rgba(255,255,255,.035);
-
-    color:#cbd8d4;
-
-    transition:.2s ease;
-}
-
-.option-dot{
-    width:17px;
-    height:17px;
-
-    flex:none;
-
-    border-radius:50%;
-
-    border:2px solid #667873;
-}
-
-.option input:checked + .option-content{
-    border-color:#00d99a;
-
-    background:rgba(0,255,179,.10);
-
-    color:#ffffff;
-
-    box-shadow:
-        0 0 20px rgba(0,255,179,.08);
-}
-
-.option input:checked + .option-content .option-dot{
-    border-color:#00ffb3;
-
-    box-shadow:
-        inset 0 0 0 4px #06100d;
-    
-    background:#00ffb3;
-}
-
-.verify-button{
+.start-button{
     width:100%;
-
-    margin-top:22px;
-
-    padding:14px 18px;
-
+    min-height:54px;
     border:0;
-    border-radius:15px;
-
+    border-radius:16px;
     background:
         linear-gradient(
             135deg,
             #00ffb3,
             #00bfff
         );
-
-    color:#00130d;
-
-    font-weight:900;
+    color:#00140e;
     font-size:15px;
-
+    font-weight:900;
     cursor:pointer;
-
     box-shadow:
-        0 12px 30px rgba(0,255,179,.15);
-
-    transition:.2s ease;
+        0 12px 35px rgba(0,255,179,.15);
+    transition:transform .15s ease;
 }
-
-.verify-button:hover{
-    transform:translateY(-2px);
-}
-
-.verify-button:active{
+.start-button:active{
     transform:scale(.98);
 }
-
-.quiz-message{
-    min-height:26px;
-
-    margin-top:12px;
-
+.start-note{
+    margin-top:11px;
+    color:#6f827c;
+    font-size:11px;
     text-align:center;
-
-    font-size:13px;
+}
+/* =====================================================
+   QUIZ
+===================================================== */
+.quiz{
+    display:none;
+    margin-top:22px;
+}
+.quiz.active{
+    display:block;
+    animation:quizIn .35s ease;
+}
+@keyframes quizIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+.progress{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:18px;
+}
+.progress-track{
+    flex:1;
+    height:6px;
+    overflow:hidden;
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+}
+.progress-bar{
+    width:50%;
+    height:100%;
+    border-radius:999px;
+    background:
+        linear-gradient(
+            90deg,
+            #00ffb3,
+            #00bfff
+        );
+    transition:width .3s ease;
+}
+.progress-text{
+    flex:none;
+    color:#81918d;
+    font-size:11px;
     font-weight:800;
 }
-
-.quiz-message.error{
-    color:#ff8e8e;
+/* =====================================================
+   QUESTION
+===================================================== */
+.question{
+    display:none;
 }
-
-.quiz-message.success{
-    color:#6dffca;
+.question.active{
+    display:block;
 }
-
-.warning{
-    display:flex;
-    gap:12px;
-
-    margin-top:20px;
-
-    padding:14px;
-
-    text-align:left;
-
-    border-radius:16px;
-
-    background:rgba(255,180,0,.055);
-    border:1px solid rgba(255,180,0,.13);
-
-    color:#d8d2bc;
-
+.question-number{
+    color:#6dffd0;
     font-size:12px;
+    font-weight:850;
 }
-
-.warning-icon{
-    font-size:20px;
+.question h2{
+    margin-top:5px;
+    font-size:clamp(21px,6vw,28px);
+    line-height:1.35;
 }
-
-.secret-footer{
-    margin-top:22px;
-
-    color:#71827e;
-
-    font-size:11px;
+.options{
+    display:grid;
+    gap:9px;
+    margin-top:18px;
 }
-
-/* =========================
-   MAIN WEBSITE
-========================= */
-
-.site{
-    min-height:100vh;
-
-    background:
-        radial-gradient(
-            circle at 20% 0%,
-            rgba(0,255,179,.08),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 90% 30%,
-            rgba(0,170,255,.07),
-            transparent 30%
-        ),
-        #07100e;
-}
-
-header{
+.option{
     position:relative;
-
-    padding:70px 20px 55px;
-
+    display:block;
+    cursor:pointer;
+}
+.option input{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
+}
+.option-box{
+    display:flex;
+    align-items:center;
+    min-height:52px;
+    padding:12px 13px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:15px;
+    background:rgba(255,255,255,.035);
+    color:#c5d1ce;
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        transform .15s ease;
+}
+.option:active .option-box{
+    transform:scale(.985);
+}
+.option-circle{
+    width:20px;
+    height:20px;
+    margin-right:11px;
+    flex:none;
+    border:2px solid #60706b;
+    border-radius:50%;
+    transition:.15s ease;
+}
+.option input:checked + .option-box{
+    background:rgba(0,255,179,.09);
+    border-color:rgba(0,255,179,.48);
+    color:#ffffff;
+}
+.option input:checked + .option-box .option-circle{
+    border-color:#00ffb3;
+    background:#00ffb3;
+    box-shadow:
+        inset 0 0 0 4px #07110f;
+}
+/* =====================================================
+   QUIZ BUTTONS
+===================================================== */
+.quiz-buttons{
+    display:flex;
+    gap:9px;
+    margin-top:18px;
+}
+.quiz-button{
+    flex:1;
+    min-height:50px;
+    border:0;
+    border-radius:15px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:850;
+}
+.next-button{
+    background:
+        linear-gradient(
+            135deg,
+            #00ffb3,
+            #00bfff
+        );
+    color:#00140e;
+}
+.back-button{
+    max-width:110px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.09);
+    color:#b8c6c2;
+}
+.quiz-message{
+    min-height:22px;
+    margin-top:11px;
     text-align:center;
-
+    font-size:12px;
+    font-weight:800;
+}
+.quiz-message.error{
+    color:#ff8f8f;
+}
+.quiz-message.success{
+    color:#6dffd0;
+}
+/* =====================================================
+   MAIN WEBSITE
+===================================================== */
+.website{
+    min-height:100vh;
+    opacity:0;
+    visibility:hidden;
+    transition:
+        opacity .5s ease,
+        visibility .5s ease;
+}
+.website.show{
+    opacity:1;
+    visibility:visible;
+}
+header{
+    padding:
+        65px 18px 45px;
+    text-align:center;
     border-bottom:1px solid rgba(255,255,255,.07);
 }
-
 .header-badge{
     display:inline-block;
-
-    padding:7px 13px;
-
+    padding:7px 12px;
     border-radius:999px;
-
     background:rgba(0,255,179,.07);
-    border:1px solid rgba(0,255,179,.14);
-
-    color:#74ffd3;
-
-    font-size:12px;
-    font-weight:800;
+    border:1px solid rgba(0,255,179,.13);
+    color:#72ffd2;
+    font-size:11px;
+    font-weight:850;
 }
-
 header h1{
     margin-top:17px;
-
-    font-size:clamp(35px,7vw,68px);
+    font-size:clamp(34px,9vw,62px);
     line-height:1.05;
-
     letter-spacing:-1.5px;
 }
-
 header p{
     max-width:700px;
-
-    margin:18px auto 0;
-
-    color:#a7b7b2;
-
-    font-size:15px;
+    margin:17px auto 0;
+    color:#a8b8b3;
+    font-size:14px;
 }
-
-.hero-pills{
+.pills{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:8px;
-
-    margin-top:22px;
+    gap:7px;
+    margin-top:20px;
 }
-
-.hero-pill{
-    padding:7px 12px;
-
-    border-radius:999px;
-
-    background:rgba(255,255,255,.045);
+.pill{
+    padding:6px 10px;
     border:1px solid rgba(255,255,255,.08);
-
-    color:#b9c9c5;
-
-    font-size:12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    color:#b5c2bf;
+    font-size:11px;
 }
-
-/* =========================
+/* =====================================================
    NAV
-========================= */
-
+===================================================== */
 .nav{
     position:sticky;
     top:0;
     z-index:100;
-
     display:flex;
-    justify-content:center;
     gap:5px;
-
-    padding:9px 12px;
-
+    padding:8px 10px;
     overflow-x:auto;
-
-    background:rgba(4,10,9,.75);
-
+    background:rgba(3,9,8,.78);
+    border-bottom:1px solid rgba(255,255,255,.07);
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
-
-    border-bottom:1px solid rgba(255,255,255,.07);
+    scrollbar-width:none;
 }
-
+.nav::-webkit-scrollbar{
+    display:none;
+}
 .nav a{
     flex:none;
-
-    padding:8px 12px;
-
+    padding:8px 11px;
     border-radius:10px;
-
-    color:#aebdb9;
-
+    color:#aebcb8;
     text-decoration:none;
-
-    font-size:12px;
-    font-weight:700;
-
-    transition:.2s;
+    font-size:11px;
+    font-weight:800;
 }
-
-.nav a:hover{
-    background:rgba(255,255,255,.07);
-    color:#fff;
+.nav a:active{
+    background:rgba(255,255,255,.08);
 }
-
-/* =========================
+/* =====================================================
    CONTENT
-========================= */
-
+===================================================== */
 .container{
     width:min(1100px,100%);
-
     margin:auto;
-
-    padding:30px 18px 90px;
+    padding:28px 15px 70px;
 }
-
 .section{
-    scroll-margin-top:80px;
-
-    margin-bottom:25px;
+    scroll-margin-top:70px;
+    margin-bottom:28px;
 }
-
 .section-title{
     display:flex;
     align-items:center;
-    gap:12px;
-
-    margin-bottom:15px;
+    gap:10px;
+    margin-bottom:13px;
 }
-
 .section-number{
-    width:38px;
-    height:38px;
-
+    width:36px;
+    height:36px;
     display:flex;
     align-items:center;
     justify-content:center;
-
     flex:none;
-
-    border-radius:12px;
-
+    border-radius:11px;
     background:rgba(0,255,179,.08);
     border:1px solid rgba(0,255,179,.13);
-
-    color:#62ffca;
-
+    color:#67ffd0;
+    font-size:11px;
     font-weight:900;
 }
-
 .section-title h2{
-    font-size:clamp(22px,4vw,30px);
+    font-size:23px;
+    line-height:1.3;
 }
-
 .grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:13px;
 }
-
 .card{
-    padding:21px;
-
-    border-radius:21px;
-
+    padding:19px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:20px;
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.065),
+            rgba(255,255,255,.06),
             rgba(255,255,255,.025)
         );
-
-    border:1px solid rgba(255,255,255,.07);
-
-    box-shadow:
-        0 15px 50px rgba(0,0,0,.13);
 }
-
 .card.full{
     grid-column:1/-1;
 }
-
 .card h3{
-    margin-bottom:10px;
-
-    color:#eafff7;
-
-    font-size:18px;
+    margin-bottom:8px;
+    font-size:17px;
 }
-
-.card p{
-    color:#b6c4c0;
-
-    font-size:14px;
-}
-
-.card ul{
-    padding-left:20px;
-
-    color:#b9c8c3;
-
-    font-size:14px;
-}
-
+.card p,
 .card li{
-    margin:5px 0;
+    color:#b5c4c0;
+    font-size:13px;
 }
-
+.card ul{
+    padding-left:19px;
+}
+.card li{
+    margin:4px 0;
+}
 .highlight{
     margin-top:12px;
-
-    padding:12px 14px;
-
+    padding:11px 12px;
     border-left:3px solid #00eaa6;
-
     border-radius:8px;
-
-    background:rgba(0,255,179,.045);
-
-    color:#d7fff1;
-
-    font-size:13px;
+    background:rgba(0,255,179,.04);
+    color:#d8fff2;
+    font-size:12px;
 }
-
-/* =========================
-   POEM DIAGRAM
-========================= */
-
-.rhyme-wrap{
-    margin-top:16px;
-
+/* =====================================================
+   RHYME DIAGRAM
+===================================================== */
+.diagram{
+    margin-top:14px;
     overflow-x:auto;
-
-    padding-bottom:6px;
+    padding-bottom:5px;
 }
-
-.rhyme-diagram{
+.diagram-inner{
     min-width:650px;
-
     display:grid;
-    gap:13px;
+    gap:8px;
 }
-
 .verse{
     display:grid;
-
-    grid-template-columns:110px repeat(8,1fr);
-
-    gap:5px;
-
+    grid-template-columns:90px repeat(8,minmax(50px,1fr));
+    gap:4px;
     align-items:center;
 }
-
-.verse-label{
-    font-size:13px;
-    font-weight:800;
-    color:#aebfba;
-}
-
-.word{
-    min-height:42px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:5px;
-
-    border-radius:8px;
-
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.06);
-
-    color:#cbd8d4;
-
+.verse-name{
+    color:#a9b9b5;
     font-size:11px;
-
-    text-align:center;
+    font-weight:800;
 }
-
-.rhyme-a{
-    background:rgba(0,255,179,.12);
-    border-color:rgba(0,255,179,.25);
-
-    color:#7dffd4;
-}
-
-.rhyme-b{
-    background:rgba(0,190,255,.11);
-    border-color:rgba(0,190,255,.25);
-
-    color:#7ddfff;
-}
-
-.rhyme-key{
-    display:flex;
-    flex-wrap:wrap;
-
-    gap:9px;
-
-    margin-top:18px;
-}
-
-.key{
-    display:flex;
-    align-items:center;
-    gap:7px;
-
-    color:#aebcb8;
-
-    font-size:12px;
-}
-
-.key-box{
-    width:13px;
-    height:13px;
-
-    border-radius:4px;
-}
-
-.key-a{
-    background:#00d99a;
-}
-
-.key-b{
-    background:#00bfff;
-}
-
-.arrow-info{
-    margin-top:16px;
-
-    display:grid;
-    gap:7px;
-
-    color:#aebdb8;
-
-    font-size:13px;
-}
-
-.arrow-info strong{
-    color:#e5fff6;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:30px 18px 45px;
-
-    text-align:center;
-
-    border-top:1px solid rgba(255,255,255,.06);
-
-    color:#71817d;
-
-    font-size:12px;
-}
-
-/* =========================
-   BACK TO TOP
-========================= */
-
-.top-button{
-    position:fixed;
-
-    right:18px;
-    bottom:18px;
-
-    width:44px;
-    height:44px;
-
+.word{
+    min-height:38px;
     display:flex;
     align-items:center;
     justify-content:center;
-
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:8px;
+    background:rgba(255,255,255,.035);
+    color:#bfcac7;
+    font-size:9px;
+}
+.rhyme-a{
+    background:rgba(0,255,179,.11);
+    border-color:rgba(0,255,179,.3);
+    color:#72ffd1;
+}
+.rhyme-b{
+    background:rgba(0,190,255,.10);
+    border-color:rgba(0,190,255,.3);
+    color:#70dfff;
+}
+.rhyme-info{
+    display:grid;
+    gap:6px;
+    margin-top:15px;
+    color:#aebdb9;
+    font-size:12px;
+}
+.rhyme-info strong{
+    color:#e7fff8;
+}
+/* =====================================================
+   FOOTER
+===================================================== */
+footer{
+    padding:
+        28px
+        18px
+        max(35px, env(safe-area-inset-bottom));
+    border-top:1px solid rgba(255,255,255,.06);
+    color:#6f807b;
+    text-align:center;
+    font-size:11px;
+}
+/* =====================================================
+   TOP BUTTON
+===================================================== */
+.top{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    width:43px;
+    height:43px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     border:1px solid rgba(255,255,255,.1);
     border-radius:14px;
-
-    background:rgba(10,20,18,.8);
-
-    backdrop-filter:blur(15px);
-
+    background:rgba(8,17,15,.82);
     color:white;
-
-    cursor:pointer;
-
     opacity:0;
     visibility:hidden;
-
+    cursor:pointer;
     transition:.2s;
-
-    z-index:90;
+    z-index:200;
 }
-
-.top-button.show{
+.top.show{
     opacity:1;
     visibility:visible;
 }
-
-/* =========================
+/* =====================================================
+   TABLET / DESKTOP
+===================================================== */
+@media(min-width:781px){
+    .security-card{
+        padding:34px;
+    }
+    .security-screen{
+        padding:30px;
+    }
+    .container{
+        padding-left:20px;
+        padding-right:20px;
+    }
+    .card{
+        padding:22px;
+    }
+}
+/* =====================================================
    MOBILE
-========================= */
-
+===================================================== */
 @media(max-width:780px){
-
-    .secret-card{
-        padding:24px 18px;
-
+    .security-card{
         border-radius:24px;
     }
-
-    .secret-logo{
-        width:68px;
-        height:68px;
-
-        border-radius:20px;
-    }
-
-    .secret-card h1{
-        font-size:29px;
-    }
-
-    .security-box{
-        padding:15px;
-    }
-
-    header{
-        padding:50px 17px 40px;
-    }
-
-    header h1{
-        font-size:38px;
-    }
-
     .grid{
         grid-template-columns:1fr;
     }
-
     .card.full{
         grid-column:auto;
     }
-
-    .container{
-        padding:24px 14px 70px;
-    }
-
-    .section-title h2{
-        font-size:24px;
-    }
-
-    .nav{
-        justify-content:flex-start;
-    }
 }
-
-@media(max-width:420px){
-
-    .secret-description{
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+@media(max-width:380px){
+    .security-card{
+        padding:22px 15px;
+    }
+    .logo{
+        width:62px;
+        height:62px;
+    }
+    .security-card h1{
+        font-size:27px;
+    }
+    .intro-text{
         font-size:13px;
     }
-
-    .warning{
-        font-size:11px;
+    .question h2{
+        font-size:20px;
     }
-
-    .question-text{
-        font-size:14px;
-    }
-
-    .option-content{
+    .option-box{
+        min-height:49px;
+        padding:10px;
         font-size:13px;
     }
 }
-
-/* =========================
-   PRINT
-========================= */
-
-@media print{
-
-    .secret-gate,
-    .nav,
-    .top-button{
-        display:none !important;
-    }
-
-    body{
-        background:white;
-        color:black;
-    }
-
-    .site{
-        background:white;
-    }
-
-    .card{
-        border:1px solid #ccc;
-        box-shadow:none;
-        background:white;
-    }
-
-    .card h3,
-    .section-title h2{
-        color:black;
-    }
-
-    .card p,
-    .card ul{
-        color:#222;
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
     }
 }
 </style>
 </head>
-
-<body class="locked">
-
-<!-- ==================================================
-     SECRET SECURITY GATE
-================================================== -->
-
-<section class="secret-gate" id="secretGate">
-
-    <div class="secret-glow"></div>
-
-    <div class="secret-card">
-
-        <div class="secret-logo">
-            RX
-        </div>
-
-        <div class="secret-tag">
-            🔐 RYU XP PRIVATE AREA
-        </div>
-
-        <h1>
-            เว็บไซต์ลับของ
-            <span>ทีมงาน Ryu XP</span>
-        </h1>
-
-        <p class="secret-description">
-            ก่อนเข้าสู่เว็บไซต์ กรุณาตอบคำถามเพื่อยืนยันว่า
-            <b>คุณเป็นคนในจริง ๆ 😂</b>
-        </p>
-
-        <!-- SECURITY QUESTIONS -->
-
-        <div class="security-box">
-
-            <div class="quiz-title">
-                🕵️ แบบทดสอบความเป็นคนใน
+<body>
+<!-- =====================================================
+     SECURITY INTRO
+===================================================== -->
+<section class="security-screen" id="securityScreen">
+    <div class="security-container">
+        <div class="security-card">
+            <div class="logo">
+                RX
             </div>
-
-            <!-- QUESTION 1 -->
-
-            <div class="question">
-
-                <div class="question-text">
-                    1. วันสุดท้ายก่อนกลับมหาลัย คือวันที่เท่าไหร่?
-                </div>
-
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q1"
-                        value="wrong"
-                    >
-
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        5 กันยา
-                    </span>
-                </label>
-
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q1"
-                        value="wrong"
-                    >
-
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        8 กันยา
-                    </span>
-                </label>
-
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q1"
-                        value="correct"
-                    >
-
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        10 กันยา
-                    </span>
-                </label>
-
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q1"
-                        value="wrong"
-                    >
-
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        12 กันยา
-                    </span>
-                </label>
-
+            <div class="badge">
+                🔐 RYU XP PRIVATE AREA
             </div>
-
-
-            <!-- QUESTION 2 -->
-
-            <div class="question">
-
-                <div class="question-text">
-                    2. กลุ่มลูกรักสร้างเมื่อวันที่เท่าไหร่?
-                </div>
-
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q2"
-                        value="wrong"
-                    >
-
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        1 กรกฎาคม
-                    </span>
-                </label>
-
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q2"
-                        value="wrong"
-                    >
-
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        5 กรกฎาคม
-                    </span>
-                </label>
-
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q2"
-                        value="correct"
-                    >
-
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        8 กรกฎาคม
-                    </span>
-                </label>
-
-                <label class="option">
-                    <input
-                        type="radio"
-                        name="q2"
-                        value="wrong"
-                    >
-
-                    <span class="option-content">
-                        <span class="option-dot"></span>
-                        10 กรกฎาคม
-                    </span>
-                </label>
-
-            </div>
-
-
-            <button
-                class="verify-button"
-                id="verifyButton"
-            >
-                🔓 ตรวจสอบคำตอบ
-            </button>
-
+            <h1>
+                เว็บไซต์ลับของ
+                <span>ทีมงาน Ryu XP</span>
+            </h1>
+            <p class="intro-text">
+                เว็บไซต์นี้เป็นพื้นที่สำหรับทีมงาน Ryu XP
+                ก่อนเข้าสู่ระบบ กรุณาตอบคำถามเพื่อยืนยันตัวตน
+            </p>
+            <!-- START -->
             <div
-                class="quiz-message"
-                id="quizMessage"
-            ></div>
-
-        </div>
-
-
-        <div class="warning">
-
-            <div class="warning-icon">
-                ⚠️
+                class="start-area"
+                id="startArea"
+            >
+                <button
+                    class="start-button"
+                    id="startButton"
+                    type="button"
+                >
+                    🕵️ เริ่มตอบคำถาม
+                </button>
+                <div class="start-note">
+                    ต้องตอบถูกทั้ง 2 ข้อจึงจะเข้าสู่เว็บไซต์
+                </div>
             </div>
-
-            <div>
-                <strong>ข้อมูลสำหรับทีมงาน</strong><br>
-
-                เว็บนี้เป็นพื้นที่สรุปเนื้อหาสำหรับทีมงาน
-                กรุณาอย่าส่งต่อให้คนนอกนะ 😂
+            <!-- QUIZ -->
+            <div
+                class="quiz"
+                id="quiz"
+            >
+                <div class="progress">
+                    <div class="progress-track">
+                        <div
+                            class="progress-bar"
+                            id="progressBar"
+                        ></div>
+                    </div>
+                    <div
+                        class="progress-text"
+                        id="progressText"
+                    >
+                        1 / 2
+                    </div>
+                </div>
+                <!-- QUESTION 1 -->
+                <div
+                    class="question active"
+                    data-question="1"
+                >
+                    <div class="question-number">
+                        คำถามที่ 1
+                    </div>
+                    <h2>
+                        วันสุดท้ายก่อนกลับมหาลัย
+                        คือวันที่เท่าไหร่?
+                    </h2>
+                    <div class="options">
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="question1"
+                                value="wrong"
+                            >
+                            <span class="option-box">
+                                <span class="option-circle"></span>
+                                5 กันยา
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="question1"
+                                value="wrong"
+                            >
+                            <span class="option-box">
+                                <span class="option-circle"></span>
+                                8 กันยา
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="question1"
+                                value="correct"
+                            >
+                            <span class="option-box">
+                                <span class="option-circle"></span>
+                                10 กันยา
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="question1"
+                                value="wrong"
+                            >
+                            <span class="option-box">
+                                <span class="option-circle"></span>
+                                12 กันยา
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <!-- QUESTION 2 -->
+                <div
+                    class="question"
+                    data-question="2"
+                >
+                    <div class="question-number">
+                        คำถามที่ 2
+                    </div>
+                    <h2>
+                        กลุ่มลูกรักสร้างเมื่อวันที่เท่าไหร่?
+                    </h2>
+                    <div class="options">
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="question2"
+                                value="wrong"
+                            >
+                            <span class="option-box">
+                                <span class="option-circle"></span>
+                                1 กรกฎาคม
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="question2"
+                                value="wrong"
+                            >
+                            <span class="option-box">
+                                <span class="option-circle"></span>
+                                5 กรกฎาคม
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="question2"
+                                value="correct"
+                            >
+                            <span class="option-box">
+                                <span class="option-circle"></span>
+                                8 กรกฎาคม
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="question2"
+                                value="wrong"
+                            >
+                            <span class="option-box">
+                                <span class="option-circle"></span>
+                                10 กรกฎาคม
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <!-- BUTTONS -->
+                <div class="quiz-buttons">
+                    <button
+                        class="quiz-button back-button"
+                        id="backButton"
+                        type="button"
+                    >
+                        ← กลับ
+                    </button>
+                    <button
+                        class="quiz-button next-button"
+                        id="nextButton"
+                        type="button"
+                    >
+                        ถัดไป →
+                    </button>
+                </div>
+                <div
+                    class="quiz-message"
+                    id="quizMessage"
+                ></div>
             </div>
-
         </div>
-
-
-        <div class="secret-footer">
-            Ryu XP • Secret Team Website<br>
-            Authorized Team Members Only
-        </div>
-
     </div>
-
 </section>
-
-
-<!-- ==================================================
+<!-- =====================================================
      MAIN WEBSITE
-================================================== -->
-
-<div class="site" id="mainSite">
-
+===================================================== -->
+<div
+    class="website"
+    id="website"
+>
     <header>
-
         <div class="header-badge">
             🔓 RYU XP • PRIVATE STUDY AREA
         </div>
-
         <h1>
             สรุปรายวิชาภาษาไทย
         </h1>
-
         <p>
             สรุปเนื้อหาสำคัญสำหรับอ่านทบทวน
-            ครอบคลุมการเขียนย่อความ
-            รามเกียรติ์ ตอน นารายณ์ปราบนนทก
-            ศิลาจารึกหลักที่ 1
-            และการแต่งกลอนสุภาพ
+            การเขียนย่อความ รามเกียรติ์
+            ศิลาจารึกหลักที่ 1 และกลอนสุภาพ
         </p>
-
-        <div class="hero-pills">
-
-            <span class="hero-pill">
+        <div class="pills">
+            <span class="pill">
                 📚 4 หัวข้อ
             </span>
-
-            <span class="hero-pill">
+            <span class="pill">
                 📝 สรุปอ่านง่าย
             </span>
-
-            <span class="hero-pill">
+            <span class="pill">
                 🔐 Ryu XP Private
             </span>
-
         </div>
-
     </header>
-
-
-    <!-- NAVIGATION -->
-
+    <!-- NAV -->
     <nav class="nav">
-
         <a href="#summary">
             ย่อความ
         </a>
-
         <a href="#ramakien">
             รามเกียรติ์
         </a>
-
         <a href="#inscription">
             ศิลาจารึก
         </a>
-
         <a href="#poem">
             กลอนสุภาพ
         </a>
-
     </nav>
-
-
     <main class="container">
-
-        <!-- ==================================================
-             SECTION 1
+        <!-- =================================================
+             01
         ================================================== -->
-
         <section
             class="section"
             id="summary"
         >
-
             <div class="section-title">
-
                 <div class="section-number">
                     01
                 </div>
-
                 <h2>
                     การเขียนย่อความ
                 </h2>
-
             </div>
-
-
             <div class="grid">
-
                 <article class="card">
-
                     <h3>
                         ✍️ ความหมาย
                     </h3>
-
                     <p>
-                        การย่อความ คือ การนำใจความสำคัญของเรื่อง
-                        มาเรียบเรียงใหม่ให้สั้น กระชับ
-                        และยังคงสาระสำคัญของเรื่องเดิมไว้
+                        การย่อความ คือ การนำใจความสำคัญ
+                        ของเรื่องมาเรียบเรียงใหม่ให้สั้น
+                        กระชับ และยังคงสาระสำคัญ
+                        ของเรื่องเดิมไว้
                     </p>
-
                 </article>
-
-
                 <article class="card">
-
                     <h3>
                         🎯 จุดประสงค์
                     </h3>
-
                     <ul>
-
                         <li>
                             จับใจความสำคัญ
                         </li>
-
                         <li>
                             สรุปเรื่องให้กระชับ
                         </li>
-
                         <li>
                             ถ่ายทอดสาระสำคัญอย่างถูกต้อง
                         </li>
-
                         <li>
                             ฝึกการอ่านและการเรียบเรียง
                         </li>
-
                     </ul>
-
                 </article>
-
-
                 <article class="card full">
-
                     <h3>
                         🧠 หลักการย่อความ
                     </h3>
-
                     <ul>
-
                         <li>
                             อ่านเรื่องทั้งหมดให้เข้าใจก่อน
                         </li>
-
                         <li>
                             หาใจความสำคัญของแต่ละย่อหน้า
                         </li>
-
                         <li>
                             ตัดรายละเอียดที่ไม่จำเป็น
                         </li>
-
                         <li>
                             เรียบเรียงด้วยภาษาของตนเอง
                         </li>
-
                         <li>
-                            รักษาเนื้อหาและลำดับเหตุการณ์สำคัญ
+                            รักษาสาระสำคัญและลำดับเรื่อง
                         </li>
-
                         <li>
                             ไม่ใส่ความคิดเห็นส่วนตัว
                         </li>
-
                     </ul>
-
-
                     <div class="highlight">
-
                         💡 จำง่าย:
                         <strong>
                             อ่าน → จับใจความ → ตัดส่วนเกิน → เรียบเรียงใหม่
                         </strong>
-
                     </div>
-
                 </article>
-
             </div>
-
         </section>
-
-
-        <!-- ==================================================
-             SECTION 2
+        <!-- =================================================
+             02
         ================================================== -->
-
         <section
             class="section"
             id="ramakien"
         >
-
             <div class="section-title">
-
                 <div class="section-number">
                     02
                 </div>
-
                 <h2>
                     รามเกียรติ์ ตอน นารายณ์ปราบนนทก
                 </h2>
-
             </div>
-
-
             <div class="grid">
-
                 <article class="card">
-
                     <h3>
                         📖 เรื่องย่อ
                     </h3>
-
                     <p>
                         นนทกเป็นผู้รับใช้ประจำเชิงเขาไกรลาส
                         ทำหน้าที่ล้างเท้าให้เหล่าเทวดา
                         แต่ถูกกลั่นแกล้งอยู่เสมอ
                         จึงไปขอพรจากพระอิศวร
-                        ให้มีนิ้วเพชรที่สามารถชี้ผู้ใดแล้วทำให้ผู้นั้นตายได้
+                        ให้มีนิ้วเพชรที่สามารถชี้ผู้ใด
+                        แล้วทำให้ผู้นั้นตายได้
                     </p>
-
                 </article>
-
-
                 <article class="card">
-
                     <h3>
                         ⚔️ เหตุการณ์สำคัญ
                     </h3>
-
                     <ul>
-
                         <li>
                             นนทกถูกเหล่าเทวดากลั่นแกล้ง
                         </li>
-
                         <li>
                             ได้รับพรนิ้วเพชร
                         </li>
-
                         <li>
                             นนทกใช้อำนาจทำร้ายเหล่าเทวดา
                         </li>
-
                         <li>
                             พระนารายณ์มาปราบนนทก
                         </li>
-
                         <li>
                             นนทกได้รับพรให้ไปเกิดใหม่
                         </li>
-
                     </ul>
-
                 </article>
-
-
                 <article class="card">
-
                     <h3>
                         👑 ตัวละครสำคัญ
                     </h3>
-
                     <ul>
-
-                        <li>
-                            นนทก
-                        </li>
-
-                        <li>
-                            พระนารายณ์
-                        </li>
-
-                        <li>
-                            พระอิศวร
-                        </li>
-
-                        <li>
-                            เหล่าเทวดา
-                        </li>
-
+                        <li>นนทก</li>
+                        <li>พระนารายณ์</li>
+                        <li>พระอิศวร</li>
+                        <li>เหล่าเทวดา</li>
                     </ul>
-
                 </article>
-
-
                 <article class="card">
-
                     <h3>
                         💡 ข้อคิด
                     </h3>
-
                     <ul>
-
                         <li>
-                            การใช้อำนาจโดยขาดสติอาจนำไปสู่ความพินาศ
+                            การใช้อำนาจโดยขาดสติ
+                            อาจนำไปสู่ความพินาศ
                         </li>
-
                         <li>
-                            ไม่ควรใช้อำนาจแก้แค้นผู้อื่น
+                            ไม่ควรใช้อำนาจเพื่อแก้แค้น
                         </li>
-
                         <li>
                             การกระทำย่อมมีผลตามมา
                         </li>
-
                     </ul>
-
                 </article>
-
             </div>
-
         </section>
-
-
-        <!-- ==================================================
-             SECTION 3
+        <!-- =================================================
+             03
         ================================================== -->
-
         <section
             class="section"
             id="inscription"
         >
-
             <div class="section-title">
-
                 <div class="section-number">
                     03
                 </div>
-
                 <h2>
                     ศิลาจารึกหลักที่ 1
                 </h2>
-
             </div>
-
-
             <div class="grid">
-
                 <article class="card">
-
                     <h3>
                         🪨 ความสำคัญ
                     </h3>
-
                     <p>
                         ศิลาจารึกหลักที่ 1
                         เป็นหลักฐานสำคัญเกี่ยวกับอาณาจักรสุโขทัย
                         และสะท้อนภาพสังคม เศรษฐกิจ
                         การปกครอง และวัฒนธรรมในสมัยสุโขทัย
                     </p>
-
                 </article>
-
-
                 <article class="card">
-
                     <h3>
                         👑 ผู้เกี่ยวข้อง
                     </h3>
-
                     <p>
-                        ตามการศึกษาตามแบบเรียนทั่วไป
+                        ตามการเรียนทั่วไป
                         ศิลาจารึกหลักที่ 1
                         เชื่อมโยงกับพ่อขุนรามคำแหงมหาราช
                         แห่งอาณาจักรสุโขทัย
                     </p>
-
                 </article>
-
-
                 <article class="card">
-
                     <h3>
                         📜 เนื้อหาที่ควรรู้
                     </h3>
-
                     <ul>
-
-                        <li>
-                            การปกครอง
-                        </li>
-
-                        <li>
-                            ความเป็นอยู่ของประชาชน
-                        </li>
-
-                        <li>
-                            การค้าขาย
-                        </li>
-
-                        <li>
-                            ศาสนาและวัฒนธรรม
-                        </li>
-
-                        <li>
-                            ภาษาและอักษรไทย
-                        </li>
-
+                        <li>การปกครอง</li>
+                        <li>ความเป็นอยู่ของประชาชน</li>
+                        <li>การค้าขาย</li>
+                        <li>ศาสนาและวัฒนธรรม</li>
+                        <li>ภาษาและอักษรไทย</li>
                     </ul>
-
                 </article>
-
-
                 <article class="card">
-
                     <h3>
                         ⭐ จุดเด่น
                     </h3>
-
                     <p>
                         สะท้อนแนวคิดเรื่องการปกครอง
                         และวิถีชีวิตของผู้คนในสมัยสุโขทัย
                         ทำให้สามารถศึกษาสังคมไทยในอดีตได้
                     </p>
-
                 </article>
-
             </div>
-
         </section>
-
-
-        <!-- ==================================================
-             SECTION 4
+        <!-- =================================================
+             04
         ================================================== -->
-
         <section
             class="section"
             id="poem"
         >
-
             <div class="section-title">
-
                 <div class="section-number">
                     04
                 </div>
-
                 <h2>
                     การแต่งกลอนสุภาพ
                 </h2>
-
             </div>
-
-
             <div class="grid">
-
                 <article class="card">
-
                     <h3>
-                        🎵 ลักษณะกลอนสุภาพ
+                        🎵 ลักษณะ
                     </h3>
-
                     <ul>
-
                         <li>
                             1 บท มี 4 วรรค
                         </li>
-
                         <li>
                             วรรคละประมาณ 7–9 คำ
                         </li>
-
                         <li>
                             มีสัมผัสระหว่างวรรค
                         </li>
-
                         <li>
                             มีสัมผัสระหว่างบท
                         </li>
-
                     </ul>
-
                 </article>
-
-
                 <article class="card">
-
                     <h3>
                         📌 ชื่อวรรค
                     </h3>
-
                     <ul>
-
                         <li>
-                            วรรคที่ 1 = สดับ
+                            วรรคที่ 1 — สดับ
                         </li>
-
                         <li>
-                            วรรคที่ 2 = รับ
+                            วรรคที่ 2 — รับ
                         </li>
-
                         <li>
-                            วรรคที่ 3 = รอง
+                            วรรคที่ 3 — รอง
                         </li>
-
                         <li>
-                            วรรคที่ 4 = ส่ง
+                            วรรคที่ 4 — ส่ง
                         </li>
-
                     </ul>
-
                 </article>
-
-
-                <!-- RHYME DIAGRAM -->
-
+                <!-- RHYME -->
                 <article class="card full">
-
                     <h3>
                         🔗 แผนผังสัมผัสกลอนสุภาพ
                     </h3>
-
                     <p>
                         ตำแหน่งสัมผัสสำคัญของกลอนสุภาพ
                     </p>
-
-
-                    <div class="rhyme-wrap">
-
-                        <div class="rhyme-diagram">
-
-
-                            <!-- VERSE 1 -->
-
+                    <div class="diagram">
+                        <div class="diagram-inner">
                             <div class="verse">
-
-                                <div class="verse-label">
+                                <div class="verse-name">
                                     วรรคที่ 1
                                 </div>
-
-                                <div class="word">คำ 1</div>
-                                <div class="word">คำ 2</div>
-                                <div class="word">คำ 3</div>
-                                <div class="word">คำ 4</div>
-                                <div class="word">คำ 5</div>
-                                <div class="word">คำ 6</div>
+                                <div class="word">1</div>
+                                <div class="word">2</div>
+                                <div class="word">3</div>
+                                <div class="word">4</div>
+                                <div class="word">5</div>
+                                <div class="word">6</div>
                                 <div class="word rhyme-a">ก</div>
-                                <div class="word">คำ 8</div>
-
+                                <div class="word">8</div>
                             </div>
-
-
-                            <!-- VERSE 2 -->
-
                             <div class="verse">
-
-                                <div class="verse-label">
+                                <div class="verse-name">
                                     วรรคที่ 2
                                 </div>
-
-                                <div class="word">คำ 1</div>
-                                <div class="word">คำ 2</div>
+                                <div class="word">1</div>
+                                <div class="word">2</div>
                                 <div class="word rhyme-a">ก</div>
-                                <div class="word">คำ 4</div>
-                                <div class="word">คำ 5</div>
-                                <div class="word">คำ 6</div>
-                                <div class="word">คำ 7</div>
+                                <div class="word">4</div>
+                                <div class="word">5</div>
+                                <div class="word">6</div>
+                                <div class="word">7</div>
                                 <div class="word rhyme-b">ข</div>
-
                             </div>
-
-
-                            <!-- VERSE 3 -->
-
                             <div class="verse">
-
-                                <div class="verse-label">
+                                <div class="verse-name">
                                     วรรคที่ 3
                                 </div>
-
-                                <div class="word">คำ 1</div>
-                                <div class="word">คำ 2</div>
-                                <div class="word">คำ 3</div>
-                                <div class="word">คำ 4</div>
-                                <div class="word">คำ 5</div>
-                                <div class="word">คำ 6</div>
-                                <div class="word">คำ 7</div>
+                                <div class="word">1</div>
+                                <div class="word">2</div>
+                                <div class="word">3</div>
+                                <div class="word">4</div>
+                                <div class="word">5</div>
+                                <div class="word">6</div>
+                                <div class="word">7</div>
                                 <div class="word rhyme-b">ข</div>
-
                             </div>
-
-
-                            <!-- VERSE 4 -->
-
                             <div class="verse">
-
-                                <div class="verse-label">
+                                <div class="verse-name">
                                     วรรคที่ 4
                                 </div>
-
-                                <div class="word">คำ 1</div>
-                                <div class="word">คำ 2</div>
+                                <div class="word">1</div>
+                                <div class="word">2</div>
                                 <div class="word rhyme-a">ก</div>
-                                <div class="word">คำ 4</div>
-                                <div class="word">คำ 5</div>
-                                <div class="word">คำ 6</div>
-                                <div class="word">คำ 7</div>
-                                <div class="word">คำ 8</div>
-
+                                <div class="word">4</div>
+                                <div class="word">5</div>
+                                <div class="word">6</div>
+                                <div class="word">7</div>
+                                <div class="word">8</div>
                             </div>
-
                         </div>
-
                     </div>
-
-
-                    <div class="rhyme-key">
-
-                        <div class="key">
-
-                            <span class="key-box key-a"></span>
-
-                            สัมผัส ก
-
-                        </div>
-
-                        <div class="key">
-
-                            <span class="key-box key-b"></span>
-
-                            สัมผัส ข
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="arrow-info">
-
+                    <div class="rhyme-info">
                         <div>
                             <strong>ก → ก</strong>
                             วรรค 1 คำสุดท้าย
                             สัมผัสกับวรรค 2 คำที่ 3 หรือ 5
                         </div>
-
                         <div>
                             <strong>ข → ข</strong>
                             วรรค 2 คำสุดท้าย
                             สัมผัสกับวรรค 3 คำสุดท้าย
                         </div>
-
                         <div>
                             <strong>ก → ก</strong>
                             วรรค 3 คำสุดท้าย
                             สัมผัสกับวรรค 4 คำที่ 3 หรือ 5
                         </div>
-
                         <div>
                             <strong>สัมผัสระหว่างบท</strong>
                             วรรค 4 ของบทก่อน
                             สัมผัสกับวรรค 2 ของบทถัดไป
                         </div>
-
                     </div>
-
-                </article>
-
-
-                <article class="card full">
-
-                    <h3>
-                        🧠 เทคนิคจำก่อนสอบ
-                    </h3>
-
                     <div class="highlight">
-
+                        💡 จำง่าย:
                         <strong>
-                            วรรค 1 → วรรค 2 → วรรค 3 → วรรค 4
+                            ปลายวรรค 1 → กลางวรรค 2
+                            → ปลายวรรค 2 → ปลายวรรค 3
+                            → กลางวรรค 4
                         </strong>
-
-                        <br>
-
-                        จำเป็นภาพว่า
-
-                        <strong>
-                            ปลายวรรค 1
-                            ↓
-                            ต้นกลางวรรค 2
-                            ↓
-                            ปลายวรรค 2
-                            ↓
-                            ปลายวรรค 3
-                            ↓
-                            ต้นกลางวรรค 4
-                        </strong>
-
                     </div>
-
                 </article>
-
             </div>
-
         </section>
-
     </main>
-
-
     <footer>
-
         🔐 Ryu XP Secret Team Website
-
         <br>
-
         สรุปรายวิชาภาษาไทย • สำหรับใช้งานภายในทีมงาน
-
         <br><br>
-
         © Ryu XP
-
     </footer>
-
 </div>
-
-
-<!-- BACK TO TOP -->
-
+<!-- TOP -->
 <button
-    class="top-button"
+    class="top"
     id="topButton"
+    type="button"
     aria-label="กลับด้านบน"
 >
     ↑
 </button>
-
-
 <script>
-
-/* ==================================================
-   SECURITY QUIZ
-================================================== */
-
-const verifyButton =
-    document.getElementById("verifyButton");
-
+"use strict";
+/* =====================================================
+   ELEMENTS
+===================================================== */
+const securityScreen =
+    document.getElementById("securityScreen");
+const startArea =
+    document.getElementById("startArea");
+const startButton =
+    document.getElementById("startButton");
+const quiz =
+    document.getElementById("quiz");
+const nextButton =
+    document.getElementById("nextButton");
+const backButton =
+    document.getElementById("backButton");
 const quizMessage =
     document.getElementById("quizMessage");
-
-const secretGate =
-    document.getElementById("secretGate");
-
-const body =
-    document.body;
-
-
-verifyButton.addEventListener("click", function(){
-
-    const q1 =
-        document.querySelector(
-            'input[name="q1"]:checked'
+const progressBar =
+    document.getElementById("progressBar");
+const progressText =
+    document.getElementById("progressText");
+const website =
+    document.getElementById("website");
+const topButton =
+    document.getElementById("topButton");
+const questions =
+    Array.from(
+        document.querySelectorAll(".question")
+    );
+let currentQuestion = 0;
+/* =====================================================
+   START
+===================================================== */
+startButton.addEventListener("click", function(){
+    startArea.style.display = "none";
+    quiz.classList.add("active");
+    currentQuestion = 0;
+    showQuestion(currentQuestion);
+});
+/* =====================================================
+   SHOW QUESTION
+===================================================== */
+function showQuestion(index){
+    questions.forEach(function(question, i){
+        question.classList.toggle(
+            "active",
+            i === index
         );
-
-    const q2 =
+    });
+    progressText.textContent =
+        (index + 1) + " / " + questions.length;
+    progressBar.style.width =
+        ((index + 1) / questions.length * 100) + "%";
+    quizMessage.textContent = "";
+    quizMessage.className =
+        "quiz-message";
+    if(index === 0){
+        backButton.style.display = "none";
+    }else{
+        backButton.style.display = "block";
+    }
+    if(index === questions.length - 1){
+        nextButton.textContent =
+            "🔓 ตรวจสอบคำตอบ";
+    }else{
+        nextButton.textContent =
+            "ถัดไป →";
+    }
+}
+/* =====================================================
+   GET ANSWER
+===================================================== */
+function getAnswer(questionNumber){
+    const selected =
         document.querySelector(
-            'input[name="q2"]:checked'
+            'input[name="question' +
+            questionNumber +
+            '"]:checked'
         );
-
-
-    /* ยังไม่ได้ตอบ */
-
-    if(!q1 || !q2){
-
+    return selected ? selected.value : null;
+}
+/* =====================================================
+   NEXT
+===================================================== */
+nextButton.addEventListener("click", function(){
+    const answer =
+        getAnswer(currentQuestion + 1);
+    if(!answer){
         quizMessage.textContent =
-            "😂 ตอบให้ครบทั้ง 2 ข้อก่อนนน!";
-
+            "😂 กรุณาเลือกคำตอบก่อน";
         quizMessage.className =
             "quiz-message error";
-
         return;
     }
-
-
-    /* ตรวจคำตอบ */
-
-    const correct =
-        q1.value === "correct" &&
-        q2.value === "correct";
-
-
-    if(correct){
-
+    /* ยังไม่ถึงข้อสุดท้าย */
+    if(currentQuestion < questions.length - 1){
+        currentQuestion++;
+        showQuestion(currentQuestion);
+        return;
+    }
+    /* =================================================
+       ตรวจคำตอบทั้งหมด
+    ================================================= */
+    const answer1 =
+        getAnswer(1);
+    const answer2 =
+        getAnswer(2);
+    const isCorrect =
+        answer1 === "correct" &&
+        answer2 === "correct";
+    if(isCorrect){
         quizMessage.textContent =
-            "✅ ถูกทั้ง 2 ข้อ! คนในจริงนี่หว่า 😂";
-
-
+            "✅ ถูกทั้ง 2 ข้อ! ยินดีต้อนรับ คนในจริง 😂";
         quizMessage.className =
             "quiz-message success";
-
-
-        verifyButton.textContent =
-            "🔓 กำลังเปิดเว็บไซต์...";
-
-
-        verifyButton.disabled = true;
-
-
+        nextButton.disabled = true;
+        backButton.disabled = true;
         setTimeout(function(){
-
-            secretGate.classList.add("hidden");
-
-            body.classList.remove("locked");
-
-        },900);
-
-
+            securityScreen.classList.add("hide");
+            website.classList.add("show");
+            document.body.style.overflow = "auto";
+            window.scrollTo({
+                top:0,
+                behavior:"auto"
+            });
+        },800);
     }else{
-
         quizMessage.textContent =
-            "🚨 ผิดแล้ววว! ใครให้แกเข้ามาเนี่ย 😂";
-
-
+            "🚨 คำตอบไม่ถูก! ใครให้เข้ามาเนี่ย 😂";
         quizMessage.className =
             "quiz-message error";
-
-
-        /* สั่นกล่องคำถาม */
-
-        const box =
-            document.querySelector(".security-box");
-
-        box.animate(
+        /* สั่นปุ่มเล็กน้อย */
+        nextButton.animate(
             [
                 {transform:"translateX(0)"},
                 {transform:"translateX(-6px)"},
                 {transform:"translateX(6px)"},
-                {transform:"translateX(-4px)"},
-                {transform:"translateX(4px)"},
+                {transform:"translateX(-5px)"},
+                {transform:"translateX(5px)"},
                 {transform:"translateX(0)"}
             ],
             {
                 duration:350
             }
         );
-
     }
-
 });
-
-
-/* ==================================================
-   BACK TO TOP
-================================================== */
-
-const topButton =
-    document.getElementById("topButton");
-
-
-window.addEventListener("scroll", function(){
-
-    if(window.scrollY > 400){
-
-        topButton.classList.add("show");
-
-    }else{
-
-        topButton.classList.remove("show");
-
+/* =====================================================
+   BACK
+===================================================== */
+backButton.addEventListener("click", function(){
+    if(currentQuestion <= 0){
+        return;
     }
-
+    currentQuestion--;
+    showQuestion(currentQuestion);
 });
-
-
-topButton.addEventListener("click", function(){
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-});
-
-
-/* ==================================================
-   PREVENT ENTERING MAIN SITE BY ACCIDENT
-================================================== */
-
-window.addEventListener("load", function(){
-
-    window.scrollTo(0,0);
-
-});
-
+/* =====================================================
+   TOP BUTTON
+===================================================== */
+window.addEventListener(
+    "scroll",
+    function(){
+        if(window.scrollY > 450){
+            topButton.classList.add("show");
+        }else{
+            topButton.classList.remove("show");
+        }
+    },
+    {
+        passive:true
+    }
+);
+topButton.addEventListener(
+    "click",
+    function(){
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+);
+/* =====================================================
+   INITIAL STATE
+===================================================== */
+document.body.style.overflow = "hidden";
+showQuestion(0);
 </script>
-
 </body>
 </html>
