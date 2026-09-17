@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+<title>แจ้งปัญหาเว็บไซต์ | Ryu XP</title>
+<style>
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:
+    Arial,
+    "Noto Sans Thai",
+    sans-serif;
+  background:
+    radial-gradient(
+      circle at top,
+      #00bfff33,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #050505,
+      #111827
+    );
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:25px;
+}
+/* CONTAINER */
+.container{
+  width:100%;
+  max-width:650px;
+}
+/* HEADER */
+.header{
+  text-align:center;
+  margin-bottom:25px;
+  animation:fade 1s;
+}
+.icon{
+  width:90px;
+  height:90px;
+  margin:0 auto 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:45px;
+  background:
+    linear-gradient(
+      135deg,
+      #00bfff,
+      #00ffcc
+    );
+  color:#000;
+  box-shadow:
+    0 0 35px #00bfff;
+}
+h1{
+  margin:10px 0;
+  font-size:38px;
+  background:
+    linear-gradient(
+      90deg,
+      #00bfff,
+      #00ffcc
+    );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.header p{
+  color:#aaa;
+  line-height:1.7;
+}
+/* CARD */
+.card{
+  background:
+    rgba(17,17,17,.78);
+  border:
+    1px solid
+    rgba(255,255,255,.1);
+  border-radius:25px;
+  padding:30px;
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.4);
+  backdrop-filter:
+    blur(20px);
+  -webkit-backdrop-filter:
+    blur(20px);
+  animation:fade 1s;
+}
+/* FORM */
+.group{
+  margin-bottom:20px;
+}
+label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+input,
+select,
+textarea{
+  width:100%;
+  padding:14px 15px;
+  border-radius:12px;
+  border:
+    1px solid
+    rgba(255,255,255,.12);
+  background:
+    rgba(0,0,0,.45);
+  color:white;
+  font-size:16px;
+  outline:none;
+  transition:.3s;
+}
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#00bfff;
+  box-shadow:
+    0 0 15px
+    rgba(0,191,255,.2);
+}
+select option{
+  background:#111;
+  color:white;
+}
+textarea{
+  min-height:150px;
+  resize:vertical;
+}
+/* BUTTON */
+button{
+  width:100%;
+  border:0;
+  padding:16px;
+  border-radius:30px;
+  background:
+    linear-gradient(
+      90deg,
+      #00bfff,
+      #00ffcc
+    );
+  color:#000;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+button:hover{
+  transform:scale(1.02);
+  box-shadow:
+    0 0 30px #00bfff;
+}
+/* EMAIL */
+.email{
+  margin-top:20px;
+  text-align:center;
+  color:#999;
+  font-size:14px;
+}
+.email a{
+  color:#00d9ff;
+  text-decoration:none;
+}
+.email a:hover{
+  text-decoration:underline;
+}
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:20px;
+  color:#666;
+  font-size:12px;
+}
+/* ANIMATION */
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:
+      translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+/* MOBILE */
+@media(max-width:600px){
+  body{
+    padding:15px;
+    align-items:flex-start;
+    padding-top:35px;
+  }
+  h1{
+    font-size:30px;
+  }
+  .card{
+    padding:22px;
+    border-radius:20px;
+  }
+  .icon{
+    width:75px;
+    height:75px;
+    font-size:38px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- HEADER -->
+  <div class="header">
+    <div class="icon">
+      ⚠️
+    </div>
+    <h1>
+      แจ้งปัญหาเว็บไซต์
+    </h1>
+    <p>
+      พบปัญหาหรือข้อผิดพลาดบนเว็บไซต์<br>
+      กรุณากรอกรายละเอียดด้านล่าง
+    </p>
+  </div>
+  <!-- FORM -->
+  <div class="card">
+    <form
+      id="reportForm"
+    >
+      <!-- WEBSITE -->
+      <div class="group">
+        <label for="website">
+          เว็บไซต์ที่พบปัญหา
+        </label>
+        <select
+          id="website"
+          required
+        >
+          <option
+            value=""
+            disabled
+            selected
+          >
+            เลือกเว็บไซต์
+          </option>
+          <option value="Sugarview - sugarview.vercel.app">
+            Sugarview
+          </option>
+          <option value="SPG - spg-three.vercel.app">
+            SPG
+          </option>
+        </select>
+      </div>
+      <!-- ISSUE -->
+      <div class="group">
+        <label for="issue">
+          ประเภทปัญหา
+        </label>
+        <select
+          id="issue"
+          required
+        >
+          <option
+            value=""
+            disabled
+            selected
+          >
+            เลือกประเภทปัญหา
+          </option>
+          <option>
+            เว็บไซต์เปิดไม่ได้
+          </option>
+          <option>
+            หน้าเว็บแสดงผลผิดปกติ
+          </option>
+          <option>
+            ปุ่มหรือลิงก์ใช้งานไม่ได้
+          </option>
+          <option>
+            ข้อมูลผิดพลาด
+          </option>
+          <option>
+            ปัญหาบนมือถือ
+          </option>
+          <option>
+            ปัญหาบนคอมพิวเตอร์
+          </option>
+          <option>
+            อื่นๆ
+          </option>
+        </select>
+      </div>
+      <!-- PAGE -->
+      <div class="group">
+        <label for="page">
+          หน้าที่พบปัญหา
+        </label>
+        <input
+          id="page"
+          type="text"
+          placeholder="เช่น Home, Shop, Contact"
+        >
+      </div>
+      <!-- DESCRIPTION -->
+      <div class="group">
+        <label for="description">
+          รายละเอียดปัญหา
+        </label>
+        <textarea
+          id="description"
+          placeholder="อธิบายปัญหาที่พบ..."
+          required
+        ></textarea>
+      </div>
+      <!-- NAME -->
+      <div class="group">
+        <label for="name">
+          ชื่อผู้แจ้ง
+        </label>
+        <input
+          id="name"
+          type="text"
+          placeholder="ชื่อของคุณ"
+        >
+      </div>
+      <!-- EMAIL -->
+      <div class="group">
+        <label for="email">
+          อีเมลสำหรับติดต่อกลับ
+        </label>
+        <input
+          id="email"
+          type="email"
+          placeholder="example@email.com"
+        >
+      </div>
+      <!-- SEND -->
+      <button
+        type="submit"
+      >
+        ✉️ ส่งแจ้งปัญหา
+      </button>
+      <!-- EMAIL ADDRESS -->
+      <div class="email">
+        ระบบจะส่งข้อมูลไปที่
+        <a
+          href="mailto:ryupong1@gmail.com"
+        >
+          ryupong1@gmail.com
+        </a>
+      </div>
+    </form>
+  </div>
+  <div class="footer">
+    © 2026 Ryu XP
+  </div>
+</div>
+<script>
+document
+  .getElementById("reportForm")
+  .addEventListener(
+    "submit",
+    function(event){
+      event.preventDefault();
+      const website =
+        document.getElementById(
+          "website"
+        ).value;
+      const issue =
+        document.getElementById(
+          "issue"
+        ).value;
+      const page =
+        document.getElementById(
+          "page"
+        ).value;
+      const description =
+        document.getElementById(
+          "description"
+        ).value;
+      const name =
+        document.getElementById(
+          "name"
+        ).value;
+      const email =
+        document.getElementById(
+          "email"
+        ).value;
+      const subject =
+        encodeURIComponent(
+          "แจ้งปัญหาเว็บไซต์ - " +
+          website
+        );
+      const body =
+        encodeURIComponent(
+          "เว็บไซต์: " +
+          website +
+          "\n\nประเภทปัญหา: " +
+          issue +
+          "\n\nหน้าที่พบปัญหา: " +
+          page +
+          "\n\nรายละเอียดปัญหา:\n" +
+          description +
+          "\n\nชื่อผู้แจ้ง: " +
+          name +
+          "\n\nอีเมลสำหรับติดต่อกลับ: " +
+          email
+        );
+      window.location.href =
+        "mailto:ryupong1@gmail.com" +
+        "?subject=" +
+        subject +
+        "&body=" +
+        body;
+    }
+  );
+</script>
+</body>
+</html>
